@@ -1,7 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.keys import Keys
+
 
 class BaseSetup():
 
@@ -21,6 +19,11 @@ class BaseSetup():
     def send_keys_to(self,data,*locators):
         element = self.find_element(*locators)
         element.send_keys(data)
+
+
+    def upload_file(self,path, *locators):
+        element = self.find_element( *locators )
+        element.send_keys(path)
 
 
 

@@ -1,14 +1,13 @@
-from selenium import webdriver
-from Data.TestData import TestData
 from Base.base import BaseSetup
 from Locator.locators import MainLoginPageLocators
+from Driver.browser_setup import browser_setup
 
 
 class LoginPage(BaseSetup):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
+        self.driver.get(browser_setup["url"])
         self.locator_main = MainLoginPageLocators
 
     def click_on_login_button(self):
