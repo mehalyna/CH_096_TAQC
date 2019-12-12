@@ -32,3 +32,13 @@ class AddEventPageLocators():
     FROM_DATE = (By.CSS_SELECTOR, ".react-datepicker-wrapper" )
     DATE_DATA = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside") #month/day/year
     CALENDAR = (By.CSS_SELECTOR,".react-datepicker-popper")
+
+#page for communication users with admins
+class ContactUsPageLocators():
+
+    CONTACT_US = (By.CSS_SELECTOR, '.sidebar-header:nth-child(5) .link')
+    DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
+    SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
+    MESSAGE = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
+    CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
+    REQUIRED = (By.CSS_SELECTOR, 'p')
