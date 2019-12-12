@@ -3,7 +3,7 @@ from Pages.LoginPage import LoginPage
 from Data.TestData import TestData
  
 
-class Test_Login(TestLoginToSite):
+class TestLogin(TestLoginToSite):
 
     def setUp(self):
         # to call the setUp() method of base class or super class.
