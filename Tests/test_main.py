@@ -12,7 +12,9 @@ class TestLoginToSite(unittest.TestCase):
         self.driver.delete_all_cookies()
         self.driver.maximize_window()
         self.driver.get(browser_setup["url"])
+
     def tearDown(self):
+        self.driver.close()
         self.driver.quit()
 
 

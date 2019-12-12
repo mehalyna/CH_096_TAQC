@@ -13,10 +13,13 @@ class BaseSetup():
         element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
-
     def click_to_element(self,*locators):
         element = self.find_element(*locators)
         element.click()
+
+    def clear_to_element(self, *locators):
+        element = self.find_element(*locators)
+        element.clear()
 
     def send_keys_to(self,data,*locators):
         element = self.find_element(*locators)
