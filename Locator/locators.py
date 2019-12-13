@@ -15,7 +15,6 @@ class MainLoginPageLocators():
     PASSWORD  = (By.NAME, 'password')
     BUTTON_SIGIN = (By.CSS_SELECTOR, ".auth .MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-fullWidth:nth-child(2)")
 
-
 # home page. page is availabled after log in
 class HomePageLocators():
     CONFIG_PROFILE = (By.CSS_SELECTOR, "div a[href='/profile']" )
@@ -34,6 +33,24 @@ class AddEventPageLocators():
     FROM_DATE = (By.CSS_SELECTOR, ".react-datepicker-wrapper" )
     DATE_DATA = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside") #month/day/year
     CALENDAR = (By.CSS_SELECTOR,".react-datepicker-popper")
+
+class SearchEventPanelLocators():
+    #Field search and filter
+    SEARCH_FIELD = (By.CSS_SELECTOR, ".MuiInputBase-input")
+    SELECT_DATE_FIELD = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
+    DATE_FROM = (By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
+    DATE_TO = (By.CSS_SELECTOR, "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
+    RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(1)")
+    RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(2)")
+    RADIO_BUTTON_ALL = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(3)")
+    HASHTAGS_FIELD = (By.CSS_SELECTOR, "div.form-group:nth-child(4)")
+    HASHTAGS_ITEM = (By.CSS_SELECTOR, "li.rw-list-option:nth-child(1)")  # nth-child(NAMBER_FIELD)
+    BUTTON_MORE_FILTER = (By.CSS_SELECTOR, ".box > div:nth-child(2) > button:nth-child(1)")
+    BUTTON_LESS = (By.CSS_SELECTOR, ".box > div:nth-child(6) > button:nth-child(1)")
+    BUTTON_SEARCH = (By.CSS_SELECTOR, "button.MuiButtonBase-root:nth-child(2) > span:nth-child(1)")
+    BUTTON_RESET = (By.CSS_SELECTOR, "button.MuiButton-textPrimary:nth-child(1) > span:nth-child(1)")
+
+
 
 #page for communication users with admins
 class ContactUsPageLocators():

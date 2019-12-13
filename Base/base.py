@@ -7,10 +7,10 @@ class BaseSetup():
 
     def find_element(self, *locators):
         wait = WebDriverWait( self.driver, 10 )
-        element = wait.until(lambda driver: self.driver.find_element(*locators))
+        element = wait.until(lambda driver: self.driver.find_element( *locators))
         return element
 
-    def click_to_element(self,*locators):
+    def click_to_element(self, *locators):
         element = self.find_element(*locators)
         element.click()
 
@@ -18,15 +18,10 @@ class BaseSetup():
         element = self.find_element(*locators)
         element.clear()
 
-    def send_keys_to(self,data,*locators):
+    def send_keys_to(self, data, *locators):
         element = self.find_element(*locators)
         element.send_keys(data)
 
-    def text_from_elements(self, *locators):
+    def get_element_text(self, *locators):
         element = self.find_element(*locators)
         return element.text
-
-
-
-
-
