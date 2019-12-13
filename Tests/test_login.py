@@ -10,10 +10,6 @@ class TestLogin(TestLoginToSite):
         super().setUp()
 
 
-
     def test_login_if_user_entered(self):
         self.login_Page = LoginPage( self.driver )
-        self.login_Page.click_on_login_button()
-        self.login_Page.type_login(TestData.LOGIN_USER)
-        self.login_Page.type_pass(TestData.PASSWORD_USER)
-        self.login_Page.press_button_signin()
+        self.login_Page.login_user(TestData.LOGIN_USER, TestData.PASSWORD_USER)

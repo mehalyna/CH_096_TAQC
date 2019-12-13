@@ -18,10 +18,6 @@ class BaseSetup():
         element = self.find_element(*locators)
         element.clear()
 
-    def send_keys_to(self,data,*locators):
+    def send_keys_to(self, data, *locators):
         element = self.find_element(*locators)
         element.send_keys(data)
-
-
-
-
