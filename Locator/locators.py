@@ -5,24 +5,24 @@ class MainLoginPageLocators():
 
     SIGNIN  = (By.CLASS_NAME, 'MuiButton-label')
 
-
-# form of signin /signup
-
-
-    EMAIL    = (By.NAME, 'email')
-    PASSWORD  = (By.NAME, 'password')
+    # form of signin /signup
+    EMAIL = (By.NAME, 'email')
+    PASSWORD = (By.NAME, 'password')
     BUTTON_SIGIN = (By.CSS_SELECTOR, ".auth .MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-fullWidth:nth-child(2)")
 
 
-# home page. page is availabled after log in
+# home page. elements available after logging in
 class HomePageLocators():
     CONFIG_PROFILE = (By.CSS_SELECTOR, "div a[href='/profile']" )
 
     PROFILE = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(2)")
+    PROFILE_SB = (By.CSS_SELECTOR, ".sidebar-header:nth-child(2) .link")
 
 #page with personal info and with possibility to manage events
 class ProfilePageLocators():
-    ADD_EVENT = (By.CSS_SELECTOR,".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
+    ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
+
+
 
 # page for creating events
 class AddEventPageLocators():
