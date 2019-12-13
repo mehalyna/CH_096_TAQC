@@ -7,7 +7,6 @@ class LoginPage(BaseSetup):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(browser_setup["url"])
         self.locator_main = MainLoginPageLocators
 
 

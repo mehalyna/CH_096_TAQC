@@ -21,3 +21,7 @@ class BaseSetup():
     def send_keys_to(self, data, *locators):
         element = self.find_element(*locators)
         element.send_keys(data)
+
+    def get_element_text(self, *locators):
+        element = self.find_element(*locators)
+        return element.text

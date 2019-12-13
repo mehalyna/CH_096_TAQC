@@ -5,7 +5,7 @@ from Driver.driver import browser_setup
 from Driver.driver import wrapper
 
 
-class TestLoginToSite(unittest.TestCase):
+class TestInit(unittest.TestCase):
 
     def setUp(self):
         self.driver=wrapper(browser_setup["browser"])
