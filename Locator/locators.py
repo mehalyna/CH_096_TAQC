@@ -23,7 +23,6 @@ class ProfilePageLocators():
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
 
 
-
 # page for creating events
 class AddEventPageLocators():
     #FROM DATE

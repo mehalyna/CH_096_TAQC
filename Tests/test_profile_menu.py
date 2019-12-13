@@ -20,7 +20,7 @@ class TestInit(unittest.TestCase):
         self.login_Page.login()
 
         self.menu = EventMenuPage(self.driver)
-        # self.menu.activate_item()
+        self.menu.activate_item()
 
 if __name__ == '__main__':
     unittest.main()

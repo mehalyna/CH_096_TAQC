@@ -1,6 +1,5 @@
 from Tests.test_main import TestInit
 from Pages.LoginPage import LoginPage
-from Data.TestData import TestData
 from Driver.driver import browser_setup
 
 
