@@ -7,20 +7,23 @@ class LoginPage(BaseSetup):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(browser_setup["url"])
         self.locator_main = MainLoginPageLocators
 
-    def click_on_login_button(self):
-        self.click_to_element( *self.locator_main.SIGNIN )
+    def login_user(self, login, password):
+        self.click_to_element(*self.locator_main.SIGNIN)
+        self.send_keys_to(login, *self.locator_main.EMAIL)
+        self.send_keys_to(password, *self.locator_main.PASSWORD)
+        self.click_to_element(*self.locator_main.BUTTON_SIGIN)
 
-    def type_login(self, *login):
-        self.send_keys_to( *login, *self.locator_main.EMAIL )
+    def check_log_in_user(self):
+        return True if self.find_element(*self.locator_main.PROFILE).text == ' Profile' else False
 
-    def type_pass(self, *password):
-        self.send_keys_to( *password, *self.locator_main.PASSWORD )
+    def check_log_in_admin(self):
+        return True if self.find_element(*self.locator_main.CATEGORIES).text == ' Categories' else False
 
-    def press_button_signin(self):
-        self.click_to_element( *self.locator_main.BUTTON_SIGIN )
+
+
+
 
 
 
