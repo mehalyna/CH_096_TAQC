@@ -8,14 +8,15 @@ class EventMenuPage(BaseSetup):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(TestData)
+        # self.driver.get(TestData)
         self.locator_main = HomePageLocators
 
 
     def activate_item(self):
         # self.click_to_element(*self.locator_main.SIGNIN)
     # # Back to "Profile" menu
-        self.driver.find_element(self.locator_main.PROFILE_SB).click()
+        self.find_element(*self.locator_main.PROFILE_SB)
+        self.click_element()
     # time.sleep(pause)
 
     # def type_login(self, *login):

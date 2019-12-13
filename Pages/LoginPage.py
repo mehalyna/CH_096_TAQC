@@ -8,12 +8,11 @@ class LoginPage(BaseSetup):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(browser_setup["url"])
         self.locator_main = MainLoginPageLocators
         self.data = TestData
 
     def click_on_login_button(self):
-        self.click_to_element(*self.locator_main.SIGNIN)
+        self.click_element(*self.locator_main.SIGNIN)
 
     def type_login(self, *login):
         self.send_keys_to(*login, *self.locator_main.EMAIL)
@@ -23,7 +22,7 @@ class LoginPage(BaseSetup):
 
     def press_button_signin(self):
         ''' # form of signin /signup '''
-        self.click_to_element(*self.locator_main.BUTTON_SIGIN)
+        self.click_element(*self.locator_main.BUTTON_SIGIN)
 
     def login(self):
         self.click_on_login_button()
