@@ -1,7 +1,7 @@
 from Driver.driver import browser_setup
 from Base.base import BaseSetup
 from Locator.locators import ContactUsPageLocators
-from Tests.test_login import TestLogin
+
 
 
 class ContactUsPage(BaseSetup):
