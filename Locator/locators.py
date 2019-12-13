@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 class MainLoginPageLocators():
 
     SIGNIN  = (By.CLASS_NAME, 'MuiButton-label')
+    CATEGORIES = (By.CSS_SELECTOR, '.sidebar-header:nth-child(5) .nav-item-text')
+    PROFILE = (By.CSS_SELECTOR, '.sidebar-header:nth-child(2) .nav-item-text')
 
 
 # form of signin /signup
@@ -47,4 +49,31 @@ class SearchEventPanelLocators():
     BUTTON_LESS = (By.CSS_SELECTOR, ".box > div:nth-child(6) > button:nth-child(1)")
     BUTTON_SEARCH = (By.CSS_SELECTOR, "button.MuiButtonBase-root:nth-child(2) > span:nth-child(1)")
     BUTTON_RESET = (By.CSS_SELECTOR, "button.MuiButton-textPrimary:nth-child(1) > span:nth-child(1)")
+
+
+
+#page for communication users with admins
+class ContactUsPageLocators():
+
+    CONTACT_US = (By.CSS_SELECTOR, '#root > div.left-sidebar-closed.left-sidebar > nav > ul > li:nth-child(5) > a > span > span')
+    DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
+    SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
+    MESSAGE = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
+    CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
+    REQUIRED = (By.CSS_SELECTOR, 'p')
+
+class ComunaPageLocators():
+
+    COMUNA = (By.CSS_SELECTOR, 'li:nth-child(4)')
+    SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
+    SEND_MESSAGE = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
+    SEND = (By.CSS_SELECTOR, '.MuiButton-label')
+    OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
+    MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
+
+
+
+
+
+
 

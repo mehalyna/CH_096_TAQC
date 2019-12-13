@@ -2,7 +2,7 @@ import os
 from selenium import webdriver
 browser_setup = {
     "browser" : "Firefox",
-    "url" : "http://localhost:49862/home/events?page=1"
+    "url" : "http://localhost:57690/home/events?page=1"
 }
 
 #Chrome
