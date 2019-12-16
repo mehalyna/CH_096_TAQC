@@ -2,16 +2,10 @@ from Tests.test_init import TestInit
 from Data.credentials import user,admin
 
 
-
-
-
-
 class TestCreateEvent(TestInit):
 
     def setUp(self):
         super().setUp()
-
-
 
 
     def test_create_event(self):
