@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+import time
 
 
 class BaseSetup:
@@ -52,6 +53,12 @@ class BaseSetup:
     def element_be_clickable(self, *locator):
         wait = WebDriverWait( self.driver, 10 )
         element = wait.until(EC.element_to_be_clickable(*locator))
+
+    def get_element_text(self, locator):
+        element = self.find_element(*locator)
+        ele = element.text
+        print(ele)
+        return ele
 
 
 

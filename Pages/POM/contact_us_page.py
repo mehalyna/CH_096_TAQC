@@ -1,0 +1,23 @@
+from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
+from Data.test_data import ContactUsData
+
+class ContactUs():
+
+
+    def __init__(self, browser):
+        self.browser = browser
+        self.menu_locator = NavigationMenuLocators
+        self.locator = ContactUsPageLocators
+        self.data = ContactUsData
+
+
+
+    def enter_description(self):
+        self.browser.send_keys_to_element(self.locator.DESCRIPTION, self.data.DISCRIPTION)
+
+    def click_on_submit(self):
+        self.browser.click_on_element(self.locator.SUBMIT)
+
+    def get_element_text(self):
+        a = self.browser.get_element_text(self.locator.MES)
+        return a

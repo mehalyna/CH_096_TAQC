@@ -15,4 +15,6 @@ class CreateEventData( ):
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
+class ContactUsData():
 
+    DISCRIPTION = "very nice!!!"
