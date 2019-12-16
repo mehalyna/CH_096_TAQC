@@ -29,6 +29,8 @@ class NavigationMenuLocators:
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
+    CATEGORIES = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(5)")
+    USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
 
 
 # search available on every page of EventExpress
@@ -73,6 +75,12 @@ class CreateEvent:
     # description about future event
     DESC_TEXT = (By.CSS_SELECTOR, "[name='description']")
     CATEGORY = (By.CSS_SELECTOR, ".rw-input-reset")
+
+class CategoriesLocators:
+    ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
+    ADD_CATEGORY_FIELD = (By.NAME,'category')
+    ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
+    ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
 
 
 

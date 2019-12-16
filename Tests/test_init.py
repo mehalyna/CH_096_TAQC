@@ -12,7 +12,7 @@ class TestInit(unittest.TestCase):
         if browser_setup["browser"] == "Firefox":
             self.driver = webdriver.Firefox(executable_path=path)
         elif browser_setup["browser"] == "Chrome":
-            self.driver = webdriver.Chrome(executable_path=path)
+            self.driver = webdriver.Chrome(   )
         else:
             raise Exception("Selected browser not supported")
         self.driver.delete_all_cookies()
@@ -23,13 +23,12 @@ class TestInit(unittest.TestCase):
         self.exec = InitPagesDriver(self.driver)
 
 
-    # def tearDown(self):
-    #     self.driver.close()
-    #     self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()
+        self.driver.quit()
 
 
 
 
 if __name__ == '__main__':
     unittest.main()
-
