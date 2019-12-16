@@ -1,12 +1,12 @@
-from Base.base import BaseSetup
-from Locator.locators import HomePageLocators
-from Data.TestData import TestData
+from Base.base import Base
+from Locators.locators import HomePageLocators
+from Data.test_data import Config
 from selenium.webdriver.common.by import By
 
 import time
 
-class EventMenuPage(BaseSetup):
-
+class EventMenuPage(Base):
+    # Outdated version
     def __init__(self, driver):
         super().__init__(driver)
         self.locator_main = HomePageLocators

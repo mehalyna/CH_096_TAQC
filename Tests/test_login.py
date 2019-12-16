@@ -4,7 +4,7 @@ from Driver.driver import browser_setup
 
 
 class Test_Login(TestInit):
-
+    # Outdated
     def setUp(self):
         # to call the setUp() method of base class or super class.
         super().setUp()

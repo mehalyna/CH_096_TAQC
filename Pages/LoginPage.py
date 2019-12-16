@@ -3,7 +3,7 @@ from Base.base import BaseSetup
 from Locator.locators import MainLoginPageLocators
 from Data.TestData import TestData
 
-
+# Outdated
 class LoginPage(BaseSetup):
 
     def __init__(self, driver):

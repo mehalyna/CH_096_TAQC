@@ -5,9 +5,9 @@ from Pages.eventsMenu import EventMenuPage
 from Pages.LoginPage import LoginPage
 from Data.TestData import TestData
 
-
+# Outdated
 class TestInit(unittest.TestCase):
-
+    # Outdated
     def setUp(self):
         self.driver = wrapper(browser_setup["browser"])
         self.driver.get(browser_setup["url"])
