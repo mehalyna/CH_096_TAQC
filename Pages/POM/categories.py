@@ -21,7 +21,7 @@ class Categories():
 
 
     def click_on_search_user(self):
-        
+
 
     def click_on_comuna(self):
         self.browser.click_on_element(self.locator.COMUNA)
