@@ -59,9 +59,35 @@ class ComunaPageLocators():
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
-#profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
+    ''' Profile page and menu locators '''
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
+
+class EventsMenuLocators:
+    ''' Events menu object locators '''
+    locators_dict = {'FUTURE EVENTS': (By.ID, '#full-width-tab-0'),
+                     'ARCHIVE EVENTS': (By.ID, '#full-width-tab-1'),
+                     'VISITED EVENTS': (By.ID, '#full-width-tab-2'),
+                     'EVENTS TO GO': (By.ID, '#full-width-tab-3'),
+                     'ADD_EVENT': (By.ID, '#full-width-tab-3')
+    }
+    '''User Name:
+UserTest
+Age:
+19
+Gender:
+Other
+Email:
+user@gmail.com
+Interests:
+#Mount
+#Golf
+#Team-Building
+#Swimming
+#Gaming
+#QC testing event
+#Meeting
+#Summer'''
 
 
 class CreateEvent:

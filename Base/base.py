@@ -29,28 +29,28 @@ class BaseSetup:
 
 
 
-    def click_on_element(self,locators):
+    def click_on_element(self, locators):
         element = self.find_element(*locators)
         element.click()
 
-    def clean_element(self,locators):
+    def clean_element(self, locators):
         element = self.find_element(*locators)
         element.clear()
 
 
-    def send_keys_to_element(self, locators,data):
+    def send_keys_to_element(self, locators, data):
         element = self.find_element(*locators)
         element.send_keys(data)
 
 
-    def upload_file(self, path,locators):
+    def upload_file(self, path, locators):
         element = self.find_element(locators)
         element.send_keys(path)
 
 
 
     def element_be_clickable(self, *locator):
-        wait = WebDriverWait( self.driver, 10 )
+        wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.element_to_be_clickable(*locator))
 
 
