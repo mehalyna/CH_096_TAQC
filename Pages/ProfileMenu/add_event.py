@@ -10,9 +10,9 @@ class CreateEvents:
         self.data = CreateEventData
 
 
-    def add_title(self, data):
-        self.browser.clean_element(self.locator.EVENT_TITLE)
-        self.browser.send_keys_to_element(self.locator.EVENT_TITLE, data)
+    def add_title(self,data):
+        self.browser.clean_element( self.locator.EVENT_TITLE)
+        self.browser.send_keys_to_element(self.locator.EVENT_TITLE,data)
 
     def upload_image(self):
         self.browser.upload_file(self.data.IMAGE, self.locator.UPLOAD_PICTURE)

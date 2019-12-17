@@ -73,7 +73,7 @@ class BaseSetup():
         print(element.text)
         return element.text
 
-
+    # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
         error_msg = "Text not found"
         try:
@@ -83,7 +83,6 @@ class BaseSetup():
         except TimeoutException:
             print(error_msg)
             return ''
-
 
 
 
