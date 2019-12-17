@@ -12,8 +12,8 @@ class ContactUs():
 
 
 
-    def enter_description(self):
-        self.browser.send_keys_to_element(self.locator.DESCRIPTION, self.data.DISCRIPTION)
+    def enter_description(self, text):
+        self.browser.send_keys_to_element(self.locator.DESCRIPTION, text)
 
     def click_on_submit(self):
         self.browser.click_on_element(self.locator.SUBMIT)

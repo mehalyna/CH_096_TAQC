@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import time
 
 
@@ -14,20 +14,14 @@ class BaseSetup:
         element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
-    # def element_be_clickable(self, *locator):
-    #     try:
-    #         wait = WebDriverWait( self.driver, 5)
-    #         element = wait.until(EC.element_to_be_clickable(*locator))
-    #         return element
-    #     except NoSuchElementException:
-    #      pass
-
-    # def wait_apeare_disapeare(self, *locator):
-
-
-
-
-
+    def element_be_clickable(self, *locator):
+        try:
+            wait = WebDriverWait(self.driver, 10)
+            element = wait.until(EC.element_to_be_clickable(*locator))
+            return element
+        except TimeoutException as e:
+            print('Element is not clickable')
+            return ''
 
 
     def click_on_element(self,locators):
@@ -49,16 +43,21 @@ class BaseSetup:
         element.send_keys(path)
 
 
-
-    def element_be_clickable(self, *locator):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until(EC.element_to_be_clickable(*locator))
-
     def get_element_text(self, locator):
         element = self.find_element(*locator)
-        ele = element.text
-        print(ele)
-        return ele
+        print(element.text)
+        return element.text
+
+
+    def check_if_text_present(self, *locators, text=None):
+        error_msg = "Text not found"
+        try:
+            wait = WebDriverWait(self.driver, 5)
+            text_get = wait.until(EC.text_to_be_present_in_element(*locators), text)
+            return text_get
+        except TimeoutException:
+            print(error_msg)
+            return ''
 
 
 
