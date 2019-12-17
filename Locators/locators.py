@@ -17,7 +17,7 @@ class RegisterLocators:
     EMAIL_SIGNIN = (By.NAME, "email")
     PASSWORD = (By.NAME, "password")
     RE_PASSWORD = (By.NAME, "RepeatPassword")
-    CLEAR = (By.CSS_SELECTOR,"")
+    CLEAR = (By.CSS_SELECTOR,".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
 
 class LogoProfileLocators:
