@@ -3,11 +3,8 @@ from Pages.POM.auth import Auth
 from Pages.POM.signIn import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
 from Pages.POM.profile_menu_page import ProfileMenu
-<<<<<<< HEAD
 from Pages.POM.searchPanelPage import SearchEventMenu
-=======
 from Pages.POM.categories import Categories
->>>>>>> 6e87498f1edd1e4c1240586e9ca9d0dd50f4e7d9
 from Pages.ProfileMenu.add_event import CreateEvents
 
 
