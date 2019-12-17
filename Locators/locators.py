@@ -70,11 +70,13 @@ class ProfileMenuLocators:
 class ProfilePageEventsMenuLocators:
     ''' Events menu object locators '''
     # User
-    locators_dict = {ProfilePageEventsMenu.FUTURE_EVENTS: (By.ID, '#full-width-tab-0'),
-                     ProfilePageEventsMenu.ARCHIVE_EVENTS: (By.ID, '#full-width-tab-1'),
-                     ProfilePageEventsMenu.VISITED_EVENTS: (By.ID, '#full-width-tab-2'),
-                     ProfilePageEventsMenu.EVENTS_TO_GO: (By.ID, '#full-width-tab-3'),
-                     ProfilePageEventsMenu.ADD_EVENT: (By.ID, '#full-width-tab-4')
+    locators_dict = {ProfilePageEventsMenu.FUTURE_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-0'),
+                     ProfilePageEventsMenu.ARCHIVE_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-1'),
+                     ProfilePageEventsMenu.VISITED_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-2'),
+                     ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
+                     ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
+                     'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'), # Whole panel
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR,'button[id*="full"]')
     } # panel locator; items align? ToDo
     # # "Events groups menu..."
     #         'FUTURE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-1 > .MuiTab-wrapper"),

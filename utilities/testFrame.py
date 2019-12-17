@@ -4,6 +4,7 @@ from Pages.POM.signIn import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
 from Pages.POM.profile_menu_page import ProfileMenu
 from Pages.ProfileMenu.add_event import CreateEvents
+from Pages.POM.event_menu_page import EventsMenu
 
 
 
@@ -21,3 +22,4 @@ class InitPagesDriver():
         # page opended from navigation menu
         self.prof_menu = ProfileMenu(self.base)
         self.creat_event = CreateEvents(self.base)
+        self.event_menu = EventsMenu(self.base)

@@ -13,6 +13,12 @@ class BaseSetup:
         element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
+    def find_elements(self, *locators):
+        '''ToDo refactoring lambda boris'''
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        return element
+
     # def element_be_clickable(self, *locator):
     #     try:
     #         wait = WebDriverWait( self.driver, 5)
@@ -52,6 +58,7 @@ class BaseSetup:
     def element_be_clickable(self, *locator):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(EC.element_to_be_clickable(*locator))
+
 
 
 

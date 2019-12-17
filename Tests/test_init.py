@@ -4,6 +4,7 @@ from Driver.driver import Driver
 # from Driver.browser_setup import browser_setup
 from Data.test_data import Config
 from utilities.testFrame import InitPagesDriver
+import time  # ToDo
 
 
 class TestInit(unittest.TestCase):
@@ -19,6 +20,7 @@ class TestInit(unittest.TestCase):
 
 
     def tearDown(self):
+        time.sleep(3)  # ToDo
         self.driver.close()
         self.driver.quit()
 
