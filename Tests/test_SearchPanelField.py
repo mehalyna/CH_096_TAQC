@@ -16,4 +16,4 @@ class TestSearchEvent(TestInit):
         self.exec.search.type_in_search_field('Python')
         self.exec.search.check_element()
         self.exec.search.click_button_search()
-        self.assertEqual(self.exec.search.check_element(self.locator.FIELD_NAME_EVENT), "Python MeetUp")
+        self.assertEqual(self.exec.search.check_element(), "Python MeetUp")
