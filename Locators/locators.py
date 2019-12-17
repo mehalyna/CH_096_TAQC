@@ -36,13 +36,12 @@ class SearchMenuLocators:
     pass
 
 
-
+#page for communication users with admins
 class ContactUsPageLocators():
 
-    CONTACT_US = (By.CSS_SELECTOR, '#root > div.left-sidebar-closed.left-sidebar > nav > ul > li:nth-child(5) > a > span > span')
     DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
     SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
-    MESSAGE = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
+    MES = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
     CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
     REQUIRED = (By.CSS_SELECTOR, 'p')
 
@@ -51,6 +50,7 @@ class ContactUsPageLocators():
 class HomePageLocators:
     pass
 
+#user communication page
 class ComunaPageLocators():
 
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')

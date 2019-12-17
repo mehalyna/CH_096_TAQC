@@ -1,5 +1,4 @@
 from Tests.test_init import TestInit
-
 from Data.credentials import user
 
 

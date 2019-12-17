@@ -79,6 +79,16 @@ class BaseSetup:
 
 
 
+    def check_if_text_present(self, *locators, text=None):
+        error_msg = "Text not found"
+        try:
+            wait = WebDriverWait(self.driver, 5)
+            text_get = wait.until(EC.text_to_be_present_in_element(*locators), text)
+            return text_get
+        except TimeoutException:
+            print(error_msg)
+            return ''
+
 
 
 
