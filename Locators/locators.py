@@ -80,6 +80,7 @@ class CategoriesLocators:
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
     ADD_CATEGORY_FIELD = (By.NAME,'category')
     CATEGORIES = (By.TAG_NAME,'tr')
+    CAT = (By.XPATH,'//tr[3]/td[1]')
     ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
     ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
 
