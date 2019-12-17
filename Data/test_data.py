@@ -4,8 +4,10 @@ import os
 current_path = os.path.abspath(os.path.dirname(__file__))
 
 
-class TestData():
+class CreateEventData( ):
 
+
+    # BASE_URL = "http://localhost:3183/home/events?page=1"
     TITLE = random.choice( ['New Year', 'Christmas', 'Malanka'] )
     IMAGE = os.path.join( current_path, 'party.jpg' )
     LOGIN_USER = 'user@gmail.com'
@@ -14,4 +16,6 @@ class TestData():
     DESCRIPTION = 'very nice!!!'
 
 
+class ContactUsData():
 
+    DISCRIPTION = "very nice!!!"
