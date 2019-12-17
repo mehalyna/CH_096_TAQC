@@ -4,8 +4,6 @@ from Data.credentials import user,admin
 
 
 
-
-
 class TestCreateEvent(TestInit):
 
     def setUp(self):
