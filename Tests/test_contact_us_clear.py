@@ -23,9 +23,8 @@ class TestContactUs(TestInit):
         self.exec.navigation.click_on_contact_us()
         self.text = self.data.DISCRIPTION
         self.exec.contact.enter_description(self.text)
-        self.exec.contact.click_on_submit()
-        self.error = "Failed"
-        self.assertTrue(self.exec.base.check_if_text_present(self.locator.MES, self.error)), "not equal"
+        self.exec.contact.click_on_clear()
+        self.assertTrue(self.exec.base.check_if_text_present(self.locator.DESCRIPTION, "")), "not equal"
 
 
 

@@ -12,12 +12,20 @@ class ContactUs():
 
 
 
-    def enter_description(self):
-        self.browser.send_keys_to_element(self.locator.DESCRIPTION, self.data.DISCRIPTION)
+    def enter_description(self, text):
+        self.browser.send_keys_to_element(self.locator.DESCRIPTION, text)
 
     def click_on_submit(self):
         self.browser.click_on_element(self.locator.SUBMIT)
 
+    def click_on_desc(self):
+        self.browser.click_on_element(self.locator.DESCRIPTION)
+
+    def click_on_clear(self):
+        self.browser.click_on_element(self.locator.CLEAR)
+
     def get_element_text(self):
         a = self.browser.get_element_text(self.locator.MES)
         return a
+
+
