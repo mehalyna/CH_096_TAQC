@@ -6,6 +6,8 @@ from Pages.POM.profile_menu_page import ProfileMenu
 from Pages.POM.searchPanelPage import SearchEventMenu
 from Pages.POM.categories import Categories
 from Pages.ProfileMenu.add_event import CreateEvents
+from Pages.POM.event_menu_page import EventsMenu
+from Pages.POM.contact_us_page import ContactUs
 
 
 
@@ -26,3 +28,5 @@ class InitPagesDriver():
         self.creat_event = CreateEvents(self.base)
         # search event panel
         self.search = SearchEventMenu(self.base)
+        self.contact = ContactUs(self.base)
+        self.event_menu = EventsMenu(self.base)
