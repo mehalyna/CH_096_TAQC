@@ -20,3 +20,5 @@ class NavigationMenu():
 
     def click_on_comuna(self):
         self.browser.click_on_element(self.locator.COMUNA)
+    def click_on_categories(self):
+        self.browser.click_on_element(self.locator.CATEGORIES)
