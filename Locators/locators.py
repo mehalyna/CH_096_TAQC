@@ -17,7 +17,7 @@ class RegisterLocators:
     EMAIL_SIGNIN = (By.NAME, "email")
     PASSWORD = (By.NAME, "password")
     RE_PASSWORD = (By.NAME, "RepeatPassword")
-    CLEAR = (By.CSS_SELECTOR,"")
+    CLEAR = (By.CSS_SELECTOR,".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
 
 class LogoProfileLocators:
@@ -147,6 +147,7 @@ class CartPanelsAtProfilePageLocators:
     CART_NTH = '.mt-2 .col-12:nth-child(3)'
 
 class CreateEvent:
+    UPLOAD_PICTURE = (By.CSS_SELECTOR, ".placeholder-preview > input ")
     EVENT_TITLE = (By.NAME, "title")
     CALENDAR = (By.CSS_SELECTOR, ".react-datepicker-wrapper")
     CALENDAR_VALUE = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
