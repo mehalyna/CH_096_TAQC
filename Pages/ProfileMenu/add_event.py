@@ -2,9 +2,9 @@ from Locators.locators import CreateEvent
 from Data.test_data import CreateEventData
 
 
-class CreateEvents:
+class CreateEvents():
 
-    def __init__(self, browser):
+    def __init__(self,browser):
         self.browser = browser
         self.locator = CreateEvent
         self.data = CreateEventData
