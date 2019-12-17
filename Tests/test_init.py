@@ -23,9 +23,9 @@ class TestInit(unittest.TestCase):
         self.exec = InitPagesDriver(self.driver)
 
 
-    # def tearDown(self):
-    #     self.driver.close()
-    #     self.driver.quit()
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 
 
