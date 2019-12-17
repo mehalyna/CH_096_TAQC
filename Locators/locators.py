@@ -53,6 +53,10 @@ class SearchEventPanelLocators():
     #NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
     FIELD_NAME_EVENT = (By.CSS_SELECTOR, "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
 
+class SearchEventData():
+    NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
+    NAME_EVENT = (By.CSS_SELECTOR,
+                  "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
 
 #page for communication users with admins
 class ContactUsPageLocators():

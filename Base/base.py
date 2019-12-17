@@ -36,10 +36,6 @@ class BaseSetup():
     # def wait_apeare_disapeare(self, *locator):
 
 
-
-    def click_on_element(self,locators):
-
-
     def element_be_clickable(self, *locator):
         try:
             wait = WebDriverWait(self.driver, 10)
