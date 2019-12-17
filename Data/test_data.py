@@ -11,9 +11,8 @@ class Config:
     # BROWSER = 'Opera'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
+class CreateEventData( ):
 
-# Profile Page testdata
-class CreateEventData:
 
     # BASE_URL = "http://localhost:3183/home/events?page=1"
     TITLE = random.choice( ['New Year', 'Christmas', 'Malanka'] )
@@ -23,7 +22,9 @@ class CreateEventData:
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
+class ContactUsData():
 
+    DISCRIPTION = "very nice!!!"
 class ProfileMenuPageHeaderInfo:
 
     USER_NAME_LABEL = 'User Name:'

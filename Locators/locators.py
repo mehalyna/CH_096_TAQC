@@ -30,23 +30,19 @@ class NavigationMenuLocators:
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
-     # "Navigation menu..."
-     #        'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
-     #        'Profile': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(2) .link"),
-     #        'Search Users': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(3) .link"),
-     #        'Comuna': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(4) .link"),
-     #        'Contact us': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(5) .link")
+
 
 # search available on every page of EventExpress
 class SearchMenuLocators:
     pass
 
+
+#page for communication users with admins
 class ContactUsPageLocators():
 
-    CONTACT_US = (By.CSS_SELECTOR, '#root > div.left-sidebar-closed.left-sidebar > nav > ul > li:nth-child(5) > a > span > span')
     DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
     SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
-    MESSAGE = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
+    MES = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
     CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
     REQUIRED = (By.CSS_SELECTOR, 'p')
 
@@ -55,6 +51,7 @@ class ContactUsPageLocators():
 class HomePageLocators:
     pass
 
+#user communication page
 class ComunaPageLocators():
 
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
@@ -63,6 +60,7 @@ class ComunaPageLocators():
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
+#profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
     ''' Profile page and menu locators '''
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
