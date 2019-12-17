@@ -11,6 +11,8 @@ class Config:
     # BROWSER = 'Opera'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
+
+# Profile Page testdata
 class CreateEventData:
 
     # BASE_URL = "http://localhost:3183/home/events?page=1"
@@ -21,17 +23,51 @@ class CreateEventData:
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
-class ProfileMenu:
-    '''User Name:    UserTest
-    Age:    19
-    Gender:    Other
-    Email:    user@gmail.com
-    Interests:      #Mount
-                    #Golf
-                    #Team-Building
-                    #Swimming
-                    #Gaming
-                    #QC testing event
-                    #Meeting
-                    #Summer'''
+
+class ProfileMenuPageHeaderInfo:
+
+    USER_NAME_LABEL = 'User Name:'
+    USER_NAME_DATA = 'UserTest'
+
+    USER_AGE_LABEL = 'Age:'
+    USER_AGE_DATA = '19'
+
+    USER_GENDER_LABEL = 'Gender:'
+    USER_GENDER_DATA = 'Other'
+
+    USER_EMAIL_LABEL = 'Age:'
+    USER_EMAIL_DATA = '19'
+
+    USER_INTERESTS_LABEL = 'Interests:'
+    USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
+                           '#QC testing event', '#Meeting', '#Summer'}
+
+
+class ProfilePageEventsMenu:
+
+    FUTURE_EVENTS = 'FUTURE EVENTS'
+    ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
+    VISITED_EVENTS = 'VISITED EVENTS'
+    EVENTS_TO_GO = 'EVENTS TO GO'
+    ADD_EVENT = 'ADD_EVENT'
+
     pass
+
+
+class HomePageOptionsPanel:
+    '''Left top menu (config, notification, logout) with user logo'''
+    USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
+##
+#         # "Navigation menu..."
+#         'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
+#         'Profile': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(2) .link"),
+#         'Search Users': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(3) .link"),
+#         'Comuna': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(4) .link"),
+#         'Contact us': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(5) .link"),
+#             }
+
+
+class CartPanelsAtProfilePage:
+
+    BLANK_CART = 'No Results'
+    CART_NTH = ''  # on mouse hover - tip arising

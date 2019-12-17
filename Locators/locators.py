@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-
+from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
 
 class LoginPageLocators:
     # button for opening form of authorization
@@ -21,6 +21,7 @@ class RegisterLocators:
     SIGNUP = (By.CSS_SELECTOR,)
 
 class LogoProfileLocators:
+    #boris ToDO
     pass
 
 class NavigationMenuLocators:
@@ -29,13 +30,16 @@ class NavigationMenuLocators:
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
-
+     # "Navigation menu..."
+     #        'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
+     #        'Profile': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(2) .link"),
+     #        'Search Users': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(3) .link"),
+     #        'Comuna': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(4) .link"),
+     #        'Contact us': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(5) .link")
 
 # search available on every page of EventExpress
 class SearchMenuLocators:
     pass
-
-
 
 class ContactUsPageLocators():
 
@@ -63,32 +67,63 @@ class ProfileMenuLocators:
     ''' Profile page and menu locators '''
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
 
-class EventsMenuLocators:
+class ProfilePageEventsMenuLocators:
     ''' Events menu object locators '''
-    locators_dict = {'FUTURE EVENTS': (By.ID, '#full-width-tab-0'),
-                     'ARCHIVE EVENTS': (By.ID, '#full-width-tab-1'),
-                     'VISITED EVENTS': (By.ID, '#full-width-tab-2'),
-                     'EVENTS TO GO': (By.ID, '#full-width-tab-3'),
-                     'ADD_EVENT': (By.ID, '#full-width-tab-3')
-    }
-    '''User Name:
-UserTest
-Age:
-19
-Gender:
-Other
-Email:
-user@gmail.com
-Interests:
-#Mount
-#Golf
-#Team-Building
-#Swimming
-#Gaming
-#QC testing event
-#Meeting
-#Summer'''
+    # User
+    locators_dict = {ProfilePageEventsMenu.FUTURE_EVENTS: (By.ID, '#full-width-tab-0'),
+                     ProfilePageEventsMenu.ARCHIVE_EVENTS: (By.ID, '#full-width-tab-1'),
+                     ProfilePageEventsMenu.VISITED_EVENTS: (By.ID, '#full-width-tab-2'),
+                     ProfilePageEventsMenu.EVENTS_TO_GO: (By.ID, '#full-width-tab-3'),
+                     ProfilePageEventsMenu.ADD_EVENT: (By.ID, '#full-width-tab-4')
+    } # panel locator; items align? ToDo
+    # # "Events groups menu..."
+    #         'FUTURE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-1 > .MuiTab-wrapper"),
+    #         'ARCHIVE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-2 > .MuiTab-wrapper"),
+    #         'VISITED EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-3 > .MuiTab-wrapper"),
+    #         'ADD EVENT': ('By.CSS_SELECTOR', "#full-width-tab-4 > .MuiTab-wrapper")
+    # Admin ToDo
 
+class ProfileMenuPageHeaderInfoLocators:
+    ''' Locators for user info page header (central header)'''
+    # User
+    USER_NAME_LABEL = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4')
+    USER_NAME_DATA = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8')
+    USER_AGE_LABEL = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4')
+    USER_AGE_DATA = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8')
+     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+     # ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+     # }
+    # locators_dict = {ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+    #                  ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+    #                  ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+    #                  }
+    # Admin ToDo
+
+
+class HomePageOptionsPanelLocators:
+    '''Left top menu (config, notification, logout) with user logo'''
+    # button[type = "button"][title = "Sign out"]
+    # user_info_css = 'h4.gs_copied'
+    locators_dict = {
+            'logout_button': (By.CSS_SELECTOR, 'button[title ="Sign out"]'),
+            'user_info': (By.CSS_SELECTOR, 'h4.gs_copied'),
+    }
+
+class CartPanelsAtProfilePageLocators:
+    '''child(cart_index). cart_index = 0 - EMPTY; >0 carts'''
+    BLANK_CART = '.w-100 .h1'  # No Results
+    CART_NTH = '.mt-2 .col-12:nth-child(3)'
 
 class CreateEvent:
     EVENT_TITLE = (By.NAME, "title")

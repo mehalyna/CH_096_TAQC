@@ -1,10 +1,10 @@
-from Locators.locators import EventsMenuLocators
+from Locators.locators import ProfilePageEventsMenuLocators
 
 
 class EventsMenu:
     '''Page object for events menu'''
     def __init__(self, browser):
-        self.locator = EventsMenuLocators.locators_dict
+        self.locator = ProfilePageEventsMenuLocators.locators_dict
         self.browser = browser
 
     def click_item(self, item_name):

@@ -9,7 +9,7 @@ from utilities.testFrame import InitPagesDriver
 class TestInit(unittest.TestCase):
 
     def setUp(self):
-        self.driver = Driver(Config.BROWSER).setBrowser()
+        self.driver = Driver(Config.BROWSER).set_browser()
         self.driver.delete_all_cookies()
         self.driver.maximize_window()
         self.driver.implicitly_wait(10)
@@ -18,9 +18,9 @@ class TestInit(unittest.TestCase):
         self.exec = InitPagesDriver(self.driver)
 
 
-    # def tearDown(self):
-    #     self.driver.close()
-    #     self.driver.quit()
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 
 if __name__ == '__main__':

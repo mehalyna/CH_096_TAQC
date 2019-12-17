@@ -9,5 +9,5 @@ class CreateEvents:
 
 
     def add_title(self, data):
-        self.browser.clean_element( self.locator.EVENT_TITLE)
+        self.browser.clean_element(self.locator.EVENT_TITLE)
         self.browser.send_keys_to_element(self.locator.EVENT_TITLE, data)

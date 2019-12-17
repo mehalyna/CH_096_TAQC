@@ -22,7 +22,7 @@ class Driver:
     def __init__(self, browser):
         self.browser = browser
 
-    def setBrowser(self):
+    def set_browser(self):
         if self.browser.lower() == "firefox":
             return webdriver.Firefox(executable_path=GeckoDriverManager().install())
         elif self.browser.lower() == "chrome":
