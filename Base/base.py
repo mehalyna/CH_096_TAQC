@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
+import random
 from selenium.webdriver.common.keys import Keys
 import time
 
