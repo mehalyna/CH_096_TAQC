@@ -96,15 +96,20 @@ class BaseSetup():
 
         alert = f"Can't find element by locator {locator}"
         try:
-            element = WebDriverWait(self.driver, timeout)\
-                .until(EC.presence_of_element_located(locator),
-                       message=alert)
+            element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator),
+                                                                message=alert)
             text_get = element.text
             return text_get
         except TimeoutException:
             print(alert)
             return None
 
+    def get_list_element(self, ele_html: str, *locators):
+        '''ToDo Args: locator = tuple(By.selector, 'srt') '''
+        wait = WebDriverWait(self.driver, 10)
+        lst = (list(lst_cat.get_attribute(ele_html) for lst_cat in
+                    wait.until(EC.visibility_of_all_elements_located(*locators))))
+        return lst
 
 
 
