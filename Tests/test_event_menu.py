@@ -1,12 +1,13 @@
 from Tests.test_init import TestInit
-from Data.credentials import user, admin
+from Data.test_data import CreateEventData
 
 
 class TestCreateEvent(TestInit):
 
     def setUp(self):
         super().setUp()
-        self.exec.signin.enter_actor(user['email'], user['password'])
+        self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
+                                     CreateEventData.PASSWORD_USER)
         self.exec.navigation.click_on_profile()
 
 

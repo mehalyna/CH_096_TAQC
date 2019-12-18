@@ -28,6 +28,7 @@ class ContactUsData():
 
     DISCRIPTION = "very nice!!!"
 
+
 class ProfileMenuPageHeaderInfo:
 
     USER_NAME_LABEL = 'User Name:'
@@ -55,12 +56,12 @@ class ProfilePageEventsMenu:
     EVENTS_TO_GO = 'EVENTS TO GO'
     ADD_EVENT = 'ADD_EVENT'
 
-    pass
-
 
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
+    # ToDo
+
 ##
 #         # "Navigation menu..."
 #         'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),

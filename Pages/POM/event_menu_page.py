@@ -13,7 +13,7 @@ class EventsMenu:
         # ToDo count items at the panel
 
     def click_menu_item(self, item_name):
-        """Clicking an item using item_name (string type) which is selected from test_data.py
+        """Clicking on an item using item_name (string type) which is selected from test_data.py
          'FUTURE EVENTS'  'ARCHIVE EVENTS'  'VISITED EVENTS'  'ADD EVENT'
 
         The item_name is a key of dictionary of item locators
