@@ -148,7 +148,8 @@ class CartPanelsAtProfilePageLocators:
     # User
     locators_dict = {'CART_NTH': (By.CSS_SELECTOR, '.mt-2 .col-12:nth-child(3)'),
                      'BLANK_CART': (By.CSS_SELECTOR, '.w-100 .h1'),
-                     'CART_PANEL': (By.CSS_SELECTOR, '#main>.mt-2 .row:nth-child(1)')
+                     'CART_PANEL': (By.CSS_SELECTOR, '#main>.mt-2 .row:nth-child(1)'),
+                     'ADD_EVENT_CART_CLEAR_BUTTON': (By.CSS_SELECTOR, 'form button')
                      }
 
 

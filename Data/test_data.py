@@ -78,7 +78,7 @@ class HomePageOptionsPanel:
 class CartPanelsAtProfilePage:
     ''' Events menu -> panel(s) object locators testdata '''
     CART_NTH = 'CART_NTH'
-    BLANK_CART = 'BLANK_CART'
+    BLANK_CART = 'No Results'
     CART_PANEL = 'CART_PANEL'
 
 
