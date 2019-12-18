@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
 
+
 class LoginPageLocators:
     # button for opening form of authorization
     SIGNIN = (By.CLASS_NAME, 'MuiButton-label')
@@ -66,6 +67,8 @@ class ContactUsPageLocators():
     MES = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
     CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
     REQUIRED = (By.CSS_SELECTOR, 'p')
+    TYPE = (By.TAG_NAME, "select")
+    LIST = (By.CSS_SELECTOR, ".form-control")
 
 
 # displayed list of future events on home page
@@ -164,6 +167,17 @@ class CategoriesLocators:
     CAT = (By.XPATH,'//tr[3]/td[1]')
     ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
     ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
+
+class EditYourProfile:
+
+    EDIT_PROFILE = (By.CSS_SELECTOR, ':nth-child(1) > button')
+    CHANGE_AVATAR = (By.XPATH, '/html/body/div[1]/div[3]/div/div[1]/div[1]/div[1]/p')
+    CHANGE_USERNAME = (By.XPATH, '/html/body/div[1]/div[3]/div/div[2]/div[1]/div[1]/p[1]')
+    CHANGE_GENDER= (By.XPATH, '/html/body/div[1]/div[3]/div/div[3]/div[1]/div[1]/p[1]')
+    CHANGE_DATE_OF_BIRTH = (By.XPATH, '//*[@id="panel3bh-header"]/div[1]/p[1]')
+    CHANGE_FAVORITE_CATEGORIES= (By.XPATH, '//*[@id="panel4bh-header"]/div[1]/p[1]')
+    CHANGE_PASSWORD = (By.XPATH, '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
+
 
 
 
