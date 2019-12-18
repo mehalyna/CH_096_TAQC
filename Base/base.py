@@ -9,6 +9,7 @@ class BaseSetup():
     def __init__(self, driver):
         self.driver = driver
 
+
     def find_element(self, *locators):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(lambda driver: self.driver.find_element(*locators))
@@ -83,6 +84,27 @@ class BaseSetup():
         except TimeoutException:
             print(error_msg)
             return ''
+
+    def check_if_element_exists(self, locator, timeout=5):
+        ''' Check the text attribute for an element as a criteria of existence.
+        Args: locator = tuple(By.selector, 'srt')
+              waiting time = 10 # int()
+        Returns text of element on success within timeout interval or
+        an empty string and print a message for a raised exception.
+        Explicit Waits method is used.
+        '''
+
+        alert = f"Can't find element by locator {locator}"
+        try:
+            element = WebDriverWait(self.driver, timeout)\
+                .until(EC.presence_of_element_located(locator),
+                       message=alert)
+            text_get = element.text
+            return text_get
+        except TimeoutException:
+            print(alert)
+            return None
+
 
 
 

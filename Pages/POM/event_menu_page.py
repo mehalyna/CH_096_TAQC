@@ -1,15 +1,22 @@
-from Locators.locators import ProfilePageEventsMenuLocators
+from Locators.locators import ProfilePageEventsMenuLocators, CartPanelsAtProfilePageLocators
 
 
 class EventsMenu:
-    '''Page object for events menu'''
+    ''' Page object for events menu: ProfilePageEventsMenuLocators '''
     def __init__(self, browser):
-        self.locator = ProfilePageEventsMenuLocators.locators_dict  # dict to be implemented later ToDo
+        self.locator = ProfilePageEventsMenuLocators.locators_dict
         self.browser = browser
 
-    def count_event_menu_entries(self, container, item_name):
-        self.browser.click_on_element(self.locator[container])
-        lst = self.browser.find_elements(self.locator[item_name])
+    def element_at_menu_bar_is_present(self, item_name, timeout):
+        ''' Check the text attribute for an element as a criteria of existence '''
+        result = self.browser.check_if_element_exists(self.locator[item_name], timeout)
+        if result is not None:
+            return True
+
+
+    # def count_event_menu_entries(self, container, item_name):
+    #     self.browser.click_on_element(self.locator[container])
+    #     lst = self.browser.find_elements(self.locator[item_name])
         # ToDo count items at the panel
 
     def click_menu_item(self, item_name):
@@ -19,8 +26,19 @@ class EventsMenu:
         The item_name is a key of dictionary of item locators
         """
         # self.browser.click_on_element(self.locator.ARCHIVE_EVENTS)
+        self.browser.click_on_element(self.locator[item_name])
 
-        if item_name in self.locator.keys():
-            self.browser.click_on_element(self.locator[item_name])
+class EventsMenuCarts:
+    ''' CartPanelsAtProfilePageLocators '''
+    ''' Page object for events menu: ProfilePageEventsMenuLocators '''
 
+    def __init__(self, browser):
+        self.locator = CartPanelsAtProfilePageLocators.locators_dict
+        self.browser = browser
+
+    def element_at_menu_bar_is_present(self, item_name, timeout):
+        ''' Check the text attribute for an element as a criteria of existence '''
+        result = self.browser.check_if_element_exists(self.locator[item_name], timeout)
+        if result is not None:
+            return True
 

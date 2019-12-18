@@ -5,10 +5,12 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # HOME_URL = 'http://google.com'
-    HOME_URL = "http://localhost:49862/home/events?page=1"
-    #HOME_URL = "https://localhost:44364/home/events?page=1"
+    # HOME_URL = "http://localhost:49862/home/events?page=1"
+    # HOME_URL = "http://localhost:49862/home/events?page=1"
+    HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
+    # BROWSER = 'IE'
     # BROWSER = 'Opera'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
@@ -49,7 +51,8 @@ class ProfileMenuPageHeaderInfo:
 
 
 class ProfilePageEventsMenu:
-
+    ''' Testdata: Locators for event's menu.
+    class ProfilePageEventsMenuLocators'''
     FUTURE_EVENTS = 'FUTURE EVENTS'
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
@@ -73,6 +76,11 @@ class HomePageOptionsPanel:
 
 
 class CartPanelsAtProfilePage:
+    ''' Events menu -> panel(s) object locators testdata '''
+    CART_NTH = 'CART_NTH'
+    BLANK_CART = 'BLANK_CART'
+    CART_PANEL = 'CART_PANEL'
 
-    BLANK_CART = 'No Results'
-    CART_NTH = ''  # on mouse hover - tip arising
+
+    BLANK_CART_TEXT = 'No Results'
+    CART_NTH_ID = ''  # on mouse hover - tip arising
