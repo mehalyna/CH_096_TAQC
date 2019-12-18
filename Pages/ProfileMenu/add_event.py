@@ -1,5 +1,9 @@
 from Locators.locators import CreateEvent
 from Data.test_data import CreateEventData
+from selenium.webdriver.common.keys import Keys
+
+import random
+
 
 
 class CreateEvents():
@@ -21,7 +25,30 @@ class CreateEvents():
         self.browser.clean_element( self.locator.DESC_TEXT )
         self.browser.send_keys_to_element(self.locator.DESC_TEXT, data)
 
-    def add_categoty(self):
-        pass
+    # n - it's number of categories
+    # will be add. In test we must import module random
+    #adding will start after click on field category
+    def add_category(self, *locator_cat):
+        n = random.randint(1,4)
+        while n > 0:
+            lst = self.browser.get_list_element( "innerHTML", *locator_cat )
+            print(lst)
+            lst = random.choice(lst)
+            self.browser.send_keys_to_element(self.locator.CATEGORY, lst)
+            self.browser.send_keys_to_element( self.locator.CATEGORY, Keys.ENTER)
+            n -= 1
+
+
+
+
+
+
+
+
+
+        # num_of_categories = random.randint(1, n)
+        # category.send_keys( random.choice( lst_li ) )
+        # category.send_keys( Keys.ENTER )
+        # num_of_categories -= 1
 
 

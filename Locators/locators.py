@@ -156,6 +156,8 @@ class CreateEvent:
     # description about future event
     DESC_TEXT = (By.CSS_SELECTOR, "[name='description']")
     CATEGORY = (By.CSS_SELECTOR, ".rw-input-reset")
+    LST_CATEGORIES = (By.CSS_SELECTOR,".rw-popup-container ul > li")
+
 
 class CategoriesLocators:
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
