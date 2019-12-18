@@ -157,6 +157,10 @@ class CreateEvent:
     DESC_TEXT = (By.CSS_SELECTOR, "[name='description']")
     CATEGORY = (By.CSS_SELECTOR, ".rw-input-reset")
     LST_CATEGORIES = (By.CSS_SELECTOR,".rw-popup-container ul > li")
+    # country and city
+    COUNTRY_FIELD = (By.ID, 'age-native-simple')
+    COUNTRY = (By.NAME, "countryId")
+    CITY = (By.NAME, "cityId")
 
 
 class CategoriesLocators:

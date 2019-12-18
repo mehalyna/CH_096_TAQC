@@ -34,6 +34,13 @@ class TestCreateEvent(TestInit):
         self.exec.creat_event.add_category(self.locator.LST_CATEGORIES)
         self.exec.base.click_action(0,0)
 
+        self.exec.base.scroll_to_element(self.locator.CATEGORY)
+        # self.exec.base.click_on_element(self.locator.COUNTRY)
+        # self.exec.creat_event.select_country()
+        #
+        # self.exec.base.click_on_element( self.locator.CITY)
+        # self.exec.creat_event.select_city(self.locator.CITY)
+
 
 
 

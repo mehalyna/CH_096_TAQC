@@ -38,13 +38,19 @@ class BaseSetup( ):
         lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
         return lst
 
-    def select_element(self):
-        pass
 
     def scroll_to_element(self, *locators):
         element = self.find_element(*locators)
-        action = ActionChains(self.driver)
-        action.move_to_element(element).perform()
+        actions = ActionChains(self.driver)
+        e = actions.move_to_element(element)
+        e.perform()
+
+
+    def select_from_list_1(self, *locator_1):
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return choice
 
 
 
