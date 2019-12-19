@@ -8,29 +8,29 @@ import random
 
 
 
-class BaseSetup( ):
+class BaseSetup():
 
     def __init__(self, driver):
         self.driver = driver
 
     def find_element(self, *locators):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until( lambda driver: self.driver.find_element( *locators ) )
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
     def find_elements(self, *locators):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until( lambda driver: self.driver.find_elements( *locators ) )
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         return element
 
     def find_element_by_tag(self, tag):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until( lambda driver: self.driver.find_elements_by_tag_name( tag ) )
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
         return element
 
     def find_element_by_xpath(self, xpath):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until( lambda driver: self.driver.find_element_by_xpath( xpath ) )
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
 
@@ -56,49 +56,51 @@ class BaseSetup( ):
 
     def element_be_clickable(self, *locator):
         try:
-            wait = WebDriverWait( self.driver, 5 )
-            element = wait.until( EC.element_to_be_clickable( *locator ) )
+            wait = WebDriverWait(self.driver, 10)
+            element = wait.until(EC.element_to_be_clickable(*locator))
             return element
         except TimeoutException as e:
-            # print( 'Element is not clickable' )
+            print('Element is not clickable')
             return ''
 
     def click_on_element(self, locators):
-        element = self.find_element( *locators )
-        element.click( )
+        element = self.find_element(*locators)
+        element.click()
 
     def scroll_to_element(self, locators):
+        #doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
 
 
     def clean_element(self, locators):
-        element = self.find_element( *locators )
-        element.clear( )
+        element = self.find_element(*locators)
+        element.clear()
+
 
     def send_keys_to_element(self, locators, data):
-        element = self.find_element( *locators )
-        element.send_keys( data )
+        element = self.find_element(*locators)
+        element.send_keys(data)
 
     def upload_file(self, path, locators):
-        element = self.find_element( *locators )
-        element.send_keys( path )
+        element = self.find_element(locators)
+        element.send_keys(path)
 
     def get_element_text(self, locator):
-        element = self.find_element( *locator )
-        print( element.text )
+        element = self.find_element(*locator)
+        print(element.text)
         return element.text
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
         error_msg = "Text not found"
         try:
-            wait = WebDriverWait( self.driver, 5 )
-            text_get = wait.until( EC.text_to_be_present_in_element( *locators ), text )
+            wait = WebDriverWait(self.driver, 5)
+            text_get = wait.until(EC.text_to_be_present_in_element(*locators), text)
             return text_get
         except TimeoutException:
-            print( error_msg )
+            print(error_msg)
             return ''
 
     def check_if_element_exists(self, locator, timeout=5):
@@ -112,14 +114,25 @@ class BaseSetup( ):
 
         alert = f"Can't find element by locator {locator}"
         try:
-            element = WebDriverWait( self.driver, timeout ) \
-                .until( EC.presence_of_element_located( locator ),
-                        message=alert )
+            element = WebDriverWait(self.driver, timeout)\
+                .until(EC.presence_of_element_located(locator),
+                       message=alert)
             text_get = element.text
             return text_get
         except TimeoutException:
-            print( alert )
+            print(alert)
             return None
+
+
+
+
+
+
+
+
+
+
+
 
 
 

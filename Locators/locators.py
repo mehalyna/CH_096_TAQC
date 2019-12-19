@@ -85,6 +85,7 @@ class ComunaPageLocators():
 #profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
     ''' Profile page and menu locators '''
+    # ToDo the same as for NavigationMenuLocators class
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
 
 class ProfilePageEventsMenuLocators:
@@ -144,8 +145,14 @@ class HomePageOptionsPanelLocators:
 
 class CartPanelsAtProfilePageLocators:
     '''child(cart_index). cart_index = 0 - EMPTY; >0 carts'''
-    BLANK_CART = '.w-100 .h1'  # No Results
-    CART_NTH = '.mt-2 .col-12:nth-child(3)'
+    ''' Events menu object locators '''
+    # User
+    locators_dict = {'CART_NTH': (By.CSS_SELECTOR, '.mt-2 .col-12:nth-child(3)'),
+                     'BLANK_CART': (By.CSS_SELECTOR, '.w-100 .h1'),
+                     'CART_PANEL': (By.CSS_SELECTOR, '#main>.mt-2 .row:nth-child(1)'),
+                     'ADD_EVENT_CART_CLEAR_BUTTON': (By.CSS_SELECTOR, 'form button')
+                     }
+
 
 class CreateEvent:
     UPLOAD_PICTURE = (By.CSS_SELECTOR, ".placeholder-preview > input ")
