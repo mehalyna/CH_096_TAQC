@@ -26,6 +26,7 @@ class InitPagesDriver():
         self.prof_menu = ProfileMenu( self.base )
         self.creat_event = CreateEvents( self.base )
         # search event panel
+<<<<<<< HEAD
         self.search = SearchEventMenu( self.base )
         self.contact = ContactUs( self.base )
         self.event_menu = EventsMenu( self.base )
@@ -46,3 +47,9 @@ class InitPagesDriver():
     #     self.event_menu = EventsMenu(self.driver_init)
     #     self.event_carts = EventsMenuCarts(self.driver_init)
     #     self.comuna = ComunaClass(self.driver_init)
+=======
+        self.search = SearchEventMenu(self.base)
+        self.contact = ContactUs(self.base)
+        self.event_menu = EventsMenu(self.base)
+        # self.event_carts = EventsMenuCarts(self.base)
+>>>>>>> Unittest before move into PyTest
