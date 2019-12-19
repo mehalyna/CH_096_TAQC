@@ -18,6 +18,11 @@ class BaseSetup():
         element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
+    def find_elements(self, *locators):
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        return element
+
     def find_element_by_tag(self, tag):
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))

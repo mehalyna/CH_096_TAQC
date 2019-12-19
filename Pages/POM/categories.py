@@ -20,16 +20,18 @@ class Categories():
         self.browser.click_on_element(self.locator_categories.ADD_CATEGORY_BUTTON)
         self.browser.send_keys_to_element(self.locator_categories.ADD_CATEGORY_FIELD,category)
         self.browser.click_on_element(self.locator_categories.ADD_CATEGORY_CHECK)
+    
     def delete_category(self,category):
         #self.browser.find_element(*self.locator_categories.CAT)
         time.sleep(2)
-        lenth=len(self.browser.find_elements(*self.locator_categories.CATEGORIES))+1;
+        lenth=len(self.browser.find_elements(*self.locator_categories.CATEGORIES))+1
         print("\nDelete\nLenth=",lenth)
         for i in range(3,lenth):
             print("{}".format(i))
             print(self.browser.find_element_by_xpath("//tr["+str(i)+"]/td[1]").text)
             if self.browser.find_element_by_xpath("//tr["+str(i)+"]/td[1]").text==category:
                 self.browser.find_element_by_xpath("//*[@id='main']/div/table/tbody/tr["+str(i)+"]/td[5]").click()
+    
     def edit_category(self,category_old,category_new):
         time.sleep(2)
         lenth = len(self.browser.find_elements(*self.locator_categories.CATEGORIES)) + 1;
@@ -48,7 +50,7 @@ class Categories():
         time.sleep(2)
         #self.browser.find_element(*self.locator_categories.CAT)
         #lenth=len(self.browser.find_element_by_tag("tr"))+1;
-        lenth=len(self.browser.find_elements(*self.locator_categories.CATEGORIES))+1;
+        lenth=len(self.browser.find_elements(*self.locator_categories.CATEGORIES))+1
         print("\nCheck\nLenth=",lenth)
         for i in range(3,lenth):
             print("{}".format(i))
