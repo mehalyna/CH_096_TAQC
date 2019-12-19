@@ -77,3 +77,12 @@ class CartPanelsAtProfilePage:
 
     BLANK_CART = 'No Results'
     CART_NTH = ''  # on mouse hover - tip arising
+
+class EditProfileData:
+
+    USER_NAME = 'Tester'
+    CURRENT_PASS = '1qaz1qaz'
+    NEW_PASS = '2qaz2qaz'
+
+
+
