@@ -38,11 +38,19 @@ class CreateEvents():
             self.browser.send_keys_to_element( self.locator.CATEGORY, Keys.ENTER)
             n -= 1
 
-    def select_country(self):
-        self.browser.select_from_list_1(self.locator.COUNTRY)
+    def select_country(self, *locator):
+        country = self.browser.select_from_list(self.locator.COUNTRY)
+        confirm = self.browser.send_keys_to_element(*locator, country)
+        return confirm
 
-    def select_city(self):
-        self.browser.select_from_list_1( self.locator.CITY )
+    def select_city(self, *locator):
+        city = self.browser.select_from_list( self.locator.CITY )
+        confirm = self.browser.send_keys_to_element( *locator, city)
+        return confirm
+
+    def press_button_save(self):
+        self.browser.click_on_element(self.locator.SAVE)
+
 
 
 

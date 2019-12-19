@@ -4,8 +4,8 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
 import random
-from selenium.webdriver.common.keys import Keys
-import time
+
+
 
 
 class BaseSetup( ):
@@ -33,24 +33,18 @@ class BaseSetup( ):
         element = wait.until( lambda driver: self.driver.find_element_by_xpath( xpath ) )
         return element
 
-    # get list of elements li, tr ....
+
     def get_list_element(self, ele_html: str, *locators):
+        """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
         return lst
 
 
-    def scroll_to_element(self, *locators):
-        element = self.find_element(*locators)
-        actions = ActionChains(self.driver)
-        e = actions.move_to_element(element)
-        e.perform()
 
-
-    def select_from_list_1(self, *locator_1):
-        sel = self.find_element(*locator_1)
-        a = Select(sel)
-        choice = random.choice([c.text for c in a.options])
+    def select_from_list(self, locator_1):
+        sel = Select(self.find_element(*locator_1))
+        choice = random.choice([c.text for c in sel.options])
         return choice
 
 
@@ -62,16 +56,22 @@ class BaseSetup( ):
 
     def element_be_clickable(self, *locator):
         try:
-            wait = WebDriverWait( self.driver, 10 )
+            wait = WebDriverWait( self.driver, 5 )
             element = wait.until( EC.element_to_be_clickable( *locator ) )
             return element
         except TimeoutException as e:
-            print( 'Element is not clickable' )
+            # print( 'Element is not clickable' )
             return ''
 
     def click_on_element(self, locators):
         element = self.find_element( *locators )
         element.click( )
+
+    def scroll_to_element(self, locators):
+        element = self.find_element(*locators)
+        action = ActionChains(self.driver)
+        action.move_to_element(element).perform()
+
 
     def clean_element(self, locators):
         element = self.find_element( *locators )
@@ -100,3 +100,27 @@ class BaseSetup( ):
         except TimeoutException:
             print( error_msg )
             return ''
+
+    def check_if_element_exists(self, locator, timeout=5):
+        ''' Check the text attribute for an element as a criteria of existence.
+        Args: locator = tuple(By.selector, 'srt')
+              waiting time = 10 # int()
+        Returns text of element on success within timeout interval or
+        an empty string and print a message for a raised exception.
+        Explicit Waits method is used.
+        '''
+
+        alert = f"Can't find element by locator {locator}"
+        try:
+            element = WebDriverWait( self.driver, timeout ) \
+                .until( EC.presence_of_element_located( locator ),
+                        message=alert )
+            text_get = element.text
+            return text_get
+        except TimeoutException:
+            print( alert )
+            return None
+
+
+
+

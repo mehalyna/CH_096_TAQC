@@ -29,10 +29,11 @@ class NavigationMenuLocators:
     PROFILE = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(2)")
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
+    #selector if actor is USER
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
     CATEGORIES = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(5)")
     USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
-
+    EVENTS = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(7)")
 
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
@@ -161,6 +162,8 @@ class CreateEvent:
     COUNTRY_FIELD = (By.ID, 'age-native-simple')
     COUNTRY = (By.NAME, "countryId")
     CITY = (By.NAME, "cityId")
+    SAVE = (By.CSS_SELECTOR, "[type='Submit']")
+    SUCCESS_MSG = (By.ID, "client-snackbar")
 
 
 class CategoriesLocators:

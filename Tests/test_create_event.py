@@ -25,21 +25,29 @@ class TestCreateEvent(TestInit):
         self.exec.prof_menu.click_on_add_event()
         self.exec.creat_event.upload_image()
         self.exec.creat_event.add_title(self.event.TITLE)
-        self.text = self.event.DESCRIPTION['New Year'] # text for testing
-        self.text2 = '2'
+        self.text = self.event.DESCRIPTION['New Year'] # text add into description field for testing
         self.exec.creat_event.add_desc(self.text)
-        # self.assertTrue(self.exec.base.check_if_text_present(self.locator.DESC_TEXT, self.text)), "not equal"
+        self.text2 = 'hello'
+        self.assertFalse(self.exec.base.check_if_text_present(self.locator.DESC_TEXT, self.text2)), "not equal"
         # self.exec.base.get_element_text(self.locator.DESC_TEXT)
         self.exec.base.click_on_element(self.locator.CATEGORY)
         self.exec.creat_event.add_category(self.locator.LST_CATEGORIES)
         self.exec.base.click_action(0,0)
 
-        self.exec.base.scroll_to_element(self.locator.CATEGORY)
-        # self.exec.base.click_on_element(self.locator.COUNTRY)
-        # self.exec.creat_event.select_country()
-        #
-        # self.exec.base.click_on_element( self.locator.CITY)
-        # self.exec.creat_event.select_city(self.locator.CITY)
+        self.exec.base.scroll_to_element(self.locator.COUNTRY_FIELD)
+
+        self.exec.base.click_on_element(self.locator.COUNTRY_FIELD)
+
+
+        self.exec.creat_event.select_country(self.locator.COUNTRY_FIELD)
+
+        self.exec.base.click_on_element(self.locator.CITY)
+        self.exec.creat_event.select_city(self.locator.CITY)
+
+        # self.exec.creat_event.press_button_save()
+
+        # self.exec.base.check_if_element_exists(self.locator.SUCCESS_MSG)
+        # self.exec.base.get_element_text(self.locator.SUCCESS_MSG)
 
 
 
