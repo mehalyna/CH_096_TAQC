@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+from Tests.testinit import TestInit
+>>>>>>> pytest start
 from Data.credentials import user,admin
 import allure
 from selenium.common.exceptions import NoSuchElementException
