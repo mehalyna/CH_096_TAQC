@@ -13,7 +13,6 @@ class TestSearchEvent(TestInit):
 
 
     def test_search_event(self):
-        self.exec.search.type_in_search_field('Python')
-        self.exec.search.check_element()
+        self.exec.search.type_in_search_field('Python MeetUp')
         self.exec.search.click_button_search()
-        self.assertEqual(self.exec.search.check_element(), "Python MeetUp")
+        self.assertEqual(self.exec.search.check_name_event(), "Python MeetUp")

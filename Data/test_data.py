@@ -62,6 +62,8 @@ class ProfilePageEventsMenu:
     EVENTS_TO_GO = 'EVENTS TO GO'
     ADD_EVENT = 'ADD_EVENT'
 
+    pass
+
 
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
@@ -87,3 +89,16 @@ class CartPanelsAtProfilePage:
 
     BLANK_CART_TEXT = 'No Results'
     CART_NTH_ID = ''  # on mouse hover - tip arising
+
+class EditProfileData:
+
+    USER_NAME = 'Tester'
+    CURRENT_PASS = '1qaz1qaz'
+    NEW_PASS = '2qaz2qaz'
+
+
+
+
+class CategoriesPage:
+    category_old = 'Hello'
+    category_new = 'Hello1'
