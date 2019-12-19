@@ -8,7 +8,6 @@ class ProfileMenu:
         self.browser = browser
         self.locator = ProfileMenuLocators
 
-
     def click_on_add_event(self):
         self.browser.click_on_element(self.locator.ADD_EVENT)
 
