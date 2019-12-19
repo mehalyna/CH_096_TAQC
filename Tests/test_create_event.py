@@ -1,10 +1,14 @@
 from Data.credentials import user,admin
-from Data.test_data import CreateEventData as event
-from Locators.locators import CreateEvent as locator
+from Data.test_data import CreateEventData
+from Locators.locators import CreateEvent
 
 
-def test_create_event(app, screenshot_on_failure):
-    app.signin.enter_actor( admin['email'], admin['password'] )
+event = CreateEventData
+locator = CreateEvent
+
+
+def test_create_event(app):
+    app.signin.enter_actor( user['email'], user['password'] )
     app.navigation.click_on_profile( )
     app.prof_menu.click_on_add_event( )
     app.creat_event.upload_image( )

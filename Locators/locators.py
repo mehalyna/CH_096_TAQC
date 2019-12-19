@@ -102,15 +102,14 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'), # Whole panel
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]')
-    } # panel locator; ToDo
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR,'button[id*="full"]')
+    } # panel locator; items align? ToDo
     # # "Events groups menu..."
     #         'FUTURE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-1 > .MuiTab-wrapper"),
     #         'ARCHIVE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-2 > .MuiTab-wrapper"),
     #         'VISITED EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-3 > .MuiTab-wrapper"),
     #         'ADD EVENT': ('By.CSS_SELECTOR', "#full-width-tab-4 > .MuiTab-wrapper")
     # Admin ToDo
-
 
 class ProfileMenuPageHeaderInfoLocators:
     ''' Locators for user info page header (central header)'''

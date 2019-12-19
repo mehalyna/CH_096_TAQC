@@ -2,13 +2,12 @@
 .idea\*
 .idea/*
 .idea/
-*.$ml
 .vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-Reports_Allure
 
 # C extensions
 *.so

@@ -15,4 +15,4 @@ def test_search_event(app, screenshot_on_failure):
     #self.exec.search.click_to_categories()
     app.search.click_button_search()
     assert (app.search.check_name_event() == "test")
- 
+    #self.assertEqual(self.exec.search.check_name_event(), "test")
