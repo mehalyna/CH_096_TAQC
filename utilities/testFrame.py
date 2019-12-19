@@ -31,4 +31,4 @@ class InitPagesDriver():
         self.search = SearchEventMenu(self.base)
         self.contact = ContactUs(self.base)
         self.event_menu = EventsMenu(self.base)
-        self.event_carts = EventsMenuCarts(self.base)
+        # self.event_carts = EventsMenuCarts(self.base)
