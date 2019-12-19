@@ -104,10 +104,7 @@ class TestEventMenuTabsSwitch(TestInit):
         self.assertTrue(self.exec.event_carts.element_at_menu_bar_is_present(name, self.timeout))
         print(f"Menu tab {name}")
 
-
-        # self.exec.event_menu.click_menu_item(name)
-
-
+    # ToDo
     # def test_count_events_menu_buttons(self, container, item_name):
         # lst = self.exec.event_menu.count_event_menu_entries(container, item_name)
         # print(f'menu items = {len(lst)}')

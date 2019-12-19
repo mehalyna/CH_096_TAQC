@@ -35,19 +35,18 @@ class BaseSetup():
 
 
     def get_list_element(self, ele_html: str, *locators):
-        """get list of elements li, tr ...."""
+        """get list of elements li, tr ....
+            Args: locator = tuple(By.selector, 'str')
+        """
         wait = WebDriverWait(self.driver, 10)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in
+                    wait.until(EC.visibility_of_all_elements_located(*locators))))
         return lst
-
-
 
     def select_from_list(self, locator_1):
         sel = Select(self.find_element(*locator_1))
         choice = random.choice([c.text for c in sel.options])
         return choice
-
-
 
     def click_action(self, x, y):
         action = ActionChains(self.driver)
@@ -94,6 +93,12 @@ class BaseSetup():
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
+        ''' Usage:
+        self.error_str = "Failed"
+        self.assertTrue(self.exec.base.check_if_text_present(self.locator.MES, self.error_str)), "not equal"
+
+        where locator locator.MES is MES = (By.CSS_SELECTOR, 'css_string')'''
+
         error_msg = "Text not found"
         try:
             wait = WebDriverWait(self.driver, 5)
@@ -122,12 +127,6 @@ class BaseSetup():
             print(alert)
             return None
 
-    def get_list_element(self, ele_html: str, *locators):
-        '''ToDo Args: locator = tuple(By.selector, 'srt') '''
-        wait = WebDriverWait(self.driver, 10)
-        lst = (list(lst_cat.get_attribute(ele_html) for lst_cat in
-                    wait.until(EC.visibility_of_all_elements_located(*locators))))
-        return lst
 
 
 
