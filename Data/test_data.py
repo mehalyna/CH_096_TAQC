@@ -5,7 +5,7 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # HOME_URL = 'http://google.com'
-    HOME_URL = "http://localhost:49862/home/events?page=1"
+    HOME_URL = "http://localhost:57690/home/events?page=1"
     #HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
@@ -75,3 +75,7 @@ class CartPanelsAtProfilePage:
 
     BLANK_CART = 'No Results'
     CART_NTH = ''  # on mouse hover - tip arising
+
+class CategoriesPage:
+    category_old = 'Hello'
+    category_new = 'Hello1'
