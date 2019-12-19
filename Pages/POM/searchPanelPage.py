@@ -3,6 +3,9 @@ from Locators.locators import SearchEventPanelLocators
 
 
 class SearchEventMenu():
+    """
+    function for searching event on search panel
+    """
 
     def __init__(self, browser):
         self.browser = browser
@@ -35,6 +38,11 @@ class SearchEventMenu():
 
     def click_button_reset(self):
         self.browser.click_on_element(self.locator.BUTTON_RESET)
-    
-    def check_element(self):
+
+    def click_to_categories(self):
+        self.browser.click_on_element(self.locator.HASHTAGS_FIELD)
+        #self.browser.select_categoria_by_name(self.locator.HASHTAGS_SELECT, name)
+        self.browser.get_list_element("innerHTML",self.locator.HASHTAGS_SELECT)
+
+    def check_name_event(self):
         return self.browser.get_element_text(self.locator.FIELD_NAME_EVENT)

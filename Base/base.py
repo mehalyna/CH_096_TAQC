@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.webdriver.support.ui import Select
 import time
 
 
@@ -65,9 +66,10 @@ class BaseSetup():
         element.send_keys(path)
 
 
-    def element_be_clickable(self, *locator):
+    def element_be_clickable(self, *locator):4
         wait = WebDriverWait( self.driver, 10 )
         element = wait.until(EC.element_to_be_clickable(*locator))
+    
     def get_element_text(self, locator):
         element = self.find_element(*locator)
         print(element.text)
@@ -83,6 +85,21 @@ class BaseSetup():
         except TimeoutException:
             print(error_msg)
             return ''
+
+    def select_categoria_by_name(self, locator, text):
+        """get and click to field in dropdown menu"""
+        select = Select(self.driver.find_element(*locator))
+        elem = select.select_by_visible_text(text)
+        elem.click()
+
+
+    def get_list_element(self, ele_html: str, *locators):
+        wait = WebDriverWait(self.driver, 10)
+        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        print (lst)
+        return lst
+
+
 
 
 
