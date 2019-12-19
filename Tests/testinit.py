@@ -1,8 +1,6 @@
-# import unittest
 import pytest
 from selenium import webdriver
 from Driver.driver import Driver
-# from Driver.browser_setup import browser_setup
 from Data.test_data import Config
 from utilities.testFrame import InitPagesDriver
 import time  # ToDo
@@ -10,7 +8,7 @@ import time  # ToDo
 
 
 class TestInit():
-
+#https://dzone.com/articles/improve-your-selenium-webdriver-tests-with-pytest
     @pytest.fixture()
     def test_setup(self):
         self.driver = Driver(Config.BROWSER).set_browser()
