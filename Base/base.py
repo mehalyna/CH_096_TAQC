@@ -84,7 +84,7 @@ class BaseSetup():
         element.send_keys(data)
 
     def upload_file(self, path, locators):
-        element = self.find_element(locators)
+        element = self.find_element(*locators)
         element.send_keys(path)
 
     def get_element_text(self, locator):
