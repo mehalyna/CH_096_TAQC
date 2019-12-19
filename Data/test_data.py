@@ -83,3 +83,7 @@ class EditProfileData:
 
 
 
+
+class CategoriesPage:
+    category_old = 'Hello'
+    category_new = 'Hello1'

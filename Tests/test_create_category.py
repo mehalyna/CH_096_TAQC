@@ -1,6 +1,6 @@
 from Tests.test_init import TestInit
 from Data.credentials import user,admin
-
+from Data.test_data import CategoriesPage
 
 
 
@@ -16,7 +16,7 @@ class TestCreateCategory(TestInit):
 
 
     def test_create_category(self):
-        self.category='hello'
+        self.category=CategoriesPage.category_old
         self.exec.navigation.click_on_categories()
         self.exec.categories.add_category(self.category)
         test=self.exec.categories.check_category_added(self.category)
