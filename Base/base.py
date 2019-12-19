@@ -87,7 +87,7 @@ class BaseSetup():
 
     def check_if_element_exists(self, locator, timeout=5):
         ''' Check the text attribute for an element as a criteria of existence.
-        Args: locator = tuple(By.selector, 'srt')
+        Args: locator = tuple(By.selector, 'str')
               waiting time = 10 # int()
         Returns text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
