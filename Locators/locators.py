@@ -77,8 +77,8 @@ class HomePageLocators:
 class ComunaPageLocators():
 
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
-    SEND_MESSAGE = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
-    SEND = (By.CSS_SELECTOR, '.MuiButton-label')
+    SEND_MESSAGE_FIELD = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
+    SEND_BUTTON = (By.CSS_SELECTOR, '.MuiButton-label')
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
