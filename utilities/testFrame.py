@@ -14,7 +14,7 @@ from Pages.POM.contact_us_page import ContactUs
 #create class with init driver for testing
 #  ToDo BaseApp example analog
 class InitPagesDriver():
-
+    '''Instantiating a class by making a composition'''
 
     def __init__(self, driver_init):
         self.driver_init = driver_init
@@ -30,4 +30,4 @@ class InitPagesDriver():
         self.search = SearchEventMenu(self.base)
         self.contact = ContactUs(self.base)
         self.event_menu = EventsMenu(self.base)
-        self.event_carts = EventsMenuCarts(self.base)
+        # self.event_carts = EventsMenuCarts(self.base)

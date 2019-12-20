@@ -30,10 +30,11 @@ class NavigationMenuLocators:
     PROFILE = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(2)")
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
+    #selector if actor is USER
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
     CATEGORIES = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(5)")
     USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
-
+    EVENTS = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(7)")
 
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
@@ -97,14 +98,15 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'), # Whole panel
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR,'button[id*="full"]')
-    } # panel locator; items align? ToDo
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]')
+    } # panel locator; ToDo
     # # "Events groups menu..."
     #         'FUTURE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-1 > .MuiTab-wrapper"),
     #         'ARCHIVE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-2 > .MuiTab-wrapper"),
     #         'VISITED EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-3 > .MuiTab-wrapper"),
     #         'ADD EVENT': ('By.CSS_SELECTOR', "#full-width-tab-4 > .MuiTab-wrapper")
     # Admin ToDo
+
 
 class ProfileMenuPageHeaderInfoLocators:
     ''' Locators for user info page header (central header)'''
@@ -164,6 +166,14 @@ class CreateEvent:
     # description about future event
     DESC_TEXT = (By.CSS_SELECTOR, "[name='description']")
     CATEGORY = (By.CSS_SELECTOR, ".rw-input-reset")
+    LST_CATEGORIES = (By.CSS_SELECTOR,".rw-popup-container ul > li")
+    # country and city
+    COUNTRY_FIELD = (By.ID, 'age-native-simple')
+    COUNTRY = (By.NAME, "countryId")
+    CITY = (By.NAME, "cityId")
+    SAVE = (By.CSS_SELECTOR, "[type='Submit']")
+    SUCCESS_MSG = (By.ID, "client-snackbar")
+
 
 class CategoriesLocators:
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')

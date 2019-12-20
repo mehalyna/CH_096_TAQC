@@ -1,11 +1,27 @@
-from Tests.test_init import TestInit
-from Data.test_data import CreateEventData, CartPanelsAtProfilePage
-
+import pytest
+from Driver.driver import Driver
+from Tests.testinit import TestInit
+from Data.test_data import CreateEventData
+from Data.test_data import Config
+from utilities.testFrame import InitPagesDriver
+import time
 
 class TestEventMenuTabsCheck(TestInit):
 
-    def setUp(self):
-        super().setUp()
+    @pytest.fixture
+    def test_setup(self):
+        self.driver = Driver(Config.BROWSER).set_browser()
+        self.driver.delete_all_cookies()
+        self.driver.maximize_window()
+        self.driver.implicitly_wait(10)
+        self.driver.get(Config.HOME_URL)
+        self.exec = InitPagesDriver(self.driver)
+        #
+        # yield
+        # time.sleep(3)  # ToDo
+        # self.driver.close()
+        # self.driver.quit()
+
         self.timeout = 0
 
     def test_event_menu_1(self, name='FUTURE EVENTS'):
