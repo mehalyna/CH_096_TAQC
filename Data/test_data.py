@@ -13,8 +13,6 @@ class Config:
     # HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
-    # BROWSER = 'IE'
-    # BROWSER = 'Opera'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 class CreateEventData():
