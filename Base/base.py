@@ -98,9 +98,7 @@ class BaseSetup():
         element.send_keys(path)
 
 
-    def element_be_clickable(self, *locator):
-        wait = WebDriverWait( self.driver, 10 )
-        element = wait.until(EC.element_to_be_clickable(*locator))
+
 
     def get_element_text(self, locator):
         element = self.find_element(*locator)
@@ -139,27 +137,12 @@ class BaseSetup():
             return None
 
 
-
-
-
-
-    def select_from_list(self, locator_1):
-        sel = self.find_element(*locator_1)
-        a = Select(sel)
-        choice = random.choice([c.text for c in a.options])
-        return a.select_by_visible_text(choice)
-
     def select_categoria_by_name(self, locator, text):
         """get and click to field in dropdown menu"""
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
 
-    def get_list_element(self, ele_html: str, *locators):
-        wait = WebDriverWait(self.driver, 10)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
-        print (lst)
-        return lst
 
 
 
