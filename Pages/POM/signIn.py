@@ -20,6 +20,7 @@ class SignInUpClass():
         self.browser.clean_element(self.locator_login.PASSWORD)
         self.browser.send_keys_to_element(self.locator_login.PASSWORD,password)
         self.browser.click_on_element(self.locator_login.BUTTON_SIGIN)
+        print ('Login OK')
 
 #on home page button for opening form with registration & login
     def click_sign_in_up(self):

@@ -21,6 +21,7 @@ class TestContactUs(TestInit):
     def test_contact_us(self):
         self.exec.signin.enter_actor(user['email'],user['password'])
         self.exec.navigation.click_on_contact_us()
+        self.exec.base.element_be_clickable(self.locator.SUBMIT)
         self.exec.contact.click_on_desc()
         self.exec.navigation.click_on_contact_us()
         self.mes = "Required"
