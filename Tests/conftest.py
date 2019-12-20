@@ -12,9 +12,8 @@ from utilities.start import InstantiatePages
 #     # driver.maximize_window()
 #     driver.implicitly_wait(10)
 #     driver.get(Config.HOME_URL)
-#     # timeout = 2  # timeout
 #     yield driver
-#     time.sleep(3)  # ToDo
+#     time.sleep(3)
 #     driver.close()
 #     driver.quit()
 #     # self.timeout = 0

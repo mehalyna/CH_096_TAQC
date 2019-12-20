@@ -11,11 +11,8 @@ from Pages.POM.event_menu_page import EventsMenu
 from Pages.POM.contact_us_page import ContactUs
 
 
-
-#create class with init driver for testing
-
 class InstantiatePages():
-
+    '''Instantiating a class by making a composition'''
 
     def __init__(self, driver_init):
         self.driver_init = driver_init
