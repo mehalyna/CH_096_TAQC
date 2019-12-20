@@ -4,7 +4,8 @@ import time
 from Driver.driver import Driver
 from Data.test_data import CreateEventData
 from Data.test_data import Config
-from utilities.testFrame import InitPagesDriver
+from utilities.start import InstantiatePages
+
 
 class TestEventMenuTabsCheck():
 
@@ -16,12 +17,13 @@ class TestEventMenuTabsCheck():
         self.driver.implicitly_wait(10)
         self.driver.get(Config.HOME_URL)
         self.timeout = 2  # timeout
-        self.exec = InitPagesDriver(self.driver)
+        self.exec = InstantiatePages(self.driver)
         yield self.driver
         time.sleep(3)  # ToDo
         self.driver.close()
         self.driver.quit()
         # self.timeout = 0
+
 
     def test_event_menu_1(self, driver, name='FUTURE EVENTS'):
         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,

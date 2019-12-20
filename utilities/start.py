@@ -1,4 +1,4 @@
-from Base.base import BaseSetup
+from Base.base_page import BasePage
 from Pages.POM.auth import Auth
 from Pages.POM.signIn import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
@@ -14,12 +14,12 @@ from Pages.POM.contact_us_page import ContactUs
 
 #create class with init driver for testing
 
-class InitPagesDriver():
+class InstantiatePages():
 
 
     def __init__(self, driver_init):
         self.driver_init = driver_init
-        self.base = BaseSetup(self.driver_init)
+        self.base = BasePage(self.driver_init)
         self.auth = Auth(self.base)
         self.signin = SignInUpClass(self.base)
         self.navigation = NavigationMenu(self.base)
