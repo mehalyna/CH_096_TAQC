@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
 
+
 class LoginPageLocators:
     # button for opening form of authorization
     SIGNIN = (By.CLASS_NAME, 'MuiButton-label')
