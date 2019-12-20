@@ -1,18 +1,9 @@
-from Tests.test_init import TestInit
 from Data.credentials import user,admin
 
+def test_login(app):
+    app.signin.enter_actor(admin['email'],admin['password'])
 
 
-
-
-class TestSearchEvent(TestInit):
-
-    def setUp(self):
-        super().setUp()
-        self.exec.signin.enter_actor(admin['email'],admin['password'])
-
-
-    def test_search_event(self):
-        self.exec.search.type_in_search_field('Python MeetUp')
-        self.exec.search.click_button_search()
-        self.assertEqual(self.exec.search.check_name_event(), "Python MeetUp")
+def test_search_event(app):
+    app.search.type_in_search_field('Python MeetUp')
+    app.search.click_button_search()
