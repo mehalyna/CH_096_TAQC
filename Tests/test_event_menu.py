@@ -1,42 +1,41 @@
 import pytest
+import time
+
 from Driver.driver import Driver
-from Tests.testinit import TestInit
 from Data.test_data import CreateEventData
 from Data.test_data import Config
 from utilities.testFrame import InitPagesDriver
-import time
 
-class TestEventMenuTabsCheck(TestInit):
+class TestEventMenuTabsCheck():
 
-    @pytest.fixture
-    def test_setup(self):
+    @pytest.fixture()
+    def driver(self):
         self.driver = Driver(Config.BROWSER).set_browser()
         self.driver.delete_all_cookies()
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
         self.driver.implicitly_wait(10)
         self.driver.get(Config.HOME_URL)
+        self.timeout = 2  # timeout
         self.exec = InitPagesDriver(self.driver)
-        #
-        # yield
-        # time.sleep(3)  # ToDo
-        # self.driver.close()
-        # self.driver.quit()
+        yield self.driver
+        time.sleep(3)  # ToDo
+        self.driver.close()
+        self.driver.quit()
+        # self.timeout = 0
 
-        self.timeout = 0
-
-    def test_event_menu_1(self, name='FUTURE EVENTS'):
+    def test_event_menu_1(self, driver, name='FUTURE EVENTS'):
         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
                                      CreateEventData.PASSWORD_USER)
         self.exec.navigation.click_on_profile()
         assert self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout)
         print(f"Menu tab {name} is in the tab")
 
-#     def test_event_menu_2(self, name='ARCHIVE EVENTS'):
-#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
-#                                      CreateEventData.PASSWORD_USER)
-#         self.exec.navigation.click_on_profile()
-#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
-#         print(f"Menu tab {name} is in the tab")
+    def test_event_menu_2(self, driver, name='ARCHIVE EVENTS'):
+        self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
+                                     CreateEventData.PASSWORD_USER)
+        self.exec.navigation.click_on_profile()
+        assert self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout)
+        print(f"Menu tab {name} is in the tab")
 #
 #
 #     def test_event_menu_3(self, name='VISITED EVENTS'):
