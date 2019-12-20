@@ -4,12 +4,13 @@ from Locators.locators import RegisterLocators
 
 
 
-
 class TestRegister(TestInit):
 
     def setUp(self):
         super().setUp()
         self.locator_reg = RegisterLocators
+
+
 
 
     def test_register_user_clickable_clear(self):
@@ -20,6 +21,4 @@ class TestRegister(TestInit):
 
 
 
-if __name__== '__main__':
-    TestInit.run()
 

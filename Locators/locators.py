@@ -30,10 +30,11 @@ class NavigationMenuLocators:
     PROFILE = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(2)")
     SEARCH_USER = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(3)")
     COMUNA = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(4)")
+    #selector if actor is USER
     CONTACT_US = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(5)")
     CATEGORIES = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(5)")
     USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
-
+    EVENTS = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(7)")
 
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
@@ -81,14 +82,15 @@ class HomePageLocators:
 class ComunaPageLocators():
 
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
-    SEND_MESSAGE = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
-    SEND = (By.CSS_SELECTOR, '.MuiButton-label')
+    SEND_MESSAGE_FIELD = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
+    SEND_BUTTON = (By.CSS_SELECTOR, '.MuiButton-label')
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
 #profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
     ''' Profile page and menu locators '''
+    # ToDo the same as for NavigationMenuLocators class
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
 
 class ProfilePageEventsMenuLocators:
@@ -148,8 +150,14 @@ class HomePageOptionsPanelLocators:
 
 class CartPanelsAtProfilePageLocators:
     '''child(cart_index). cart_index = 0 - EMPTY; >0 carts'''
-    BLANK_CART = '.w-100 .h1'  # No Results
-    CART_NTH = '.mt-2 .col-12:nth-child(3)'
+    ''' Events menu object locators '''
+    # User
+    locators_dict = {'CART_NTH': (By.CSS_SELECTOR, '.mt-2 .col-12:nth-child(3)'),
+                     'BLANK_CART': (By.CSS_SELECTOR, '.w-100 .h1'),
+                     'CART_PANEL': (By.CSS_SELECTOR, '#main>.mt-2 .row:nth-child(1)'),
+                     'ADD_EVENT_CART_CLEAR_BUTTON': (By.CSS_SELECTOR, 'form button')
+                     }
+
 
 class CreateEvent:
     UPLOAD_PICTURE = (By.CSS_SELECTOR, ".placeholder-preview > input ")
@@ -161,6 +169,14 @@ class CreateEvent:
     # description about future event
     DESC_TEXT = (By.CSS_SELECTOR, "[name='description']")
     CATEGORY = (By.CSS_SELECTOR, ".rw-input-reset")
+    LST_CATEGORIES = (By.CSS_SELECTOR,".rw-popup-container ul > li")
+    # country and city
+    COUNTRY_FIELD = (By.ID, 'age-native-simple')
+    COUNTRY = (By.NAME, "countryId")
+    CITY = (By.NAME, "cityId")
+    SAVE = (By.CSS_SELECTOR, "[type='Submit']")
+    SUCCESS_MSG = (By.ID, "client-snackbar")
+
 
 class CategoriesLocators:
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
