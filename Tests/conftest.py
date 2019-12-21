@@ -25,9 +25,10 @@ def app(driver_init):
     driver_init.quit()
 
 
-
+"""
 @pytest.fixture(scope='function')
 def get_to_user_profile(app):
     app.signin.enter_actor(admin['email'],admin['password'])
+"""
 
 
