@@ -9,6 +9,7 @@ from Pages.ProfileMenu.add_event import CreateEvents
 from Pages.POM.event_menu_page import EventsMenu
 # EventsMenuCarts
 from Pages.POM.contact_us_page import ContactUs
+from Pages.POM.linkedin_page_tmp_boris import SignLinkedInClass
 
 
 
@@ -32,3 +33,4 @@ class InitPagesDriver():
         self.contact = ContactUs(self.base)
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
+        self.linked = SignLinkedInClass(self.base)
