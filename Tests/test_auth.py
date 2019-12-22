@@ -4,6 +4,7 @@ import allure
 from Locators.locators import NavigationMenuLocators
 from allure_commons.types import AttachmentType
 
+
 locator = NavigationMenuLocators
 
 def credentials():
@@ -11,8 +12,8 @@ def credentials():
     return lst
 
 
-
-# @pytest.mark.parametrize('data',credentials())
+@allure
+@pytest.mark.parametrize('data',credentials())
 def test_authorization(app,data):
     app.auth.click_on_login_button()
     app.auth.clean_login_field( )
@@ -20,10 +21,11 @@ def test_authorization(app,data):
     app.auth.clean_password_field( )
     app.auth.type_pass(data[1])
     app.auth.press_button_signin( )
-    try:
-        assert app.base.click_to_element(locator.Home)
-    except:
-        print('Fuc*')
+    assert app.base.click_to_element( locator.Home )
+    # try:
+    #     assert app.base.click_to_element(locator.Home)
+    # except:
+    #     print('Fuc*')
 
 
 
