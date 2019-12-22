@@ -22,7 +22,7 @@ def driver_init():
 def app(driver_init):
     init_pages = InitPagesDriver(driver_init)
     yield init_pages
-    driver_init.quit()
+    #driver_init.quit()
 
 
 """
