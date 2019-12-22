@@ -1,24 +1,31 @@
-from Tests.test_init import TestInit
+from Data.credentials import user,admin
+import pytest
+import allure
+from Locators.locators import NavigationMenuLocators
+from allure_commons.types import AttachmentType
 
-from Data.credentials import user
+locator = NavigationMenuLocators
+
+def credentials():
+    lst = [[user['email'],user['password']],[admin['email'],admin['password']]]
+    return lst
 
 
 
-class TestLogin(TestInit):
+# @pytest.mark.parametrize('data',credentials())
+def test_authorization(app,data):
+    app.auth.click_on_login_button()
+    app.auth.clean_login_field( )
+    app.auth.type_login(data[0])
+    app.auth.clean_password_field( )
+    app.auth.type_pass(data[1])
+    app.auth.press_button_signin( )
+    try:
+        assert app.base.click_to_element(locator.Home)
+    except:
+        print('Fuc*')
 
-    def setUp(self):
-        # to call the setUp() method of base class or super class.
-        super().setUp()
 
-
-
-    def test_authorization(self):
-        self.exec.auth.click_on_login_button()
-        self.exec.auth.clean_login_field()
-        self.exec.auth.type_login( user['email'])
-        self.exec.auth.clean_password_field( )
-        self.exec.auth.type_pass(user['password'])
-        self.exec.auth.press_button_signin()
 
 
 

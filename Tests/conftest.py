@@ -7,7 +7,7 @@ from utilities.testFrame import InitPagesDriver
 
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def driver_init():
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()

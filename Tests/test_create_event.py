@@ -1,11 +1,11 @@
 from Data.credentials import user,admin
 from Data.test_data import CreateEventData
 from Locators.locators import CreateEvent
+import allure
 
 
 event = CreateEventData
 locator = CreateEvent
-
 
 def test_create_event(app):
     app.signin.enter_actor( user['email'], user['password'] )
@@ -30,6 +30,7 @@ def test_create_event(app):
 
     app.base.click_on_element( locator.CITY )
     app.creat_event.select_city(locator.CITY)
+
 
     # app.creat_event.press_button_save( )
     #
