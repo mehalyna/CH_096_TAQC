@@ -16,12 +16,12 @@ def driver():
     adriver.get(Config.HOME_URL)
     timeout = 1  # timeout
     # do instantiate all classes
-    exec = InstantiatePages(adriver)
+    obj = InstantiatePages(adriver)
     # do login
-    exec.signin.enter_actor(CreateEventData.LOGIN_USER,
+    obj.signin.enter_actor(CreateEventData.LOGIN_USER,
                                  CreateEventData.PASSWORD_USER)
     # go to Profile page
-    exec.navigation.click_on_profile()
+    obj.navigation.click_on_profile()
 
     yield adriver
     time.sleep(3)  # ToDo
@@ -29,8 +29,26 @@ def driver():
     adriver.quit()
     # self.timeout = 0
 
+'''
+@pytest.fixture(scope='function')
+def get_driver():
+    print('===============setUp===================')
+    driver = Driver(Config.BROWSER).set_browser()
+    driver.delete_all_cookies()
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    driver.get(Config.HOME_URL)
+    obj = BaseSetup(driver)
+    return obj
 
-# @pytest.fixture()
-# def event(adriver):
-#     selenium_test_base = InstantiatePages(driver)
-#     yield selenium_test_base
+    # def teardown_module(self):
+    #     print('===============teardown===================')
+    #     time.sleep(3)  # ToDo
+    #     driver.close()
+    #     driver.quit()
+
+@pytest.fixture(scope='function')
+def event(get_driver):
+    event_init = InitPagesDriver(get_driver)
+    return event_init
+'''

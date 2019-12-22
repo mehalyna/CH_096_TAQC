@@ -1,21 +1,21 @@
-import pytest
-import time
-
-from Driver.driver import Driver
-from Data.test_data import CreateEventData
-from Data.test_data import Config
-from utilities.start import InstantiatePages
+from Data.test_data import CreateEventData, CartPanelsAtProfilePage
 
 
 class TestEventMenuTabsCheck():
 
-    def test_event_menu_1(self, driver, name='FUTURE EVENTS'):
-        assert self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout)
+    def test_event_menu_1(event, name='FUTURE EVENTS'):
+        event.signin.enter_actor(CreateEventData.LOGIN_USER,
+                                     CreateEventData.PASSWORD_USER)
+        event.navigation.click_on_profile()
+        assert event.event_menu.element_at_menu_bar_is_present(name, timeout=0)
         print(f"Menu tab {name} is in the tab")
 
-    def test_event_menu_2(self, driver, name='ARCHIVE EVENTS'):
-        assert self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout)
-        print(f"Menu tab {name} is in the tab")
+#     def test_event_menu_2(self, name='ARCHIVE EVENTS'):
+#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
+#                                      CreateEventData.PASSWORD_USER)
+#         self.exec.navigation.click_on_profile()
+#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
+#         print(f"Menu tab {name} is in the tab")
 #
 #
 #     def test_event_menu_3(self, name='VISITED EVENTS'):
@@ -104,5 +104,3 @@ class TestEventMenuTabsCheck():
         # lst = self.exec.event_menu.count_event_menu_entries(container, item_name)
         # print(f'menu items = {len(lst)}')
         # pass
-if __name__ == '__main__':
-    pytest.main()
