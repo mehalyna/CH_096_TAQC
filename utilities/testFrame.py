@@ -1,4 +1,4 @@
-from Base.base import BaseSetup
+# from Base.base import BaseSetup
 from Pages.POM.auth import Auth
 from Pages.POM.signIn import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
@@ -12,13 +12,17 @@ from Pages.POM.contact_us_page import ContactUs
 from Pages.POM.linkedin_page_tmp_boris import SignLinkedInClass
 
 
-class InitPagesDriver():
+class InitPages():
     '''Instantiating a class by making a composition'''
 
     def __init__(self, driver):
         # self.driver_init = driver
+
         self.base = driver
         # self.base = BaseSetup(self.driver_init)
+        # The BaseSetup doesn't logically belong to Pages by functionality.
+        # It's closer to driver as it is a Selenium wrapper.
+
         self.auth = Auth(self.base)
         self.signin = SignInUpClass(self.base)
         self.navigation = NavigationMenu(self.base)
@@ -29,6 +33,9 @@ class InitPagesDriver():
         # search event panel
         self.search = SearchEventMenu(self.base)
         self.contact = ContactUs(self.base)
+        # events menu at navigation menu --> profile page
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
+        # just a stub for use in case of lack of testing eventExpress web app.
+        # To be deleted on finishing the project debugging
         self.linked = SignLinkedInClass(self.base)

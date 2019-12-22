@@ -9,8 +9,9 @@ class LoginPageLocators:
     PASSWORD = (By.ID, 'password')
     BUTTON_SIGIN = (By.CSS_SELECTOR, 'button[aria-label*="Sign"]')
 
+
 class SignLinkedInClass():
-    ''' ToDo boris Temporary stub to debug the project without access to eventExpress'''
+    ''' ToDo boris' Temporary stub to debug the project without access to the eventExpress'''
 
     def __init__(self, browser):
         self.browser = browser
@@ -24,3 +25,7 @@ class SignLinkedInClass():
 
     def press_button_signin(self):
         self.browser.click_on_element(self.locator.BUTTON_SIGIN)
+
+    @property
+    def title(self):
+        return self.browser.get_page_title()

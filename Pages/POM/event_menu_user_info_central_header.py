@@ -1,6 +1,6 @@
 from Locators.locators import ProfileMenuPageHeaderInfoLocators
 
-from Base.base_page import BasePage
+from Base.base import BasePage
 
 
 class ProfileEventsCentralHeaderUserInfo():

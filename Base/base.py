@@ -6,10 +6,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 
 
-class BasePage():
+class BaseSetup:
 
-    def __init__(self, driver):
-        self.driver = driver
+    def __init__(self, event):
+        self.driver = event
+
+
+    def get_page_title(self):
+        return self.driver.title
 
     def find_element(self, *locators):
         wait = WebDriverWait(self.driver, 10)
@@ -124,9 +128,6 @@ class BasePage():
         except TimeoutException:
             print(alert)
             return None
-
-
-
 
 
 
