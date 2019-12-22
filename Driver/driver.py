@@ -1,9 +1,7 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.microsoft import IEDriverManager
 
 
+path = "D:\EventExpress\CH_096_TAQC\Driver\geckodriver.exe"
 class Driver:
     '''Provides automatically manage of drivers for different browsers'
     https://pypi.org/project/webdriver-manager/
@@ -21,7 +19,7 @@ class Driver:
 
     def set_browser(self):
         if self.browser.lower() == "firefox":
-            return webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            return webdriver.Firefox(executable_path= path)
         elif self.browser.lower() == "chrome":
             return webdriver.Chrome(ChromeDriverManager().install())
         elif self.browser.lower() == "ie":

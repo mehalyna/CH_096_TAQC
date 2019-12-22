@@ -9,10 +9,14 @@ import random
 
 
 
+
 class BaseSetup():
 
     def __init__(self, driver):
         self.driver = driver
+
+    def screenshot_allure(self):
+        self.driver.get_screenshot_as_png()
 
     def find_element(self, *locators):
         wait = WebDriverWait(self.driver, 10)
@@ -142,6 +146,8 @@ class BaseSetup():
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
+
+
 
 
 

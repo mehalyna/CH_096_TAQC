@@ -11,8 +11,9 @@ def credentials():
     lst = [[user['email'],user['password']],[admin['email'],admin['password']]]
     return lst
 
-
-@allure
+@allure.feature('Login User')
+@allure.story('"Actors" login to site EventExpress ')
+@allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize('data',credentials())
 def test_authorization(app,data):
     app.auth.click_on_login_button()
@@ -21,11 +22,11 @@ def test_authorization(app,data):
     app.auth.clean_password_field( )
     app.auth.type_pass(data[1])
     app.auth.press_button_signin( )
-    assert app.base.click_to_element( locator.Home )
-    # try:
-    #     assert app.base.click_to_element(locator.Home)
-    # except:
-    #     print('Fuc*')
+    try:
+        assert app.base.click_to_element(locator.Home)
+    except:
+        allure.attach(app.base.screenshot_allure(), name='testLoginScreen',
+                      attachment_type=AttachmentType.PNG)
 
 
 
