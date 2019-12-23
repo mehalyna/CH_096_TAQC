@@ -1,4 +1,4 @@
-from Tests.test_init import TestInit
+from Tests.conftest import TestInit
 from Locators.locators import RegisterLocators
 
 

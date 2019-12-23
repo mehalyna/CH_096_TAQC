@@ -1,4 +1,4 @@
-from Tests.test_init import TestInit
+from Tests.conftest import TestInit
 from Data.credentials import user,admin
 from Data.test_data import CategoriesPage
 
