@@ -5,8 +5,12 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # HOME_URL = 'http://google.com'
-    HOME_URL = "http://localhost:57690/home/events?page=1"
-    #HOME_URL = "https://localhost:44364/home/events?page=1"
+    # HOME_URL = "http://localhost:3183/home/events?page=1"
+    # HOME_URL = "https://localhost:44364/home/events?page=1"
+    # HOME_URL = "http://localhost:3183/home/events?page=1"
+    HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
+    # HOME_URL = "http://localhost:49862/home/events?page=1"
+    # HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -26,6 +30,7 @@ class CreateEventData():
 class ContactUsData():
 
     DISCRIPTION = "very nice!!!"
+
 
 class ProfileMenuPageHeaderInfo:
 
@@ -47,7 +52,8 @@ class ProfileMenuPageHeaderInfo:
 
 
 class ProfilePageEventsMenu:
-
+    ''' Testdata: Locators for event's menu.
+    class ProfilePageEventsMenuLocators'''
     FUTURE_EVENTS = 'FUTURE EVENTS'
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
@@ -60,6 +66,8 @@ class ProfilePageEventsMenu:
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
+    # ToDo
+
 ##
 #         # "Navigation menu..."
 #         'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
@@ -71,9 +79,14 @@ class HomePageOptionsPanel:
 
 
 class CartPanelsAtProfilePage:
-
+    ''' Events menu -> panel(s) object locators testdata '''
+    CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
-    CART_NTH = ''  # on mouse hover - tip arising
+    CART_PANEL = 'CART_PANEL'
+
+
+    BLANK_CART_TEXT = 'No Results'
+    CART_NTH_ID = ''  # on mouse hover - tip arising
 
 class EditProfileData:
 

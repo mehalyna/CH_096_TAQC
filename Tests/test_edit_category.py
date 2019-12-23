@@ -1,35 +1,24 @@
-from Tests.conftest import TestInit
 from Data.credentials import user,admin
 from Data.test_data import CategoriesPage
 
 
+def test_edit_category(app):
+    category_old = CategoriesPage.category_old
+    category_new = CategoriesPage.category_new
+    app.signin.enter_actor(admin['email'], admin['password'])
+    app.navigation.click_on_categories()
+    app.categories.add_category(category_old)
 
+    test1=app.categories.check_category_deleted(category_new)
+    app.categories.edit_category(category_old, category_new)
+    app.categories.check_category_added(category_new)
+    test2=app.categories.check_category_added(category_new)
+    if test1 and test2:
+        test3=True
+    else:
+        test3=False
+    print (test3)
+    #self.assertTrue(test3)
 
-
-class TestEditCategory(TestInit):
-
-
-    def setUp(self):
-        super().setUp()
-        self.category_old=CategoriesPage.category_old
-        self.category_new=CategoriesPage.category_new
-        self.exec.signin.enter_actor(admin['email'], admin['password'])
-        self.exec.navigation.click_on_categories()
-        self.exec.categories.add_category(self.category_old)
-
-
-
-    def test_edit_category(self):
-        test1=self.exec.categories.check_category_deleted(self.category_new)
-        self.exec.categories.edit_category(self.category_old, self.category_new)
-        self.exec.categories.check_category_added(self.category_new)
-        test2=self.exec.categories.check_category_added(self.category_new)
-        if test1 and test2:
-            test3=True
-        else:
-            test3=False
-        self.assertTrue(test3)
-
-    def tearDown(self):
-        self.exec.categories.delete_category(self.category_new)
-        super().tearDown()
+    #teardown
+    app.categories.delete_category(category_new)

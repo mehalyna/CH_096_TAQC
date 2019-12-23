@@ -1,18 +1,14 @@
-from Tests.conftest import TestInit
 from Data.credentials import user,admin
+import allure
 
 
-
-
-
-class TestSearchEvent(TestInit):
-
-    def setUp(self):
-        super().setUp()
-        self.exec.signin.enter_actor(admin['email'],admin['password'])
-
-
-    def test_search_event(self):
-        self.exec.search.type_in_search_field('Python MeetUp')
-        self.exec.search.click_button_search()
-        self.assertEqual(self.exec.search.check_name_event(), "Python MeetUp")
+@allure.feature('Search field')
+@allure.story("Search event")
+@allure.severity(allure.severity_level.CRITICAL)
+def test_search_event(app):
+    with allure.step('Login as admin'):
+        app.signin.enter_actor(admin['email'],admin['password'])
+    with allure.step('Search event'):
+        app.search.type_in_search_field('Python MeetUp')
+        app.search.click_button_search()
+        
