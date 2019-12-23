@@ -5,10 +5,11 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # HOME_URL = 'http://google.com'
-    HOME_URL = "http://localhost:49862/home/events?page=1"
+    # HOME_URL = "http://localhost:49862/home/events?page=1"
     #HOME_URL = "https://localhost:44364/home/events?page=1"
-    # BROWSER = 'Chrome'
-    BROWSER = 'Firefox'
+    HOME_URL = "http://localhost:50621/home/events?page=1"
+    BROWSER = 'Chrome'
+    # BROWSER = 'Firefox'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 class CreateEventData():
@@ -25,7 +26,7 @@ class CreateEventData():
 
 class ContactUsData():
 
-    DISCRIPTION = "very nice!!!"
+    DESCRIPT = "very nice!!!"
 
 class ProfileMenuPageHeaderInfo:
 

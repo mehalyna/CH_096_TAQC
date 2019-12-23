@@ -15,10 +15,9 @@ from Pages.POM.contact_us_page import ContactUs
 
 class InitPagesDriver():
 
-
     def __init__(self, driver_init):
         self.driver_init = driver_init
-        #self.base = BaseSetup(self.driver_init)
+        self.base = BaseSetup(self.driver_init)
         self.auth = Auth(self.driver_init)
         self.signin = SignInUpClass(self.driver_init)
         self.navigation = NavigationMenu(self.driver_init)

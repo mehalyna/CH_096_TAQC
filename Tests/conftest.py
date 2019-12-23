@@ -2,7 +2,6 @@ import pytest
 from Base.base import BaseSetup
 from selenium import webdriver
 from Driver.driver import Driver
-from utilities.testFrame import InitPagesDriver
 from Data.credentials import user,admin
 # from Driver.browser_setup import browser_setup
 from Data.test_data import Config
@@ -28,7 +27,6 @@ def app(driver_init):
 
 
     def teardown():
-        pass
         driver_init.driver.quit()
     return init_pages
 

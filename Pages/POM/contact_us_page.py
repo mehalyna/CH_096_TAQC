@@ -1,16 +1,14 @@
 from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
 from Data.test_data import ContactUsData
 
-class ContactUs():
 
+class ContactUs():
 
     def __init__(self, browser):
         self.browser = browser
         self.menu_locator = NavigationMenuLocators
         self.locator = ContactUsPageLocators
         self.data = ContactUsData
-
-
 
     def enter_description(self, text):
         self.browser.send_keys_to_element(self.locator.DESCRIPTION, text)

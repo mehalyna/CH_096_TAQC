@@ -1,13 +1,11 @@
 from Locators.locators import NavigationMenuLocators
 
 
-
 class NavigationMenu():
 
     def __init__(self, browser):
         self.browser = browser
         self.locator = NavigationMenuLocators
-
 
     def click_on_home(self):
         self.browser.click_on_element(self.locator.Home)

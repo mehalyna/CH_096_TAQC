@@ -26,14 +26,6 @@ class SignInUpClass():
     def click_sign_in_up(self):
         self.browser.click_on_element(self.locator_login.SIGNIN)
 
-
-
-
-
-
-
-
-
 #     REGISTER FORM
     def click_on_register(self):
         self.browser.click_on_element( self.locator_reg.REGISTER )
