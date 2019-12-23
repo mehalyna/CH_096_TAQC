@@ -1,7 +1,0 @@
-
-Looking for [chromedriver 78.0.3904.105 linux64] driver in cache 
-File found in cache by path [/home/stable/.wdm/drivers/chromedriver/78.0.3904.105/linux64/chromedriver]
-Locating and fill in username
-Locating and fill in password form...
-It is expected a part of page title to be "Fool".The actual title is "Security Verification | LinkedIn"
-executing test failed Tests/test_linkedin_tmp_boris.py::test_login

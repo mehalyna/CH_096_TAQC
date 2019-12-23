@@ -1,4 +1,4 @@
-# from Base.base import BaseSetup
+from Base.base import BaseSetup
 from Pages.POM.auth import Auth
 from Pages.POM.signIn import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
@@ -16,10 +16,7 @@ class InitPages():
     '''Instantiating a class by making a composition'''
 
     def __init__(self, driver):
-        # self.driver_init = driver
-
-        self.base = driver
-        # self.base = BaseSetup(self.driver_init)
+        self.base = BaseSetup(driver)
         # The BaseSetup doesn't logically belong to Pages by functionality.
         # It's closer to driver as it is a Selenium wrapper.
 
