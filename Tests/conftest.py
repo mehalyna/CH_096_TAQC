@@ -7,7 +7,7 @@ from utilities.testFrame import InitPagesDriver
 
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def driver_init():
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
@@ -22,7 +22,7 @@ def driver_init():
 def app(driver_init):
     init_pages = InitPagesDriver(driver_init)
     yield init_pages
-    #driver_init.quit()
+    driver_init.quit()
 
 
 """

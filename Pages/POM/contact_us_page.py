@@ -24,7 +24,7 @@ class ContactUs():
     def click_on_clear(self):
         self.browser.click_on_element(self.locator.CLEAR)
 
-    def get_element_text(self):
+    def get_message_text(self):
         a = self.browser.get_element_text(self.locator.MES)
         return a
 

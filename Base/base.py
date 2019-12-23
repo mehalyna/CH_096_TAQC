@@ -123,6 +123,10 @@ class BaseSetup():
         elem = select.select_by_visible_text(text)
         elem.click()
 
+    def screenshot_allure(self):
+        screen = self.driver.get_screenshot_as_png()
+        return screen
+
 
 
 

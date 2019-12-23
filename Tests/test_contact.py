@@ -1,34 +1,22 @@
-from Tests.test_init import TestInit
 from Data.credentials import user,admin
 from Locators.locators import ContactUsPageLocators
-from Data.test_data import ContactUsData
+import allure
 
 
+@allure.feature('Run test')
+def test_contact_us(app):
+    locator = ContactUsPageLocators
+    app.signin.enter_actor(user['email'], user['password'])
 
-
-
-
-class TestContactUs(TestInit):
-
-    def setUp(self):
-        super().setUp()
-        self.locator = ContactUsPageLocators
-        self.data = ContactUsData
-
-
-
-
-    def test_contact_us(self):
-        self.exec.signin.enter_actor(user['email'],user['password'])
-        self.exec.navigation.click_on_contact_us()
-        self.exec.base.element_be_clickable(self.locator.SUBMIT)
-        self.exec.contact.check_type()
-        self.text = self.data.DISCRIPTION
-        self.exec.contact.enter_description(self.text)
-        self.exec.contact.get_text_from_list()
-        self.exec.contact.click_on_submit()
-        self.error = "Failed"
-        self.assertTrue(self.exec.base.check_if_text_present(self.locator.MES, self.error)), "not equal"
+    app.navigation.click_on_contact_us()
+    app.base.element_be_clickable(locator.SUBMIT)
+    app.contact.check_type()
+    text = app.data.DESCRIPTION
+    app.contact.enter_description(text)
+    app.contact.get_text_from_list()
+    app.contact.click_on_submit()
+    error = "Failed"
+    assert(app.base.get_element_text(locator.MES) == error)
 
 
 
