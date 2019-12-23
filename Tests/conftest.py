@@ -49,7 +49,6 @@ def screenshot_on_failure(request, get_driver):
         print("setting up a test failed!", request.node.nodeid)
         allure.attach(get_driver.get_screenshot_as_png(),
                       name=request.function.__name__,
-                      # name='Screenshot',
                       attachment_type=AttachmentType.PNG)
     elif request.node.rep_setup.passed:
         if request.node.rep_call.failed:
@@ -58,26 +57,4 @@ def screenshot_on_failure(request, get_driver):
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
 
-'''
-@pytest.fixture(scope='function')
-def get_driver():
-    print('===============setUp===================')
-    driver = Driver(Config.BROWSER).set_browser()
-    driver.delete_all_cookies()
-    driver.maximize_window()
-    driver.implicitly_wait(10)
-    driver.get(Config.HOME_URL)
-    wrapped_driver = BaseSetup(driver)
-    return wrapped_driver
 
-    # def teardown_module(self):
-    #     print('===============teardown===================')
-    #     time.sleep(3)  # ToDo
-    #     driver.close()
-    #     driver.quit()
-
-@pytest.fixture(scope='function')
-def event(get_driver):
-    event_init = InitPagesDriver(get_driver)
-    return event_init
-'''
