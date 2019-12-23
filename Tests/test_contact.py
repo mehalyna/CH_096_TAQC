@@ -1,22 +1,26 @@
 from Data.credentials import user,admin
-from Locators.locators import ContactUsPageLocators
+from Data.test_data import ContactUsData
+from Locators.locators import ContactUsPageLocators as locator
 import allure
 
 
-@allure.feature('Run test')
+@allure.feature('Positive test')
+@allure.severity(allure.severity_level.CRITICAL)
 def test_contact_us(app):
-    locator = ContactUsPageLocators
-    app.signin.enter_actor(user['email'], user['password'])
+    with allure.step("Login as user"):
+        app.signin.enter_actor(user['email'],user['password'])
 
-    app.navigation.click_on_contact_us()
+    with allure.step("Navigation 'Contact us'"):
+        app.navigation.click_on_contact_us()
     app.base.element_be_clickable(locator.SUBMIT)
-    app.contact.check_type()
-    text = app.data.DESCRIPTION
-    app.contact.enter_description(text)
-    app.contact.get_text_from_list()
-    app.contact.click_on_submit()
-    error = "Failed"
-    assert(app.base.get_element_text(locator.MES) == error)
+    with allure.step("Check type of a list"):
+        app.contact.check_type()
+        app.contact.get_text_from_list()
+    with allure.step("Enter description"):
+        app.contact.enter_description()
+    with allure.step("Click on 'Submit' button"):
+        app.contact.click_on_submit()
+    assert(app.base.get_element_text(locator.MES) == "Failed")
 
 
 

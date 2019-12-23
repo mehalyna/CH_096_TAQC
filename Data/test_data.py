@@ -28,7 +28,7 @@ class CreateEventData():
 
 class ContactUsData():
 
-    DESCRIPTION = "very nice!!!"
+    DESCRIPTION_FOR_CONTACT = "very nice!!!"
 
 
 class ProfileMenuPageHeaderInfo:

@@ -1,33 +1,27 @@
-from Tests.test_init import TestInit
 from Data.credentials import user,admin
-from Locators.locators import ContactUsPageLocators
-from Data.test_data import ContactUsData
+from Locators.locators import ContactUsPageLocators as locator
+import allure
 
 
+@allure.feature("Message 'Required'")
+@allure.severity(allure.severity_level.CRITICAL)
+def test_contact_us_clear(app):
+    with allure.step("Login as user"):
+        app.signin.enter_actor(user['email'],user['password'])
 
-
-
-
-class TestContactUs(TestInit):
-
-    def setUp(self):
-        super().setUp()
-        self.locator = ContactUsPageLocators
-        self.data = ContactUsData
-
-
-
-
-    def test_contact_us(self):
-        self.exec.signin.enter_actor(user['email'],user['password'])
-        self.exec.navigation.click_on_contact_us()
-        self.exec.base.element_be_clickable(self.locator.SUBMIT)
-        self.exec.contact.check_type()
-        self.exec.contact.get_text_from_list()
-        self.text = self.data.DISCRIPTION
-        self.exec.contact.enter_description(self.text)
-        self.exec.contact.click_on_clear()
-        self.assertTrue(self.exec.base.check_if_text_present(self.locator.DESCRIPTION, "")), "not equal"
+    with allure.step("Navigation 'Contact us'"):
+        app.navigation.click_on_contact_us()
+    app.base.element_be_clickable(locator.SUBMIT)
+    with allure.step("Check type of a list"):
+        app.contact.check_type()
+    with allure.step("Get text from list"):
+        app.contact.get_text_from_list()
+    #text = app.data.DESCRIPTION()
+    with allure.step("Enter description"):
+        app.contact.enter_description()
+    with allure.step("Click on 'Clear' button"):
+        app.contact.click_on_clear()
+    assert(app.base.get_element_text(locator.DESCRIPTION) == "")
 
 
 

@@ -1,8 +1,6 @@
 from Data.credentials import user,admin
 from Locators.locators import ContactUsPageLocators as locator
 import allure
-from allure_commons.types import AttachmentType
-from selenium.common.exceptions import NoSuchElementException
 
 
 @allure.feature("Message 'Required'")
@@ -17,13 +15,7 @@ def test_contact_us_negative(app):
     app.navigation.click_on_contact_us()
     with allure.step("Message 'Required'"):
         mes = "Required"
-        try:
-            assert (app.base.get_element_text(locator.REQUIRED) == mes)
-        except:
-            with allure.step('Take Screenshot'):
-                allure.attach( app.base.screenshot_allure( ), name='testScreenLogin',
-                               attachment_type=AttachmentType.PNG )
-                raise NoSuchElementException
+        assert (app.base.get_element_text(locator.REQUIRED) == mes)
 
 
 

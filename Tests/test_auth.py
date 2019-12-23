@@ -25,10 +25,4 @@ def test_authorization(app,data):
     app.auth.clean_password_field( )
     app.auth.type_pass(data[1])
     app.auth.press_button_signin()
-    try:
-        assert app.base.check_if_element_exists( locator.PROFILE )
-    except:
-        with allure.step('Take Screenshot'):
-            allure.attach( app.base.screenshot_allure( ), name='testScreenLogin',
-                       attachment_type=AttachmentType.PNG )
-        raise NoSuchElementException
+    assert app.base.check_if_element_exists( locator.PROFILE )
