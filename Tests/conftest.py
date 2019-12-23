@@ -10,16 +10,16 @@ from utilities.testFrame import InitPages
 
 @pytest.fixture(scope='function')
 def get_driver(request):
-    this_driver = Driver(Config.BROWSER).set_browser()
-    this_driver.delete_all_cookies()
+    driver = Driver(Config.BROWSER).set_browser()
+    driver.delete_all_cookies()
     # this.river.maximize_window()
-    this_driver.implicitly_wait(10)
-    this_driver.get(Config.HOME_URL)
+    driver.implicitly_wait(10)
+    driver.get(Config.HOME_URL)
 
-    yield this_driver
+    yield driver
     time.sleep(3)  # ToDo
-    this_driver.close()
-    this_driver.quit()
+    driver.close()
+    driver.quit()
 
 @pytest.fixture(scope='function')
 def app(get_driver):
