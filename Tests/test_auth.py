@@ -1,10 +1,8 @@
 from Data.credentials import user, admin
 import pytest
 import allure
-from Locators.locators import NavigationMenuLocators
+from Locators.locators import NavigationMenuLocators as locator
 
-
-locator = NavigationMenuLocators
 
 def credentials():
     lst = [[user['email'], user['password']], [admin['email'], admin['password']]]
