@@ -1,4 +1,4 @@
 browser_setup = {
-    "browser" : "firefox",
+    "browser" : "Firefox",
     "url" : "http://localhost:3183/home/events?page=1"
 }

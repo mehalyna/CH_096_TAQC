@@ -3,6 +3,7 @@ import pytest
 import allure
 from Locators.locators import NavigationMenuLocators
 from allure_commons.types import AttachmentType
+from selenium.common.exceptions import NoSuchElementException
 
 
 locator = NavigationMenuLocators
@@ -11,6 +12,8 @@ def credentials():
     lst = [[user['email'],user['password']],[admin['email'],admin['password']]]
     return lst
 
+
+@allure.link("http://localhost:3183/home/events?page=1", name='Click me')
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)
@@ -21,12 +24,19 @@ def test_authorization(app,data):
     app.auth.type_login(data[0])
     app.auth.clean_password_field( )
     app.auth.type_pass(data[1])
-    app.auth.press_button_signin( )
+    app.auth.press_button_signin()
     try:
-        assert app.base.click_to_element(locator.Home)
+        assert app.base.check_if_element_exists( locator.PROFILE )
     except:
-        allure.attach(app.base.screenshot_allure(), name='testLoginScreen',
-                      attachment_type=AttachmentType.PNG)
+        with allure.step('Take Screenshot'):
+            allure.attach( app.base.screenshot_allure( ), name='testScreenLogin',
+                       attachment_type=AttachmentType.PNG )
+        raise NoSuchElementException
+
+
+
+
+
 
 
 

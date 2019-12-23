@@ -1,2 +1,2 @@
-user = {"email": "u1ser@gmail.com", "password" : "1qaz1qaz"}
-admin   = {"email": "a1dmin@gmail.com", "password" : "1qaz1qaz"}
+user = {"email": "user@gmail.com", "password" : "1qaz1qaz"}
+admin   = {"email": "admin@gmail.com", "password" : "1qaz1qaz"}

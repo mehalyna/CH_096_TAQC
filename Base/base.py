@@ -9,14 +9,10 @@ import random
 
 
 
-
 class BaseSetup():
 
     def __init__(self, driver):
         self.driver = driver
-
-    def screenshot_allure(self):
-        self.driver.get_screenshot_as_png()
 
     def find_element(self, *locators):
         wait = WebDriverWait(self.driver, 10)
@@ -38,6 +34,17 @@ class BaseSetup():
         element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
+    def click_on_element(self, locators):
+        element = self.find_element(*locators)
+        element.click()
+
+    def clean_element(self, locators):
+        element = self.find_element(*locators)
+        element.clear()
+
+    def send_keys_to_element(self, locators, data):
+        element = self.find_element(*locators)
+        element.send_keys(data)
 
     def get_list_element(self, ele_html: str, *locators):
         """get list of elements li, tr ...."""
@@ -45,28 +52,14 @@ class BaseSetup():
         lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
         return lst
 
-
-
     def select_from_list(self, locator_1):
         sel = Select(self.find_element(*locator_1))
         choice = random.choice([c.text for c in sel.options])
         return choice
 
-
-
     def click_action(self, x, y):
         action = ActionChains(self.driver)
         action.move_by_offset(x, y).click().perform()
-
-
-
-    def click_to_element(self, *locators):
-        element = self.find_element(*locators)
-        element.click()
-
-    def clear_to_element(self, *locators):
-        element = self.find_element(*locators)
-        element.clear()
 
     def element_be_clickable(self, *locator):
         try:
@@ -77,32 +70,15 @@ class BaseSetup():
             print('Element is not clickable')
             return ''
 
-    def click_on_element(self, locators):
-        element = self.find_element(*locators)
-        element.click()
-
     def scroll_to_element(self, locators):
         #doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
 
-
-    def clean_element(self, locators):
-        element = self.find_element(*locators)
-        element.clear()
-
-    def send_keys_to_element(self, locators, data):
-        element = self.find_element(*locators)
-        element.send_keys(data)
-
-
     def upload_file(self, path, locators):
         element = self.find_element(*locators)
         element.send_keys(path)
-
-
-
 
     def get_element_text(self, locator):
         element = self.find_element(*locator)
@@ -146,8 +122,6 @@ class BaseSetup():
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
-
-
 
 
 

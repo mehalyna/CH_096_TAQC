@@ -7,7 +7,7 @@ from utilities.testFrame import InitPagesDriver
 
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='session')
 def driver_init():
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
@@ -25,9 +25,10 @@ def app(driver_init):
     driver_init.quit()
 
 
-
+"""
 @pytest.fixture(scope='function')
 def get_to_user_profile(app):
     app.signin.enter_actor(admin['email'],admin['password'])
+"""
 
 
