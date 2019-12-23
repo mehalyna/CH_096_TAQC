@@ -33,7 +33,7 @@ def event():
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
-    # will execute even before the tryfirst one above!
+    # will execute even before the tryfirst one above! ?without (tryfirst=True, hookwrapper=True)
     # do nothing here intentionally
     outcome = yield
     # will execute after all non-hookwrappers executed
@@ -56,12 +56,17 @@ def screenshot_on_failure(event, request):
                       # name = request.function.__name__,
                       name='/home/stable/Documents/Automation_SS/Python/CH_096_TAQC/Reports_Allure/Screenshot',
                       attachment_type = allure.attachment_type.PNG)
+        # from allure_commons.types import AttachmentType
+        #
+        # allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
+        # allure.attach('screenshot', self.driver.get_screenshot_as_png(), type=AttachmentType.PNG)
+
     elif request.node.rep_setup.passed:
         if request.node.rep_call.failed:
             print("executing test failed", request.node.nodeid)
             allure.attach(event.get_screenshot_as_png(),
-                          name = request.function.__name__,
-                          attachment_type = allure.attachment_type.PNG)
+                          name=request.function.__name__,
+                          attachment_type=allure.attachment_type.PNG)
 
 
 
