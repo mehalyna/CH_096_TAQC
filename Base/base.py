@@ -13,6 +13,7 @@ class BaseSetup:
 
 
     def get_page_title(self):
+        ''' temporary method for linkedin'''
         return self.driver.title
 
     def find_element(self, *locators):

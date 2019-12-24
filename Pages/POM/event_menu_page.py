@@ -13,6 +13,10 @@ class EventsMenu:
         if result is not None:
             return True
 
+    def get_text(self, item_name):
+        ''' Verify text of the element (Header" user info)'''
+        return self.browser.get_element_text(item_name)
+
     def count_event_menu_entries(self, container, item_name):
         self.browser.click_on_element(self.locator[container])
         lst = self.browser.find_elements(self.locator[item_name])

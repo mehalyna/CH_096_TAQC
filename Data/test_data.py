@@ -45,13 +45,12 @@ class ProfileMenuPageHeaderInfo:
     USER_GENDER_LABEL = 'Gender:'
     USER_GENDER_DATA = 'Other'
 
-    USER_EMAIL_LABEL = 'Age:'
-    USER_EMAIL_DATA = '19'
+    USER_EMAIL_LABEL = 'Email:'
+    USER_EMAIL_DATA = 'user@gmail.com'
 
     USER_INTERESTS_LABEL = 'Interests:'
     USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
                            '#QC testing event', '#Meeting', '#Summer'}
-
 
 class ProfilePageEventsMenu:
     ''' Testdata: Locators for event's menu.

@@ -5,7 +5,7 @@ from Locators.locators import NavigationMenuLocators as locator
 
 
 def credentials():
-    lst = [[user['email'], user['password']], [admin['email'], admin['password']]]
+    lst = [[user['email'], user['password']], [admin['email1'], admin['password']]]
     return lst
 
 @allure.link("http://localhost:3183/home/events?page=1", name='Click me')
