@@ -1,8 +1,12 @@
-from Data.credentials import user, admin
+from Data.credentials import user,admin
 import pytest
 import allure
-from Locators.locators import NavigationMenuLocators as locator
+from Locators.locators import NavigationMenuLocators
+from allure_commons.types import AttachmentType
+from selenium.common.exceptions import NoSuchElementException
 
+
+locator = NavigationMenuLocators
 
 def credentials():
     lst = [[user['email'], user['password']], [admin['email1'], admin['password']]]
@@ -21,19 +25,3 @@ def test_authorization(app, data, screenshot_on_failure):
     app.auth.type_pass(data[1])
     app.auth.press_button_signin()
     assert app.base.check_if_element_exists( locator.PROFILE )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

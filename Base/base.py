@@ -47,9 +47,10 @@ class BaseSetup:
         return lst
 
     def select_from_list(self, locator_1):
-        sel = Select(self.find_element(*locator_1))
-        choice = random.choice([c.text for c in sel.options])
-        return choice
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return a.select_by_visible_text(choice)
 
     def click_action(self, x, y):
         action = ActionChains(self.driver)

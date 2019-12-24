@@ -1,18 +1,19 @@
 import pytest
 import allure
+
 from allure_commons.types import AttachmentType
+import time
 
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
 from Data.credentials import user,admin
 
-
 @pytest.fixture(scope='function')
-def get_driver(request):
+def driver_init(request):
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
-    # driver.maximize_window()
+    driver.maximize_window()
     driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
 
@@ -21,9 +22,9 @@ def get_driver(request):
     driver.quit()
 
 @pytest.fixture(scope='function')
-def app(get_driver):
-    event_init = InitPages(get_driver)
-    return event_init
+def app(driver_init):
+    page_init = InitPages(driver_init)
+    return page_init
 
 @pytest.fixture(scope='function')
 def login(app):

@@ -7,24 +7,22 @@ from Pages.POM.searchPanelPage import SearchEventMenu
 from Pages.POM.categories import Categories
 from Pages.ProfileMenu.add_event import CreateEvents
 from Pages.POM.event_menu_page import EventsMenu
-# EventsMenuCarts
+#EventsMenuCarts
 from Pages.POM.contact_us_page import ContactUs
+from Pages.POM.comuna_page import ComunaClass
 from Pages.POM.linkedin_page_tmp_boris import SignLinkedInClass
 
 
 class InitPages():
     '''Instantiating a class by making a composition'''
 
-    def __init__(self, driver):
-        self.base = BaseSetup(driver)
-        # The BaseSetup doesn't logically belong to Pages by functionality.
-        # It's closer to driver as it is a Selenium wrapper.
-
+    def __init__(self, driver_init):
+        self.base = BaseSetup(driver_init)
         self.auth = Auth(self.base)
         self.signin = SignInUpClass(self.base)
         self.navigation = NavigationMenu(self.base)
         self.categories = Categories( self.base )
-        # page opended from navigation menu
+        # page opened from navigation menu
         self.prof_menu = ProfileMenu(self.base)
         self.creat_event = CreateEvents(self.base)
         # search event panel
