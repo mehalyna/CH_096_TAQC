@@ -8,7 +8,7 @@ def credentials():
     lst = [[user['email'], user['password']], [admin['email'], admin['password']]]
     return lst
 
-@allure.link("http://localhost:3183/home/events?page=1", name='Click me')
+@allure.link("http://localhost:57690/home/events?page=1", name='Click me')
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)

@@ -7,7 +7,7 @@ class Config:
     # HOME_URL = 'https://www.linkedin.com/login'
     # HOME_URL = 'http://google.com'
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    HOME_URL = "https://localhost:44364/home/events?page=1"
+    HOME_URL = "http://localhost:57690/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1"
@@ -87,3 +87,7 @@ class CartPanelsAtProfilePage:
 
     BLANK_CART_TEXT = 'No Results'
     CART_NTH_ID = ''  # on mouse hover - tip arising
+
+class CategoriesPage:
+    category_old = 'Hello'
+    category_new = 'Hello1'
