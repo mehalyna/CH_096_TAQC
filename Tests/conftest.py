@@ -1,28 +1,40 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
-import time
+
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
+from Data.credentials import user, admin
 
 
 @pytest.fixture(scope='function')
-def get_driver(request):
+def driver_init(request):
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
     driver.maximize_window()
     driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
+
     yield driver
     driver.close()
     driver.quit()
-    
+
 
 @pytest.fixture(scope='function')
-def app(get_driver):
-    page_init = InitPages(get_driver)
+def app(driver_init):
+    page_init = InitPages(driver_init)
     return page_init
+
+
+@pytest.fixture(scope='function')
+def login(app):
+    app.signin.enter_actor(user['email'], user['password'])
+
+
+@pytest.fixture(scope='function')
+def login_admin(app):
+    app.signin.enter_actor(admin['email'], admin['password'])
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -39,20 +51,20 @@ def pytest_runtest_makereport(item):
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
 
-@pytest.fixture()
-def screenshot_on_failure(request, get_driver):
-
+@pytest.fixture
+def screenshot_on_failure(request, driver_init):
+    # Intentionally blank section
     yield
-
-    if request.node.rep_setup.failed: # if rep.when == "call" and rep.failed:
+    # request.node is an "item" because we use the default
+    # "function" scope
+    if request.node.rep_setup.failed:  # if rep.when == "call" and rep.failed:
         print("setting up a test failed!", request.node.nodeid)
-        allure.attach(get_driver.get_screenshot_as_png(),
+        allure.attach(driver_init.get_screenshot_as_png(),
                       name=request.function.__name__,
-                      # name='Screenshot',
                       attachment_type=AttachmentType.PNG)
     elif request.node.rep_setup.passed:
         if request.node.rep_call.failed:
             print("executing test failed", request.node.nodeid)
-            allure.attach(get_driver.get_screenshot_as_png(),
+            allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)

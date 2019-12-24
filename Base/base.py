@@ -14,6 +14,7 @@ class BaseSetup():
         self.driver = driver
 
     def get_page_title(self):
+        ''' temporary method for linkedin'''
         return self.driver.title
 
     def find_element(self, *locators):
@@ -36,18 +37,6 @@ class BaseSetup():
         element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
-    def click_on_element(self, locators):
-        element = self.find_element(*locators)
-        element.click()
-
-    def clean_element(self, locators):
-        element = self.find_element(*locators)
-        element.clear()
-
-    def send_keys_to_element(self, locators, data):
-        element = self.find_element(*locators)
-        element.send_keys(data)
-
     def get_list_element(self, ele_html: str, *locators):
         """get list of elements li, tr ....
             Args: locator = tuple(By.selector, 'str')
@@ -58,9 +47,10 @@ class BaseSetup():
         return lst
 
     def select_from_list(self, locator_1):
-        sel = Select(self.find_element(*locator_1))
-        choice = random.choice([c.text for c in sel.options])
-        return choice
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return a.select_by_visible_text(choice)
 
     def click_action(self, x, y):
         action = ActionChains(self.driver)
@@ -75,14 +65,26 @@ class BaseSetup():
             print('Element is not clickable')
             return ''
 
+    def click_on_element(self, locators):
+        element = self.find_element(*locators)
+        element.click()
+
     def scroll_to_element(self, locators):
         #doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
 
-    def upload_file(self, path, locators):
+    def clean_element(self, locators):
         element = self.find_element(*locators)
+        element.clear()
+
+    def send_keys_to_element(self, locators, data):
+        element = self.find_element(*locators)
+        element.send_keys(data)
+
+    def upload_file(self, path, locators):
+        element = self.find_element(locators)
         element.send_keys(path)
 
     def get_element_text(self, locator):

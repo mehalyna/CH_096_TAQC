@@ -1,13 +1,12 @@
 from Data.credentials import user,admin
 import allure
-import pytest
 
+# def test_setup(app):
+#     app.signin.enter_actor(admin['email'],admin['password'])
 
-
-@allure.link("http://localhost:49862/home/events?page=1", name='Click me')
-@allure.feature('Search Panel')
-@allure.story('Search event')
-@pytest.mark.usefixtures()
+@allure.feature('Search field')
+@allure.story("Search EVENT")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_search_event(app, screenshot_on_failure):
     app.signin.enter_actor( admin['email'], admin['password'] )
     app.search.open_filter()
