@@ -48,20 +48,20 @@ def pytest_runtest_makereport(item):
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
 @pytest.fixture
-def screenshot_on_failure(request, get_driver):
+def screenshot_on_failure(request, driver_init):
     #
     yield
     # request.node is an "item" because we use the default
     # "function" scope
     if request.node.rep_setup.failed:  # if rep.when == "call" and rep.failed:
         print("setting up a test failed!", request.node.nodeid)
-        allure.attach(get_driver.get_screenshot_as_png(),
+        allure.attach(driver_init.get_screenshot_as_png(),
                       name=request.function.__name__,
                       attachment_type=AttachmentType.PNG)
     elif request.node.rep_setup.passed:
         if request.node.rep_call.failed:
             print("executing test failed", request.node.nodeid)
-            allure.attach(get_driver.get_screenshot_as_png(),
+            allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
 
