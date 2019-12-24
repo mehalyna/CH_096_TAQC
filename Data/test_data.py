@@ -4,16 +4,17 @@ import os
 current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
+    # HOME_URL = 'https://www.linkedin.com/login'
     # HOME_URL = 'http://google.com'
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "https://localhost:44364/home/events?page=1"
+    HOME_URL = "https://localhost:44364/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
     # HOME_URL = "http://localhost:49862/home/events?page=1"
-    HOME_URL = "http://localhost:57690/home/events?page=1" #Sasha
+    # HOME_URL = "http://localhost:49862/home/events?page=1"
     # HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
+    # BROWSER = 'IE'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 class CreateEventData():
@@ -61,8 +62,6 @@ class ProfilePageEventsMenu:
     EVENTS_TO_GO = 'EVENTS TO GO'
     ADD_EVENT = 'ADD_EVENT'
 
-    pass
-
 
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
@@ -88,16 +87,3 @@ class CartPanelsAtProfilePage:
 
     BLANK_CART_TEXT = 'No Results'
     CART_NTH_ID = ''  # on mouse hover - tip arising
-
-class EditProfileData:
-
-    USER_NAME = 'Tester'
-    CURRENT_PASS = '1qaz1qaz'
-    NEW_PASS = '2qaz2qaz'
-
-
-
-
-class CategoriesPage:
-    category_old = 'Hello'
-    category_new = 'Hello1'
