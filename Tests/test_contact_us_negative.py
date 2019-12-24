@@ -4,7 +4,7 @@ import allure
 
 
 @allure.feature("Message 'Required'")
-def test_contact_us_negative(app):
+def test_contact_us_negative(app, screenshot_on_failure):
     with allure.step("Login"):
         app.signin.enter_actor(user['email'],user['password'])
 

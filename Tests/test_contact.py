@@ -1,12 +1,11 @@
 from Data.credentials import user,admin
-from Data.test_data import ContactUsData
 from Locators.locators import ContactUsPageLocators as locator
 import allure
 
 
 @allure.feature('Positive test')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_contact_us(app):
+def test_contact_us(app, screenshot_on_failure):
     with allure.step("Login as user"):
         app.signin.enter_actor(user['email'],user['password'])
 

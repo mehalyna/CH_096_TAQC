@@ -5,7 +5,7 @@ import allure
 
 @allure.feature("Message 'Required'")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_contact_us_clear(app):
+def test_contact_us_clear(app, screenshot_on_failure):
     with allure.step("Login as user"):
         app.signin.enter_actor(user['email'],user['password'])
 
@@ -16,7 +16,6 @@ def test_contact_us_clear(app):
         app.contact.check_type()
     with allure.step("Get text from list"):
         app.contact.get_text_from_list()
-    #text = app.data.DESCRIPTION()
     with allure.step("Enter description"):
         app.contact.enter_description()
     with allure.step("Click on 'Clear' button"):

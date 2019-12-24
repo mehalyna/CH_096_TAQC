@@ -14,8 +14,8 @@ from Pages.POM.contact_us_page import ContactUs
 class InitPages():
     '''Instantiating a class by making a composition'''
 
-    def __init__(self, driver):
-        self.base = BaseSetup(driver)
+    def __init__(self, driver_init):
+        self.base = BaseSetup(driver_init)
         # The BaseSetup doesn't logically belong to Pages by functionality.
         # It's closer to driver as it is a Selenium wrapper.
 
