@@ -26,7 +26,7 @@ def app(driver_init):
     page_init = InitPages(driver_init)
     return page_init
 
-
+"""
 @pytest.fixture(scope='function')
 def login(app):
     app.signin.enter_actor(user['email'], user['password'])
@@ -36,7 +36,7 @@ def login(app):
 def login_admin(app):
     app.signin.enter_actor(admin['email'], admin['password'])
 
-
+"""
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
     # will execute even before the tryfirst one above!
