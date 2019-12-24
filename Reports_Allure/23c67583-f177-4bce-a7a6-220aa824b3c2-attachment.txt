@@ -1,0 +1,5 @@
+
+Looking for [geckodriver v0.26.0 win64] driver in cache 
+File found in cache by path [C:\Users\Tarik\.wdm\drivers\geckodriver\v0.26.0\win64\geckodriver.exe]
+Can't find element by locator ('css selector', 'nav ul.list-unstyled .sidebar-header:nth-child(2)')
+executing test failed Tests/test_auth.py::test_authorization[data1]
