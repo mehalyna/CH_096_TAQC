@@ -28,6 +28,7 @@ def app(get_driver):
 @pytest.fixture(scope='function')
 def login(app):
     app.signin.enter_actor(user['email'],user['password'])
+
 @pytest.fixture(scope='function')
 def login_admin(app):
     app.signin.enter_actor(admin['email'], admin['password'])
