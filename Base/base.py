@@ -132,6 +132,7 @@ class BaseSetup():
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
+    
 
 
 

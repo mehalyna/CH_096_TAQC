@@ -16,12 +16,14 @@ def get_driver(request):
     driver.get(Config.HOME_URL)
     yield driver
     driver.close()
-    #driver.quit()
+    driver.quit()
+    
 
 @pytest.fixture(scope='function')
 def app(get_driver):
     page_init = InitPages(get_driver)
     return page_init
+
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
@@ -36,12 +38,12 @@ def pytest_runtest_makereport(item):
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
-@pytest.fixture
+
+@pytest.fixture()
 def screenshot_on_failure(request, get_driver):
-    #
+
     yield
-    # request.node is an "item" because we use the default
-    # "function" scope
+
     if request.node.rep_setup.failed: # if rep.when == "call" and rep.failed:
         print("setting up a test failed!", request.node.nodeid)
         allure.attach(get_driver.get_screenshot_as_png(),

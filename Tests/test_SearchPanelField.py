@@ -4,7 +4,6 @@ import allure
 
 @allure.feature('Search field')
 @allure.story("Search event")
-@allure.severity(allure.severity_level.CRITICAL)
 def test_search_event(app):
     with allure.step('Login as admin'):
         app.signin.enter_actor(admin['email'],admin['password'])
