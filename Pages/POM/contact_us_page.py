@@ -16,15 +16,6 @@ class ContactUs():
         data = ContactUsData.DESCRIPTION_FOR_CONTACT
         self.browser.send_keys_to_element(self.locator.DESCRIPTION, data)
 
-    def click_on_submit(self):
-        self.browser.click_on_element(self.locator.SUBMIT)
-
-    def click_on_desc(self):
-        self.browser.click_on_element(self.locator.DESCRIPTION)
-
-    def click_on_clear(self):
-        self.browser.click_on_element(self.locator.CLEAR)
-
     def get_message_text(self):
         a = self.browser.get_element_text(self.locator.MES)
         return a

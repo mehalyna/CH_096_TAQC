@@ -6,9 +6,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 
 
-
-
-
 class BaseSetup():
 
     def __init__(self, driver):

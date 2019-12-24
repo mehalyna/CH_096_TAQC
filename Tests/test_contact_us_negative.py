@@ -10,7 +10,7 @@ def test_contact_us(app):
 
     app.navigation.click_on_contact_us()
     app.base.element_be_clickable(locator.SUBMIT)
-    app.contact.click_on_desc()
+    app.base.click_on_element(locator.DESCRIPTION)
     app.navigation.click_on_contact_us()
     #mes = "Required"
     #self.assertTrue(self.exec.base.check_if_text_present(locator.REQUIRED, mes)), "not equal"
