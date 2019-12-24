@@ -38,7 +38,9 @@ class NavigationMenuLocators:
 
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
-    #Field search and filter
+    """
+    Field search and filter
+    """
     SEARCH_FIELD = (By.CSS_SELECTOR, ".MuiInputBase-input")
     SELECT_DATE_FIELD = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
     DATE_FROM = (By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
@@ -46,8 +48,8 @@ class SearchEventPanelLocators():
     RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(1)")
     RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(2)")
     RADIO_BUTTON_ALL = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(3)")
-    HASHTAGS_FIELD = (By.CSS_SELECTOR, "div.form-group:nth-child(4)")
-    HASHTAGS_ITEM = (By.CSS_SELECTOR, "li.rw-list-option:nth-child(1)")  # nth-child(NAMBER_FIELD)
+    HASHTAGS_FIELD = (By.CSS_SELECTOR, ".rw-widget-input")
+    HASHTAGS_SELECT = (By.ID, "rw_1_listbox > li")  # nth-child(NAMBER_FIELD)
     BUTTON_MORE_FILTER = (By.CSS_SELECTOR, ".box > div:nth-child(2) > button:nth-child(1)")
     BUTTON_LESS = (By.CSS_SELECTOR, ".box > div:nth-child(6) > button:nth-child(1)")
     BUTTON_SEARCH = (By.CSS_SELECTOR, "button.MuiButtonBase-root:nth-child(2) > span:nth-child(1)")
@@ -68,6 +70,8 @@ class ContactUsPageLocators():
     MES = (By.CSS_SELECTOR, '#root > div.MuiSnackbar-root.MuiSnackbar-anchorOriginBottomLeft > div')
     CLEAR = (By.CSS_SELECTOR, 'button:nth-child(4) > span.MuiButton-label')
     REQUIRED = (By.CSS_SELECTOR, 'p')
+    TYPE = (By.TAG_NAME, "select")
+    LIST = (By.CSS_SELECTOR, ".form-control")
 
 
 # displayed list of future events on home page
@@ -78,8 +82,8 @@ class HomePageLocators:
 class ComunaPageLocators():
 
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
-    SEND_MESSAGE = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
-    SEND = (By.CSS_SELECTOR, '.MuiButton-label')
+    SEND_MESSAGE_FIELD = (By.CSS_SELECTOR, '.card-footer > form > div > div > input')
+    SEND_BUTTON = (By.CSS_SELECTOR, '.MuiButton-label')
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
@@ -182,6 +186,17 @@ class CategoriesLocators:
     CAT = (By.XPATH,'//tr[3]/td[1]')
     ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
     ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
+
+class EditYourProfile:
+
+    EDIT_PROFILE = (By.CSS_SELECTOR, ':nth-child(1) > button')
+    CHANGE_AVATAR = (By.XPATH, '/html/body/div[1]/div[3]/div/div[1]/div[1]/div[1]/p')
+    CHANGE_USERNAME = (By.XPATH, '/html/body/div[1]/div[3]/div/div[2]/div[1]/div[1]/p[1]')
+    CHANGE_GENDER= (By.XPATH, '/html/body/div[1]/div[3]/div/div[3]/div[1]/div[1]/p[1]')
+    CHANGE_DATE_OF_BIRTH = (By.XPATH, '//*[@id="panel3bh-header"]/div[1]/p[1]')
+    CHANGE_FAVORITE_CATEGORIES= (By.XPATH, '//*[@id="panel4bh-header"]/div[1]/p[1]')
+    CHANGE_PASSWORD = (By.XPATH, '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
+
 
 
 

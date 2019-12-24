@@ -5,7 +5,7 @@ from allure_commons.types import AttachmentType
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
-from Data.test_data import CreateEventData
+from Data.credentials import user,admin
 
 
 @pytest.fixture(scope='function')
@@ -27,8 +27,10 @@ def app(get_driver):
 
 @pytest.fixture(scope='function')
 def login(app):
-    app.signin.enter_actor(CreateEventData.LOGIN_USER,
-                           CreateEventData.PASSWORD_USER)
+    app.signin.enter_actor(user['email'],user['password'])
+@pytest.fixture(scope='function')
+def login_admin(app):
+    app.signin.enter_actor(admin['email'], admin['password'])
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):

@@ -28,4 +28,16 @@ class ContactUs():
         a = self.browser.get_element_text(self.locator.MES)
         return a
 
+    def check_type(self):
+        self.browser.select_from_list(self.locator.LIST)
+
+    def get_text_from_list(self):
+        a = self.browser.get_element_text(self.locator.TYPE)
+        return a
+
+
+
+
+
+
 
