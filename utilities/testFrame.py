@@ -16,8 +16,7 @@ from Pages.POM.comuna_page import ComunaClass
 class InitPagesDriver():
 
     def __init__(self, driver_init):
-        self.driver_init = driver_init
-        self.base = BaseSetup( self.driver_init )
+        self.base = BaseSetup(driver_init)
         self.auth = Auth( self.base )
         self.signin = SignInUpClass( self.base )
         self.navigation = NavigationMenu( self.base )
