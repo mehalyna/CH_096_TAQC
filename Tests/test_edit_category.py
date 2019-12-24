@@ -21,7 +21,7 @@ def test_edit_category(app,login_admin,screenshot_on_failure):
     else:
         test3=False
     print (test3)
-    assert test3
+    assert test3, 'Testing assertion error... Good'
 
     #teardown
     app.categories.delete_category(category_new)

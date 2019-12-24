@@ -16,6 +16,7 @@ class Config:
     # BROWSER = 'IE'
     # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
+
 class CreateEventData():
 
 
@@ -27,7 +28,6 @@ class CreateEventData():
     ATT_DATA = "innerHtml"
 
 
-
 class ContactUsData():
 
     DESCRIPTION_FOR_CONTACT = "very nice!!!"
@@ -37,19 +37,16 @@ class ProfileMenuPageHeaderInfo:
 
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
-
     USER_AGE_LABEL = 'Age:'
     USER_AGE_DATA = '19'
-
     USER_GENDER_LABEL = 'Gender:'
     USER_GENDER_DATA = 'Other'
-
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
-
     USER_INTERESTS_LABEL = 'Interests:'
     USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
                            '#QC testing event', '#Meeting', '#Summer'}
+
 
 class ProfilePageEventsMenu:
     ''' Testdata: Locators for event's menu.

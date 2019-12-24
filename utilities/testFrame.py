@@ -31,6 +31,7 @@ class InitPages():
         # events menu at navigation menu --> profile page
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
+
         # just a stub for use in case of lack of testing eventExpress web app.
         # To be deleted on finishing the project debugging
         self.linked = SignLinkedInClass(self.base)

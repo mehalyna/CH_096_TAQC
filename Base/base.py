@@ -8,8 +8,8 @@ import random
 
 class BaseSetup:
 
-    def __init__(self, event):
-        self.driver = event
+    def __init__(self, driver):
+        self.driver = driver
 
 
     def get_page_title(self):
@@ -36,7 +36,6 @@ class BaseSetup:
         element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
-
     def get_list_element(self, ele_html: str, *locators):
         """get list of elements li, tr ....
             Args: locator = tuple(By.selector, 'str')
@@ -55,7 +54,6 @@ class BaseSetup:
     def click_action(self, x, y):
         action = ActionChains(self.driver)
         action.move_by_offset(x, y).click().perform()
-
 
     def element_be_clickable(self, *locator):
         try:
@@ -76,11 +74,9 @@ class BaseSetup:
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
 
-
     def clean_element(self, locators):
         element = self.find_element(*locators)
         element.clear()
-
 
     def send_keys_to_element(self, locators, data):
         element = self.find_element(*locators)

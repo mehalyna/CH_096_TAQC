@@ -1,13 +1,12 @@
 import pytest
 import allure
-
 from allure_commons.types import AttachmentType
-import time
 
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
-from Data.credentials import user,admin
+from Data.credentials import user, admin
+
 
 @pytest.fixture(scope='function')
 def driver_init(request):
@@ -21,18 +20,22 @@ def driver_init(request):
     driver.close()
     driver.quit()
 
+
 @pytest.fixture(scope='function')
 def app(driver_init):
     page_init = InitPages(driver_init)
     return page_init
 
+
 @pytest.fixture(scope='function')
 def login(app):
-    app.signin.enter_actor(user['email'],user['password'])
+    app.signin.enter_actor(user['email'], user['password'])
+
 
 @pytest.fixture(scope='function')
 def login_admin(app):
     app.signin.enter_actor(admin['email'], admin['password'])
+
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
@@ -47,9 +50,10 @@ def pytest_runtest_makereport(item):
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
+
 @pytest.fixture
 def screenshot_on_failure(request, driver_init):
-    #
+    # Intentionally blank section
     yield
     # request.node is an "item" because we use the default
     # "function" scope
