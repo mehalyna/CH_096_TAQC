@@ -5,7 +5,7 @@ import time
 
 from Driver.driver import Driver
 from Data.test_data import Config
-from utilities.testFrame import InitPages
+from utilities.testFrame import InitPagesDriver
 
 
 @pytest.fixture(scope='function')
@@ -21,7 +21,7 @@ def driver_init(request):
 
 @pytest.fixture(scope='function')
 def app(driver_init):
-    page_init = InitPages(driver_init)
+    page_init = InitPagesDriver(driver_init)
     return page_init
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -55,3 +55,27 @@ def screenshot_on_failure(request, driver_init):
             allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
+
+'''
+@pytest.fixture(scope='function')
+def get_driver():
+    print('===============setUp===================')
+    driver = Driver(Config.BROWSER).set_browser()
+    driver.delete_all_cookies()
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    driver.get(Config.HOME_URL)
+    wrapped_driver = BaseSetup(driver)
+    return wrapped_driver
+
+    # def teardown_module(self):
+    #     print('===============teardown===================')
+    #     time.sleep(3)  # ToDo
+    #     driver.close()
+    #     driver.quit()
+
+@pytest.fixture(scope='function')
+def event(get_driver):
+    event_init = InitPagesDriver(get_driver)
+    return event_init
+'''
