@@ -1,7 +1,8 @@
 from Data.credentials import user,admin
 from Data.test_data import CategoriesPage
+import allure
 
-
+@allure.feature("Run test")
 def test_edit_category(app):
     category_old = CategoriesPage.category_old
     category_new = CategoriesPage.category_new

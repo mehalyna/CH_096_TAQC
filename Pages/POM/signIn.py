@@ -1,7 +1,5 @@
 from Locators.locators import LoginPageLocators
 from Locators.locators import RegisterLocators
-from Data.credentials import *
-
 
 
 class SignInUpClass():

@@ -8,8 +8,9 @@ class Config:
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "https://localhost:44364/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
+    # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
     # HOME_URL = "http://localhost:49862/home/events?page=1"
+    HOME_URL = "http://localhost:57690/home/events?page=1" #Sasha
     # HOME_URL = "https://localhost:44364/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
