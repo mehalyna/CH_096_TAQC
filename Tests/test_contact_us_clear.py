@@ -19,7 +19,7 @@ def test_contact_us_clear(app, screenshot_on_failure):
     with allure.step("Enter description"):
         app.contact.enter_description()
     with allure.step("Click on 'Clear' button"):
-        app.contact.click_on_clear()
+        app.base.click_on_element(locator.CLEAR)
     assert(app.base.get_element_text(locator.DESCRIPTION) == "")
 
 

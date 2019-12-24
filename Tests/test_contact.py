@@ -18,7 +18,7 @@ def test_contact_us(app, screenshot_on_failure):
     with allure.step("Enter description"):
         app.contact.enter_description()
     with allure.step("Click on 'Submit' button"):
-        app.contact.click_on_submit()
+        app.base.click_on_element(locator.SUBMIT)
     assert(app.base.get_element_text(locator.MES) == "Failed")
 
 
