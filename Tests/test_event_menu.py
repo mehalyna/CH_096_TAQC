@@ -1,45 +1,20 @@
-from Data.test_data import CreateEventData, CartPanelsAtProfilePage
+import pytest
+from Data.test_data import CreateEventData
+from Data.test_data import ProfilePageEventsMenu as data
+    # CartPanelsAtProfilePage
 
 
-class TestEventMenuTabsCheck():
+# class TestEventMenuTabsCheck():
+@pytest.mark.parametrize("test_input", [data.FUTURE_EVENTS,
+                                        data.ARCHIVE_EVENTS,
+                                        data.VISITED_EVENTS,
+                                        data.EVENTS_TO_GO,
+                                        data.ADD_EVENT] )
+def test_event_menu_1(app, login, test_input):
+    app.navigation.click_on_profile()
+    assert app.event_menu.element_at_menu_bar_is_present(test_input, timeout=0), f"No menu tab {test_input} in the tabs"
+    print(f"Menu tab {test_input} is in the tab")
 
-    def test_event_menu_1(event, name='FUTURE EVENTS'):
-        # event.signin.enter_actor(CreateEventData.LOGIN_USER,
-        #                              CreateEventData.PASSWORD_USER)
-        # event.navigation.click_on_profile()
-        # assert event.event_menu.element_at_menu_bar_is_present(name, timeout=0)
-        print(f"Menu tab {name} is in the tab")
-
-#     def test_event_menu_2(self, name='ARCHIVE EVENTS'):
-#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
-#                                      CreateEventData.PASSWORD_USER)
-#         self.exec.navigation.click_on_profile()
-#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
-#         print(f"Menu tab {name} is in the tab")
-#
-#
-#     def test_event_menu_3(self, name='VISITED EVENTS'):
-#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
-#                                      CreateEventData.PASSWORD_USER)
-#         self.exec.navigation.click_on_profile()
-#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
-#         print(f"Menu tab {name} is in the tab")
-#
-#
-#     def test_event_menu_4(self, name='EVENTS TO GO'):
-#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
-#                                      CreateEventData.PASSWORD_USER)
-#         self.exec.navigation.click_on_profile()
-#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
-#         print(f"Menu tab {name} is in the tab")
-#
-#
-#     def test_event_menu_5(self, name='ADD_EVENT'):
-#         self.exec.signin.enter_actor(CreateEventData.LOGIN_USER,
-#                                      CreateEventData.PASSWORD_USER)
-#         self.exec.navigation.click_on_profile()
-#         self.assertTrue(self.exec.event_menu.element_at_menu_bar_is_present(name, self.timeout))
-#         print(f"Menu tab {name} is in the tab")
 #
 #
 # class TestEventMenuTabsSwitch(TestInit):
