@@ -1,8 +1,9 @@
 .idea/
 .idea\*
 .idea/*
-.idea/
+.idea
 .vscode/
+Reports_Allure
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
