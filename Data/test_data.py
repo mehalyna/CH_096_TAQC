@@ -5,11 +5,6 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
     # HOME_URL = 'http://google.com'
-<<<<<<< HEAD
-=======
-    # HOME_URL = "http://localhost:3183/home/events?page=1"
-    HOME_URL = "https://localhost:44364/home/events?page=1"
->>>>>>> Unittest before move into PyTest
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "https://localhost:44364/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"

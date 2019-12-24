@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-from Tests.testinit import TestInit
->>>>>>> pytest start
 from Data.credentials import user,admin
 from Locators.locators import ContactUsPageLocators
 
