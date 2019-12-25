@@ -1,5 +1,7 @@
 from Locators.locators import LoginPageLocators
 from Locators.locators import RegisterLocators
+from Data.credentials import *
+
 
 
 class SignInUpClass():
@@ -25,7 +27,18 @@ class SignInUpClass():
         self.browser.click_on_element(self.locator_login.SIGNIN)
 
 
+
+
+
+
+
+
+
 #     REGISTER FORM
     def click_on_register(self):
         self.browser.click_on_element( self.locator_reg.REGISTER )
+
+
+
+
 
