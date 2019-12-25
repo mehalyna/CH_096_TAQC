@@ -1,9 +1,0 @@
-[
-  "Tests/test_SearchPanelField.py::test_search_event",
-  "Tests/test_SearchPanelFilter.py::test_search_event",
-  "Tests/test_create_event.py::test_create_event",
-  "Tests/test_auth.py::test_authorization[data0]",
-  "Tests/test_auth.py::test_authorization[data1]",
-  "Tests/test_edit_category.py::test_edit_category",
-  "Tests/test_contact.py::test_contact_us"
-]
