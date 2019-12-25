@@ -1,4 +1,4 @@
-from Data.credentials import user,admin
+from Data.credentials import user, admin
 from Locators.locators import ContactUsPageLocators as locator
 import allure
 
@@ -7,7 +7,7 @@ import allure
 @allure.severity(allure.severity_level.CRITICAL)
 def test_contact_us(app, screenshot_on_failure):
     with allure.step("Login as user"):
-        app.signin.enter_actor(user['email'],user['password'])
+        app.signin.enter_actor(user['email'], user['password'])
 
     with allure.step("Navigation 'Contact us'"):
         app.navigation.click_on_contact_us()
