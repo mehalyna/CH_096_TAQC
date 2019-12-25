@@ -80,8 +80,10 @@ class BaseSetup():
 
     def get_element_text(self, locator):
         element = self.find_element(*locator)
-        print(element.text)
-        return element.text
+        a = element.text
+        wait = WebDriverWait(self.driver, 5)
+        print(a)
+        return a
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):

@@ -16,8 +16,8 @@ def driver_init(request):
     driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
     yield driver
-    #driver.close()
-    #driver.quit()
+    driver.close()
+    driver.quit()
 
 @pytest.fixture(scope='function')
 def app(driver_init):
