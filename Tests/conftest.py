@@ -19,10 +19,22 @@ def driver_init(request):
     #driver.close()
     #driver.quit()
 
+
 @pytest.fixture(scope='function')
 def app(driver_init):
     page_init = InitPages(driver_init)
     return page_init
+
+
+@pytest.fixture(scope='function')
+def login(app):
+    app.signin.enter_actor(user['email'], user['password'])
+
+
+@pytest.fixture(scope='function')
+def login_admin(app):
+    app.signin.enter_actor(admin['email'], admin['password'])
+
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):

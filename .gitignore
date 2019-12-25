@@ -2,7 +2,7 @@
 .idea\*
 .idea/*
 .idea
-.vscode/
+.vscode
 Reports_Allure
 
 # Byte-compiled / optimized / DLL files
