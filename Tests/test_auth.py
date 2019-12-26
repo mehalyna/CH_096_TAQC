@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 locator = NavigationMenuLocators
 
 def credentials():
-    lst = [[user['email'], user['password']], [admin['email1'], admin['password']]]
+    lst = [[user['email'], user['password']], [admin['email'], admin['password']]]
     return lst
 
 @allure.link("http://localhost:57690/home/events?page=1", name='Click me')

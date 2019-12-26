@@ -1,3 +1,4 @@
+import pytest
 import allure
 from Data.credentials import user
 
@@ -15,7 +16,7 @@ def test_login(app, screenshot_on_failure):
     app.linked.press_button_signin()
 
     # get title of the page
-    expected_title = 'Fool' # 'Security Verification'
+    expected_title = 'Security Verification'  # 'Fool'
     actual_title = app.linked.title
     print(f'It is expected a part of page title to be "{expected_title}".'
           f'The actual title is "{actual_title}"')
@@ -27,5 +28,5 @@ def test_login(app, screenshot_on_failure):
     #     print('Assertion test failed')
 
 
-# if __name__ == '__main__':
-#     pytest.main()
+if __name__ == '__main__':
+    pytest.main()
