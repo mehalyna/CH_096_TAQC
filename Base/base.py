@@ -96,7 +96,6 @@ class BaseSetup:
         ''' Usage:
         self.error_str = "Failed"
         self.assertTrue(self.exec.base.check_if_text_present(self.locator.MES, self.error_str)), "not equal"
-
         where locator locator.MES is MES = (By.CSS_SELECTOR, 'css_string')'''
 
         error_msg = "Text not found"
@@ -114,7 +113,6 @@ class BaseSetup:
               waiting time = 10 # int()
         Returns text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
-        Explicit Waits method is used.
         '''
 
         alert = f"Can't find element by locator {locator}"
@@ -127,7 +125,20 @@ class BaseSetup:
             print(alert)
             return None
 
-
+    def check_element_exist(self, locator, timeout=5):
+        ''' Find element whether exist.
+        Args: locator = tuple(By.selector, 'str')
+              waiting time = 10 # int()
+        Returns True on success within timeout interval or
+        an False and print a message for a raised exception.
+        '''
+        alert = f"Can't find element by locator {locator}"
+        try:
+            WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator),
+                                                                message=alert)
+            return True
+        except TimeoutException:
+            return False
 
 
 

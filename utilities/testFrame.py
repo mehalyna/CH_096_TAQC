@@ -10,7 +10,6 @@ from Pages.POM.event_menu_page import EventsMenu
 #EventsMenuCarts
 from Pages.POM.contact_us_page import ContactUs
 from Pages.POM.comuna_page import ComunaClass
-from Pages.POM.linkedin_page_tmp_boris import SignLinkedInClass
 
 
 class InitPages():
@@ -32,6 +31,3 @@ class InitPages():
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
 
-        # just a stub for use in case of lack of testing eventExpress web app.
-        # To be deleted on finishing the project debugging
-        self.linked = SignLinkedInClass(self.base)
