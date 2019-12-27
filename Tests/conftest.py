@@ -14,7 +14,6 @@ def driver_init(request):
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
     driver.maximize_window()
-    driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
 
     yield driver

@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Data.test_data import ProfilePageEventsMenu #, ProfileMenuPageHeaderInfo
+from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
 
 
 class LoginPageLocators:
@@ -99,28 +99,30 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),  # Whole panel
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
-                     'FUTURE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
-                     'ARCHIVE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
-                     'VISITED_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
-                     'EVENTS_TO_GO_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
-                     'ADD_EVENT_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
-                     }
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]')
+    }
+    # locators for tab indicators of correspondinng tab
+    TAB_INDICATOR_DICT = {ProfilePageEventsMenu.FUTURE_EVENTS: (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
+                          ProfilePageEventsMenu.ARCHIVE_EVENTS: (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
+                          ProfilePageEventsMenu.VISITED_EVENTS: (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
+                          ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
+                          ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
+    }
     # Admin locators_dict ToDo
 
 
 class ProfileMenuPageHeaderInfoLocators:
     ''' Locators for user info page header (central header)'''
     # User  .row:nth-child(1) > .col-4
-    locators_dict = {#ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-                     # ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-                     # ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-                     # ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-                     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-                     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-                     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-                     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
-                     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+    locators_dict = {ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+                     ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+                     ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+                     ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+                     ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+                     ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+                     ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+                     ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
+                     ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
                      'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
     # Admin ToDo

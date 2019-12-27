@@ -1,5 +1,5 @@
 from Locators.locators import ProfilePageEventsMenuLocators, ProfileMenuPageHeaderInfoLocators
-# from Data.test_data import ProfilePageEventsMenu as data
+from Data.test_data import ProfilePageEventsMenu
 
 
 class EventsMenu:
@@ -7,7 +7,7 @@ class EventsMenu:
     def __init__(self, browser):
         self.locator = ProfilePageEventsMenuLocators.locators_dict
         self.locator_info = ProfileMenuPageHeaderInfoLocators.locators_dict
-        # self.tab_dict = data.TAB_INDICATOR_DICT
+        self.tab_dict = ProfilePageEventsMenuLocators.TAB_INDICATOR_DICT
         self.browser = browser
 
     def element_at_menu_bar_is_present(self, item_name, timeout):
@@ -29,7 +29,7 @@ class EventsMenu:
 
     def click_menu_item(self, item_name):
         """Clicking on an item using item_name (string type) which is selected from test_data.py
-         'FUTURE EVENTS'  'ARCHIVE EVENTS'  'VISITED EVENTS'  'ADD EVENT'
+         'FUTURE EVENTS' ... 'ADD EVENT'
         The item_name is a key of dictionary of item locators
         """
         # self.browser.click_on_element(self.locator.ARCHIVE_EVENTS)
@@ -40,10 +40,8 @@ class EventsMenu:
         'FUTURE EVENTS' ... 'ADD EVENT'
         The item_name is a key of dictionary of item locators
         """
-        # self.browser.click_on_element(self.locator[item_name])
-        # print(self.tab_dict)
-        # # check_element_exist(self, locator, timeout=5): - locator is a tuple
-        # return self.browser.check_element_exist(self.tab_dict[item_name], timeout=5)
+        self.browser.click_on_element(self.locator[item_name])
+        return self.browser.is_element_exist(self.tab_dict[item_name], timeout=5)
 
 
 # class EventsMenuCarts:

@@ -123,7 +123,22 @@ class BaseSetup():
         elem = select.select_by_visible_text(text)
         elem.click()
 
-
+    def is_element_exist(self, locator, timeout=5):
+        ''' Tryes to find element by locator as a criteria of existence.
+        Args: locator = tuple(By.selector, 'srt')
+              waiting time = 10 # int()
+        Returns True on success within timeout interval or
+        an False and print a message for a raised exception.
+        '''
+        alert = f"Can't find element by locator {locator}"
+        try:
+            element = WebDriverWait(self.driver, timeout)\
+                .until(EC.presence_of_element_located(locator),
+                       message=alert)
+            return True
+        except TimeoutException:
+            print(alert)
+            return False
 
 
 

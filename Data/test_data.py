@@ -1,7 +1,9 @@
 import random
 import os
 
-# from Locators.locators import ProfilePageEventsMenuLocators as locator
+# from Locators.locators import ProfilePageEventsMenuLocators
+from selenium.webdriver.common.by import By
+
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -56,15 +58,6 @@ class ProfilePageEventsMenu:
     VISITED_EVENTS = 'VISITED EVENTS'
     EVENTS_TO_GO = 'EVENTS TO GO'
     ADD_EVENT = 'ADD_EVENT'
-
-    # used for pairing menu tabs and locators for the tabs indicators
-    # TAB_INDICATOR_DICT = {
-    #     FUTURE_EVENTS: locator.locators_dict['FUTURE_EVENTS_TAB_INDICATOR'],
-    #     ARCHIVE_EVENTS: locator.locators_dict['ARCHIVE_EVENTS_TAB_INDICATOR'],
-    #     VISITED_EVENTS: locator.locators_dict['VISITED_EVENTS_TAB_INDICATOR'],
-    #     EVENTS_TO_GO: locator.locators_dict['EVENTS_TO_GO_TAB_INDICATOR'],
-    #     ADD_EVENT: locator.locators_dict['ADD_EVENT_TAB_INDICATOR']
-    # }
 
 
 class HomePageOptionsPanel:
