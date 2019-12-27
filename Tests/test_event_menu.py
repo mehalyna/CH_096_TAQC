@@ -13,7 +13,7 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
     print(f"Menu tab {test_input} is in the tab")
 
 
-# In progress...
+# In progress... 2nd and consequentive tests are fail
 @pytest.mark.parametrize("menu_tab", [data.FUTURE_EVENTS,
                                       data.ARCHIVE_EVENTS,
                                       data.VISITED_EVENTS,
