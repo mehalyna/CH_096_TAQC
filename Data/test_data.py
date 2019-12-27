@@ -72,15 +72,6 @@ class ProfilePageEventsMenu:
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
-    # ToDo
-##
-#         # "Navigation menu..."
-#         'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
-#         'Profile': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(2) .link"),
-#         'Search Users': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(3) .link"),
-#         'Comuna': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(4) .link"),
-#         'Contact us': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(5) .link"),
-#             }
 
 
 class CartPanelsAtProfilePage:
