@@ -1,7 +1,5 @@
 from Data.credentials import user,admin
 import allure
-from selenium.common.exceptions import NoSuchElementException
-from allure_commons.types import AttachmentType
 from Locators.locators import SearchEventPanelLocators as locator
 
 
