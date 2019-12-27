@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
+from Data.test_data import ProfilePageEventsMenu #, ProfileMenuPageHeaderInfo
 
 
 class LoginPageLocators:
@@ -21,9 +21,6 @@ class RegisterLocators:
     CLEAR = (By.CSS_SELECTOR,".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
 
-class LogoProfileLocators:
-    #boris ToDO
-    pass
 
 class NavigationMenuLocators:
     Home = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(1)")
@@ -35,6 +32,7 @@ class NavigationMenuLocators:
     CATEGORIES = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(5)")
     USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
     EVENTS = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(7)")
+
 
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
@@ -62,6 +60,7 @@ class SearchEventData():
     NAME_EVENT = (By.CSS_SELECTOR,
                   "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
 
+
 #page for communication users with admins
 class ContactUsPageLocators():
 
@@ -74,10 +73,6 @@ class ContactUsPageLocators():
     LIST = (By.CSS_SELECTOR, ".form-control")
 
 
-# displayed list of future events on home page
-class HomePageLocators:
-    pass
-
 #user communication page
 class ComunaPageLocators():
 
@@ -87,11 +82,13 @@ class ComunaPageLocators():
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
+
 #profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
     ''' Profile page and menu locators '''
     # ToDo the same as for NavigationMenuLocators class
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
+
 
 class ProfilePageEventsMenuLocators:
     ''' Events menu object locators '''
@@ -101,41 +98,31 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.VISITED_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-2'),
                      ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
-                     'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'), # Whole panel
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR,'button[id*="full"]')
-    } # panel locator; items align? ToDo
-    # # "Events groups menu..."
-    #         'FUTURE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-1 > .MuiTab-wrapper"),
-    #         'ARCHIVE EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-2 > .MuiTab-wrapper"),
-    #         'VISITED EVENTS': ('By.CSS_SELECTOR', "#full-width-tab-3 > .MuiTab-wrapper"),
-    #         'ADD EVENT': ('By.CSS_SELECTOR', "#full-width-tab-4 > .MuiTab-wrapper")
-    # Admin ToDo
+                     'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),  # Whole panel
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
+                     'FUTURE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
+                     'ARCHIVE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
+                     'VISITED_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
+                     'EVENTS_TO_GO_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
+                     'ADD_EVENT_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
+                     }
+    # Admin locators_dict ToDo
+
 
 class ProfileMenuPageHeaderInfoLocators:
     ''' Locators for user info page header (central header)'''
-    # User
-    USER_NAME_LABEL = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4')
-    USER_NAME_DATA = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8')
-    USER_AGE_LABEL = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4')
-    USER_AGE_DATA = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8')
-     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-     # }
-    # locators_dict = {ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-    #                  }
+    # User  .row:nth-child(1) > .col-4
+    locators_dict = {#ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+                     'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
+    }
     # Admin ToDo
 
 
@@ -186,8 +173,8 @@ class CategoriesLocators:
     ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
     ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
 
-class EditYourProfile:
 
+class EditYourProfile:
     EDIT_PROFILE = (By.CSS_SELECTOR, ':nth-child(1) > button')
     CHANGE_AVATAR = (By.XPATH, '/html/body/div[1]/div[3]/div/div[1]/div[1]/div[1]/p')
     CHANGE_USERNAME = (By.XPATH, '/html/body/div[1]/div[3]/div/div[2]/div[1]/div[1]/p[1]')
