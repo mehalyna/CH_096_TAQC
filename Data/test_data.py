@@ -8,14 +8,12 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 class Config:
 
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    HOME_URL = "https://localhost:44364/home/events?page=1"
+    # HOME_URL = "https://localhost:44364/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
-    # HOME_URL = "http://localhost:57690/home/events?page=1"
-    # BROWSER = 'Chrome'
-    BROWSER = 'Firefox'
-    # BROWSER = 'IE'
-    # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
+    HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
+    BROWSER = 'Chrome'
+    # BROWSER = 'Firefox'
 
 
 class CreateEventData():
@@ -82,13 +80,11 @@ class CartPanelsAtProfilePage:
     BLANK_CART_TEXT = 'No Results'
     CART_NTH_ID = ''  # on mouse hover - tip arising
 
-class EditProfileData:
 
+class EditProfileData:
     USER_NAME = 'Tester'
     CURRENT_PASS = '1qaz1qaz'
     NEW_PASS = '2qaz2qaz'
-
-
 
 
 class CategoriesPage:

@@ -1,6 +1,7 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
+import time
 
 from Driver.driver import Driver
 from Data.test_data import Config
@@ -16,10 +17,10 @@ def driver_init(request):
     driver.maximize_window()
     driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
+
     yield driver
     driver.close()
     driver.quit()
-
 
 @pytest.fixture(scope='function')
 def app(driver_init):
@@ -53,7 +54,6 @@ def pytest_runtest_makereport(item):
     setattr(item, "rep_" + rep.when, rep)
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
-
 
 @pytest.fixture
 def screenshot_on_failure(request, driver_init):

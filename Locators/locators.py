@@ -33,6 +33,7 @@ class NavigationMenuLocators:
     USERS = (By.CSS_SELECTOR,"nav ul.list-unstyled .sidebar-header:nth-child(6)")
     EVENTS = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(7)")
 
+
 # search available on every page of EventExpress
 class SearchEventPanelLocators():
     """
@@ -59,6 +60,7 @@ class SearchEventData():
     NAME_EVENT = (By.CSS_SELECTOR,
                   "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
 
+
 #page for communication users with admins
 class ContactUsPageLocators():
 
@@ -71,10 +73,6 @@ class ContactUsPageLocators():
     LIST = (By.CSS_SELECTOR, ".form-control")
 
 
-# displayed list of future events on home page
-class HomePageLocators:
-    pass
-
 #user communication page
 class ComunaPageLocators():
 
@@ -84,11 +82,13 @@ class ComunaPageLocators():
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
 
+
 #profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
     ''' Profile page and menu locators '''
     # ToDo the same as for NavigationMenuLocators class
     ADD_EVENT = (By.CSS_SELECTOR, ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
+
 
 class ProfilePageEventsMenuLocators:
     ''' Events menu object locators '''
@@ -173,8 +173,8 @@ class CategoriesLocators:
     ADD_CATEGORY_CROSS = (By.CSS_SELECTOR, '.fa-times > path')
     ADD_CATEGORY_CHECK = (By.CSS_SELECTOR, '.fa-check')
 
-class EditYourProfile:
 
+class EditYourProfile:
     EDIT_PROFILE = (By.CSS_SELECTOR, ':nth-child(1) > button')
     CHANGE_AVATAR = (By.XPATH, '/html/body/div[1]/div[3]/div/div[1]/div[1]/div[1]/p')
     CHANGE_USERNAME = (By.XPATH, '/html/body/div[1]/div[3]/div/div[2]/div[1]/div[1]/p[1]')
