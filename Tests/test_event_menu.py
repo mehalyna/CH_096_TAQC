@@ -12,14 +12,14 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
     assert app.event_menu.element_at_menu_bar_is_present(test_input, timeout=0), f"No menu tab {test_input} in the tabs"
     print(f"Menu tab {test_input} is in the tab")
 
-# In progress...
-def test_event_menu_switch_1(app, login, screenshot_on_failure, name='FUTURE EVENTS'):
-    ''' Moving from default tab to tab and check the result'''
-    app.navigation.click_on_profile()
-    app.event_menu.click_menu_item(name)  # argument is a string: name='FUTURE EVENTS'
-    actual_result = app.event_menu.is_menu_item_active(name, timeout=0)
-    assert actual_result
-    print(f"Menu tab {name}")
+# # In progress...
+# def test_event_menu_switch_1(app, login, screenshot_on_failure, name='FUTURE EVENTS'):
+#     ''' Moving from default tab to tab and check the result'''
+#     app.navigation.click_on_profile()
+#     app.event_menu.click_menu_item(name)  # argument is a string: name='FUTURE EVENTS'
+#     actual_result = app.event_menu.is_menu_item_active(name, timeout=0)
+#     assert actual_result
+#     print(f"Menu tab {name}")
 # 
 # def test_event_menu_switch_2(self, name='ARCHIVE EVENTS'):
 #     ''' Moving from default tab to FUTURE EVENTS and check '''

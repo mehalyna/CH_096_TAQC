@@ -1,12 +1,13 @@
 from Locators.locators import ProfilePageEventsMenuLocators, ProfileMenuPageHeaderInfoLocators
-from Data.test_data import ProfilePageEventsMenu as data
+# from Data.test_data import ProfilePageEventsMenu as data
+
 
 class EventsMenu:
     ''' Page object for events menu: ProfilePageEventsMenuLocators '''
     def __init__(self, browser):
         self.locator = ProfilePageEventsMenuLocators.locators_dict
         self.locator_info = ProfileMenuPageHeaderInfoLocators.locators_dict
-        self.tab_dict = data.TAB_INDICATOR_DICT
+        # self.tab_dict = data.TAB_INDICATOR_DICT
         self.browser = browser
 
     def element_at_menu_bar_is_present(self, item_name, timeout):
@@ -39,23 +40,23 @@ class EventsMenu:
         'FUTURE EVENTS' ... 'ADD EVENT'
         The item_name is a key of dictionary of item locators
         """
-        self.browser.click_on_element(self.locator[item_name])
-        print(self.tab_dict)
-        # check_element_exist(self, locator, timeout=5): - locator is a tuple
-        return self.browser.check_element_exist(self.tab_dict[item_name], timeout=5)
+        # self.browser.click_on_element(self.locator[item_name])
+        # print(self.tab_dict)
+        # # check_element_exist(self, locator, timeout=5): - locator is a tuple
+        # return self.browser.check_element_exist(self.tab_dict[item_name], timeout=5)
 
 
-class EventsMenuCarts:
-    ''' CartPanelsAtProfilePageLocators '''
-    ''' Page object for events menu: ProfilePageEventsMenuLocators '''
-
-    def __init__(self, browser):
-        self.locator = CartPanelsAtProfilePageLocators.locators_dict
-        self.browser = browser
-
-    def element_at_menu_bar_is_present(self, item_name, timeout):
-        ''' Check the text attribute for an element as a criteria of existence '''
-        result = self.browser.check_if_element_exists(self.locator[item_name], timeout)
-        if result is not None:
-            return True
+# class EventsMenuCarts:
+#     ''' CartPanelsAtProfilePageLocators '''
+#     ''' Page object for events menu: ProfilePageEventsMenuLocators '''
+#
+#     def __init__(self, browser):
+#         self.locator = CartPanelsAtProfilePageLocators.locators_dict
+#         self.browser = browser
+#
+#     def element_at_menu_bar_is_present(self, item_name, timeout):
+#         ''' Check the text attribute for an element as a criteria of existence '''
+#         result = self.browser.check_if_element_exists(self.locator[item_name], timeout)
+#         if result is not None:
+#             return True
 

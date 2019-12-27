@@ -1,19 +1,19 @@
 import random
 import os
 
-from Locators.locators import ProfilePageEventsMenuLocators as locator
+# from Locators.locators import ProfilePageEventsMenuLocators as locator
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 
 class Config:
 
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "https://localhost:44364/home/events?page=1"
+    HOME_URL = "https://localhost:44364/home/events?page=1"  # Boris
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
-    HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
-    BROWSER = 'Chrome'
-    # BROWSER = 'Firefox'
+    # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
+    # BROWSER = 'Chrome'
+    BROWSER = 'Firefox'
 
 
 class CreateEventData():
@@ -58,13 +58,13 @@ class ProfilePageEventsMenu:
     ADD_EVENT = 'ADD_EVENT'
 
     # used for pairing menu tabs and locators for the tabs indicators
-    TAB_INDICATOR_DICT = {
-        FUTURE_EVENTS: locator.locators_dict['FUTURE_EVENTS_TAB_INDICATOR'],
-        ARCHIVE_EVENTS: locator.locators_dict['ARCHIVE_EVENTS_TAB_INDICATOR'],
-        VISITED_EVENTS: locator.locators_dict['VISITED_EVENTS_TAB_INDICATOR'],
-        EVENTS_TO_GO: locator.locators_dict['EVENTS_TO_GO_TAB_INDICATOR'],
-        ADD_EVENT: locator.locators_dict['ADD_EVENT_TAB_INDICATOR']
-    }
+    # TAB_INDICATOR_DICT = {
+    #     FUTURE_EVENTS: locator.locators_dict['FUTURE_EVENTS_TAB_INDICATOR'],
+    #     ARCHIVE_EVENTS: locator.locators_dict['ARCHIVE_EVENTS_TAB_INDICATOR'],
+    #     VISITED_EVENTS: locator.locators_dict['VISITED_EVENTS_TAB_INDICATOR'],
+    #     EVENTS_TO_GO: locator.locators_dict['EVENTS_TO_GO_TAB_INDICATOR'],
+    #     ADD_EVENT: locator.locators_dict['ADD_EVENT_TAB_INDICATOR']
+    # }
 
 
 class HomePageOptionsPanel:

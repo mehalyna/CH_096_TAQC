@@ -1,7 +1,6 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
-import time
 
 from Driver.driver import Driver
 from Data.test_data import Config

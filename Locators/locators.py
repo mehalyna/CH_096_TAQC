@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Data.test_data import ProfilePageEventsMenu, ProfileMenuPageHeaderInfo
+from Data.test_data import ProfilePageEventsMenu #, ProfileMenuPageHeaderInfo
 
 
 class LoginPageLocators:
@@ -112,15 +112,15 @@ class ProfilePageEventsMenuLocators:
 class ProfileMenuPageHeaderInfoLocators:
     ''' Locators for user info page header (central header)'''
     # User  .row:nth-child(1) > .col-4
-    locators_dict = {ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-                     ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-                     ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-                     ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-                     ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-                     ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-                     ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-                     ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
-                     ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+    locators_dict = {#ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+                     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
+                     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
                      'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
     # Admin ToDo
