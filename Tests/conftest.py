@@ -1,8 +1,6 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
-import time
-
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
@@ -47,7 +45,6 @@ def screenshot_on_failure(request, driver_init):
         print("setting up a test failed!", request.node.nodeid)
         allure.attach(driver_init.get_screenshot_as_png(),
                       name=request.function.__name__,
-                      # name='Screenshot',
                       attachment_type=AttachmentType.PNG)
     elif request.node.rep_setup.passed:
         if request.node.rep_call.failed:
