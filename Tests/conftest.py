@@ -14,7 +14,6 @@ def driver_init(request):
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
     driver.maximize_window()
-    driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
 
     yield driver
@@ -55,7 +54,7 @@ def pytest_runtest_makereport(item):
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def screenshot_on_failure(request, driver_init):
     '''Make screenshot on a test failure'''
     # Intentionally blank section
