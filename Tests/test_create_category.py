@@ -8,6 +8,7 @@ from Data.test_data import CategoriesPage
 @allure.story('Test creating category')
 @allure.severity(allure.severity_level.CRITICAL)
 def test_create_category(app,login_admin,screenshot_on_failure):
+
     category_old = CategoriesPage.category_old
     with allure.step("Go to Categories page."):
         app.navigation.click_on_categories()
