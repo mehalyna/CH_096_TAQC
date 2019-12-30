@@ -15,10 +15,9 @@ def driver_init(request):
     driver.delete_all_cookies()
     driver.maximize_window()
     driver.get(Config.HOME_URL)
-
     yield driver
-    #driver.close()
-    #driver.quit()
+    driver.close()
+    driver.quit()
 
 
 @pytest.fixture(scope='function')
