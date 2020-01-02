@@ -1,4 +1,5 @@
 import logging
+import os
 import datetime
 class TestLogging():
     debugs=[]
@@ -11,8 +12,13 @@ class TestLogging():
         self.logger=logging.getLogger(test_name)
         now = datetime.datetime.now()
         t = '{}.{}.{}'.format(now.day, now.month, now.year)
+        self.dir = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), 'Logs')
+        print("Do:",self.dir)
+        self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(test_name, t))
+        print ("Pisla:",self.log_fname)
         self.c_handler = logging.StreamHandler()
-        self.f_handler = logging.FileHandler('C:/Users/tolos/Documents/GitHub/CH_096_TAQC/Loggs//{}-{}.log'.format(test_name, t))
+        #self.f_handler = logging.FileHandler('C:/Users/tolos/Documents/GitHub/CH_096_TAQC/Loggs//{}-{}.log'.format(test_name, t))
+        self.f_handler = logging.FileHandler(self.log_fname)
         self.c_handler.setLevel(logging.WARNING)
         self.f_handler.setLevel(logging.INFO)
         self.logger.setLevel(logging.DEBUG)
