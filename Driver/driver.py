@@ -21,17 +21,17 @@ class Driver:
     def __init__(self, browser):
         self.browser = browser
 
-    @property
-    def set_browser(self):
+    def set_browser(self, mode):
+        '''mode is set to True, runs rests in silent mode: no UI while testing'''
 
         if self.browser.lower() == "firefox":
             options = FirefoxOptions()
-            options.headless = True
+            options.headless = mode
             return webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
 
         elif self.browser.lower() == "chrome":
             options = Options()
-            options.headless = True
+            options.headless = mode
             # options.add_argument('--disable-gpu')
             # options.add_argument("--no-sandbox")
             # options.add_argument("window-size=1400,2100")  # Linux should be activate
