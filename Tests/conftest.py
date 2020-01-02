@@ -21,6 +21,7 @@ def driver_init(request):
     driver.close()
     driver.quit()
 
+
 @pytest.fixture(scope='function')
 def app(driver_init):
     '''Instantiate page objects for POM'''
@@ -72,4 +73,3 @@ def screenshot_on_failure(request, driver_init):
             allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
-

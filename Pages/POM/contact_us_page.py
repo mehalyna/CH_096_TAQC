@@ -24,6 +24,10 @@ class ContactUs():
         a = self.browser.get_element_text(self.locator.TYPE)
         return a
 
+    def get_text_from_result(self):
+        res = self.browser.check_if_text_present(self.locator.MES, "Failed")
+        return res
+
 
 
 
