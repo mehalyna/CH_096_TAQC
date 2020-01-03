@@ -1,7 +1,7 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
-
+from utilities.testLogging import TestLogging
 from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
@@ -11,7 +11,7 @@ from Data.credentials import user, admin
 @pytest.fixture(scope='function')
 def driver_init(request):
     '''Instantiate webdriver for selected browser and open homepage'''
-    driver = Driver(Config.BROWSER).set_browser()
+    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
     driver.delete_all_cookies()
     driver.maximize_window()
     driver.get(Config.HOME_URL)
@@ -71,5 +71,4 @@ def screenshot_on_failure(request, driver_init):
             allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
-
 
