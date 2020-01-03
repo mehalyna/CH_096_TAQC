@@ -1,8 +1,8 @@
 from Data.credentials import user,admin
 import allure
 
-def test_setup(app):
-    app.signin.enter_actor(admin['email'],admin['password'])
+# def test_setup(app):
+#     app.signin.enter_actor(admin['email'],admin['password'])
 
 @allure.feature('Search field')
 @allure.story("Search EVENT")
