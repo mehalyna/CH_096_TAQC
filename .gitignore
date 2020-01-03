@@ -1,8 +1,11 @@
 .idea/
 .idea\*
 .idea/*
-.idea/
+.idea
+.pytest_cache
+*.$ml
 .vscode/
+Reports_Allure
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
