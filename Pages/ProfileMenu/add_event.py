@@ -15,13 +15,20 @@ class CreateEvents():
 
 
     def add_title(self,data):
+        """method for adding title for event we creating"""
         self.browser.clean_element( self.locator.EVENT_TITLE)
         self.browser.send_keys_to_element(self.locator.EVENT_TITLE,data)
 
     def upload_image(self):
+        """method for adding image for event
+            :param: upload file with JPG or PNG extentions
+        """
         self.browser.upload_file(self.data.IMAGE, self.locator.UPLOAD_PICTURE)
 
     def add_desc(self,data):
+        """method for adding some description about event we creating
+            :param: data - string representation
+        """
         self.browser.clean_element( self.locator.DESC_TEXT )
         self.browser.send_keys_to_element(self.locator.DESC_TEXT, data)
 
@@ -41,11 +48,13 @@ class CreateEvents():
     def select_country(self, *locator):
         country = self.browser.select_from_list(self.locator.COUNTRY)
         confirm = self.browser.send_keys_to_element(*locator, country)
+        print(confirm)
         return confirm
 
     def select_city(self, *locator):
         city = self.browser.select_from_list( self.locator.CITY )
         confirm = self.browser.send_keys_to_element( *locator, city)
+        print(confirm)
         return confirm
 
     def press_button_save(self):

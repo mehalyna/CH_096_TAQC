@@ -2,8 +2,7 @@ from Data.credentials import user,admin
 import pytest
 import allure
 from Locators.locators import NavigationMenuLocators
-from allure_commons.types import AttachmentType
-from selenium.common.exceptions import NoSuchElementException
+
 
 
 locator = NavigationMenuLocators
@@ -17,6 +16,7 @@ def credentials():
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)
+@allure.description('Verify if user with incorrect data could login')
 @pytest.mark.parametrize('data',credentials())
 def test_authorization(app,data):
     app.auth.click_on_login_button()
@@ -25,13 +25,8 @@ def test_authorization(app,data):
     app.auth.clean_password_field( )
     app.auth.type_pass(data[1])
     app.auth.press_button_signin()
-    try:
-        assert app.base.check_if_element_exists( locator.PROFILE )
-    except:
-        with allure.step('Take Screenshot'):
-            allure.attach( app.base.screenshot_allure( ), name='testScreenLogin',
-                       attachment_type=AttachmentType.PNG )
-        raise NoSuchElementException
+    assert app.base.check_if_element_exists( locator.PROFILE ), "Elemement not found"
+
 
 
 

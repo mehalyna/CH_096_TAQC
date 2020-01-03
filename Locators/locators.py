@@ -21,9 +21,6 @@ class RegisterLocators:
     CLEAR = (By.CSS_SELECTOR,".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
 
-class LogoProfileLocators:
-    #boris ToDO
-    pass
 
 class NavigationMenuLocators:
     Home = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(1)")
@@ -86,6 +83,9 @@ class ComunaPageLocators():
     SEND_BUTTON = (By.CSS_SELECTOR, '.MuiButton-label')
     OUR_MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(4) > div')
     MESSAGE = (By.CSS_SELECTOR, '.msg_card_body > div:nth-child(3) > div')
+    INPUT_FIELD = (By.CSS_SELECTOR, '.card-footer form')
+    MSG_SEND = (By.CSS_SELECTOR, '.card-body.msg_card_body .d-flex.justify-content-end.mb-4')
+    MSG_RECEIVED = (By.CSS_SELECTOR, '.msg_cotainer')
 
 #profile with information about events adn on the up of page is personal info
 class ProfileMenuLocators:
@@ -111,32 +111,7 @@ class ProfilePageEventsMenuLocators:
     #         'ADD EVENT': ('By.CSS_SELECTOR', "#full-width-tab-4 > .MuiTab-wrapper")
     # Admin ToDo
 
-class ProfileMenuPageHeaderInfoLocators:
-    ''' Locators for user info page header (central header)'''
-    # User
-    USER_NAME_LABEL = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4')
-    USER_NAME_DATA = (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8')
-    USER_AGE_LABEL = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4')
-    USER_AGE_DATA = (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8')
-     # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-     # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-     # ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-     # }
-    # locators_dict = {ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-    #                  ProfileMenuPageHeaderInfo.USER_INTERESTS_DATA: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-    #                  }
-    # Admin ToDo
+
 
 
 class HomePageOptionsPanelLocators:
@@ -195,6 +170,18 @@ class EditYourProfile:
     CHANGE_DATE_OF_BIRTH = (By.XPATH, '//*[@id="panel3bh-header"]/div[1]/p[1]')
     CHANGE_FAVORITE_CATEGORIES= (By.XPATH, '//*[@id="panel4bh-header"]/div[1]/p[1]')
     CHANGE_PASSWORD = (By.XPATH, '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
+
+
+class SearchUsers:
+
+    FIELD_SEARCH = (By.XPATH, '//input')
+    NAME_USERS = (By.XPATH, '//a[text()]')
+    SEARCH = (By.CSS_SELECTOR, ".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(2)")
+    # web element is relates for page Profile (navigate from navigation menu)
+    LOGO_PR = (By.CSS_SELECTOR, '.d-flex.flex-column.justify-content-center.align-items-center') #just hover logo
+    LOGO_WR = (By.CSS_SELECTOR, '.btn.btn-success.mt-1') #for click to write msg
+    # web element is relates for page Profile (navigate from navigation menu)
+    LIST_USERS = (By.CSS_SELECTOR, '.offset-3.col-6.mt-4.mb-4')
 
 
 

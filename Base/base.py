@@ -3,26 +3,60 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 import random
 
-
-
-
-
+"""Wrapper for selenium methods and common methods"""
 class BaseSetup():
 
     def __init__(self, driver):
         self.driver = driver
 
+
     def find_element(self, *locators):
+        """
+        Wrapper for standart function selenium find one element. Searching element on page
+        :param locators: locator in tuple representation
+        :return: web element
+        """
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(lambda driver: self.driver.find_element(*locators))
         return element
 
     def find_elements(self, *locators):
-        wait = WebDriverWait(self.driver, 10)
+        """
+        Wrapper for standart function selenium find one elementS. Searching element on page
+        :param locators: locator in tuple representation
+        :return: web elements
+        """
+        wait = WebDriverWait(self.driver, 20)
         element = wait.until(lambda driver: self.driver.find_elements(*locators))
         return element
+
+    def click_on_element(self, locators):
+        """
+        Wrapper for standart function of selenium. After web element were found, click to that element is happened
+        :param locators: locator in tuple representation
+        :return:
+        """
+        element = self.find_element( *locators )
+        element.click( )
+
+    def element_be_clickable(self, *locator):
+        """
+        Wrapper for standart function of selenium. Check if element is available for clicking to.
+        :param locator: locator in tuple representation
+        :return: print message if True.
+        """
+        try:
+            wait = WebDriverWait(self.driver, 20)
+            element = wait.until(EC.element_to_be_clickable(*locator))
+            return element
+        except TimeoutException as e:
+            print('Element is not clickable')
+            return ''
+
+
 
     def find_element_by_tag(self, tag):
         wait = WebDriverWait(self.driver, 10)
@@ -34,9 +68,7 @@ class BaseSetup():
         element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
-    def click_on_element(self, locators):
-        element = self.find_element(*locators)
-        element.click()
+
 
     def clean_element(self, locators):
         element = self.find_element(*locators)
@@ -50,31 +82,25 @@ class BaseSetup():
         """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        print(lst)
         return lst
 
     def select_from_list(self, locator_1):
-        sel = Select(self.find_element(*locator_1))
-        choice = random.choice([c.text for c in sel.options])
-        return choice
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return a.select_by_visible_text(choice)
 
     def click_action(self, x, y):
         action = ActionChains(self.driver)
         action.move_by_offset(x, y).click().perform()
 
-    def element_be_clickable(self, *locator):
-        try:
-            wait = WebDriverWait(self.driver, 10)
-            element = wait.until(EC.element_to_be_clickable(*locator))
-            return element
-        except TimeoutException as e:
-            print('Element is not clickable')
-            return ''
 
-    def scroll_to_element(self, locators):
+
+    def press_end(self):
         #doesn't scroll by search element
-        element = self.find_element(*locators)
         action = ActionChains(self.driver)
-        action.move_to_element(element).perform()
+        action.key_down(Keys.PAGE_DOWN)
 
     def upload_file(self, path, locators):
         element = self.find_element(*locators)
@@ -123,6 +149,20 @@ class BaseSetup():
         elem = select.select_by_visible_text(text)
         elem.click()
 
+    def screenshot_allure(self):
+        screen = self.driver.get_screenshot_as_png( )
+        return screen
+
+
+    def get_value(self, *locator):
+        """
+        Fetch atrribute value
+        :param locator:
+        :return:
+        """
+        val = self.find_element(*locator).get_attribute('value')
+        print(val)
+        return val
 
 
 
