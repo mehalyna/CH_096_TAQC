@@ -11,7 +11,7 @@ from Data.credentials import user, admin
 @pytest.fixture(scope='function')
 def driver_init(request):
     '''Instantiate webdriver for selected browser and open homepage'''
-    driver = Driver(Config.BROWSER).set_browser()
+    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
     driver.delete_all_cookies()
     driver.maximize_window()
     driver.get(Config.HOME_URL)
