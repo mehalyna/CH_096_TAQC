@@ -1,0 +1,161 @@
+{
+  "uid" : "dc2a6c05a63603c3",
+  "name" : "test_authorization[data0]",
+  "fullName" : "Tests.test_auth#test_authorization",
+  "historyId" : "2dbae32d42f7ccdda9b19b057e9ad142",
+  "time" : {
+    "start" : 1577188877755,
+    "stop" : 1577188879757,
+    "duration" : 2002
+  },
+  "description" : "Verify if user with incorrect data could login",
+  "descriptionHtml" : "<p>Verify if user with incorrect data could login</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "app",
+    "time" : {
+      "start" : 1577188877750,
+      "stop" : 1577188877750,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "screenshot_on_failure",
+    "time" : {
+      "start" : 1577188877750,
+      "stop" : 1577188877750,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "get_driver",
+    "time" : {
+      "start" : 1577188871417,
+      "stop" : 1577188877750,
+      "duration" : 6333
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "description" : "Verify if user with incorrect data could login",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "5008f245595abbea",
+      "name" : "stdout",
+      "source" : "5008f245595abbea.txt",
+      "type" : "text/plain",
+      "size" : 158
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : true,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ {
+    "name" : "screenshot_on_failure::0",
+    "time" : {
+      "start" : 1577188879760,
+      "stop" : 1577188879760,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  }, {
+    "name" : "get_driver::0",
+    "time" : {
+      "start" : 1577188879761,
+      "stop" : 1577188884162,
+      "duration" : 4401
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "Login User"
+  }, {
+    "name" : "story",
+    "value" : "\"Actors\" login to site EventExpress "
+  }, {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_auth"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-TPL3FHC5"
+  }, {
+    "name" : "thread",
+    "value" : "29712-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "Tests.test_auth"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "data",
+    "value" : "['user@gmail.com', '1qaz1qaz']"
+  } ],
+  "links" : [ {
+    "name" : "Click me",
+    "url" : "http://localhost:3183/home/events?page=1",
+    "type" : "link"
+  } ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "dc2a6c05a63603c3.json",
+  "parameterValues" : [ "['user@gmail.com', '1qaz1qaz']" ]
+}

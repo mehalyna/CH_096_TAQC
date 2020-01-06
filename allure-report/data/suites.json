@@ -1,0 +1,39 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Tests",
+    "children" : [ {
+      "name" : "test_auth",
+      "children" : [ {
+        "name" : "test_authorization[data0]",
+        "uid" : "a9386c2030fea716",
+        "parentUid" : "50ef925d0cff2d07c4e0609a211a7645",
+        "status" : "passed",
+        "time" : {
+          "start" : 1577189075188,
+          "stop" : 1577189077129,
+          "duration" : 1941
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "['user@gmail.com', '1qaz1qaz']" ]
+      }, {
+        "name" : "test_authorization[data1]",
+        "uid" : "38d6c29ecd02196c",
+        "parentUid" : "50ef925d0cff2d07c4e0609a211a7645",
+        "status" : "failed",
+        "time" : {
+          "start" : 1577189088014,
+          "stop" : 1577189099627,
+          "duration" : 11613
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "['ad1min@gmail.com', '1qaz1qaz']" ]
+      } ],
+      "uid" : "50ef925d0cff2d07c4e0609a211a7645"
+    } ],
+    "uid" : "902c53be0755ed2c5e3076a8d5ce2e49"
+  } ]
+}

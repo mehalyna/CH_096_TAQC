@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Dec 24 14:04:35 EET 2019","Tue Dec 24 14:04:37 EET 2019","1941","Tests","test_auth","","","","test_authorization[data0]","Verify if user with incorrect data could login"
+"failed","Tue Dec 24 14:04:48 EET 2019","Tue Dec 24 14:04:59 EET 2019","11613","Tests","test_auth","","","","test_authorization[data1]","Verify if user with incorrect data could login"

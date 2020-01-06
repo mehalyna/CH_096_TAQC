@@ -1,0 +1,41 @@
+{
+  "2dbae32d42f7ccdda9b19b057e9ad142" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a9386c2030fea716",
+      "status" : "passed",
+      "time" : {
+        "start" : 1577189075188,
+        "stop" : 1577189077129,
+        "duration" : 1941
+      }
+    } ]
+  },
+  "307b3e81a3c9742e74203e6924c08bb2" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "38d6c29ecd02196c",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: Elemement not found\nassert None\n +  where None = <bound method BaseSetup.check_if_element_exists of <Base.base.BaseSetup object at 0x036C6FD0>>(('css selector', 'nav ul.list-unstyled .sidebar-header:nth-child(2)'))\n +    where <bound method BaseSetup.check_if_element_exists of <Base.base.BaseSetup object at 0x036C6FD0>> = <Base.base.BaseSetup object at 0x036C6FD0>.check_if_element_exists\n +      where <Base.base.BaseSetup object at 0x036C6FD0> = <utilities.testFrame.InitPages object at 0x036C6DD0>.base\n +    and   ('css selector', 'nav ul.list-unstyled .sidebar-header:nth-child(2)') = locator.PROFILE",
+      "time" : {
+        "start" : 1577189088014,
+        "stop" : 1577189099627,
+        "duration" : 11613
+      }
+    } ]
+  }
+}
