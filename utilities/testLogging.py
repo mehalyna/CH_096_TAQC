@@ -1,7 +1,7 @@
 import logging
 import os
 import datetime
-class TestLogging():
+class PyLogging():
     debugs=[]
     infos=[]
     warnings=[]
@@ -26,9 +26,11 @@ class TestLogging():
         f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         self.c_handler.setFormatter(c_format)
         self.f_handler.setFormatter(f_format)
-    def sendreport(self):
         self.logger.addHandler(self.c_handler)
         self.logger.addHandler(self.f_handler)
+        self.log_file = open(self.log_fname, 'a')
+        self.log_file.write("\n\n")
+    def sendreport(self):
         for i in self.debugs:
             self.logger.debug(i)
         for i in self.infos:
@@ -39,21 +41,16 @@ class TestLogging():
             self.logger.error(i)
         for i in self.criticals:
             self.logger.critical(i)
-
-
-#loger=TestLogging(__name__)
-#category_old='old'
-#category_new='new'
-#messages_error = ("Category {} was not created".format(category_old),
-#                      "Category {} was not edited to {}".format(category_old,category_new),
-#                      "Test Failed")
-#loger.criticals.append(messages_error[0])
-#loger.infos.append("infa")
-#loger.errors.append("error_bida")
-#for i in loger.criticals:
-#    loger.logger.critical(i)
-#loger.logger.addHandler(loger.f_handler)
-#loger.sendreport()
+    def debug(self,deb):
+        self.logger.debug(deb)
+    def info(self,inf):
+        self.logger.info(inf)
+    def warning(self,war):
+        self.logger.warning(war)
+    def error(self,err):
+        self.logger.error(err)
+    def critical(self,cri):
+        self.logger.critical(cri)
 
 
 
