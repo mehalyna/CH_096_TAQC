@@ -22,8 +22,10 @@ class PyLogging():
         self.c_handler.setLevel(logging.WARNING)
         self.f_handler.setLevel(logging.INFO)
         self.logger.setLevel(logging.DEBUG)
-        c_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        #c_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        #f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        c_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        f_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         self.c_handler.setFormatter(c_format)
         self.f_handler.setFormatter(f_format)
         self.logger.addHandler(self.c_handler)
@@ -32,6 +34,7 @@ class PyLogging():
         self.log_file.write("\n\n")
     def sendreport(self):
         for i in self.debugs:
+            self.logger.exception()
             self.logger.debug(i)
         for i in self.infos:
             self.logger.info(i)
@@ -51,6 +54,8 @@ class PyLogging():
         self.logger.error(err)
     def critical(self,cri):
         self.logger.critical(cri)
+    def exception(self,mes):
+        self.logger.exception(mes)
 
 
 
