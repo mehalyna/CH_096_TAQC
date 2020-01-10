@@ -3,6 +3,7 @@ from Locators.locators import ContactUsPageLocators as locator
 import allure
 
 
+@allure.suite('Tests for "Contact us page"')
 @allure.feature("Check if button 'Clear' is active")
 @allure.link("https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1", name='Click me')
 @allure.story("Test checking if button 'Clear' is active")

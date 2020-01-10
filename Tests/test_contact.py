@@ -7,6 +7,7 @@ import allure
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.link("https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1", name='Click me')
 @allure.story('Test sending message to admin')
+@allure.suite('Tests for "Contact us page"')
 def test_contact_us(app, login, screenshot_on_failure):
     loger = PyLogging(__name__)
     loger.info("New test:")
