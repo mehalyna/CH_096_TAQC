@@ -1,6 +1,6 @@
 import requests
 
-allureServer = 'http://192.168.99.101:5050' #localhost
+allureServer = 'http://192.168.99.100:5050' #localhost
 
 
 def allure_get_status():
@@ -14,4 +14,3 @@ def allure_get_status():
 
 def allure_api_get(api):
     return requests.get(allureServer + '/'+ api)
-
