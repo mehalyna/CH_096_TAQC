@@ -5,17 +5,18 @@ import os
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config:
     '''TEST_MODE set to True, runs rests in silent mode: no UI while testing'''
 
-    TEST_MODE = False  # False
-    HOME_URL = "http://localhost:3183/home/events?page=1"
+    TEST_MODE = True  # False
+    HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
     #HOME_URL = "https://localhost:44364/home/events?page=1"  # Boris
     # HOME_URL = "http://localhost:57690/home/events?page=1" # Sasha
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
     # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
-    # BROWSER = 'Chrome'
-    BROWSER = 'Firefox'
+    BROWSER = 'Chrome'
+    # BROWSER = 'Firefox'
 
 
 class CreateEventData():
