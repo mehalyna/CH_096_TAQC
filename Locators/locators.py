@@ -39,7 +39,7 @@ class SearchEventPanelLocators():
     """
     Field search and filter
     """
-    SEARCH_FIELD = (By.CSS_SELECTOR, ".MuiInputBase-input")
+    SEARCH_FIELD = (By.XPATH, "/html/body/div[1]/div[3]/div[1]/form/div[2]/button")
     SELECT_DATE_FIELD = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
     DATE_FROM = (By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
     DATE_TO = (By.CSS_SELECTOR, "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")

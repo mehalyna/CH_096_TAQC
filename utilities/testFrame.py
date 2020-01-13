@@ -13,18 +13,15 @@ from Pages.POM.comuna_page import ComunaClass
 
 
 class InitPages():
-    '''Instantiating a class by making a composition'''
 
     def __init__(self, driver_init):
         self.base = BaseSetup(driver_init)
         self.auth = Auth(self.base)
         self.signin = SignInUpClass(self.base)
         self.navigation = NavigationMenu(self.base)
-        self.categories = Categories( self.base )
-        # page opened from navigation menu
+        self.categories = Categories(self.base)
         self.prof_menu = ProfileMenu(self.base)
         self.creat_event = CreateEvents(self.base)
-        # search event panel
         self.search = SearchEventMenu(self.base)
         self.contact = ContactUs(self.base)
         # events menu at navigation menu --> profile page
