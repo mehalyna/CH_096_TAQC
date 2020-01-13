@@ -17,7 +17,7 @@ ENV GIT_URL https://github.com/sboris-git/CH_096_TAQC.git
 ENV REBUILD "FALSE"
 
 # Get POM and tests from git
-RUN git clone $GIT_URL
+RUN git clone --single-branch --branch boris $GIT_URL
 WORKDIR $WORKSPACE/CH_096_TAQC
 
 # Create venv
