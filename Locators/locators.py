@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Data.test_data import ProfilePageEventsMenu #, ProfileMenuPageHeaderInfo
+from Data.test_data import ProfilePageEventsMenu
 
 
 class LoginPageLocators:
@@ -166,8 +166,8 @@ class CreateEvent:
 
 
 class CategoriesLocators:
-    ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
-    #ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
+    #ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR,'.fa-plus-circle')
+    ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
     ADD_CATEGORY_FIELD = (By.NAME,'category')
     CATEGORIES = (By.TAG_NAME,'tr')
     CAT = (By.XPATH,'//tr[3]/td[1]')
@@ -183,7 +183,5 @@ class EditYourProfile:
     CHANGE_DATE_OF_BIRTH = (By.XPATH, '//*[@id="panel3bh-header"]/div[1]/p[1]')
     CHANGE_FAVORITE_CATEGORIES= (By.XPATH, '//*[@id="panel4bh-header"]/div[1]/p[1]')
     CHANGE_PASSWORD = (By.XPATH, '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
-
-
 
 

@@ -1,20 +1,36 @@
 import logging
 import os
+import inspect
 import datetime
 class PyLogging():
+    """"
+    Logging for Pytests
+    Class attributes:
+    debugs - a list of all devug messages
+    infos - a list of all info messages
+    warnings - a list of all warning messages
+    criticals - a list of all critical messages
+    Class methods:
+    __init__() - constructor for initialize a logger with two output streams (console and file).
+    sendreport() - function for sending all logs from lists at once.
+    debug() , info() , warning() , error() , critical() - functions for recording logs as they become available.
+    exception() - function to record console traces into new .log file.
+    """
     debugs=[]
     infos=[]
     warnings=[]
     errors=[]
     criticals=[]
 
-    def __init__(self,test_name):
-        self.logger=logging.getLogger(test_name)
+    def __init__(self,test_name="log"):
+        """Constructor"""
+        self.test_name=test_name
+        self.logger=logging.getLogger(self.test_name)
         now = datetime.datetime.now()
-        t = '{}.{}.{}'.format(now.day, now.month, now.year)
+        self.time = '{}.{}.{}'.format(now.day, now.month, now.year)
         self.dir = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), 'Logs')
         print("Logs directory:",self.dir)
-        self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(test_name, t))
+        self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(self.test_name, self.time))
         print ("Log file:",self.log_fname)
         self.c_handler = logging.StreamHandler()
         #self.f_handler = logging.FileHandler('C:/Users/tolos/Documents/GitHub/CH_096_TAQC/Loggs//{}-{}.log'.format(test_name, t))
@@ -24,15 +40,20 @@ class PyLogging():
         self.logger.setLevel(logging.DEBUG)
         #c_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         #f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        c_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        f_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        self.c_handler.setFormatter(c_format)
-        self.f_handler.setFormatter(f_format)
+        self.c_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        self.f_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        self.c_handler.setFormatter(self.c_format)
+        self.f_handler.setFormatter(self.f_format)
         self.logger.addHandler(self.c_handler)
         self.logger.addHandler(self.f_handler)
         self.log_file = open(self.log_fname, 'a')
         self.log_file.write("\n\n")
     def sendreport(self):
+        """
+        Function for sending all logs from lists at once.
+        Args:
+            param(PyLogging)
+        """
         for i in self.debugs:
             self.logger.exception()
             self.logger.debug(i)
@@ -55,7 +76,16 @@ class PyLogging():
     def critical(self,cri):
         self.logger.critical(cri)
     def exception(self,mes):
-        self.logger.exception(mes)
-
-
-
+        """
+        Function to record console traces into new .log file.
+        """
+        logger = logging.getLogger(self.test_name+"Trace")
+        self.logtrace_fname = os.path.join(self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
+        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
+        self.f_trace_handler.setLevel(logging.ERROR)
+        self.f_trace_handler.setFormatter(self.f_format)
+        logger.addHandler(self.f_trace_handler)
+        self.logger.info("Traceback path: {}".format(self.logtrace_fname))
+        self.log_file = open(self.logtrace_fname, 'a')
+        self.log_file.write("\n\n")
+        logger.exception(mes)

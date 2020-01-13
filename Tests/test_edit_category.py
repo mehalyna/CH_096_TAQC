@@ -38,9 +38,10 @@ def test_edit_category(app,login_admin,screenshot_on_failure):
                 test1=False
                 #loger.errors.append(messages_error[0])
                 #loger.sendreport()
-                loger.error(messages_error[0])
+                #loger.error(messages_error[0])
                 assert test1 , messages_error[0]
         except  Exception:
+            loger.error(messages_error[0])
             loger.exception(messages_error[0])
             assert False,messages_error[0]
     with allure.step(messages[2]):
@@ -50,27 +51,19 @@ def test_edit_category(app,login_admin,screenshot_on_failure):
             app.categories.edit_category(category_old, category_new)
             if app.categories.check_category_added(category_new)==True:
                 test2=True
+                loger.info("Done!")
             else:
                 test2=False
                 #loger.errors.append(messages_error[1])
                 #loger.sendreport()
-                loger.error(messages_error[1])
+                #loger.error(messages_error[1])
                 assert test2, messages_error[1]
         except Exception:
+            loger.error(messages_error[1])
             loger.exception(messages_error[1])
             assert False,messages_error[1]
-
-
-    if test1 and test2:
-        test3=True
-        loger.info("Done")
-    else:
-        test3=False
-        #loger.criticals.append(messages_error[2])
-        loger.critical(messages_error[2])
     #loger.sendreport()
     app.categories.delete_category(category_new)
-    assert test3, messages_error[2]
 
     #teardown
     app.categories.delete_category(category_new)
