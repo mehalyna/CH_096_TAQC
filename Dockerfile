@@ -11,7 +11,7 @@ RUN apt update && apt install -y firefox
 
 
 ENV APP_URL http://eventexpress.com/
-ENV GIT_URL https://github.com/sboris-git/CH_096_TAQC.git
+ENV GIT_URL https://github.com/mehalyna/CH_096_TAQC.git
 # ENV PATH_PROJECT /CH_096_TAQC
 ENV REBUILD "FALSE"
 
