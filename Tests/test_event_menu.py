@@ -1,7 +1,8 @@
 import pytest
+import allure
 from Data.test_data import ProfilePageEventsMenu as data
 
-
+@allure.suite('Tests for "Events_menu page"')
 @pytest.mark.parametrize("test_input", [data.FUTURE_EVENTS,
                                         data.ARCHIVE_EVENTS,
                                         data.VISITED_EVENTS,

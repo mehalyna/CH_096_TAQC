@@ -9,6 +9,8 @@ RUN apt-get update\
 RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu bionic main"
 RUN apt update && apt install -y firefox
 
+# Install Chrome browser
+
 
 ENV APP_URL http://eventexpress.com/
 ENV GIT_URL https://github.com/sboris-git/CH_096_TAQC.git
@@ -16,18 +18,13 @@ ENV GIT_URL https://github.com/sboris-git/CH_096_TAQC.git
 ENV REBUILD "FALSE"
 
 # Get POM and tests from git
+# ADD ./CH_096_TAQC
 RUN git clone --single-branch --branch boris $GIT_URL
+# Set "root" of CH_096_TAQC project
 WORKDIR $WORKSPACE/CH_096_TAQC
 
 # Create venv
 RUN pip install -r requirements.txt
-# WORKDIR $WORKSPACE/CH_096_TAQC/SelectedTestsToBeRun
-# WORKDIR $WORKSPACE/CH_096_TAQC/Tests
-
-# Set "root" of CH_096_TAQC project
-WORKDIR $WORKSPACE/CH_096_TAQC
-RUN ls Tests
-RUN pwd
 
 # ENTRYPOINT ["/bin/bash"]
 CMD ["py.test", "-v", "--rootdir=Tests", "--alluredir=/CH_096_TAQC/Reports_Allure"]
