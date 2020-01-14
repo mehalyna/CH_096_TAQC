@@ -3,7 +3,7 @@ import pytest
 import allure
 from utilities.testLogging import PyLogging
 from Data.test_data import CategoriesPage
-@allure.link("https://eventsexpress20200103054152.azurewebsites.net/admin/categories/", name='Click me')
+@allure.link("https://eventsexpress20200103054152.azurewebsites.net/", name='Click me')
 @allure.feature('Login User')
 @allure.story('Test editing category')
 @allure.severity(allure.severity_level.CRITICAL)
