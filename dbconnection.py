@@ -39,7 +39,7 @@ class Connection:
 
     def get_id_using_name(self, name):
         self.cursor.execute("select Id from Categories where Name = ?", name)
-        return str(self.cursor.fetchone())
+        return str(self.cursor.fetchone()[0])
 
     def close(self):
         self.conn.close()
