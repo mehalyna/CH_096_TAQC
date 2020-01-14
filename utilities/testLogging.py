@@ -12,6 +12,8 @@ class PyLogging():
     criticals - a list of all critical messages
     Class methods:
     __init__() - constructor for initialize a logger with two output streams (console and file).
+    Console Handler starts from DEBUG level
+    File Handler starts from INFO level
     sendreport() - function for sending all logs from lists at once.
     debug() , info() , warning() , error() , critical() - functions for recording logs as they become available.
     exception() - function to record console traces into new .log file.
@@ -33,13 +35,10 @@ class PyLogging():
         self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(self.test_name, self.time))
         print ("Log file:",self.log_fname)
         self.c_handler = logging.StreamHandler()
-        #self.f_handler = logging.FileHandler('C:/Users/tolos/Documents/GitHub/CH_096_TAQC/Loggs//{}-{}.log'.format(test_name, t))
         self.f_handler = logging.FileHandler(self.log_fname)
-        self.c_handler.setLevel(logging.WARNING)
+        self.c_handler.setLevel(logging.DEBUG)
         self.f_handler.setLevel(logging.INFO)
         self.logger.setLevel(logging.DEBUG)
-        #c_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        #f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         self.c_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         self.f_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
         self.c_handler.setFormatter(self.c_format)
