@@ -94,7 +94,7 @@ class BaseSetup():
             return text_get
         except TimeoutException:
             print(error_msg)
-            return ''
+            return False
 
     def check_if_element_exists(self, locator, timeout=5):
         ''' Check the text attribute for an element as a criteria of existence.

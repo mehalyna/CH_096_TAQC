@@ -39,7 +39,7 @@ class SearchEventPanelLocators():
     """
     Field search and filter
     """
-    SEARCH_FIELD = (By.CSS_SELECTOR, ".MuiInputBase-input")
+    SEARCH_FIELD = (By.XPATH, "/html/body/div[1]/div[3]/div[1]/form/div[2]/button")
     SELECT_DATE_FIELD = (By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
     DATE_FROM = (By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
     DATE_TO = (By.CSS_SELECTOR, "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
@@ -184,14 +184,5 @@ class EditYourProfile:
     CHANGE_PASSWORD = (By.XPATH, '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
 
 
-class SearchUsers:
 
-    FIELD_SEARCH = (By.XPATH, '//input')
-    NAME_USERS = (By.XPATH, '//a[text()]')
-    SEARCH = (By.CSS_SELECTOR, ".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(2)")
-    # web element is relates for page Profile (navigate from navigation menu)
-    LOGO_PR = (By.CSS_SELECTOR, '.d-flex.flex-column.justify-content-center.align-items-center') #just hover logo
-    LOGO_WR = (By.CSS_SELECTOR, '.btn.btn-success.mt-1') #for click to write msg
-    # web element is relates for page Profile (navigate from navigation menu)
-    LIST_USERS = (By.CSS_SELECTOR, '.offset-3.col-6.mt-4.mb-4')
 
