@@ -23,6 +23,7 @@ class InitPages():
         self.prof_menu = ProfileMenu(self.base)
         self.creat_event = CreateEvents(self.base)
         self.search = SearchEventMenu(self.base)
+        # page for communication user with admin
         self.contact = ContactUs(self.base)
         # events menu at navigation menu --> profile page
         self.event_menu = EventsMenu(self.base)
