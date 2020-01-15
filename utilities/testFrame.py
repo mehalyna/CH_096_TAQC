@@ -26,6 +26,7 @@ class InitPages():
         self.creat_event = CreateEvents(self.base)
         # search event panel
         self.search = SearchEventMenu(self.base)
+        # page for communication user with admin
         self.contact = ContactUs(self.base)
         # events menu at navigation menu --> profile page
         self.event_menu = EventsMenu(self.base)
