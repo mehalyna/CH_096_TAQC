@@ -45,10 +45,10 @@ class PyLogging():
         for i in self.criticals:
             self.logger.critical(i)
 
-    def debug(self,deb):
+    def debug(self, deb):
         self.logger.debug(deb)
 
-    def info(self,inf):
+    def info(self, inf):
         self.logger.info(inf)
 
     def warning(self,war):

@@ -9,9 +9,10 @@ class Config:
     '''TEST_MODE set to True, runs rests in silent mode: no UI while testing'''
 
     TEST_MODE = True  # False
-    HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
-    # BROWSER = 'Chrome'
-    BROWSER = 'Firefox'
+    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
+    HOME_URL = "http://localhost:50621/home/events?page=1"
+    BROWSER = 'Chrome'
+    # BROWSER = 'Firefox'
 
 
 class CreateEventData():
