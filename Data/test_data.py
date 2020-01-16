@@ -10,7 +10,7 @@ class Config:
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # False
-    HOME_URL = "http://localhost:3183/home/events?page=1"
+    HOME_URL = "http://localhost:57690/home/events?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
 
