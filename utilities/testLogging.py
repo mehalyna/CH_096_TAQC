@@ -4,37 +4,72 @@ import datetime
 
 
 class PyLogging():
-    debugs=[]
-    infos=[]
-    warnings=[]
-    errors=[]
-    criticals=[]
+    """"
+    Logging for Pytests
+    Class attributes:
+    debugs - a list of all devug messages
+    infos - a list of all info messages
+    warnings - a list of all warning messages
+    criticals - a list of all critical messages
+    Class methods:
+    __init__() - constructor for initialize a logger with two output streams (console and file).
+    Console Handler starts from DEBUG level
+    File Handler starts from INFO level
+    sendreport() - function for sending all logs from lists at once.
+    debug() , info() , warning() , error() , critical() - functions for recording logs as they become available.
+    exception() - function to record console traces into new .log file.
+    """
+    debugs = []
+    infos = []
+    warnings = []
+    errors = []
+    criticals = []
 
-    def __init__(self,test_name):
-        self.logger=logging.getLogger(test_name)
+    def __init__(self, test_name="log"):
+        """Constructor"""
+        self.test_name = test_name
+        self.logger = logging.getLogger(self.test_name)
         now = datetime.datetime.now()
-        t = '{}.{}.{}'.format(now.day, now.month, now.year)
-        self.dir = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), 'Logs')
-        print("Logs directory:",self.dir)
-        self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(test_name, t))
-        print ("Log file:",self.log_fname)
+        self.time = '{}.{}.{}'.format(now.day, now.month, now.year)
+        self.dir = os.path.join(
+            os.path.normpath(
+                os.getcwd() +
+                os.sep +
+                os.pardir),
+            'Logs')
+        print("Logs directory:", self.dir)
+        self.log_fname = os.path.join(
+            self.dir, '{}-{}.log'.format(self.test_name, self.time))
+        print("Log file:", self.log_fname)
+        self.logtrace_fname = os.path.join(
+            self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
+        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
         self.c_handler = logging.StreamHandler()
-        #self.f_handler = logging.FileHandler('C:/Users/tolos/Documents/GitHub/CH_096_TAQC/Loggs//{}-{}.log'.format(test_name, t))
         self.f_handler = logging.FileHandler(self.log_fname)
-        self.c_handler.setLevel(logging.WARNING)
+        self.c_handler.setLevel(logging.DEBUG)
         self.f_handler.setLevel(logging.INFO)
         self.logger.setLevel(logging.DEBUG)
-        c_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        f_format = logging.Formatter('%(process)s - %(asctime)s - %(name)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        self.c_handler.setFormatter(c_format)
-        self.f_handler.setFormatter(f_format)
+        self.c_format = logging.Formatter(
+            '%(process)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%d-%b-%y %H:%M:%S')
+        self.f_format = logging.Formatter(
+            '%(process)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%d-%b-%y %H:%M:%S')
+        self.c_handler.setFormatter(self.c_format)
+        self.f_handler.setFormatter(self.f_format)
         self.logger.addHandler(self.c_handler)
         self.logger.addHandler(self.f_handler)
         self.log_file = open(self.log_fname, 'a')
         self.log_file.write("\n\n")
 
     def sendreport(self):
+        """
+        Function for sending all logs from lists at once.
+        Args:
+            param(PyLogging)
+        """
         for i in self.debugs:
+            self.logger.exception()
             self.logger.debug(i)
         for i in self.infos:
             self.logger.info(i)
@@ -46,16 +81,44 @@ class PyLogging():
             self.logger.critical(i)
 
     def debug(self, deb):
+        """
+        :param deb (str): DEBUG message
+        """
         self.logger.debug(deb)
 
     def info(self, inf):
+        """
+        :param inf (str): INFO message
+        """
         self.logger.info(inf)
 
-    def warning(self,war):
+    def warning(self, war):
+        """
+        :param war (str): WARNING message
+        """
         self.logger.warning(war)
 
-    def error(self,err):
+    def error(self, err):
+        """
+        :param err (str): ERROR message
+        """
         self.logger.error(err)
 
-    def critical(self,cri):
+    def critical(self, cri):
+        """
+        :param cri (str): CRITICAL message
+        """
         self.logger.critical(cri)
+
+    def exception(self, mes):
+        """
+        Function to record console traces into new .log file.
+        """
+        logger = logging.getLogger(self.test_name + "Trace")
+        self.f_trace_handler.setLevel(logging.ERROR)
+        self.f_trace_handler.setFormatter(self.f_format)
+        logger.addHandler(self.f_trace_handler)
+        self.logger.info("Traceback path: {}".format(self.logtrace_fname))
+        self.log_file = open(self.logtrace_fname, 'a')
+        self.log_file.write("\n\n")
+        logger.exception(mes)

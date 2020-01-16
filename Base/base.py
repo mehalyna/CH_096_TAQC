@@ -46,10 +46,11 @@ class BaseSetup():
     def get_list_element(self, ele_html: str, *locators):
         """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        lst = (list(lst_cat.get_attribute(ele_html) for lst_cat in
+                    wait.until(EC.visibility_of_all_elements_located(*locators))))
         return lst
 
-    def select_from_list(self, locator_1):
+    def select_from_list_1(self, locator_1):
         sel = self.find_element(*locator_1)
         a = Select(sel)
         choice = random.choice([c.text for c in a.options])
@@ -69,7 +70,7 @@ class BaseSetup():
             return ''
 
     def scroll_to_element(self, locators):
-        #doesn't scroll by search element
+        # doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
@@ -97,17 +98,17 @@ class BaseSetup():
             return False
 
     def check_if_element_exists(self, locator, timeout=5):
-        ''' Check the text attribute for an element as a criteria of existence.
+        """ Check the text attribute for an element as a criteria of existence.
         Args: locator = tuple(By.selector, 'srt')
               waiting time = 10 # int()
         Returns text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
         Explicit Waits method is used.
-        '''
+        """
 
         alert = f"Can't find element by locator {locator}"
         try:
-            element = WebDriverWait(self.driver, timeout)\
+            element = WebDriverWait(self.driver, timeout) \
                 .until(EC.presence_of_element_located(locator),
                        message=alert)
             text_get = element.text
@@ -116,15 +117,8 @@ class BaseSetup():
             print(alert)
             return None
 
-
     def select_categoria_by_name(self, locator, text):
         """get and click to field in dropdown menu"""
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
-
-
-
-
-
-
