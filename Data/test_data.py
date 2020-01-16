@@ -9,14 +9,14 @@ current_path = os.path.abspath(os.path.dirname(__file__))
 class Config:
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
-    TEST_MODE = False  # True
-    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
+    TEST_MODE = False  # False
     HOME_URL = "http://localhost:50621/home/events?page=1"
     BROWSER = 'Chrome'
     # BROWSER = 'Firefox'
 
 
-class CreateEventData():
+class CreateEventData:
+
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
     IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
@@ -31,7 +31,7 @@ class ContactUsData():
 
 
 class ProfileMenuPageHeaderInfo:
-    """Test data for userinfo header from profile menu - events panels page"""
+    '''Test data for userinfo header from profile menu - events panels page'''
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
@@ -42,13 +42,20 @@ class ProfileMenuPageHeaderInfo:
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
     # ToDo actualyze USER_INTERESTS_DATA
-    USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',
-                           '#QC testing event', '#Meeting', '#Summer'}
+    USER_INTERESTS_DATA = {
+        '#Mount',
+        '#Golf',
+        '#Team-Building',
+        '#Swimming',
+        '#Gaming',
+        '#QC testing event',
+        '#Meeting',
+        '#Summer'}
 
 
 class ProfilePageEventsMenu:
-    """ Testdata: Locators for event's menu.
-    class ProfilePageEventsMenuLocators"""
+    ''' Testdata: Locators for event's menu.
+    class ProfilePageEventsMenuLocators'''
     FUTURE_EVENTS = 'FUTURE EVENTS'
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
@@ -66,7 +73,7 @@ class ProfilePageEventsMenu:
 
 
 class HomePageOptionsPanel:
-    """Left top menu (config, notification, logout) with user logo"""
+    '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
 
 
