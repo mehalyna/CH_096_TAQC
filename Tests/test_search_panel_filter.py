@@ -6,6 +6,7 @@ import allure
 @allure.story("Search EVENT")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_search_event(app):
+    """Chech if working search to filter. Search event by date."""
     with allure.step('Login as admin'):
         app.signin.enter_actor( admin['email'], admin['password'] )
     with allure.step('Open filter form'):
