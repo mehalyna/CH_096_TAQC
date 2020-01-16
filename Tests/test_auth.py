@@ -10,11 +10,11 @@ def credentials():
     lst = [[user['email'],user['password']],[admin['email'],admin['password']]]
     return lst
 
-
+# @allure.severity(allure.severity_level.CRITICAL)
+#
 @allure.link("http://localhost:50621/home/events?page=1", name='Click me')
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
-@allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize('data',credentials())
 def test_authorization(app, data, ):
     app.auth.click_on_login_button()

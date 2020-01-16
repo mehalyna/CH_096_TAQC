@@ -22,9 +22,7 @@ def driver_init(request):
 
 @pytest.fixture(scope='function')
 def app(driver_init):
-    """
-    Instantiate page objects for POM
-    """
+    """Instantiate page objects for POM"""
     page_init = InitPages(driver_init)
     return page_init
 

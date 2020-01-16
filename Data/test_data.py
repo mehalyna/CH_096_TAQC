@@ -13,7 +13,7 @@ class Config:
 
     TEST_MODE = False  # False
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    HOME_URL = "http://localhost:44364/home/events?page=1"  # Borys
+    HOME_URL = "https://localhost:44364/home/events?page=1"  # Borys
 
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
