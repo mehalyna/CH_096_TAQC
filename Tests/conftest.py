@@ -1,10 +1,11 @@
 import pytest
 import allure
 from allure_commons.types import AttachmentType
+from utilities.testFrame import InitPages
 from Driver.driver import Driver
 from Data.test_data import Config
-from utilities.testFrame import InitPages
-from Data.credentials import user, admin
+from Data.credentials import user
+from Data.credentials import admin
 
 
 @pytest.fixture(scope='function')
@@ -29,6 +30,7 @@ def app(driver_init):
 
 @pytest.fixture(scope='function')
 def login(app):
+    """Login as an user"""
     """
     Login as an user
     """
@@ -40,6 +42,7 @@ def login_admin(app):
     """
     Login as an admin
     """
+    """Login as an admin"""
     app.signin.enter_actor(admin['email'], admin['password'])
 
 
@@ -62,6 +65,7 @@ def pytest_runtest_makereport(item):
 
 @pytest.fixture(autouse=True)
 def screenshot_on_failure(request, driver_init):
+    """Make screen shot on a test failure"""
     """
     Make screenshot on a test failure
     """
