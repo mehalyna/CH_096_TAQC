@@ -9,47 +9,40 @@ from Data.credentials import user, admin
 
 @pytest.fixture(scope='function')
 def driver_init(request):
-    """
-    Instantiate webdriver for selected browser and open homepage
-    """
-    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
+    '''Instantiate webdriver for selected browser and open homepage'''
+    driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
     driver.maximize_window()
+    driver.implicitly_wait(10)
     driver.get(Config.HOME_URL)
+
     yield driver
     driver.close()
     driver.quit()
 
+
 @pytest.fixture(scope='function')
 def app(driver_init):
-    """
-    Instantiate page objects for POM
-    """
+    '''Instantiate page objects for POM'''
     page_init = InitPages(driver_init)
     return page_init
 
 
 @pytest.fixture(scope='function')
 def login(app):
-    """
-    Login as an user
-    """
+    '''Login as an user'''
     app.signin.enter_actor(user['email'], user['password'])
 
 
 @pytest.fixture(scope='function')
 def login_admin(app):
-    """
-    Login as an admin
-    """
+    '''Login as an admin'''
     app.signin.enter_actor(admin['email'], admin['password'])
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item):
-    """
-    Hook the "item" object on a test failure
-    """
+    '''Hook the "item" object on a test failure'''
     # will execute even before the tryfirst one above!
     # do nothing here intentionally
     outcome = yield
@@ -61,12 +54,9 @@ def pytest_runtest_makereport(item):
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
 
-
-@pytest.fixture(autouse=True)
+@pytest.fixture
 def screenshot_on_failure(request, driver_init):
-    """
-    Make screenshot on a test failure
-    """
+    '''Make screenshot on a test failure'''
     # Intentionally blank section
     yield
     # request.node is an "item" because we use the default
