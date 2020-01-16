@@ -1,10 +1,18 @@
 import os, requests, json, base64
+import sys
+
+#get ip address from command line system argument
+ip_ad = sys.argv[1]
+#string representation
+ip_ad_str = ''.join([x for x in ip_ad if x.isnumeric or x == "."])
+
+port_allure = ":5050"
+protocol = "http://"
 
 # This directory is where you have all your results locally, generally named as `allure-results`
 allureResultsDirectory = '/Reports_Allure'
 # This url is where the Allure container is deployed. We are using localhost as example
-allureServer = 'http://192.168.99.100:5050'
-
+allureServer = protocol + ip_ad_str + port_allure
 
 
 currentDirectory = os.path.dirname(os.path.realpath(__file__))
