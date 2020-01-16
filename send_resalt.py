@@ -6,6 +6,7 @@ allureResultsDirectory = '/Reports_Allure'
 allureServer = 'http://192.168.99.100:5050'
 
 
+
 currentDirectory = os.path.dirname(os.path.realpath(__file__))
 resultsDirectory = currentDirectory + allureResultsDirectory
 print('RESULTS DIRECTORY PATH: ' + resultsDirectory)

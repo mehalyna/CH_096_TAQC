@@ -11,8 +11,11 @@ import allure
 def test_contact_us(app, login, screenshot_on_failure):
     loger = PyLogging(__name__)
     loger.info("New test:")
-    messages = ("Go to 'Contact us' page.", "Check type of a list",
-                "Enter description", "Click on 'Submit' button", "Test Passed")
+    messages = ("Go to 'Contact us' page.",
+                "Check type of a list",
+                "Enter description",
+                "Click on 'Submit' button",
+                "Test Passed")
     messages_error = "Test Failed, message don't send to admin"
 
     with allure.step(messages[0]):
@@ -32,9 +35,11 @@ def test_contact_us(app, login, screenshot_on_failure):
     res = app.contact.get_text_from_result()
     if res == False:
         loger.error(messages_error)
+        #loger.sendreport()
         assert res, messages_error
     else:
         loger.info(messages[4])
+        #loger.sendreport()
 
 
 

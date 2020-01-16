@@ -20,6 +20,10 @@ class BaseSetup():
         """
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(lambda driver: self.driver.find_element(*locators))
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(
+            lambda driver: self.driver.find_element(
+                *locators))
         return element
 
     def find_elements(self, *locators):
@@ -32,6 +36,10 @@ class BaseSetup():
         """
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(
+            lambda driver: self.driver.find_elements(
+                *locators))
         return element
 
     def find_element_by_tag(self, tag):
@@ -42,6 +50,9 @@ class BaseSetup():
         """
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(
+            lambda driver: self.driver.find_elements_by_tag_name(tag))
         return element
 
     def find_element_by_xpath(self, xpath):
@@ -52,6 +63,9 @@ class BaseSetup():
         """
         wait = WebDriverWait(self.driver, 30)
         element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
+        wait = WebDriverWait(self.driver, 10)
+        element = wait.until(
+            lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
     def click_on_element(self, locators):
@@ -93,6 +107,14 @@ class BaseSetup():
         """
         wait = WebDriverWait(self.driver, 30)
         lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        """get list of elements li, tr ...."""
+        wait = WebDriverWait(self.driver, 10)
+        lst = (
+            list(
+                lst_cat.get_attribute(ele_html)for lst_cat in wait.until(
+                    EC.visibility_of_all_elements_located(
+                        *
+                        locators))))
         return lst
 
     def select_from_list(self, locator_1):
@@ -131,16 +153,27 @@ class BaseSetup():
             return ''
 
     def scroll_to_element(self, locators):
-        # doesn't scroll by search element
+        #doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
 
     def upload_file(self, path, locators):
+        """
+
+        :param path: absolute path to dir with file or picture
+        :param locators: css locator or xpath
+        :return: None
+        """
         element = self.find_element(*locators)
         element.send_keys(path)
 
     def get_element_text(self, locator):
+        """
+        Method for getting text from webElement
+        :param locator: css locator or xpath
+        :return: text
+        """
         element = self.find_element(*locator)
         a = element.text
         wait = WebDriverWait(self.driver, 5)
@@ -149,6 +182,13 @@ class BaseSetup():
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
+        """
+        Method for finding text on web element
+        :param locators:css locator or xpath
+        :param text: text with no value
+        :return: text or False
+        """
+
         error_msg = "Text not found"
         try:
             wait = WebDriverWait(self.driver, 5)
@@ -181,7 +221,12 @@ class BaseSetup():
             return None
 
     def select_categoria_by_name(self, locator, text):
-        """get and click to field in dropdown menu"""
+        """
+        Click on web element in drop down menu 
+        :param locator: css selector or xpath 
+        :param text: text
+        :return: 
+        """""
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
