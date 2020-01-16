@@ -44,7 +44,10 @@ class Categories():
                 self.browser.find_element_by_xpath("/html/body/div[1]/div[3]/div/table/tbody/tr[" + str(i) + "]/td[1]/form/div/div/div/input").clear()
                 self.browser.find_element_by_xpath("/html/body/div[1]/div[3]/div/table/tbody/tr[" + str(i) + "]/td[1]/form/div/div/div/input").send_keys(category_new)
                 self.browser.find_element_by_xpath("/html/body/div[1]/div[3]/div/table/tbody/tr[" + str(i) + "]/td[1]/form/div/div/div/input").send_keys(Keys.ENTER)
-
+    def check_warning(self):
+        if self.browser.find_element_by_xpath('/html/body/div[1]/div[3]/div/table/tbody/tr[8]/td[1]/form/div/div[2]').text=='The same category is already exist in database':
+            w=self.browser.find_element_by_xpath('/html/body/div[1]/div[3]/div/table/tbody/tr[8]/td[1]/form/div/div[2]').text
+            return w
 
     def check_category_added(self,category):
         time.sleep(2)

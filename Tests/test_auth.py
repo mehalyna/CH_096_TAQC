@@ -2,8 +2,6 @@ from Data.credentials import user,admin
 import pytest
 import allure
 from Locators.locators import NavigationMenuLocators
-from allure_commons.types import AttachmentType
-from selenium.common.exceptions import NoSuchElementException
 
 
 locator = NavigationMenuLocators

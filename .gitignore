@@ -2,10 +2,10 @@
 .idea\*
 .idea/*
 .idea
-.pytest_cache
-*.$ml
-.vscode/
+.vscode
 Reports_Allure
+Logs
+.pytest_cache
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

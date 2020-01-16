@@ -1,27 +1,21 @@
-from Tests.test_init import TestInit
 from Data.credentials import user,admin
+import pytest
+import allure
 from Data.test_data import CategoriesPage
 
+@allure.link("http://localhost:57690/admin/categories/", name='Click me')
+@allure.feature('Login User')
+@allure.story('Test creating category')
+@allure.severity(allure.severity_level.CRITICAL)
+def test_create_category(app,login_admin,screenshot_on_failure):
 
+    category_old = CategoriesPage.category_old
+    with allure.step("Go to Categories page."):
+        app.navigation.click_on_categories()
+    with allure.step("Creating Category."):
+        for i in range(1000):
+            app.categories.add_category(category_old+str(i))
+        assert (app.categories.check_category_added(category_old) == True), "Category was not created"
 
-
-
-class TestCreateCategory(TestInit):
-
-
-    def setUp(self):
-        super().setUp()
-        self.exec.signin.enter_actor(admin['email'], admin['password'])
-
-
-
-    def test_create_category(self):
-        self.category=CategoriesPage.category_old
-        self.exec.navigation.click_on_categories()
-        self.exec.categories.add_category(self.category)
-        test=self.exec.categories.check_category_added(self.category)
-        self.assertTrue(test)
-
-    def tearDown(self):
-        self.exec.categories.delete_category(self.category)
-        super().tearDown()
+    #teatdown
+    #app.categories.delete_category(category_old)

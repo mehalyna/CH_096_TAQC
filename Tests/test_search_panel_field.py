@@ -13,4 +13,3 @@ def test_search_event(app):
     with allure.step('Search event'):
         app.search.type_in_search_field('Python MeetUp')
         app.search.click_button_search()
-
