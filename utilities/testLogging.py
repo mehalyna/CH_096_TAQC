@@ -1,7 +1,8 @@
 import logging
 import os
-import inspect
 import datetime
+
+
 class PyLogging():
     """"
     Logging for Pytests
@@ -18,35 +19,49 @@ class PyLogging():
     debug() , info() , warning() , error() , critical() - functions for recording logs as they become available.
     exception() - function to record console traces into new .log file.
     """
-    debugs=[]
-    infos=[]
-    warnings=[]
-    errors=[]
-    criticals=[]
+    debugs = []
+    infos = []
+    warnings = []
+    errors = []
+    criticals = []
 
-    def __init__(self,test_name="log"):
+    def __init__(self, test_name="log"):
         """Constructor"""
-        self.test_name=test_name
-        self.logger=logging.getLogger(self.test_name)
+        self.test_name = test_name
+        self.logger = logging.getLogger(self.test_name)
         now = datetime.datetime.now()
         self.time = '{}.{}.{}'.format(now.day, now.month, now.year)
-        self.dir = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), 'Logs')
-        print("Logs directory:",self.dir)
-        self.log_fname = os.path.join(self.dir, '{}-{}.log'.format(self.test_name, self.time))
-        print ("Log file:",self.log_fname)
+        self.dir = os.path.join(
+            os.path.normpath(
+                os.getcwd() +
+                os.sep +
+                os.pardir),
+            'Logs')
+        print("Logs directory:", self.dir)
+        self.log_fname = os.path.join(
+            self.dir, '{}-{}.log'.format(self.test_name, self.time))
+        print("Log file:", self.log_fname)
+        self.logtrace_fname = os.path.join(
+            self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
+        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
         self.c_handler = logging.StreamHandler()
         self.f_handler = logging.FileHandler(self.log_fname)
         self.c_handler.setLevel(logging.DEBUG)
         self.f_handler.setLevel(logging.INFO)
         self.logger.setLevel(logging.DEBUG)
-        self.c_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
-        self.f_format = logging.Formatter('%(process)s - %(asctime)s - %(levelname)s - %(message)s',datefmt='%d-%b-%y %H:%M:%S')
+        self.c_format = logging.Formatter(
+            '%(process)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%d-%b-%y %H:%M:%S')
+        self.f_format = logging.Formatter(
+            '%(process)s - %(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%d-%b-%y %H:%M:%S')
         self.c_handler.setFormatter(self.c_format)
         self.f_handler.setFormatter(self.f_format)
         self.logger.addHandler(self.c_handler)
         self.logger.addHandler(self.f_handler)
         self.log_file = open(self.log_fname, 'a')
         self.log_file.write("\n\n")
+
     def sendreport(self):
         """
         Function for sending all logs from lists at once.
@@ -64,23 +79,42 @@ class PyLogging():
             self.logger.error(i)
         for i in self.criticals:
             self.logger.critical(i)
-    def debug(self,deb):
+
+    def debug(self, deb):
+        """
+        :param deb (str): DEBUG message
+        """
         self.logger.debug(deb)
-    def info(self,inf):
+
+    def info(self, inf):
+        """
+        :param inf (str): INFO message
+        """
         self.logger.info(inf)
-    def warning(self,war):
+
+    def warning(self, war):
+        """
+        :param war (str): WARNING message
+        """
         self.logger.warning(war)
-    def error(self,err):
+
+    def error(self, err):
+        """
+        :param err (str): ERROR message
+        """
         self.logger.error(err)
-    def critical(self,cri):
+
+    def critical(self, cri):
+        """
+        :param cri (str): CRITICAL message
+        """
         self.logger.critical(cri)
-    def exception(self,mes):
+
+    def exception(self, mes):
         """
         Function to record console traces into new .log file.
         """
-        logger = logging.getLogger(self.test_name+"Trace")
-        self.logtrace_fname = os.path.join(self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
-        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
+        logger = logging.getLogger(self.test_name + "Trace")
         self.f_trace_handler.setLevel(logging.ERROR)
         self.f_trace_handler.setFormatter(self.f_format)
         logger.addHandler(self.f_trace_handler)

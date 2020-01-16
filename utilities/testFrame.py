@@ -9,12 +9,16 @@ from Pages.ProfileMenu.add_event import CreateEvents
 from Pages.POM.event_menu_page import EventsMenu
 #EventsMenuCarts
 from Pages.POM.contact_us_page import ContactUs
-from Pages.POM.comuna_page import ComunaClass
+
 
 
 class InitPages():
 
     def __init__(self, driver_init):
+        """
+        Initialize app object which encapsulate Pages classes to simplify work with test Framework.
+        :param driver_init: webdriver object
+        """
         self.base = BaseSetup(driver_init)
         self.auth = Auth(self.base)
         self.signin = SignInUpClass(self.base)

@@ -13,22 +13,28 @@ class BaseSetup():
 
     def find_element(self, *locators):
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(lambda driver: self.driver.find_element(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_element(
+                *locators))
         return element
 
     def find_elements(self, *locators):
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_elements(
+                *locators))
         return element
 
     def find_element_by_tag(self, tag):
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
+        element = wait.until(
+            lambda driver: self.driver.find_elements_by_tag_name(tag))
         return element
 
     def find_element_by_xpath(self, xpath):
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
+        element = wait.until(
+            lambda driver: self.driver.find_element_by_xpath(xpath))
         return element
 
     def click_on_element(self, locators):
@@ -46,7 +52,12 @@ class BaseSetup():
     def get_list_element(self, ele_html: str, *locators):
         """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        lst = (
+            list(
+                lst_cat.get_attribute(ele_html)for lst_cat in wait.until(
+                    EC.visibility_of_all_elements_located(
+                        *
+                        locators))))
         return lst
 
     def select_from_list(self, locator_1):
@@ -69,7 +80,7 @@ class BaseSetup():
             return ''
 
     def scroll_to_element(self, locators):
-        #doesn't scroll by search element
+        # doesn't scroll by search element
         element = self.find_element(*locators)
         action = ActionChains(self.driver)
         action.move_to_element(element).perform()
@@ -90,7 +101,9 @@ class BaseSetup():
         error_msg = "Text not found"
         try:
             wait = WebDriverWait(self.driver, 5)
-            text_get = wait.until(EC.text_to_be_present_in_element(*locators), text)
+            text_get = wait.until(
+                EC.text_to_be_present_in_element(
+                    *locators), text)
             return text_get
         except TimeoutException:
             print(error_msg)
@@ -116,15 +129,8 @@ class BaseSetup():
             print(alert)
             return None
 
-
     def select_categoria_by_name(self, locator, text):
         """get and click to field in dropdown menu"""
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
-
-
-
-
-
-
