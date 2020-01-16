@@ -47,3 +47,6 @@ class Driver:
 
         else:
             raise Exception("Selected browser not supported")
+
+import socket
+
