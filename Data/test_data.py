@@ -1,26 +1,28 @@
 import random
 import os
 
+
 current_path = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config:
-    HOME_URL = 'https://www.linkedin.com/login'
+    """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
+
+    TEST_MODE = False  # False
+    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "https://localhost:44364/home/events?page=1"
+    HOME_URL = "https://localhost:44364/home/events?page=1"  # Borys
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
-    # HOME_URL = "http://localhost:57690/home/events?page=1"
+    # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
-    # BROWSER = 'IE'
-    # CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
-class CreateEventData():
+class CreateEventData:
 
-
-    TITLE = random.choice( ['New Year', 'Christmas', 'Malanka'] )
-    IMAGE = os.path.join( current_path,  'imageAddEvent\\party.jpg' )
+    TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
+    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
@@ -33,7 +35,7 @@ class ContactUsData():
 
 
 class ProfileMenuPageHeaderInfo:
-
+    '''Test data for userinfo header from profile menu - events panels page'''
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
@@ -43,6 +45,7 @@ class ProfileMenuPageHeaderInfo:
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
+    # ToDo actualyze USER_INTERESTS_DATA
     USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
                            '#QC testing event', '#Meeting', '#Summer'}
 
@@ -60,35 +63,21 @@ class ProfilePageEventsMenu:
 class HomePageOptionsPanel:
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
-    # ToDo
-
-##
-#         # "Navigation menu..."
-#         'Home': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(1) .link"),
-#         'Profile': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(2) .link"),
-#         'Search Users': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(3) .link"),
-#         'Comuna': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(4) .link"),
-#         'Contact us': ('By.CSS_SELECTOR', ".sidebar-header:nth-child(5) .link"),
-#             }
 
 
 class CartPanelsAtProfilePage:
-    ''' Events menu -> panel(s) object locators testdata '''
+    """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
     CART_PANEL = 'CART_PANEL'
-
-
     BLANK_CART_TEXT = 'No Results'
     CART_NTH_ID = ''  # on mouse hover - tip arising
 
-class EditProfileData:
 
+class EditProfileData:
     USER_NAME = 'Tester'
     CURRENT_PASS = '1qaz1qaz'
     NEW_PASS = '2qaz2qaz'
-
-
 
 
 class CategoriesPage:

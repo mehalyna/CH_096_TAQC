@@ -10,10 +10,12 @@ from Data.test_data import CategoriesPage
 def test_create_category(app,login_admin,screenshot_on_failure):
 
     category_old = CategoriesPage.category_old
-    app.navigation.click_on_categories()
-    app.categories.add_category(category_old)
-    test=app.categories.check_category_added(category_old)
-    assert test
+    with allure.step("Go to Categories page."):
+        app.navigation.click_on_categories()
+    with allure.step("Creating Category."):
+        for i in range(1000):
+            app.categories.add_category(category_old+str(i))
+        assert (app.categories.check_category_added(category_old) == True), "Category was not created"
 
     #teatdown
-    app.categories.delete_category(category_old)
+    #app.categories.delete_category(category_old)
