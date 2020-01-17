@@ -2,7 +2,6 @@ import allure
 from utilities.testLogging import PyLogging
 from Locators.locators import ContactUsPageLocators as locator
 
-
 @allure.feature("Positive test")
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.link(
@@ -11,7 +10,6 @@ from Locators.locators import ContactUsPageLocators as locator
 @allure.story('Test sending message to admin')
 @allure.suite('Tests for "Contact us page"')
 def test_contact_us(app, login, screenshot_on_failure):
-
     loger = PyLogging(__name__)
     loger.info("New test:")
     messages = ("Go to 'Contact us' page.", "Check type of a list",
