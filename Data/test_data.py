@@ -1,24 +1,25 @@
+"""test data"""
 import random
 import os
 
 # from Locators.locators import ProfilePageEventsMenuLocators as locator
 
-current_path = os.path.abspath(os.path.dirname(__file__))
+CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
-class Config:
+class Config: # pylint: disable=too-few-public-methods
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # False
-    HOME_URL = "http://localhost:3183/home/events?page=1"
+    HOME_URL = "http://34.65.101.58:5002/home/events/?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
 
 
-class CreateEventData():
+class CreateEventData(): # pylint: disable=too-few-public-methods
 
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
-    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
+    IMAGE = os.path.join(CURRENT_PATH, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
@@ -41,7 +42,6 @@ class ProfileMenuPageHeaderInfo:
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
-    # ToDo actualyze USER_INTERESTS_DATA
     USER_INTERESTS_DATA = {
         '#Mount',
         '#Golf',
@@ -53,7 +53,7 @@ class ProfileMenuPageHeaderInfo:
         '#Summer'}
 
 
-class ProfilePageEventsMenu:
+class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
     ''' Testdata: Locators for event's menu.
     class ProfilePageEventsMenuLocators'''
     FUTURE_EVENTS = 'FUTURE EVENTS'
@@ -72,12 +72,12 @@ class ProfilePageEventsMenu:
     # }
 
 
-class HomePageOptionsPanel:
+class HomePageOptionsPanel: # pylint: disable=too-few-public-methods
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
 
 
-class CartPanelsAtProfilePage:
+class CartPanelsAtProfilePage: # pylint: disable=too-few-public-methods
     """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
@@ -86,12 +86,12 @@ class CartPanelsAtProfilePage:
     CART_NTH_ID = ''  # on mouse hover - tip arising
 
 
-class EditProfileData:
+class EditProfileData: # pylint: disable=too-few-public-methods
     USER_NAME = 'Tester'
     CURRENT_PASS = '1qaz1qaz'
     NEW_PASS = '2qaz2qaz'
 
 
-class CategoriesPage:
+class CategoriesPage: # pylint: disable=too-few-public-methods
     category_old = 'Hello'
     category_new = 'Hello1'
