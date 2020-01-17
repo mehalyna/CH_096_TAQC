@@ -16,7 +16,7 @@ class Config: # pylint: disable=too-few-public-methods
     BROWSER = 'Firefox'
 
 
-class CreateEventData(): # pylint: disable=too-few-public-methods
+class CreateEventData():
 
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
     IMAGE = os.path.join(CURRENT_PATH, 'imageAddEvent\\party.jpg')
