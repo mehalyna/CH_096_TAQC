@@ -25,13 +25,13 @@ class CreateEventData():
     ATT_DATA = "innerHtml"
 
 
-class ContactUsData():
-
-    DESCRIPTION_FOR_CONTACT = "very nice!!!"
+class ContactUsData:
+    """Data for entering description into field in 'Contact us' page"""
+    DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
 
 
 class ProfileMenuPageHeaderInfo:
-    '''Test data for userinfo header from profile menu - events panels page'''
+    """Test data for userinfo header from profile menu - events panels page"""
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
