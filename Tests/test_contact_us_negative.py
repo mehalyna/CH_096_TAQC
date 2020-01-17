@@ -11,9 +11,7 @@ from Locators.locators import ContactUsPageLocators as locator
 @allure.story("Test appearance message 'Required'")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_contact_us_negative(app, login, screenshot_on_failure):
-    """
-    Checking the required field "Description"
-    """
+    """Checking the required field "Description" """
     loger = PyLogging(__name__)
     loger.infos.append("New test:")
     messages = ("Go to 'Contact us' page.",

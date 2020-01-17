@@ -143,10 +143,14 @@ class BaseSetup():
             return ''
 
     def scroll_to_element(self, locators):
-        # doesn't scroll by search element
+        """
+        Wrapper for selenium method scroll to element
+        :param locators: css selector or xpath
+        :return: scroll to element and return coordinates
+
+        """
         element = self.find_element(*locators)
-        action = ActionChains(self.driver)
-        action.move_to_element(element).perform()
+        return element.location_once_scrolled_into_view
 
     def upload_file(self, path, locators):
         """
