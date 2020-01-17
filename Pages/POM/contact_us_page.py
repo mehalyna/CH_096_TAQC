@@ -4,6 +4,7 @@ from Data.test_data import ContactUsData
 
 class ContactUs:
     """Base functions for 'Contact us' page. Checking user communication with admin"""
+
     def __init__(self, browser):
         self.browser = browser
         self.menu_locator = NavigationMenuLocators
