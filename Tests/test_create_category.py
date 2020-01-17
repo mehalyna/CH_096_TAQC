@@ -15,7 +15,7 @@ def test_create_category(app,login_admin,screenshot_on_failure):
     with allure.step("Creating Category."):
         for i in range(1000):
             app.categories.add_category(category_old+str(i))
-        assert (app.categories.check_category_added(category_old) == True), "Category was not created"
+        assert (app.categories.check_category_added(category_old) == True), "Category was not created ashsahffjjfsasjfjsajsafjsafjsfaj"
 
     #teatdown
     #app.categories.delete_category(category_old)
