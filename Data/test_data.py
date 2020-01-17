@@ -9,21 +9,20 @@ class Config:
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # False
-    HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
+    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
     # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "https://localhost:44364/home/events?page=1"  # Boris
+    HOME_URL = "https://localhost:44364/home/events?page=1"  # Borys
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
     # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
-    BROWSER = 'Chrome'
-    # BROWSER = 'Firefox'
+    # BROWSER = 'Chrome'
+    BROWSER = 'Firefox'
 
 
 class CreateEventData:
 
-
-    TITLE = random.choice( ['New Year', 'Christmas', 'Malanka'] )
-    IMAGE = os.path.join( current_path,  'imageAddEvent\\party.jpg' )
+    TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
+    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
@@ -67,7 +66,7 @@ class HomePageOptionsPanel:
 
 
 class CartPanelsAtProfilePage:
-    ''' Events menu -> panel(s) object locators testdata '''
+    """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
     CART_PANEL = 'CART_PANEL'

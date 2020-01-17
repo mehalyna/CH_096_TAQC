@@ -8,6 +8,7 @@ from Locators.locators import SearchEventPanelLocators as locator
 @allure.story("Search EVENT")
 @allure.severity(allure.severity_level.CRITICAL)
 def test_search_event(app):
+    """ Search event by name"""
     with allure.step('Login as admin'):
         app.signin.enter_actor(admin['email'],admin['password'])
     with allure.step('Search event'):

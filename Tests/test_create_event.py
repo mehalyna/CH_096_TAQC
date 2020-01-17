@@ -1,12 +1,16 @@
 from Data.credentials import user,admin
 from Data.test_data import CreateEventData
 from Locators.locators import CreateEvent
+from utilities.testLogging import PyLogging
+import allure
 
 
 event = CreateEventData
 locator = CreateEvent
 
-
+@allure.link("http://localhost:3183/home/events?page=1")
+@allure.feature('Create Event')
+@allure.story("Create new event")
 def test_create_event(app):
     app.signin.enter_actor(user['email'], user['password'])
     app.navigation.click_on_profile()
