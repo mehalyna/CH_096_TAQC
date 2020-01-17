@@ -11,7 +11,7 @@ locator = CreateEvent
 
 @allure.link("http://34.65.101.58:5002/home/events/?page=1")
 @allure.feature('Create Event')
-@allure.story("Create new events")
+@allure.story("Create new event")
 def test_create_event(app):
     """Test sreate event"""
     app.signin.enter_actor(user['email'], user['password'])
