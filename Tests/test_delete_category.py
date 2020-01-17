@@ -1,4 +1,4 @@
-"""test create event"""
+"""test delete event"""
 import allure
 from Data.test_data import CategoriesPage
 
