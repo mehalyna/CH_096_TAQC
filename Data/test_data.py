@@ -26,13 +26,13 @@ class CreateEventData(): # pylint: disable=too-few-public-methods
     ATT_DATA = "innerHtml"
 
 
-class ContactUsData(): # pylint: disable=too-few-public-methods
+class ContactUsData:
+    """Data for entering description into field in 'Contact us' page"""
+    DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
 
-    DESCRIPTION_FOR_CONTACT = "very nice!!!"
 
-
-class ProfileMenuPageHeaderInfo: # pylint: disable=too-few-public-methods
-    '''Test data for userinfo header from profile menu - events panels page'''
+class ProfileMenuPageHeaderInfo:
+    """Test data for userinfo header from profile menu - events panels page"""
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
