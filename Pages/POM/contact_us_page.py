@@ -2,7 +2,7 @@ from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
 from Data.test_data import ContactUsData
 
 
-class ContactUs():
+class ContactUs:
     """Base functions for 'Contact us' page. Checking user communication with admin"""
     def __init__(self, browser):
         self.browser = browser
