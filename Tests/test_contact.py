@@ -3,7 +3,7 @@ from utilities.testLogging import PyLogging
 from Locators.locators import ContactUsPageLocators as locator
 
 
-@allure.feature('Positive test')
+@allure.feature("Positive test")
 @allure.severity(allure.severity_level.CRITICAL)
 @allure.link(
     "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1",
