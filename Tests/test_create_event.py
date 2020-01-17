@@ -25,13 +25,8 @@ def test_create_event(app):
     app.base.click_on_element( locator.CATEGORY )
     app.creat_event.add_category( locator.LST_CATEGORIES )
     app.base.click_action(0, 0)
-
     app.base.scroll_to_element( locator.COUNTRY_FIELD )
-
-    app.base.click_on_element( locator.COUNTRY_FIELD )
-
     app.creat_event.select_country( locator.COUNTRY_FIELD )
-
     app.base.click_on_element( locator.CITY )
     app.creat_event.select_city(locator.CITY)
 
