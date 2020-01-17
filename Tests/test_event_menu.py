@@ -16,7 +16,7 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
     print(f"Menu tab {test_input} is in the tab")
 
 
-# In progress... 2nd and consecutive tests are fail
+# In progress... bj 2nd and consecutive tests are fail
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize("menu_tab", [Data.FUTURE_EVENTS,
                                       Data.ARCHIVE_EVENTS,
