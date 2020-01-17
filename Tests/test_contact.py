@@ -10,6 +10,9 @@ from Locators.locators import ContactUsPageLocators as locator
 @allure.story('Test sending message to admin')
 @allure.suite('Tests for "Contact us page"')
 def test_contact_us(app, login, screenshot_on_failure):
+
+    
+    """A testcase to check user communication with admin"""
     loger = PyLogging(__name__)
     loger.info("New test:")
     messages = ("Go to 'Contact us' page.", "Check type of a list",
