@@ -14,8 +14,6 @@ RUN apt update && apt install -y firefox
 
 ENV APP_URL http://eventexpress.com/
 ENV GIT_URL https://github.com/sboris-git/CH_096_TAQC.git
-# ENV PATH_PROJECT /CH_096_TAQC
-ENV REBUILD "FALSE"
 
 # Get POM and tests from git
 # ADD ./CH_096_TAQC
