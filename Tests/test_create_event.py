@@ -16,7 +16,6 @@ def test_create_event(app):
     app.creat_event.add_title( event.TITLE )
     text = event.DESCRIPTION['New Year']  # text add into description field for testing
     app.creat_event.add_desc( text )
-    # text2 = 'hello'
     assert app.base.check_if_text_present( locator.DESC_TEXT, text )
     # self.exec.base.get_element_text(self.locator.DESC_TEXT)
     app.base.click_on_element( locator.CATEGORY )
