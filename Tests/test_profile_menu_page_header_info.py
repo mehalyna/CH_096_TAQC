@@ -33,5 +33,6 @@ def test_event_menu_header_info_text_interests(app, login, userinfo_input=Data.U
     actual_text = app.event_menu.get_text(Locator)
     userinfo_expected_value = Data.USER_INTERESTS_DATA
     assert actual_text in userinfo_expected_value, f"Text of {userinfo_input} item differs. \
-                            The expected one is {userinfo_expected_value} instead {actual_text} is displayed"
+                            The expected one is {userinfo_expected_value}  \
+                            instead {actual_text} is displayed"
     print(f"Text of {userinfo_input} is in the tab {userinfo_expected_value}")

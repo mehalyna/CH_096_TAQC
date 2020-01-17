@@ -25,8 +25,10 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
                                       Data.ADD_EVENT])
 @pytest.mark.usefixtures("login", "screenshot_on_failure", "screenshot_on_failure")
 def test_event_menu_switch(app, screenshot_on_failure, menu_tab):
-    """ Moving from default the first tab to the next tab and check the result by locating
-    corresponding tab indicator"""
+    """
+    Moving from default the first tab to the next tab and check the result by locating
+    corresponding tab indicator
+    """
     app.navigation.click_on_profile()
     app.event_menu.click_menu_item(menu_tab)
     actual_result = app.event_menu.is_menu_item_active(menu_tab)
