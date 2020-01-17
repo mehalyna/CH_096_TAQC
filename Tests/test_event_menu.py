@@ -23,7 +23,7 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
                                       Data.VISITED_EVENTS,
                                       Data.EVENTS_TO_GO,
                                       Data.ADD_EVENT])
-@pytest.mark.usefixtures("login", "screenshot_on_failure")
+@pytest.mark.usefixtures("login", "screenshot_on_failure", "screenshot_on_failure")
 def test_event_menu_switch(app, screenshot_on_failure, menu_tab):
     """ Moving from default the first tab to the next tab and check the result by locating
     corresponding tab indicator"""
