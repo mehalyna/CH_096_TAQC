@@ -22,7 +22,7 @@ class Driver:
         self.browser = browser
 
     def set_browser(self, mode):
-        """mode is set to True, runs rests in silent mode: no UI while testing"""
+        """Mode is set to True, runs rests in silent mode: no UI while testing"""
 
         if self.browser.lower() == "firefox":
             options = FirefoxOptions()
@@ -43,10 +43,12 @@ class Driver:
                 options=options)
 
         elif self.browser.lower() == "ie":
-            '''The IE driver does not support execution without an active,
+            """
+            The IE driver does not support execution without an active,
             logged-in desktop session running. You'll need to take this up with
             the author of the solution you're using to achieve "headless"
-            (scare quotes intentional) execution of IE.'''
+            (scare quotes intentional) execution of IE.
+            """
             options = 'unsupported'
             return webdriver.Ie(IEDriverManager().install(), options=options)
 

@@ -16,7 +16,7 @@ def test_edit_category(app, login_admin, screenshot_on_failure):
     category_old = CategoriesPage.category_old
     category_new = CategoriesPage.category_new
     loger = PyLogging(__name__)
-    # loger.infos.append("New test:")
+    #loger.infos.append("New test:")
     loger.info("New test:")
     messages = ("Go to Categories page.",
                 "Creating Category {}.".format(category_old),
