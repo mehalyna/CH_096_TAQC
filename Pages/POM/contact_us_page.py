@@ -1,3 +1,4 @@
+"""Base functions for 'Contact us' page"""
 from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
 from Data.test_data import ContactUsData
 
