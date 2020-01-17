@@ -6,6 +6,7 @@
 Reports_Allure
 Logs
 .pytest_cache
+geckodriver.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
