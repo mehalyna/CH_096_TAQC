@@ -50,4 +50,4 @@ def test_header_interests(app, userinfo_input=Data.USER_INTERESTS_DATA):
         format(userinfo_input, userinfo_expected_value, actual_text)
     assert actual_text in userinfo_expected_value, warning
     print("Text of {} is in the tab {}".format(userinfo_input, userinfo_expected_value))
-    # print(f"Text of {userinfo_input} is in the tab {userinfo_expected_value}")
+    print(f"Text of {userinfo_input} is in the tab {userinfo_expected_value}")
