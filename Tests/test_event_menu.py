@@ -7,7 +7,8 @@ from Data.test_data import ProfilePageEventsMenu as data
                                         data.VISITED_EVENTS,
                                         data.EVENTS_TO_GO,
                                         data.ADD_EVENT])
-def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
+@pytest.mark.usefixtures("login")
+def test_event_menu_existence(app, test_input):
     app.navigation.click_on_profile()
     assert app.event_menu.element_at_menu_bar_is_present(test_input, timeout=0), f"No menu tab {test_input} in the tabs"
     print(f"Menu tab {test_input} is in the tab")

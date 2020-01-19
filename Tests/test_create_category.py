@@ -1,5 +1,7 @@
 """test create event"""
 import allure
+import pytest
+
 from Data.test_data import CategoriesPage
 
 
@@ -7,7 +9,8 @@ from Data.test_data import CategoriesPage
 @allure.feature('Login Admin')
 @allure.story('Test creating category')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_create_category(app, login_admin):
+@pytest.mark.usefixtures("login_admin")
+def test_create_category(app):
     """test create category"""
     category_old = CategoriesPage.category_old
     with allure.step("Go to Categories page."):

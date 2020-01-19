@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from utilities.testLogging import PyLogging
 from Locators.locators import ContactUsPageLocators as locator
 
@@ -10,7 +12,8 @@ from Locators.locators import ContactUsPageLocators as locator
     name='Click me')
 @allure.story("Test appearance message 'Required'")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_contact_us_negative(app, login, screenshot_on_failure):
+@pytest.mark.usefixtures("login")
+def test_contact_us_negative(app):
     """
     Checking the required field "Description"
     """

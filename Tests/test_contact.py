@@ -1,4 +1,6 @@
 import allure
+import pytest
+
 from utilities.testLogging import PyLogging
 from Locators.locators import ContactUsPageLocators as locator
 
@@ -10,7 +12,8 @@ from Locators.locators import ContactUsPageLocators as locator
     name='Click me')
 @allure.story('Test sending message to admin')
 @allure.suite('Tests for "Contact us page"')
-def test_contact_us(app, login, screenshot_on_failure):
+@pytest.mark.usefixtures("login")
+def test_contact_us(app):
     """
     A testcase to check user communication with admin
     """
