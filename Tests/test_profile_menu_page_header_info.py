@@ -42,10 +42,9 @@ def test_header_info_text(app, userinfo_input):
 @pytest.mark.skip(reason='Postponed for USER_INTERESTS_DATA actualizing')
 @pytest.mark.smoke
 def test_header_interests(app, userinfo_input=Data.USER_INTERESTS_DATA):
-    """Check the Interests list"""
+    # """Check the Interests list"""
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(Locator)
-
     userinfo_expected_value = Data.USER_INTERESTS_DATA
     warning = "Text of {} item differs. The expected one is {} instead {} is displayed".\
         format(userinfo_input, userinfo_expected_value, actual_text)
