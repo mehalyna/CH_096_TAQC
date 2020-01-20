@@ -38,6 +38,7 @@ class RegisterLocators:
         By.CSS_SELECTOR,
         ".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
+    WARNING_MESSAGE = (By.XPATH, "//div[2]/p")
 
 
 class NavigationMenuLocators:

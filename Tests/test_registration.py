@@ -3,7 +3,9 @@ import pytest
 import allure
 from Locators.locators import NavigationMenuLocators
 from dbconnection import Connection
+
 locator = NavigationMenuLocators
+
 
 @allure.link("http://34.65.101.58:5002/home/events?page=1", name='Click me')
 @allure.feature('Register User')

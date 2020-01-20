@@ -41,11 +41,15 @@ class Auth():
     def type_repassword_register(self, password):
         self.browser.send_keys_to_element(self.locators_register.RE_PASSWORD, password)
         self.browser.send_keys_to_element(self.locators_register.RE_PASSWORD, Keys.RETURN)
+
+    def send_escape(self):
         self.browser.send_keys_to_element(self.locators_register.RE_PASSWORD, Keys.ESCAPE)
 
     def click_signin_tab(self):
         self.browser.click_on_element(self.locator.SIGNINTAB)
 
+    def check_warning_message_about_existing_email(self):
+        return self.browser.find_element_by_xpath("//div[2]/p").text
 
 
 
