@@ -41,7 +41,7 @@ class EventsMenu:
         The item_name is a key of dictionary of item locators
         """
         self.browser.click_on_element(self.locator[item_name])
-        return self.browser.is_element_exist(self.tab_dict[item_name], timeout=5)
+        return self.browser.visibility_of_element(self.tab_dict[item_name], timeout=5)
 
 
 # class EventsMenuCarts:

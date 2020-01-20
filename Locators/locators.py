@@ -165,15 +165,16 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      # Whole panel
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]')
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
+                     'ACTIVE_TAB_MARKER': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      }
 
     TAB_INDICATOR_DICT = {
-                     'FUTURE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
-                     'ARCHIVE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
-                     'VISITED_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
-                     'EVENTS_TO_GO_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
-                     'ADD_EVENT_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
+                     'FUTURE EVENTS': (By.ID, 'div[id="scrollable-force-tabpanel-0"'),
+                     'ARCHIVE EVENTS': (By.ID, "div[id='scrollable-force-tabpanel-1']"),
+                     'VISITED EVENTS': (By.ID, "div[id='scrollable-force-tabpanel-2']"),
+                     'EVENTS TO GO': (By.ID, "div[id='scrollable-force-tabpanel-3']"),
+                     'ADD EVENT': (By.ID, "div[id='scrollable-force-tabpanel-4']"),
                      }
     # Admin locators_dict ToDo
 

@@ -1,6 +1,7 @@
 import pytest
 import allure
 from Data.test_data import ProfilePageEventsMenu as Data
+from Locators.locators import ProfilePageEventsMenuLocators as Tabs
 
 
 @allure.suite('Tests for "Events_menu page"')
@@ -24,7 +25,7 @@ def test_event_menu_existence(app, login, screenshot_on_failure, test_input):
                                       Data.EVENTS_TO_GO,
                                       Data.ADD_EVENT])
 @pytest.mark.usefixtures("login", "screenshot_on_failure", "screenshot_on_failure")
-def test_event_menu_switch(app, screenshot_on_failure , menu_tab):
+def test_event_menu_switch(app, screenshot_on_failure, menu_tab):
     """
     Moving from default the first tab to the next tab and check the result by locating
     corresponding tab indicator
