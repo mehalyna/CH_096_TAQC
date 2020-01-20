@@ -1,6 +1,4 @@
-import pytest
-
-from Data.credentials import user,admin
+from Data.credentials import admin
 import allure
 
 
