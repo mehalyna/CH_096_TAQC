@@ -4,16 +4,16 @@ import requests
 
 
 class UrlAuth:
-    url_login = "https://eventsexpress20200103054152.azurewebsites.net/api/Authentication/Login"
-    url_register = "https://eventsexpress20200103054152.azurewebsites.net/api/Authentication/Register"
-    url_login_fb = "https://eventsexpress20200103054152.azurewebsites.net/api/Authentication/FacebookLogin"
-    url_login_google = "https://eventsexpress20200103054152.azurewebsites.net/api/Authentication/google"
+    url_login = "http://34.65.101.58:5002/api/Authentication/Login"
+    url_register = "http://34.65.101.58:5002/api/Authentication/Register"
+    url_login_fb = "http://34.65.101.58:5002/api/Authentication/FacebookLogin"
+    url_login_google = "http://34.65.101.58:5002/api/Authentication/google"
 
 
 class UrlCategory:
-    url_category_edit = "https://eventsexpress20200103054152.azurewebsites.net/api/Category/Edit"
-    url_category_all = "https://eventsexpress20200103054152.azurewebsites.net/api/Category/All"
-    url_category_delete = "https://eventsexpress20200103054152.azurewebsites.net/api/Category/Delete/"
+    url_category_edit = "http://34.65.101.58:5002/api/Category/Edit"
+    url_category_all = "http://34.65.101.58:5002/api/Category/All"
+    url_category_delete = "http://34.65.101.58:5002/api/Category/Delete/"
 
 
 class AuthPayloads:

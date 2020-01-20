@@ -7,6 +7,9 @@ class LoginPageLocators:
     Locators for login page.
     """
     # button for opening form of authorization
+    SIGNINTAB = (
+        By.CSS_SELECTOR,
+        ".MuiTabs-scroller.MuiTabs-fixed button:nth-child(1)")
     SIGNIN = (By.CLASS_NAME, 'MuiButton-label')
 
     # form of signin/upR
