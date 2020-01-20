@@ -34,12 +34,16 @@ class Connection:
 
     def create_category_with_name(self, name):
         guid = uuid.uuid4()
-        self.cursor.execute("INSERT INTO Categories(Id, Name) VALUES (?,?);", (guid,name))
+        self.cursor.execute("INSERT INTO Categories(Id, Name) VALUES (?,?);", (guid, name))
         self.cursor.commit()
 
     def get_id_using_name(self, name):
         self.cursor.execute("select Id from Categories where Name = ?", name)
         return str(self.cursor.fetchone()[0])
+
+    def confirm_useremail_on_register(self, email):
+        self.cursor.execute("UPDATE Users SET EmailConfirmed = 1 WHERE Email like ?", email)
+        self.cursor.commit()
 
     def close(self):
         self.conn.close()

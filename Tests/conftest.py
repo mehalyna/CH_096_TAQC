@@ -5,7 +5,7 @@ from Driver.driver import Driver
 from Data.test_data import Config
 from utilities.testFrame import InitPages
 from Data.credentials import user, admin
-
+from dbconnection import Connection
 
 @pytest.fixture(scope='function')
 def driver_init(request):
@@ -85,3 +85,11 @@ def screenshot_on_failure(request, driver_init):
                 allure.attach(driver_init.get_screenshot_as_png(),
                               name=request.function.__name__,
                               attachment_type=AttachmentType.PNG)
+
+@pytest.fixture(scope='function')
+def delete_registed_user():
+    yield
+    with allure.step('Delete registered user'):
+        db = Connection()
+        db.delete_user_with_email("katya@gmail.com")
+        db.close()
