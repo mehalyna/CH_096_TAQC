@@ -1,4 +1,4 @@
-from Data.credentials import user,admin
+from Data.credentials import admin
 import allure
 
 
@@ -8,7 +8,7 @@ import allure
 def test_search_event(app):
     """Chech if working search to filter. Search event by date."""
     with allure.step('Login as admin'):
-        app.signin.enter_actor( admin['email'], admin['password'] )
+        app.signin.enter_actor(admin['email'], admin['password'])
     with allure.step('Open filter form'):
         app.search.open_filter()
     with allure.step('Choose date'):
