@@ -13,7 +13,8 @@ from Locators.locators import ProfileMenuPageHeaderInfoLocators as locator
                                             'user@gmail.com',
                                             'Interests:'
                                             ])
-def test_event_menu_header_info_text(app, login, userinfo_input):
+@pytest.mark.usefixtures("login")
+def test_event_menu_header_info_text(app, userinfo_input):
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(userinfo_input)
     userinfo_expected_value = userinfo_input

@@ -34,7 +34,8 @@ def login(app):
     """
     Login as an user
     """
-    app.signin.enter_actor(user['email'], user['password'])
+    with allure.step('Login as a user'):
+        app.signin.enter_actor(user['email'], user['password'])
 
 
 @pytest.fixture(scope='function')
@@ -42,7 +43,8 @@ def login_admin(app):
     """
     Login as an admin
     """
-    app.signin.enter_actor(admin['email'], admin['password'])
+    with allure.step('Login as an admin'):
+        app.signin.enter_actor(admin['email'], admin['password'])
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -71,14 +73,15 @@ def screenshot_on_failure(request, driver_init):
     yield
     # request.node is an "item" because we use the default
     # "function" scope
-    if request.node.rep_setup.failed:
-        print("setting up a test failed!", request.node.nodeid)
-        allure.attach(driver_init.get_screenshot_as_png(),
-                      name=request.function.__name__,
-                      attachment_type=AttachmentType.PNG)
-    elif request.node.rep_setup.passed:
-        if request.node.rep_call.failed:
-            print("executing test failed", request.node.nodeid)
+    with allure.step('Make screenshot'):
+        if request.node.rep_setup.failed:
+            print("setting up a test failed!", request.node.nodeid)
             allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
+        elif request.node.rep_setup.passed:
+            if request.node.rep_call.failed:
+                print("executing test failed", request.node.nodeid)
+                allure.attach(driver_init.get_screenshot_as_png(),
+                              name=request.function.__name__,
+                              attachment_type=AttachmentType.PNG)

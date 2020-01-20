@@ -1,3 +1,5 @@
+import pytest
+
 from Data.credentials import user,admin
 import allure
 
@@ -5,10 +7,9 @@ import allure
 @allure.feature('Search field')
 @allure.story("Search EVENT")
 @allure.severity(allure.severity_level.CRITICAL)
+@pytest.mark.usefixtures("login_admin")
 def test_search_event(app):
     """Chech if working search to filter. Search event by date."""
-    with allure.step('Login as admin'):
-        app.signin.enter_actor( admin['email'], admin['password'] )
     with allure.step('Open filter form'):
         app.search.open_filter()
     with allure.step('Choose date'):

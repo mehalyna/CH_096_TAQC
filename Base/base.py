@@ -19,6 +19,8 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
+        element = wait.until(lambda driver: self.driver.find_element(*locators))
+        wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element(
                 *locators))
@@ -32,6 +34,8 @@ class BaseSetup():
          :param locators: css selector or xpath
          :return: webElements
         """
+        wait = WebDriverWait(self.driver, 30)
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements(
@@ -44,6 +48,8 @@ class BaseSetup():
         :param tag: tag of web element
         :return: webElement
         """
+        wait = WebDriverWait(self.driver, 30)
+        element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements_by_tag_name(tag))
@@ -55,6 +61,8 @@ class BaseSetup():
         :param xpath: xpath
         :return: webElement
         """
+        wait = WebDriverWait(self.driver, 30)
+        element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element_by_xpath(xpath))
@@ -97,7 +105,9 @@ class BaseSetup():
         :param locators: css selector or xpath
         :return: list of values of html_element
         """
-
+        wait = WebDriverWait(self.driver, 30)
+        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (
             list(
@@ -152,27 +162,16 @@ class BaseSetup():
         element = self.find_element(*locators)
         return element.location_once_scrolled_into_view
 
+
     def upload_file(self, path, locators):
         """
-        Upload file from host directory to server (bd)
+
         :param path: absolute path to dir with file or picture
         :param locators: css locator or xpath
         :return: None
         """
         element = self.find_element(*locators)
         element.send_keys(path)
-
-    def select_from_list_1(self, locator_1):
-        """
-        FOR Page contact us
-        Method finding (webElement) tag SELECT
-        :param locator_1: css selector or xpath
-        :return: random element from SELECT  (drop-down menu/list)
-        """
-        sel = self.find_element( *locator_1 )
-        a = Select( sel )
-        choice = random.choice( [c.text for c in a.options] )
-        return a.select_by_visible_text( choice )
 
     def get_element_text(self, locator):
         """
@@ -186,7 +185,7 @@ class BaseSetup():
         print(a)
         return a
 
-
+    # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
         """
         Method for finding text on web element

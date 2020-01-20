@@ -10,7 +10,7 @@ class ContactUs():
         self.locator = ContactUsPageLocators
 
     def check_type(self):
-        self.browser.select_from_list(self.locator.LIST)
+        self.browser.select_from_list_1(self.locator.LIST)
 
     def enter_description(self):
         data = ContactUsData.DESCRIPTION_FOR_CONTACT

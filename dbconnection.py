@@ -8,10 +8,10 @@ import requests
 class Connection:
 
     def __init__(self):
-        self.server = 'eventsexpress.database.windows.net'
+        self.server = '34.65.101.58'
         self.database = 'EventsExpress'
-        self.username = 'katya'
-        self.password = 'Popalava09'
+        self.username = 'SA'
+        self.password = '11D3v0ps'
         self.driver = 'ODBC Driver 17 for SQL Server'
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
