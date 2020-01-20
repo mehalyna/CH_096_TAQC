@@ -1,3 +1,5 @@
+import pytest
+
 from Data.credentials import admin
 import allure
 
