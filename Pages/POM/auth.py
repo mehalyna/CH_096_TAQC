@@ -51,5 +51,9 @@ class Auth():
     def check_warning_message_about_existing_email(self):
         return self.browser.find_element_by_xpath("//div[2]/p").text
 
+    def check_warning_message_about_invalid_email(self):
+        return self.browser.find_element_by_xpath("(//div[1]/div/p)[2]").text
+
+
 
 
