@@ -69,3 +69,19 @@ def test_registration_with_invalid_email(app):
         app.auth.type_repassword_register("popalava09")
     with allure.step("Verify that warning message about invalid email appears"):
         assert app.auth.check_warning_message_about_invalid_email() == "Invalid email address"
+
+
+@allure.link("http://34.65.101.58:5002/home/events?page=1", name='Click me')
+@allure.feature('Register User')
+@allure.story('User does not have an ability to register with invalid password')
+@allure.severity(allure.severity_level.NORMAL)
+def test_registration_with_invalid_password(app):
+    with allure.step("Open login form"):
+        app.auth.click_on_login_button()
+    with allure.step("Open register tab"):
+        app.auth.click_register()
+    with allure.step("Fill passsword data"):
+        app.auth.type_password_register("111")
+        app.auth.type_repassword_register("111")
+    with allure.step("Verify that warning message about invalid password appears"):
+        assert app.auth.check_warning_message_about_invalid_password() == "Must be 6 characters or more"

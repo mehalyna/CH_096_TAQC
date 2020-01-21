@@ -54,6 +54,9 @@ class Auth():
     def check_warning_message_about_invalid_email(self):
         return self.browser.find_element_by_xpath("(//div[1]/div/p)[2]").text
 
+    def check_warning_message_about_invalid_password(self):
+        return self.browser.find_element_by_xpath("//div[2]/div/p").text
+
 
 
 
