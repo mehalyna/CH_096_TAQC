@@ -1,10 +1,9 @@
 import pytest
 import allure
+from config import CREDENTIALS, URL
 from allure_commons.types import AttachmentType
 from Driver.driver import Driver
-from Data.test_data import Config
 from utilities.testFrame import InitPages
-from Data.credentials import user, admin
 from dbconnection import Connection
 
 @pytest.fixture(scope='function')
@@ -12,13 +11,13 @@ def driver_init(request):
     """
     Instantiate webdriver for selected browser and open homepage
     """
-    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
+    driver = Driver(URL['Browser']).set_browser(URL['Test_mode'])
     driver.delete_all_cookies()
     driver.maximize_window()
-    driver.get(Config.HOME_URL)
+    driver.get(URL['Home_URL'])
     yield driver
-    driver.close()
-    driver.quit()
+    #driver.close()
+    #driver.quit()
 
 @pytest.fixture(scope='function')
 def app(driver_init):
@@ -35,7 +34,7 @@ def login(app):
     Login as an user
     """
     with allure.step('Login as a user'):
-        app.signin.enter_actor(user['email'], user['password'])
+        app.signin.enter_actor(CREDENTIALS['User_name'], CREDENTIALS['User_password'])
 
 
 @pytest.fixture(scope='function')
@@ -44,7 +43,7 @@ def login_admin(app):
     Login as an admin
     """
     with allure.step('Login as an admin'):
-        app.signin.enter_actor(admin['email'], admin['password'])
+        app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
