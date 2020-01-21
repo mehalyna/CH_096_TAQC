@@ -11,6 +11,11 @@ class ContactUs:
         self.menu_locator = NavigationMenuLocators
         self.locator = ContactUsPageLocators
 
+    def check_username(self):
+        """Name matching"""
+        name = self.browser.check_if_text_present(self.locator.USERNAME, "UserTest")
+        return name
+
     def check_type(self):
         """Selecting problem type from dropdown list"""
         self.browser.select_from_list_1(self.locator.LIST)
@@ -19,10 +24,6 @@ class ContactUs:
         """Entering description into field"""
         data = ContactUsData.DESCRIPTION_FOR_CONTACT
         self.browser.send_keys_to_element(self.locator.DESCRIPTION, data)
-
-    def get_text_from_list(self):
-        """Getting text from dropdown list"""
-        self.browser.get_element_text(self.locator.TYPE)
 
     def get_text_from_result(self):
         """Getting text from a confirmation message"""
