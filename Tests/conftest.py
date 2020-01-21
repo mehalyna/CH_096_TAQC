@@ -87,7 +87,7 @@ def screenshot_on_failure(request, driver_init):
                               attachment_type=AttachmentType.PNG)
 
 @pytest.fixture(scope='function')
-def delete_registed_user():
+def delete_registered_user():
     yield
     with allure.step('Delete registered user'):
         db = Connection()

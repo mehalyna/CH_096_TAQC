@@ -9,7 +9,7 @@ locator = NavigationMenuLocators
 @allure.feature('Register User')
 @allure.story('User have ability to register in EventsExpress app')
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.usefixtures("delete_registed_user")
+@pytest.mark.usefixtures("delete_registered_user")
 def test_registration(app):
     with allure.step("Open login form"):
         app.auth.click_on_login_button()
