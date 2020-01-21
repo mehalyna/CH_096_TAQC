@@ -5,7 +5,7 @@ import pyodbc as pyodbc
 class Connection():
 
     def __init__(self):
-        self.server = 'tcp:34.65.101.58'
+        self.server = '34.65.101.58'
         self.database = 'EventsExpress'
         self.username = 'SA'
         self.password = '11D3v0ps'
@@ -31,7 +31,7 @@ class Connection():
         self.cursor.commit()
 
     def edit_user_with_gender(self, name, sex):
-        """0=Other, 1=Male, 2=Female"""
+        """sex: 0=Other, 1=Male, 2=Female"""
         self.cursor.execute(f"UPDATE Users set Gender = '{sex}' where Name like '{name}'")
         self.cursor.commit()
 
@@ -60,12 +60,13 @@ class Connection():
         self.cursor.execute(f"SELECT Id from Categories where Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
+    def confirm_useremail_on_register(self, email):
+        self.cursor.execute(f"UPDATE Users SET EmailConfirmed = 1 WHERE Email like '{email}'")
+        self.cursor.commit()
+        
     def send_sql(self, execut):
         self.cursor.execute("{}".format(execut))
         self.cursor.commit()
 
     def close(self):
         self.conn.close()
-
-testdb = Connection()
-testdb.send_sql("UPDATE Categories set Name = 22 where Name like 222")
