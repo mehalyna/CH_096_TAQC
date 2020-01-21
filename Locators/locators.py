@@ -165,17 +165,21 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      # Whole panel
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]')
+                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
+                     'ACTIVE_TAB_MARKER': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
+                     'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]'),
                      }
 
     TAB_INDICATOR_DICT = {
-                     'FUTURE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
-                     'ARCHIVE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
-                     'VISITED_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
-                     'EVENTS_TO_GO_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
-                     'ADD_EVENT_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
+                     'FUTURE EVENTS': (By.CSS_SELECTOR, 'div[id="scrollable-force-tabpanel-0"'),
+                     'ARCHIVE EVENTS': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-1']"),
+                     'VISITED EVENTS': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-2']"),
+                     'EVENTS TO GO': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-3']"),
+                     'ADD EVENT': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-4']"),
+                     'ACTIVE TAB': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      }
-    # Admin locators_dict ToDo
+
+    TABS = (By.XPATH, '//button[@role="tab"]')
 
 
 class ProfileMenuPageHeaderInfoLocators:
@@ -194,7 +198,6 @@ class ProfileMenuPageHeaderInfoLocators:
         # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
         'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
-    # Admin ToDo
 
 
 class HomePageOptionsPanelLocators:
