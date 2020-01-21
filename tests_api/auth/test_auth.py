@@ -37,7 +37,7 @@ class TestAuth(unittest.TestCase):
                                               headers=HEADER.header)
         mes = response_decoded_json.json()
         self.assertEqual("Email already exists in database", mes, "There is no such email in the database")
-        self.assertEqual(400, response_decoded_json.status_codec, "You have BAD REQUEST")
+        self.assertEqual(400, response_decoded_json.status_code, "You have BAD REQUEST")
 
     def test_register_new_user(self):
         response_decoded_json = requests.post(URL_AUTH.url_register, data=json.dumps(AUTH_PAYLOADS.payload_unauth),
