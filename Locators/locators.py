@@ -168,7 +168,6 @@ class ProfilePageEventsMenuLocators:
                      'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
                      'ACTIVE_TAB_MARKER': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]'),
-                     'TABS': (By.XPATH, '//button[@role="tab"]')
                      }
 
     TAB_INDICATOR_DICT = {
@@ -179,6 +178,8 @@ class ProfilePageEventsMenuLocators:
                      'ADD EVENT': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-4']"),
                      'ACTIVE TAB': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      }
+
+    TABS = (By.XPATH, '//button[@role="tab"]')
 
 
 class ProfileMenuPageHeaderInfoLocators:

@@ -52,14 +52,21 @@ class EventsMenu:
         return self.browser.visibility_of_element(self.tab_dict[item_name], timeout=5)
 
     def count_tabs(self, *locator):
+        """ToDo In progress"""
         time.sleep(2)
-        print(f"Locator for 'TABS_COUNT' is {self.locator['TABS_COUNT']}")
+        print(f"Locator for 'TABS_COUNT' is {locator}")
         # length = len(self.browser.find_elements(*self.locator['TABS_COUNT'])) + 1
         a = self.browser.get_list_element('button', *locator)
         length = len(a)
         # length = len(self.browser.check_if_element_exists(self.locator['FUTURE EVENTS']))
         # length = len(self.browser.find_elements_new()) + 1
         # content = driver.find_element_by_css_selector('p.content')
+        return length
+
+    def choose_last_event_but(self, *locator):
+        a = self.browser.get_list_element('button', *locator)
+        length = len(a)
+        print(a)
         return length
 
 

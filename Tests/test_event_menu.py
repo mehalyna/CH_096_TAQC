@@ -41,15 +41,16 @@ def test_event_menu_switch(app, menu_tab):
 
 
 # ToDo
+
 # @allure.severity(allure.severity_level.CRITICAL)
 # @pytest.mark.usefixtures("screenshot_on_failure")
 
-# @pytest.mark.parametrize("item_name", ['TABS_COUNT'])
 @pytest.mark.usefixtures("login")
 def test_count_tabs(app):
-    print(f'menu items = {"TABS_COUNT"}')
+    print(f'menu items = {Tabs.TABS}')
     variable = 0
     # Tabs.locators_dict['TABS']
-    tabs_count = app.event_menu.count_tabs(Tabs.locators_dict['TABS'])
+    # tabs_count = app.event_menu.count_tabs(Tabs)
+    tabs_count = app.event_menu.choose_last_event_but(Tabs.TABS)
     print(f'menu items = {tabs_count}')
 

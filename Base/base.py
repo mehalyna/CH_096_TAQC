@@ -102,9 +102,6 @@ class BaseSetup():
         :param locators: css selector or xpath
         :return: list of values of html_element
         """
-        wait = WebDriverWait(self.driver, 30)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
-        """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (
             list(
