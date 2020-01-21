@@ -1,34 +1,33 @@
-"""test data"""
 import random
 import os
 
 # from Locators.locators import ProfilePageEventsMenuLocators as locator
 
-CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 
-class Config: # pylint: disable=too-few-public-methods
+class Config:
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
-    TEST_MODE = False  # False
-    HOME_URL = "http://34.65.101.58:5002/home/events/?page=1"
+    TEST_MODE = False  # True
+    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
+    HOME_URL = "http://34.65.101.58:5002/home/events?page=1"
     BROWSER = 'Chrome'
-    #BROWSER = 'Firefox'
+    # BROWSER = 'Firefox'
 
 
-class CreateEventData(): # pylint: disable=too-few-public-methods
-
+class CreateEventData():
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
-    IMAGE = os.path.join(CURRENT_PATH, 'imageAddEvent\\party.jpg')
+    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
 
-class ContactUsData:
+class ContactUsData():
     """Data for entering description into field in 'Contact us' page"""
-    DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
+    DESCRIPTION_FOR_CONTACT = "very nice!!!"
 
 
 class ProfileMenuPageHeaderInfo:
@@ -53,9 +52,9 @@ class ProfileMenuPageHeaderInfo:
         '#Summer'}
 
 
-class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
-    ''' Testdata: Locators for event's menu.
-    class ProfilePageEventsMenuLocators'''
+class ProfilePageEventsMenu:
+    """ Testdata: Locators for event's menu.
+    class ProfilePageEventsMenuLocators"""
     FUTURE_EVENTS = 'FUTURE EVENTS'
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
@@ -72,12 +71,12 @@ class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
     # }
 
 
-class HomePageOptionsPanel: # pylint: disable=too-few-public-methods
-    '''Left top menu (config, notification, logout) with user logo'''
+class HomePageOptionsPanel:
+    """Left top menu (config, notification, logout) with user logo"""
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
 
 
-class CartPanelsAtProfilePage: # pylint: disable=too-few-public-methods
+class CartPanelsAtProfilePage:
     """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
@@ -86,12 +85,12 @@ class CartPanelsAtProfilePage: # pylint: disable=too-few-public-methods
     CART_NTH_ID = ''  # on mouse hover - tip arising
 
 
-class EditProfileData: # pylint: disable=too-few-public-methods
+class EditProfileData:
     USER_NAME = 'Tester'
     CURRENT_PASS = '1qaz1qaz'
     NEW_PASS = '2qaz2qaz'
 
 
-class CategoriesPage: # pylint: disable=too-few-public-methods
+class CategoriesPage:
     category_old = 'Hello'
     category_new = 'Hello1'

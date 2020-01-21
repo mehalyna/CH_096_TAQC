@@ -8,11 +8,11 @@ import requests
 class Connection:
 
     def __init__(self):
-        self.server = 'eventsexpress.database.windows.net'
+        self.server = 'tcp:34.65.101.58'
         self.database = 'EventsExpress'
-        self.username = 'katya'
-        self.password = 'Popalava09'
-        self.driver = 'ODBC Driver 17 for SQL Server'
+        self.username = 'SA'
+        self.password = '11D3v0ps'
+        self.driver = '{ODBC Driver 17 for SQL Server}'
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
                                    ';PORT=1433;DATABASE=' + self.database +
@@ -34,8 +34,14 @@ class Connection:
 
     def create_category_with_name(self, name):
         guid = uuid.uuid4()
-        self.cursor.execute("INSERT INTO Categories(Id, Name) VALUES (?,?);", (guid,name))
-        self.cursor.commit()
+        try:
+            self.cursor.execute("INSERT INTO Categories(Id, Name) VALUES ('%s','%s')" % (guid, name))
+            print("test")
+        except pyodbc.DatabaseError:
+            print('Error: ')
+        else:
+            print('Connect OK ')
+            self.cursor.commit()
 
     def get_id_using_name(self, name):
         self.cursor.execute("select Id from Categories where Name = ?", name)
@@ -43,3 +49,7 @@ class Connection:
 
     def close(self):
         self.conn.close()
+
+
+testdb = Connection()
+testdb.create_category_with_name('test2')
