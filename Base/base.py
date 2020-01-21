@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
@@ -34,12 +35,8 @@ class BaseSetup():
          :param locators: css selector or xpath
          :return: webElements
         """
-        wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(
-            lambda driver: self.driver.find_elements(
-                *locators))
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         return element
 
     def find_element_by_tag(self, tag):
@@ -248,3 +245,15 @@ class BaseSetup():
             .until(EC.visibility_of_element_located(locator),
                    message=alert)
         return element
+
+    def find_elements_new(self):
+        """
+         Wrapper for  common selenium method find_element.Used explicit
+         wait for finding elements.Used explicit
+         wait for finding element
+         :param locators: css selector or xpath
+         :return: webElements
+        """
+        elements = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div.h1')))  # button[id*="full-width-tab"]
+        return elements

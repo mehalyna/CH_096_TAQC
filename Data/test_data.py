@@ -57,7 +57,7 @@ class ProfilePageEventsMenu:
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
     EVENTS_TO_GO = 'EVENTS TO GO'
-    ADD_EVENT = 'ADD_EVENT'
+    ADD_EVENT = 'ADD EVENT'
 
 
 class HomePageOptionsPanel:

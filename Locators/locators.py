@@ -167,16 +167,18 @@ class ProfilePageEventsMenuLocators:
                      'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),
                      'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
                      'ACTIVE_TAB_MARKER': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
+                     'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]'),
+                     'TABS': (By.XPATH, '//button[@role="tab"]')
                      }
 
     TAB_INDICATOR_DICT = {
-                     'FUTURE EVENTS': (By.ID, 'div[id="scrollable-force-tabpanel-0"'),
-                     'ARCHIVE EVENTS': (By.ID, "div[id='scrollable-force-tabpanel-1']"),
-                     'VISITED EVENTS': (By.ID, "div[id='scrollable-force-tabpanel-2']"),
-                     'EVENTS TO GO': (By.ID, "div[id='scrollable-force-tabpanel-3']"),
-                     'ADD EVENT': (By.ID, "div[id='scrollable-force-tabpanel-4']"),
+                     'FUTURE EVENTS': (By.CSS_SELECTOR, 'div[id="scrollable-force-tabpanel-0"'),
+                     'ARCHIVE EVENTS': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-1']"),
+                     'VISITED EVENTS': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-2']"),
+                     'EVENTS TO GO': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-3']"),
+                     'ADD EVENT': (By.CSS_SELECTOR, "div[id='scrollable-force-tabpanel-4']"),
+                     'ACTIVE TAB': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      }
-    # Admin locators_dict ToDo
 
 
 class ProfileMenuPageHeaderInfoLocators:
@@ -195,7 +197,6 @@ class ProfileMenuPageHeaderInfoLocators:
         # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
         'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
-    # Admin ToDo
 
 
 class HomePageOptionsPanelLocators:

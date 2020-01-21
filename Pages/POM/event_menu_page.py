@@ -1,5 +1,5 @@
+import time
 from Locators.locators import ProfilePageEventsMenuLocators, ProfileMenuPageHeaderInfoLocators
-from Data.test_data import ProfilePageEventsMenu
 
 
 class EventsMenu:
@@ -20,6 +20,14 @@ class EventsMenu:
         ''' Verify text of the element (Header" user info).
         As an argument a string is used.'''
         return self.browser.get_element_text(self.locator_info[item_name])
+
+    def get_text_tab(self, item_name):
+        """
+        Verify text of the element (tab from events menu).
+        :Argument string:
+        """
+        print(self.tab_dict[item_name])
+        return self.browser.check_if_element_exists(self.tab_dict[item_name])
 
     def count_event_menu_entries(self, container, item_name):
         '''Count items at the panel'''
@@ -42,6 +50,17 @@ class EventsMenu:
         """
         self.browser.click_on_element(self.locator[item_name])
         return self.browser.visibility_of_element(self.tab_dict[item_name], timeout=5)
+
+    def count_tabs(self, *locator):
+        time.sleep(2)
+        print(f"Locator for 'TABS_COUNT' is {self.locator['TABS_COUNT']}")
+        # length = len(self.browser.find_elements(*self.locator['TABS_COUNT'])) + 1
+        a = self.browser.get_list_element('button', *locator)
+        length = len(a)
+        # length = len(self.browser.check_if_element_exists(self.locator['FUTURE EVENTS']))
+        # length = len(self.browser.find_elements_new()) + 1
+        # content = driver.find_element_by_css_selector('p.content')
+        return length
 
 
 # class EventsMenuCarts:
