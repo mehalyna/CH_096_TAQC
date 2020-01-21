@@ -54,6 +54,10 @@ def test_registration_existing_email(app):
         assert app.auth.check_warning_message_about_existing_email() == "Email already exists in database"
 
 
+@allure.link("http://34.65.101.58:5002/home/events?page=1", name='Click me')
+@allure.feature('Register User')
+@allure.story('User does not have an ability to register with invalid email filled')
+@allure.severity(allure.severity_level.NORMAL)
 def test_registration_with_invalid_email(app):
     with allure.step("Open login form"):
         app.auth.click_on_login_button()
