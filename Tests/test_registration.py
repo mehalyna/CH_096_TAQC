@@ -1,9 +1,7 @@
-from Data.credentials import user, admin
 import pytest
 import allure
 from Locators.locators import NavigationMenuLocators
 from dbconnection import Connection
-
 locator = NavigationMenuLocators
 
 
@@ -80,7 +78,7 @@ def test_registration_with_invalid_password(app):
         app.auth.click_on_login_button()
     with allure.step("Open register tab"):
         app.auth.click_register()
-    with allure.step("Fill passsword data"):
+    with allure.step("Fill password data"):
         app.auth.type_password_register("111")
         app.auth.type_repassword_register("111")
     with allure.step("Verify that warning message about invalid password appears"):

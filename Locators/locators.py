@@ -100,7 +100,7 @@ class SearchEventPanelLocators():
     BUTTON_RESET = (
         By.CSS_SELECTOR,
         "button.MuiButton-textPrimary:nth-child(1) > span:nth-child(1)")
-    #NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
+    # NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
     FIELD_NAME_EVENT = (
         By.CSS_SELECTOR,
         "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
@@ -257,7 +257,7 @@ class CategoriesLocators:
     Locators for Categories Page.
     """
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.fa-plus-circle')
-    #ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
+    # ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
     ADD_CATEGORY_FIELD = (By.NAME, 'category')
     CATEGORIES = (By.TAG_NAME, 'tr')
     CAT = (By.XPATH, '//tr[3]/td[1]')
