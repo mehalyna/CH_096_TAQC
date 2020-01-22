@@ -1,7 +1,7 @@
 """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 URL = {
     'Test_mode': False,
-    'Home_URL': 'http://34.65.101.58:5002/"',
+    'Home_URL': 'http://34.65.101.58:5002/home/events/?page=1',
     'Browser': 'Firefox'}
 """Test data for logging in us user and admin"""
 CREDENTIALS = {'User_name': 'user@gmail.com', 'User_password': '1qaz1qaz',
