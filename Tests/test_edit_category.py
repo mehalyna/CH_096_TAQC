@@ -1,10 +1,7 @@
-"""Test possibility to create , edit and delete category."""
 import allure
-import pytest
 from utilities.testLogging import PyLogging
 from Data.test_data import CategoriesPage
-
-
+import pytest
 
 @allure.link(
     "https://eventsexpress20200103054152.azurewebsites.net/",
@@ -64,6 +61,9 @@ def test_edit_category(app):
             loger.error(messages_error[1])
             loger.exception(messages_error[1])
             assert False, messages_error[1]
+    # loger.sendreport()
 
     # teardown
     app.categories.delete_category(category_new)
+    loger.info("Exit")
+    print("Exit")

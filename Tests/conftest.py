@@ -1,8 +1,9 @@
 import pytest
 import allure
+from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
 from Driver.driver import Driver
-from Data.test_data import Config
+from config import URL
 from utilities.testFrame import InitPages
 from Data.credentials import user, admin
 from dbconnection import Connection
@@ -12,10 +13,10 @@ def driver_init(request):
     """
     Instantiate webdriver for selected browser and open homepage
     """
-    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
+    driver = Driver(URL['Browser']).set_browser(URL['Test_mode'])
     driver.delete_all_cookies()
     driver.maximize_window()
-    driver.get(Config.HOME_URL)
+    driver.get(URL['Home_URL'])
     yield driver
     driver.close()
     driver.quit()
@@ -36,6 +37,8 @@ def login(app):
     """
     with allure.step('Login as a user'):
         app.signin.enter_actor(user['email'], user['password'])
+        loger=PyLogging(__name__)
+        loger.info("Login as User")
 
 
 @pytest.fixture(scope='function')
@@ -45,6 +48,8 @@ def login_admin(app):
     """
     with allure.step('Login as an admin'):
         app.signin.enter_actor(admin['email'], admin['password'])
+        loger = PyLogging(__name__)
+        loger.info("Login as Admin")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

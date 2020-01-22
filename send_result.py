@@ -1,8 +1,13 @@
-import os, requests, json, base64
+import os
+import requests
+import json
+import base64
 
-# This directory is where you have all your results locally, generally named as `allure-results`
+# This directory is where you have all your results locally, generally
+# named as `allure-results`
 allureResultsDirectory = '/Reports_Allure'
-# This url is where the Allure container is deployed. We are using localhost as example
+# This url is where the Allure container is deployed. We are using
+# localhost as example
 allureServer = 'http://192.168.99.100:5050'
 
 
@@ -30,11 +35,11 @@ for file in files:
                     result['content_base64'] = b64Content.decode('UTF-8')
                     results.append(result)
                 else:
-                    print('Empty File skipped: '+ filePath)
-        finally :
+                    print('Empty File skipped: ' + filePath)
+        finally:
             f.close()
     else:
-        print('Directory skipped: '+ filePath)
+        print('Directory skipped: ' + filePath)
 
 headers = {'Content-type': 'application/json'}
 requestBody = {
@@ -42,10 +47,15 @@ requestBody = {
 }
 jsonRequestBody = json.dumps(requestBody)
 
-response = requests.post(allureServer + '/send-results', headers=headers, data=jsonRequestBody)
+response = requests.post(
+    allureServer +
+    '/send-results',
+    headers=headers,
+    data=jsonRequestBody)
 print("RESPONSE:")
 jsonResponseBody = json.loads(response.content)
-jsonPrettierResponseBody = json.dumps(jsonResponseBody, indent=4, sort_keys=True)
+jsonPrettierResponseBody = json.dumps(
+    jsonResponseBody, indent=4, sort_keys=True)
 print(jsonPrettierResponseBody)
 print("STATUS CODE:")
 print(response.status_code)
