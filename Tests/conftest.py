@@ -49,7 +49,7 @@ def login_admin(app):
     with allure.step('Login as an admin'):
         app.signin.enter_actor(admin['email'], admin['password'])
         loger = PyLogging(__name__)
-        loger.info("Login as User")
+        loger.info("Login as Admin")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

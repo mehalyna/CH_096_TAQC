@@ -1,7 +1,7 @@
 import allure
 from utilities.testLogging import PyLogging
 from Data.test_data import CategoriesPage
-
+import pytest
 
 @allure.link(
     "https://eventsexpress20200103054152.azurewebsites.net/",
@@ -9,7 +9,8 @@ from Data.test_data import CategoriesPage
 @allure.feature('Login User')
 @allure.story('Test editing category')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_edit_category(app, login_admin, screenshot_on_failure):
+@pytest.mark.usefixtures("login_admin")
+def test_edit_category(app):
     """
     Test possibility to create , edit and delete category.
     """
