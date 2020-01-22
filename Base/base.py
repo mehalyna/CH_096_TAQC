@@ -201,11 +201,10 @@ class BaseSetup():
 
     def check_if_element_exists(self, locator, timeout=5):
         """ Check the text attribute for an element as a criteria of existence.
-        :Args: locator = tuple(By.selector, 'str')
-              waiting time = 10 # int()
-        Returns text of element on success within timeout interval or
+        :param: locator = tuple(By.selector, 'str')
+        :param: waiting time = 10 # int()
+        :return: text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
-        Explicit Waits method is used.
         """
 
         alert = f"Can't find element by locator {locator}"
@@ -245,9 +244,8 @@ class BaseSetup():
 
     def find_elements_new(self, locator):
         """
-         Wrapper for  common selenium method find_element.Used explicit
-         wait for finding elements.Used explicit
-         wait for finding element
+         Wrapper for  common selenium method find_element. Used explicit
+         wait for locating all elements specified by locator.
          :param locator: css selector or xpath as a tuple
          :return: webElements
          Example of locator dictionary
