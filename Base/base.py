@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
@@ -34,12 +35,8 @@ class BaseSetup():
          :param locators: css selector or xpath
          :return: webElements
         """
-        wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(
-            lambda driver: self.driver.find_elements(
-                *locators))
+        element = wait.until(lambda driver: self.driver.find_elements(*locators))
         return element
 
     def find_element_by_tag(self, tag):
@@ -105,9 +102,6 @@ class BaseSetup():
         :param locators: css selector or xpath
         :return: list of values of html_element
         """
-        wait = WebDriverWait(self.driver, 30)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
-        """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (
             list(
@@ -207,7 +201,7 @@ class BaseSetup():
 
     def check_if_element_exists(self, locator, timeout=5):
         ''' Check the text attribute for an element as a criteria of existence.
-        Args: locator = tuple(By.selector, 'srt')
+        :Args: locator = tuple(By.selector, 'str')
               waiting time = 10 # int()
         Returns text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
@@ -235,3 +229,28 @@ class BaseSetup():
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
+
+    def visibility_of_element(self, locator, timeout=5):
+        '''
+        Check visibility for an element.
+           :Args: locator = tuple(By.selector, 'str')
+            waiting time = 10 # int()
+       '''
+
+        alert = f"Can't find element by locator {locator}"
+        element = WebDriverWait(self.driver, timeout) \
+            .until(EC.visibility_of_element_located(locator),
+                   message=alert)
+        return element
+
+    def find_elements_new(self):
+        """
+         Wrapper for  common selenium method find_element.Used explicit
+         wait for finding elements.Used explicit
+         wait for finding element
+         :param locators: css selector or xpath
+         :return: webElements
+        """
+        elements = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div.h1')))  # button[id*="full-width-tab"]
+        return elements
