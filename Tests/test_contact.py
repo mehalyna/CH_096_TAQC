@@ -1,4 +1,6 @@
-"""Test possibility to communication user with admin"""
+"""
+Test possibility to communication user with admin
+"""
 import allure
 import pytest
 
@@ -15,7 +17,9 @@ from Locators.locators import ContactUsPageLocators as locator
 @allure.suite('Tests for "Contact us page"')
 @pytest.mark.usefixtures("login", "screenshot_on_failure")
 def test_contact_us(app):
-    """A testcase to check user communication with admin"""
+    """
+    A testcase to check user communication with admin
+    """
     loger = PyLogging(__name__)
     loger.info("New test:")
     message_error = "Test Failed, message don't send to admin"
@@ -73,7 +77,7 @@ def test_contact_us(app):
                 loger.error(message_error)
                 assert res, message_error
             else:
-                loger.info("Test Passed")
+                loger.info("Test Passed:message send to admin")
         except Exception:
             loger.exception("")
             assert res, message_error

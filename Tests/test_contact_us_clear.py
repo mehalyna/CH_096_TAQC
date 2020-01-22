@@ -1,4 +1,6 @@
-"""Test for checking if button 'Clear' working properly"""
+"""
+Test for checking if button 'Clear' working properly
+"""
 import allure
 import pytest
 from utilities.testLogging import PyLogging
@@ -9,12 +11,14 @@ from Locators.locators import ContactUsPageLocators as locator
 @allure.feature("Check if button 'Clear' is active")
 @allure.link(
     "http://34.65.101.58:5002/contactUs",
-    name='Click me')
+    name='"Contact us" page')
 @allure.story("Test checking if button 'Clear' is active")
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.usefixtures("login", "screenshot_on_failure")
 def test_contact_us_clear(app):
-    """Check if the button 'Clear' working properly"""
+    """
+    Check if the button 'Clear' working properly
+    """
     loger = PyLogging(__name__)
     loger.info("New test:")
     message_error = "Test Failed: button 'Clear' isn't active"
@@ -72,7 +76,7 @@ def test_contact_us_clear(app):
                 loger.error(message_error)
                 assert res, message_error
             else:
-                loger.info("Test passed")
+                loger.info("Test passed:button 'Clear' work correct")
         except Exception:
             loger.exception("")
             assert res, message_error
