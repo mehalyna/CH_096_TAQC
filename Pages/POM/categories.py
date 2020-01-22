@@ -35,11 +35,11 @@ class Categories():
         :param category:Name of category to delete.
         """
         # self.browser.find_element(*self.locator_categories.CAT)
-        time.sleep(2)
+        time.sleep(1)
         lenth = len(
             self.browser.find_elements(
                 *self.locator_categories.CATEGORIES)) + 1
-        print("\nDelete\nLenth=", lenth)
+        print("\nEdit\nLenth=", lenth)
         for i in range(3, lenth):
             print("{}".format(i))
             print(self.browser.find_element_by_xpath(
@@ -48,6 +48,7 @@ class Categories():
                     "//tr[" + str(i) + "]/td[1]").text == category:
                 self.browser.find_element_by_xpath(
                     "//*[@id='main']/div/table/tbody/tr[" + str(i) + "]/td[5]").click()
+                return
 
     def edit_category(self, category_old, category_new):
         """
@@ -55,7 +56,7 @@ class Categories():
         :param category_old:Name of category to edit.
         :param category_new:New category name.
         """
-        time.sleep(2)
+        time.sleep(1)
         lenth = len(
             self.browser.find_elements(
                 *self.locator_categories.CATEGORIES)) + 1
@@ -96,7 +97,7 @@ class Categories():
         :param category:Name of category to check.
         :return:True or False
         """
-        time.sleep(2)
+        time.sleep(1)
         # self.browser.find_element(*self.locator_categories.CAT)
         # lenth=len(self.browser.find_element_by_tag("tr"))+1;
         lenth = len(

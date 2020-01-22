@@ -1,8 +1,6 @@
-"""Test possibility to create , edit and delete category."""
 import allure
-import pytest
 from utilities.testLogging import PyLogging
-from config import CATEGORIESPAGE
+from Data.test_data import CategoriesPage
 
 
 @allure.link(
@@ -11,13 +9,12 @@ from config import CATEGORIESPAGE
 @allure.feature('Login User')
 @allure.story('Test editing category')
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.usefixtures("login_admin")
-def test_edit_category(app):
+def test_edit_category(app, login_admin, screenshot_on_failure):
     """
     Test possibility to create , edit and delete category.
     """
-    category_old = CATEGORIESPAGE['category_old']
-    category_new = CATEGORIESPAGE['category_new']
+    category_old = CategoriesPage.category_old
+    category_new = CategoriesPage.category_new
     loger = PyLogging(__name__)
     loger.info("New test:")
     messages = ("Go to Categories page.",
@@ -63,6 +60,9 @@ def test_edit_category(app):
             loger.error(messages_error[1])
             loger.exception(messages_error[1])
             assert False, messages_error[1]
+    # loger.sendreport()
 
     # teardown
     app.categories.delete_category(category_new)
+    loger.info("Exit")
+    print("Exit")

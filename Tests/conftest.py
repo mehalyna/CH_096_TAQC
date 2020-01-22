@@ -1,5 +1,6 @@
 import pytest
 import allure
+from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
 from Driver.driver import Driver
 from Data.test_data import Config
@@ -36,6 +37,8 @@ def login(app):
     """
     with allure.step('Login as a user'):
         app.signin.enter_actor(user['email'], user['password'])
+        loger=PyLogging(__name__)
+        loger.info("Login as User")
 
 
 @pytest.fixture(scope='function')
@@ -45,6 +48,8 @@ def login_admin(app):
     """
     with allure.step('Login as an admin'):
         app.signin.enter_actor(admin['email'], admin['password'])
+        loger = PyLogging(__name__)
+        loger.info("Login as User")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
