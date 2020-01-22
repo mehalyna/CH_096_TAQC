@@ -82,10 +82,16 @@ class SearchEventPanelLocators():
         By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
     DATE_FROM = (
         By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
-    DATE_TO = (By.CSS_SELECTOR, "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
-    RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(1)")
-    RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(2)")
-    RADIO_BUTTON_ALL = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(3)")
+    DATE_TO = (
+        By.CSS_SELECTOR,
+        "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
+    RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR,
+                            "label.MuiFormControlLabel-root:nth-child(1)")
+    RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR,
+                              "label.MuiFormControlLabel-root:nth-child(2)")
+    RADIO_BUTTON_ALL = (
+        By.CSS_SELECTOR,
+        "label.MuiFormControlLabel-root:nth-child(3)")
     HASHTAGS_FIELD = (By.CSS_SELECTOR, ".rw-widget-input")
     HASHTAGS_SELECT = (By.ID, "rw_1_listbox > li")  # nth-child(NAMBER_FIELD)
     BUTTON_MORE_FILTER = (
@@ -121,6 +127,9 @@ class ContactUsPageLocators():
     """
     Locators for Contact Us Page.
     """
+    USERNAME = (
+        By.CSS_SELECTOR,
+        '.left-sidebar-closed.left-sidebar > div > div > div > h4')
     DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
     SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
     MES = (

@@ -1,9 +1,9 @@
+import random
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
-import random
 
 
 class BaseSetup():
@@ -19,7 +19,9 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_element(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_element(
+                *locators))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element(
@@ -35,7 +37,9 @@ class BaseSetup():
          :return: webElements
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_elements(
+                *locators))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements(
@@ -49,7 +53,8 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
+        element = wait.until(
+            lambda driver: self.driver.find_elements_by_tag_name(tag))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements_by_tag_name(tag))
@@ -62,7 +67,8 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
+        element = wait.until(
+            lambda driver: self.driver.find_element_by_xpath(xpath))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element_by_xpath(xpath))
@@ -79,7 +85,8 @@ class BaseSetup():
 
     def clean_element(self, locators):
         """
-        Wrapper for common selenium method .clear(). Finding web form (example textfield, upload, download )
+        Wrapper for common selenium method .clear().
+        Finding web form (example textfield, upload, download )
         and clean text or other data inside
         :param locators: css selector or xpath
         :return: None
@@ -106,7 +113,12 @@ class BaseSetup():
         :return: list of values of html_element
         """
         wait = WebDriverWait(self.driver, 30)
-        lst = (list(lst_cat.get_attribute(ele_html)for lst_cat in wait.until(EC.visibility_of_all_elements_located(*locators))))
+        lst = (
+            list(
+                lst_cat.get_attribute(ele_html)for lst_cat in wait.until(
+                    EC.visibility_of_all_elements_located(
+                        *
+                        locators))))
         """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (
@@ -126,6 +138,17 @@ class BaseSetup():
         sel = Select(self.find_element(*locator_1))
         choice = random.choice([c.text for c in sel.options])
         return choice
+
+    def select_from_list_1(self, locator_1):
+        """
+        Method finding (webElement) tag SELECT
+        :param locator_1: css selector or xpath
+        :return: random element from SELECT  (drop-down menu/list)
+        """
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return a.select_by_visible_text(choice)
 
     def click_action(self, x, y):
         """
@@ -161,7 +184,6 @@ class BaseSetup():
         """
         element = self.find_element(*locators)
         return element.location_once_scrolled_into_view
-
 
     def upload_file(self, path, locators):
         """
@@ -227,10 +249,10 @@ class BaseSetup():
 
     def select_categoria_by_name(self, locator, text):
         """
-        Click on web element in drop down menu 
-        :param locator: css selector or xpath 
+        Click on web element in drop down menu
+        :param locator: css selector or xpath
         :param text: text
-        :return: 
+        :return:
         """""
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
