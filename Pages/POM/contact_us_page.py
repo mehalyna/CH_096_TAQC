@@ -2,7 +2,7 @@
 Base functions for 'Contact us' page
 """
 from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
-from Data.test_data import ContactUsData
+from config import CONTACT_US
 
 
 class ContactUs:
@@ -32,7 +32,7 @@ class ContactUs:
         """
         Entering description into field
         """
-        data = ContactUsData.DESCRIPTION_FOR_CONTACT
+        data = CONTACT_US['Description_for_contact']
         self.browser.send_keys_to_element(self.locator.DESCRIPTION, data)
 
     def get_text_from_result(self):
