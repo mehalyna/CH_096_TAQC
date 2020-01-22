@@ -202,10 +202,10 @@ class BaseSetup():
         :return: text
         """
         element = self.find_element(*locator)
-        a = element.text
+        txt = element.text
         wait = WebDriverWait(self.driver, 5)
-        print(a)
-        return a
+        print(txt)
+        return txt
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
