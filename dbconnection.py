@@ -34,6 +34,10 @@ class Connection:
         self.cursor.execute(f"UPDATE Users set Gender = '{sex}' where Name like '{name}'")
         self.cursor.commit()
 
+    def delete_event_with_name(self, name):
+        self.cursor.execute(f"Delete from Events where Name like '{name}'")
+        self.cursor.commit()
+
     def delete_category_with_name(self, name):
         self.cursor.execute(f"Delete from Categories where Name like '{name}'")
         self.cursor.commit()
