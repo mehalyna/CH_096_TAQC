@@ -1,4 +1,6 @@
 [pre-commit-hook]
+command=E:\python_QA\CH_096_TAQC\venv\Lib\site-packages\pylint
+[pre-commit-hook]
 command=custom_pylint
 params=--rcfile=/path/to/another/pylint.rc
 limit=8.0
