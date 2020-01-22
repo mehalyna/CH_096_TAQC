@@ -39,25 +39,28 @@ class ProfileMenuPageHeaderInfo:
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
-    USER_AGE_DATA = '19'
+    USER_AGE_DATA = '35'
     USER_GENDER_LABEL = 'Gender:'
     USER_GENDER_DATA = 'Other'
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
-    # ToDo actualyze USER_INTERESTS_DATA
+    # ToDo actualize USER_INTERESTS_DATA
     USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
-                           '#QC testing event', '#Meeting', '#Summer'}
+                           '#Sea', '#Summer'}
 
 
 class ProfilePageEventsMenu:
-    ''' Testdata: Locators for event's menu.
-    class ProfilePageEventsMenuLocators'''
+    """
+    Testdata: Locators for event's menu.
+    class ProfilePageEventsMenuLocators
+    """
     FUTURE_EVENTS = 'FUTURE EVENTS'
     ARCHIVE_EVENTS = 'ARCHIVE EVENTS'
     VISITED_EVENTS = 'VISITED EVENTS'
     EVENTS_TO_GO = 'EVENTS TO GO'
     ADD_EVENT = 'ADD EVENT'
+    TABS_QUANTITY = 5
 
 
 class HomePageOptionsPanel:

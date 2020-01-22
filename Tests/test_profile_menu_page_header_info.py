@@ -23,12 +23,20 @@ def test_event_menu_header_info_text(app, login, userinfo_input):
         f"The expected one is {userinfo_expected_value} instead {actual_text} is displayed"
     print(f"Text of {userinfo_input} is in the tab {userinfo_expected_value}")
 
+#@pytest.mark.skip(reason='Postponed for USER_INTERESTS_DATA actualizing')
 
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skip(reason='Postponded for USER_INTERESTS_DATA actualyzing')
 @pytest.mark.smoke
-def test_event_menu_header_info_text_interests(app, login, userinfo_input=Data.USER_INTERESTS_DATA):
-    """Check the Interests list"""
+@pytest.mark.parametrize('userinfo_input', list(Data.USER_INTERESTS_DATA))
+def test_event_menu_header_info_text_interests(app, login, userinfo_input):
+    """
+    Check the Interests list
+    ToDo
+    >       return self.browser.get_element_text(self.locator_info[item_name])
+    E       KeyError: <class 'Locators.locators.ProfileMenuPageHeaderInfoLocators'>
+
+    ..\Pages\POM\event_menu_page.py:33: KeyError
+    """
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(Locator)
     userinfo_expected_value = Data.USER_INTERESTS_DATA

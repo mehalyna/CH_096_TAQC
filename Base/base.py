@@ -200,13 +200,13 @@ class BaseSetup():
             return False
 
     def check_if_element_exists(self, locator, timeout=5):
-        ''' Check the text attribute for an element as a criteria of existence.
+        """ Check the text attribute for an element as a criteria of existence.
         :Args: locator = tuple(By.selector, 'str')
               waiting time = 10 # int()
         Returns text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
         Explicit Waits method is used.
-        '''
+        """
 
         alert = f"Can't find element by locator {locator}"
         try:
@@ -225,17 +225,17 @@ class BaseSetup():
         :param locator: css selector or xpath 
         :param text: text
         :return: 
-        """""
+        """
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
 
     def visibility_of_element(self, locator, timeout=5):
-        '''
+        """
         Check visibility for an element.
            :Args: locator = tuple(By.selector, 'str')
             waiting time = 10 # int()
-       '''
+       """
 
         alert = f"Can't find element by locator {locator}"
         element = WebDriverWait(self.driver, timeout) \
@@ -243,14 +243,16 @@ class BaseSetup():
                    message=alert)
         return element
 
-    def find_elements_new(self):
+    def find_elements_new(self, locator):
         """
          Wrapper for  common selenium method find_element.Used explicit
          wait for finding elements.Used explicit
          wait for finding element
-         :param locators: css selector or xpath
+         :param locator: css selector or xpath as a tuple
          :return: webElements
+         Example of locator dictionary
+            'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]')
         """
-        elements = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div.h1')))  # button[id*="full-width-tab"]
-        return elements
+        return WebDriverWait(self.driver, 10).\
+            until(EC.presence_of_all_elements_located(locator))
+

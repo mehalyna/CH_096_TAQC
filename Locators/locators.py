@@ -96,7 +96,6 @@ class SearchEventPanelLocators():
     BUTTON_RESET = (
         By.CSS_SELECTOR,
         "button.MuiButton-textPrimary:nth-child(1) > span:nth-child(1)")
-    #NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
     FIELD_NAME_EVENT = (
         By.CSS_SELECTOR,
         "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
@@ -164,8 +163,6 @@ class ProfilePageEventsMenuLocators:
                      ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
                      ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
                      # Whole panel
-                     'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
                      'ACTIVE_TAB_MARKER': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]'),
                      }
@@ -179,29 +176,29 @@ class ProfilePageEventsMenuLocators:
                      'ACTIVE TAB': (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
                      }
 
-    TABS = (By.XPATH, '//button[@role="tab"]')
-
 
 class ProfileMenuPageHeaderInfoLocators:
     """
     Locators for user info page header (central header).
     """
     # User  .row:nth-child(1) > .col-4
-    locators_dict = {  # ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+    locators_dict = {
+        ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+        ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+        ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+        ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+        ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+        ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+        ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+        ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
+        ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
         'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
 
 
 class HomePageOptionsPanelLocators:
     """
+    ToDo: No usage of the class - to be deleted
     Left top menu (config, notification, logout) with user logo.
     """
     # button[type = "button"][title = "Sign out"]
