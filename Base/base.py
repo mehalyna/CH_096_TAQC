@@ -1,10 +1,9 @@
-from selenium.webdriver.common.by import By
+import random
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.action_chains import ActionChains
-import random
 
 
 class BaseSetup():
@@ -20,7 +19,9 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_element(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_element(
+                *locators))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element(
@@ -36,7 +37,9 @@ class BaseSetup():
          :return: webElements
         """
         wait = WebDriverWait(self.driver, 10)
-        element = wait.until(lambda driver: self.driver.find_elements(*locators))
+        element = wait.until(
+            lambda driver: self.driver.find_elements(
+                *locators))
         return element
 
     def find_element_by_tag(self, tag):
@@ -46,8 +49,6 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_elements_by_tag_name(tag))
-        wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements_by_tag_name(tag))
         return element
@@ -59,7 +60,8 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(lambda driver: self.driver.find_element_by_xpath(xpath))
+        element = wait.until(
+            lambda driver: self.driver.find_element_by_xpath(xpath))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_element_by_xpath(xpath))
@@ -76,7 +78,8 @@ class BaseSetup():
 
     def clean_element(self, locators):
         """
-        Wrapper for common selenium method .clear(). Finding web form (example textfield, upload, download )
+        Wrapper for common selenium method .clear().
+        Finding web form (example textfield, upload, download )
         and clean text or other data inside
         :param locators: css selector or xpath
         :return: None
@@ -121,6 +124,17 @@ class BaseSetup():
         choice = random.choice([c.text for c in sel.options])
         return choice
 
+    def select_from_list_1(self, locator_1):
+        """
+        Method finding (webElement) tag SELECT
+        :param locator_1: css selector or xpath
+        :return: random element from SELECT  (drop-down menu/list)
+        """
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = random.choice([c.text for c in a.options])
+        return a.select_by_visible_text(choice)
+
     def click_action(self, x, y):
         """
         Wrapper for selenium common.action_chains.Method implement click on coordinate
@@ -156,7 +170,6 @@ class BaseSetup():
         element = self.find_element(*locators)
         return element.location_once_scrolled_into_view
 
-
     def upload_file(self, path, locators):
         """
 
@@ -174,10 +187,10 @@ class BaseSetup():
         :return: text
         """
         element = self.find_element(*locator)
-        a = element.text
+        txt = element.text
         wait = WebDriverWait(self.driver, 5)
-        print(a)
-        return a
+        print(txt)
+        return txt
 
     # check if text present in element. Return True or print message
     def check_if_text_present(self, *locators, text=None):
@@ -220,8 +233,8 @@ class BaseSetup():
 
     def select_categoria_by_name(self, locator, text):
         """
-        Click on web element in drop down menu 
-        :param locator: css selector or xpath 
+        Click on web element in drop down menu
+        :param locator: css selector or xpath
         :param text: text
         :return: 
         """

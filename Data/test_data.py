@@ -1,20 +1,15 @@
+"""test data"""
 import random
 import os
 
 
-CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
+current_path = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config: # pylint: disable=too-few-public-methods
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # False
-    HOME_URL = "http://34.65.101.58:5002/"
-    # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "https://localhost:44364/home/events?page=1"  # Borys
-    # HOME_URL = "http://localhost:3183/home/events?page=1"
-    # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
-    # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
     HOME_URL = "http://34.65.101.58:5002/home/events/?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
@@ -23,14 +18,14 @@ class Config: # pylint: disable=too-few-public-methods
 class CreateEventData(): # pylint: disable=too-few-public-methods
 
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
-    IMAGE = os.path.join(CURRENT_PATH, 'imageAddEvent\\party.jpg')
+    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
 
-class ContactUsData:
+class ContactUsData():
     """Data for entering description into field in 'Contact us' page"""
     DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
 
@@ -64,12 +59,12 @@ class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
     TABS_QUANTITY = 5
 
 
-class HomePageOptionsPanel: # pylint: disable=too-few-public-methods
-    '''Left top menu (config, notification, logout) with user logo'''
+class HomePageOptionsPanel:
+    """Left top menu (config, notification, logout) with user logo"""
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
 
 
-class CartPanelsAtProfilePage: # pylint: disable=too-few-public-methods
+class CartPanelsAtProfilePage:
     """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'

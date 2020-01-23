@@ -8,6 +8,9 @@ class LoginPageLocators:
     Locators for login page.
     """
     # button for opening form of authorization
+    SIGNINTAB = (
+        By.CSS_SELECTOR,
+        ".MuiTabs-scroller.MuiTabs-fixed button:nth-child(1)")
     SIGNIN = (By.CLASS_NAME, 'MuiButton-label')
 
     # form of signin/upR
@@ -36,6 +39,8 @@ class RegisterLocators:
         By.CSS_SELECTOR,
         ".MuiDialogActions-root.MuiDialogActions-spacing button:nth-child(1)")
     SIGNUP = (By.CSS_SELECTOR,)
+    WARNING_MESSAGE = (By.XPATH, "//div[2]/p")
+    WARNING_MESSAGE_INVALID_EMAIL = (By.CSS_SELECTOR, ".MuiFormHelperText-root.Mui-error.MuiFormHelperText-filled")
 
 
 class NavigationMenuLocators:
@@ -78,10 +83,16 @@ class SearchEventPanelLocators():
         By.CSS_SELECTOR, ".react-datepicker-ignore-onclickoutside")
     DATE_FROM = (
         By.CSS_SELECTOR, "div.form-group:nth-child(2) > div:nth-child(2)")
-    DATE_TO = (By.CSS_SELECTOR, "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
-    RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(1)")
-    RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(2)")
-    RADIO_BUTTON_ALL = (By.CSS_SELECTOR, "label.MuiFormControlLabel-root:nth-child(3)")
+    DATE_TO = (
+        By.CSS_SELECTOR,
+        "div.form-group:nth-child(3) > div:nth-child(2) > div:nth-child(1)")
+    RADIO_BUTTON_BLOCKED = (By.CSS_SELECTOR,
+                            "label.MuiFormControlLabel-root:nth-child(1)")
+    RADIO_BUTTON_UNBLOCKED = (By.CSS_SELECTOR,
+                              "label.MuiFormControlLabel-root:nth-child(2)")
+    RADIO_BUTTON_ALL = (
+        By.CSS_SELECTOR,
+        "label.MuiFormControlLabel-root:nth-child(3)")
     HASHTAGS_FIELD = (By.CSS_SELECTOR, ".rw-widget-input")
     HASHTAGS_SELECT = (By.ID, "rw_1_listbox > li")  # nth-child(NAMBER_FIELD)
     BUTTON_MORE_FILTER = (
@@ -116,6 +127,9 @@ class ContactUsPageLocators():
     """
     Locators for Contact Us Page.
     """
+    USERNAME = (
+        By.CSS_SELECTOR,
+        '.left-sidebar-closed.left-sidebar > div > div > div > h4')
     DESCRIPTION = (By.CSS_SELECTOR, 'textarea')
     SUBMIT = (By.CSS_SELECTOR, 'button:nth-child(3)')
     MES = (
@@ -256,7 +270,7 @@ class CategoriesLocators:
     Locators for Categories Page.
     """
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.fa-plus-circle')
-    #ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
+    # ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
     ADD_CATEGORY_FIELD = (By.NAME, 'category')
     CATEGORIES = (By.TAG_NAME, 'tr')
     CAT = (By.XPATH, '//tr[3]/td[1]')

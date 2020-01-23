@@ -9,7 +9,7 @@ from Data.credentials import user, admin
 
 @pytest.fixture(scope='function')
 def driver_init(request):
-    '''Instantiate webdriver for selected browser and open homepage'''
+    """Instantiate webdriver for selected browser and open homepage"""
     driver = Driver(Config.BROWSER).set_browser()
     driver.delete_all_cookies()
     driver.maximize_window()
@@ -53,6 +53,7 @@ def pytest_runtest_makereport(item):
     setattr(item, "rep_" + rep.when, rep)
     # we only look at actual failing test calls, not setup/teardown
     # https://docs.pytest.org/en/latest/example/simple.html#post-process-test-reports-failures
+
 
 @pytest.fixture
 def screenshot_on_failure(request, driver_init):
