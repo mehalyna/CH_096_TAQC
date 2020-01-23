@@ -38,17 +38,6 @@ class Header:
         token = "Bearer " + auth
         return token
 
-    def admin_header(self):
-        response_decoded_json = requests.post(
-            URL_AUTH['url_login'], data=json.dumps(
-                AUTH_PAYLOADS['payload_admin']), headers={
-                "accept": "application/json"})
-        h = json.loads(response_decoded_json.content.decode())
-        auth = self.get_token_admin()
-        header = {"Content-Type": "application/json",
-                  "authorization": auth}
-        return header
-
 
 class User:
     """Class to test Users API"""
@@ -115,7 +104,7 @@ class User:
         """Return user birthday"""
         self.birthday = "2000-01-01T00:00:00"
         response_decoded_json = requests.post(
-            URL_USERS['edit_gender'],
+            URL_USERS['edit_birthday'],
             data=json.dumps(
                 self.PAYLOAD_edit_birthday()),
             headers=Header().get_header_auth_admin())
@@ -147,6 +136,7 @@ class User:
 id = "f320932e-aac2-4999-32d3-08d79b47df59"
 print(Header().get_token_admin())
 user = User(id, 1, "2001-06-04")
+print(user.get_info_by_id())
 user.edit_birthday()
 # print(user.get_info_by_id())
 print(user.get_birthday())
@@ -159,3 +149,4 @@ print(user.get_gender())
 user.back_gender()
 # print(user.get_info_by_id())
 print(user.get_gender())
+print(user.get_info_by_id())
