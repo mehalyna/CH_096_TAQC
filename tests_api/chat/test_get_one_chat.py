@@ -1,7 +1,6 @@
 import unittest
 import requests
-import json
-from tests_api.config import URL_CHAT, URL_AUTH,AUTH_PAYLOADS, HEADER
+from tests_api.config import URL_CHAT
 from tests_api.testHelper import Header
 
 
