@@ -5,6 +5,7 @@ URL = {
     'Test_mode': False,
     #'Home_URL': 'http://localhost:57690/',
     #'Browser': 'Firefox'
+    'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
     'Browser': 'Chrome'}
 """

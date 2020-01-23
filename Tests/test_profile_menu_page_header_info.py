@@ -27,7 +27,6 @@ def test_event_menu_header_info_text(app, userinfo_input):
 #@pytest.mark.skip(reason='Postponed for USER_INTERESTS_DATA actualizing')
 
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.smoke
 @pytest.mark.parametrize('userinfo_input', list(Data.USER_INTERESTS_DATA))
 def test_event_menu_header_info_text_interests(app, login, userinfo_input):
     """
