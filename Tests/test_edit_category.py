@@ -1,10 +1,12 @@
+"""Test edit categories"""
 import allure
+import pytest
 from utilities.testLogging import PyLogging
 from Data.test_data import CategoriesPage
-import pytest
+
 
 @allure.link(
-    "https://eventsexpress20200103054152.azurewebsites.net/",
+    "http://34.65.101.58:5002/admin/categories/",
     name='Click me')
 @allure.feature('Login User')
 @allure.story('Test editing category')
