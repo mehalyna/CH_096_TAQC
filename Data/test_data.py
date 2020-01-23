@@ -2,10 +2,10 @@ import random
 import os
 
 
-current_path = os.path.abspath(os.path.dirname(__file__))
+CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 
-class Config:
+class Config: # pylint: disable=too-few-public-methods
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # False
@@ -15,27 +15,28 @@ class Config:
     # HOME_URL = "http://localhost:3183/home/events?page=1"
     # HOME_URL = "http://localhost:49862/home/events?page=1" # Taras
     # HOME_URL = "http://localhost:50621/home/events?page=1" # Masha
+    HOME_URL = "http://34.65.101.58:5002/home/events/?page=1"
     # BROWSER = 'Chrome'
     BROWSER = 'Firefox'
 
 
-class CreateEventData:
+class CreateEventData(): # pylint: disable=too-few-public-methods
 
     TITLE = random.choice(['New Year', 'Christmas', 'Malanka'])
-    IMAGE = os.path.join(current_path, 'imageAddEvent\\party.jpg')
+    IMAGE = os.path.join(CURRENT_PATH, 'imageAddEvent\\party.jpg')
     LOGIN_USER = 'user@gmail.com'
     PASSWORD_USER = '1qaz1qaz'
     DESCRIPTION = {"New Year": "Happy 2020 Year!!!Weclome to the Party"}
     ATT_DATA = "innerHtml"
 
 
-class ContactUsData():
-
-    DESCRIPTION_FOR_CONTACT = "very nice!!!"
+class ContactUsData:
+    """Data for entering description into field in 'Contact us' page"""
+    DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
 
 
 class ProfileMenuPageHeaderInfo:
-    '''Test data for userinfo header from profile menu - events panels page'''
+    """Test data for userinfo header from profile menu - events panels page"""
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
@@ -50,7 +51,7 @@ class ProfileMenuPageHeaderInfo:
                            '#Sea', '#Summer'}
 
 
-class ProfilePageEventsMenu:
+class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
     """
     Testdata: Locators for event's menu.
     class ProfilePageEventsMenuLocators
@@ -63,12 +64,12 @@ class ProfilePageEventsMenu:
     TABS_QUANTITY = 5
 
 
-class HomePageOptionsPanel:
+class HomePageOptionsPanel: # pylint: disable=too-few-public-methods
     '''Left top menu (config, notification, logout) with user logo'''
     USER_NAME_DATA_DICT = {'user@gmail.com': 'UserTest'}
 
 
-class CartPanelsAtProfilePage:
+class CartPanelsAtProfilePage: # pylint: disable=too-few-public-methods
     """ Events menu -> panel(s) object locators testdata """
     CART_NTH = 'CART_NTH'
     BLANK_CART = 'No Results'
@@ -77,12 +78,12 @@ class CartPanelsAtProfilePage:
     CART_NTH_ID = ''  # on mouse hover - tip arising
 
 
-class EditProfileData:
+class EditProfileData: # pylint: disable=too-few-public-methods
     USER_NAME = 'Tester'
     CURRENT_PASS = '1qaz1qaz'
     NEW_PASS = '2qaz2qaz'
 
 
-class CategoriesPage:
+class CategoriesPage: # pylint: disable=too-few-public-methods
     category_old = 'Hello'
     category_new = 'Hello1'

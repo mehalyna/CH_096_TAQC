@@ -28,7 +28,7 @@ def test_create_event(app):
 
     app.base.scroll_to_element( locator.COUNTRY_FIELD )
 
-    app.base.click_on_element( locator.COUNTRY_FIELD )
+    #app.base.click_on_element( locator.COUNTRY_FIELD )
 
     app.creat_event.select_country( locator.COUNTRY_FIELD )
 
