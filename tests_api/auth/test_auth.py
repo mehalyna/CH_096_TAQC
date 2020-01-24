@@ -11,10 +11,10 @@ class TestAuth(unittest.TestCase):
         pass
 
     def test_login_admin(self):
-        response_decoded_json = requests.post(URL_AUTH.url_login, data=json.dumps(AUTH_PAYLOADS.payload_admin),
-                                              headers=HEADER.header)
+        response_decoded_json = requests.post(URL_AUTH['url_login'], data=json.dumps(AUTH_PAYLOADS['payload_admin']),
+                                              headers=HEADER['header'])
         resp = response_decoded_json.json()
-        print(resp["role"])
+        print(resp)
         self.assertEqual("Admin", resp["role"], "You don't login with correct role")
         self.assertEqual(200, response_decoded_json.status_code, "You have BAD REQUEST")
 

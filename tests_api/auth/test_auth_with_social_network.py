@@ -15,18 +15,36 @@ class TestAuth(unittest.TestCase):
             URL_AUTH['url_login_fb'], data=json.dumps(
                 AUTH_PAYLOADS['payload_user']), headers=HEADER['header'])
         resp = response_decoded_json.json()
-        self.assertEqual("UserTest", resp["name"], "You don't login with correct name")
-        self.assertEqual("User", resp["role"], "You don't login with correct role")
-        self.assertEqual(200, response_decoded_json.status_code, "You have BAD REQUEST")
+        self.assertEqual(
+            "UserTest",
+            resp["name"],
+            "You don't login with correct name")
+        self.assertEqual(
+            "User",
+            resp["role"],
+            "You don't login with correct role")
+        self.assertEqual(
+            200,
+            response_decoded_json.status_code,
+            "You have BAD REQUEST")
 
     def test_login_as_admin_with_facebook(self):
         response_decoded_json = requests.post(
             URL_AUTH['url_login_fb'], data=json.dumps(
                 AUTH_PAYLOADS['payload_admin']), headers=HEADER['header'])
         resp = response_decoded_json.json()
-        self.assertEqual("Admin", resp["name"], "You don't login with correct name")
-        self.assertEqual("Admin", resp["role"], "You don't login with correct role")
-        self.assertEqual(200, response_decoded_json.status_code, "You have BAD REQUEST")
+        self.assertEqual(
+            "Admin",
+            resp["name"],
+            "You don't login with correct name")
+        self.assertEqual(
+            "Admin",
+            resp["role"],
+            "You don't login with correct role")
+        self.assertEqual(
+            200,
+            response_decoded_json.status_code,
+            "You have BAD REQUEST")
 
     def test_login_with_google(self):
         response_decoded_json = requests.post(
