@@ -178,22 +178,9 @@ class User:
         dictionary = self.get_info_by_id()
         birthday = dictionary["birthday"]
         return birthday[:10]
+
     def get_username(self):
         """Get user username"""
         dictionary = self.get_info_by_id()
         birthday = dictionary["name"]
         return birthday
-
-
-id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
-print(Header().get_token_admin())
-user = User(id, "Jesus", 2, "2001-06-04")
-print(user.get_info_by_id())
-user.edit_username()
-user.edit_gender()
-user.edit_birthday()
-print(user.get_info_by_id())
-user.back_username()
-user.back_gender()
-user.back_birthday()
-print(user.get_info_by_id())
