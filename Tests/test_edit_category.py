@@ -2,8 +2,7 @@
 import allure
 import pytest
 from utilities.testLogging import PyLogging
-from Data.test_data import CategoriesPage
-
+from config import CATEGORIESPAGE
 
 
 @allure.link(
@@ -17,8 +16,8 @@ def test_edit_category(app):
     """
     Test possibility to create , edit and delete category.
     """
-    category_old = CategoriesPage.category_old
-    category_new = CategoriesPage.category_new
+    category_old = CATEGORIESPAGE['category_old']
+    category_new = CATEGORIESPAGE['category_new']
     loger = PyLogging(__name__)
     loger.info("New test:")
     messages = ("Go to Categories page.",
@@ -54,7 +53,7 @@ def test_edit_category(app):
         try:
             loger.info(messages[2])
             app.categories.edit_category(category_old, category_new)
-            if app.categories.check_category_added(category_new):
+            if app.categories.check_category_added(category_old):
                 test2 = True
                 loger.info("Done!")
             else:
@@ -67,3 +66,5 @@ def test_edit_category(app):
 
     # teardown
     app.categories.delete_category(category_new)
+    loger.info("Exit")
+    print("Exit")
