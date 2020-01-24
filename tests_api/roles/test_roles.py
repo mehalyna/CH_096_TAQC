@@ -29,12 +29,13 @@ class TestAuth(unittest.TestCase):
         This method have to return and assert all roles
         :return: assertion result
         """
-        roles = []
-        response_decoded_json = requests.get(Data.ROLES['url_roles'])
-        resp = response_decoded_json.json()
-        self.assertEqual(200, response_decoded_json.status_code,
+
+        response = requests.get(Data.ROLES['url_roles'])
+        resp = response.json()
+        self.assertEqual(200, response.status_code,
                          "BAD REQUEST")
 
+        roles = []
         for role in resp:
             roles.append(role['name'])
         self.assertEqual(['Admin', 'User'], roles,
