@@ -1,7 +1,7 @@
 import os
 import json
 import requests
-from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS
+from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS,URL_EVENT
 
 
 class Header:
@@ -70,12 +70,12 @@ class Event():
         }
 
     files = {
-        'Photo': open(os.path.join(CURRENT_PATH) + '\\Data\\imageAddEvent\\testing_img.png','rb')
+        #'Photo': open(os.path.join(CURRENT_PATH) + 'Data\\imageAddEvent\\testing_img.png','rb')
         }
 
     def create(self):
         response = requests.post(URL_EVENT['url_event_edit'], headers=self.header, data = self.payload, files = self.files)
-        print(UrlEvent.url_event_edit, self.header, self.payload, self.files)
+        print(URL_EVENT['url_event_edit'], self.header, self.payload, self.files)
         print(response)
 
 
@@ -223,3 +223,18 @@ class User:
         dictionary = self.get_info_by_id()
         birthday = dictionary["name"]
         return birthday
+
+"""
+id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
+print(Header().get_token_admin())
+user = User(id, "Jesus", 2, "2001-06-04")
+print(user.get_info_by_id())
+user.edit_username()
+user.edit_gender()
+user.edit_birthday()
+print(user.get_info_by_id())
+user.back_username()
+user.back_gender()
+user.back_birthday()
+print(user.get_info_by_id())
+"""
