@@ -1,6 +1,6 @@
 import json
 import requests
-from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS, USER_PAYLOADS
+from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS
 
 
 class Header:
@@ -29,6 +29,18 @@ class Header:
             "authorization": "Bearer " + auth}
         return header
 
+    def get_header_auth_vasya(self):
+        response_decoded_json = requests.post(
+            URL_AUTH['url_login'], data=json.dumps(
+                AUTH_PAYLOADS['payload_vasya']), headers=HEADER['header'])
+        h = json.loads(response_decoded_json.content.decode())
+        auth = h["token"]
+        header = {
+            "accept": "application/json",
+            "Content-Type": "application/json-patch+json",
+            "authorization": "Bearer " + auth}
+        return header
+
     def get_token_admin(self):
         response_decoded_json = requests.post(
             URL_AUTH['url_login'], data=json.dumps(
@@ -44,11 +56,13 @@ class User:
 
     def __init__(
             self,
-            id="f320932e-aac2-4999-32d3-08d79b47df59",
+            id="05a469fe-8f90-479e-ed9a-08d7a0ce42ac",
+            name='Vasya',
             gender=0,
             birthday="2000-01-01"):
         """Init new user data"""
         self.id = id
+        self.name = name
         self.birthday = birthday + "T00:00:00"
         self.gender = gender
         self.payload_edit_gender = {
@@ -57,6 +71,9 @@ class User:
         self.payload_edit_birthday = {
             "id": self.id,
             "birthday": self.birthday}
+        self.payload_edit_username = {
+            "id": self.id,
+            "name": self.name}
 
     def PAYLOAD_edit_gender(self):
         """Reload PAYLOAD_gender data"""
@@ -64,6 +81,13 @@ class User:
             "id": self.id,
             "gender": self.gender}
         return PAYLOAD_edit_gender
+
+    def PAYLOAD_edit_username(self):
+        """Reload PAYLOAD_username data"""
+        PAYLOAD_edit_username = {
+            "id": self.id,
+            "name": self.name}
+        return PAYLOAD_edit_username
 
     def PAYLOAD_edit_birthday(self):
         """Reload PAYLOAD_birthday data"""
@@ -78,8 +102,18 @@ class User:
             URL_USERS['edit_gender'],
             data=json.dumps(
                 self.payload_edit_gender),
-            headers=Header().get_header_auth_admin())
+            headers=Header().get_header_auth_vasya())
         print("Гендер змінено")
+
+    def edit_username(self):
+        """Edit user name"""
+        response_decoded_json = requests.post(
+            URL_USERS['edit_username'],
+            data=json.dumps(
+                self.payload_edit_username),
+            headers=Header().get_header_auth_vasya())
+        print("Ім'я змінено")
+        return response_decoded_json
 
     def edit_birthday(self):
         """Edit user birthday"""
@@ -87,8 +121,20 @@ class User:
             URL_USERS['edit_birthday'],
             data=json.dumps(
                 self.payload_edit_birthday),
-            headers=Header().get_header_auth_admin())
+            headers=Header().get_header_auth_vasya())
         print("Дату відредаговано на ", self.birthday[:10])
+        return response_decoded_json
+
+    def back_username(self):
+        """Return user name"""
+        self.name = "Vasya"
+        response_decoded_json = requests.post(
+            URL_USERS['edit_username'],
+            data=json.dumps(
+                self.PAYLOAD_edit_username()),
+            headers=Header().get_header_auth_vasya())
+        print("Ім'я вернулось")
+        return response_decoded_json
 
     def back_gender(self):
         """Return user data"""
@@ -97,8 +143,9 @@ class User:
             URL_USERS['edit_gender'],
             data=json.dumps(
                 self.PAYLOAD_edit_gender()),
-            headers=Header().get_header_auth_admin())
+            headers=Header().get_header_auth_vasya())
         print("Гендер вернувся")
+        return response_decoded_json
 
     def back_birthday(self):
         """Return user birthday"""
@@ -107,17 +154,17 @@ class User:
             URL_USERS['edit_birthday'],
             data=json.dumps(
                 self.PAYLOAD_edit_birthday()),
-            headers=Header().get_header_auth_admin())
+            headers=Header().get_header_auth_vasya())
         print("Дату повернено на ", self.birthday[:10])
+        return response_decoded_json
 
     def get_info_by_id(self):
         """Get all user info by user-id"""
         response_decoded_json = requests.get(
-            URL_USERS['user_by_id_admin'],
-            headers=Header().get_header_auth_admin())
+            URL_USERS['user_by_id_vasya'],
+            headers=Header().get_header_auth_vasya())
         Json = response_decoded_json.content.decode()
         dictionary = json.loads(Json)
-        # print(dictionary)
         return dictionary
 
     def get_gender(self):
@@ -131,22 +178,22 @@ class User:
         dictionary = self.get_info_by_id()
         birthday = dictionary["birthday"]
         return birthday[:10]
+    def get_username(self):
+        """Get user username"""
+        dictionary = self.get_info_by_id()
+        birthday = dictionary["name"]
+        return birthday
 
 
-id = "f320932e-aac2-4999-32d3-08d79b47df59"
+id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
 print(Header().get_token_admin())
-user = User(id, 1, "2001-06-04")
+user = User(id, "Jesus", 2, "2001-06-04")
 print(user.get_info_by_id())
-user.edit_birthday()
-# print(user.get_info_by_id())
-print(user.get_birthday())
-user.back_birthday()
-# print(user.get_info_by_id())
-print(user.get_birthday())
+user.edit_username()
 user.edit_gender()
-# print(user.get_info_by_id())
-print(user.get_gender())
+user.edit_birthday()
+print(user.get_info_by_id())
+user.back_username()
 user.back_gender()
-# print(user.get_info_by_id())
-print(user.get_gender())
+user.back_birthday()
 print(user.get_info_by_id())

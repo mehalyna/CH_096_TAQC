@@ -12,6 +12,7 @@ URL_CATEGORY = {
 AUTH_PAYLOADS = {
     'payload_admin': {"Email": "admin@gmail.com", "Password": "1qaz1qaz"},
     'payload_user': {"Email": "user@gmail.com", "Password": "1qaz1qaz"},
+    'payload_vasya': {"Email": "vasya@gmail.com", "Password": "1qaz1qaz"},
     'payload_unauth': {"Email": "katya@gmail.com", "Password": "123"}
 }
 
@@ -29,6 +30,7 @@ HEADER = {
 URL_USERS = {
     'user_by_id_admin': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=F320932E-AAC2-4999-32D3-08D79B47DF59',
     'user_by_id_user': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=A1D49D6A-F832-4F2A-32D4-08D79B47DF59',
+    'user_by_id_vasya': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=05a469fe-8f90-479e-ed9a-08d7a0ce42ac',
     'edit_gender': 'http://34.65.101.58:5002/api/Users/EditGender',
     'edit_username': 'http://34.65.101.58:5002/api/Users/EditUsername',
     'edit_user_category': 'http://34.65.101.58:5002/api/Users/EditUserCategory',
