@@ -3,11 +3,11 @@ TEST_MODE set to True, runs rests in silent mode: no UI while testing
 """
 URL = {
     'Test_mode': False,
-    #'Home_URL': 'http://localhost:57690/',
-    #'Browser': 'Firefox'
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
     'Browser': 'Chrome'}
+#    'Browser': 'Firefox'
+
 """
 Test data for logging in us user and admin
 """
@@ -25,13 +25,12 @@ PROFILE_MENU_PAGE_HEADER = {
     'User_name_label': 'User Name:',
     'User_name_data': 'UserTest',
     'User_age_label': 'Age',
-    'User_age_data': '19',
+    'User_age_data': '35',
     'User_gender_label': 'Gender:',
     'User_gender_data': 'Other',
     'User_email_label': 'Email:',
     'User_email_data': 'user@gmail.com',
     'User_interests_label': 'Interests:'}
-
 
 """
 This test data using for creating event

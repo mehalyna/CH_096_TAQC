@@ -19,7 +19,7 @@ class TestUsers(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        pass
+        cls.user_data = Tools().get_user_data()
 
     @allure.severity(allure.severity_level.CRITICAL)
     def test_chg_roles(self):
@@ -28,9 +28,6 @@ class TestUsers(unittest.TestCase):
         Required userId string($uuid) and roleId string($uuid)
         :return: assertion result
         """
-        pre = Tools()
-        data = pre.get_user_data()
-
         roles = []
         response = requests.post(Data.WHAT['url_chng_role'],
                                  headers=HEADER['header'],
@@ -53,6 +50,12 @@ class Tools:
 
     @staticmethod
     def get_user_data():
+        """
+        :params:  URL_AUTH['url_login'],
+                  headers=HEADER['header'],
+                  data=json.dumps(AUTH_PAYLOADS.payload_user)
+        :return: {'id': resp["id"], 'role': resp["role"], 'token': response.status_code}
+        """
         response = requests.post(URL_AUTH['url_login'],
                                  headers=HEADER['header'],
                                  data=json.dumps(AUTH_PAYLOADS.payload_user))

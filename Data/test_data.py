@@ -31,7 +31,9 @@ class ContactUsData():
 
 
 class ProfileMenuPageHeaderInfo:
-    """Test data for userinfo header from profile menu - events panels page"""
+    """
+    Test data for userinfo header from profile menu - events panels page
+    """
     USER_NAME_LABEL = 'User Name:'
     USER_NAME_DATA = 'UserTest'
     USER_AGE_LABEL = 'Age:'
@@ -41,12 +43,12 @@ class ProfileMenuPageHeaderInfo:
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
-    # ToDo actualize USER_INTERESTS_DATA
+    # Default USER_INTERESTS_DATA content
     USER_INTERESTS_DATA = {'#Mount', '#Golf', '#Team-Building', '#Swimming', '#Gaming',\
                            '#Sea', '#Summer'}
 
 
-class ProfilePageEventsMenu: # pylint: disable=too-few-public-methods
+class ProfilePageEventsMenu:  # pylint: disable=too-few-public-methods
     """
     Testdata: Locators for event's menu.
     class ProfilePageEventsMenuLocators
