@@ -4,6 +4,7 @@ Reports_Allure
 Logs
 .pytest_cache
 pylintrc
+.pylintrc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
