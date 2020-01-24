@@ -1,3 +1,4 @@
+"""Logging"""
 import logging
 import os
 import datetime
@@ -114,6 +115,7 @@ class PyLogging():
         """
         Function to record console traces into new .log file.
         """
+
         logger = logging.getLogger(self.test_name + "Trace")
         self.logtrace_fname = os.path.join(
             self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))

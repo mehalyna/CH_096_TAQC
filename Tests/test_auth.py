@@ -1,13 +1,17 @@
-from Data.credentials import user, admin
+"""Test auth"""
 import pytest
 import allure
+from config import CREDENTIALS
 from Locators.locators import NavigationMenuLocators
+
 
 locator = NavigationMenuLocators
 
 
 def credentials():
-    lst = [[user['email'], user['password']], [admin['email'], admin['password']]]
+    """credentials"""
+    lst = [[CREDENTIALS['User_name'], CREDENTIALS['User_password']],
+           [CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password']]]
     return lst
 
 
@@ -17,7 +21,8 @@ def credentials():
 @pytest.mark.parametrize('data',credentials())
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize('data', credentials())
-def test_authorization(app, data, ):
+def test_authorization(app, data):
+    """Test auth"""
     app.auth.click_on_login_button()
     app.auth.clean_login_field()
     app.auth.type_login(data[0])

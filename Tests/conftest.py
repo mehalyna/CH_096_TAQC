@@ -1,9 +1,10 @@
 import pytest
 import allure
-from config import CREDENTIALS, URL
+from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
 from utilities.testFrame import InitPages
 from Driver.driver import Driver
+from config import CREDENTIALS, URL
 from Data.test_data import Config
 from Data.credentials import user
 from Data.credentials import admin
@@ -40,6 +41,8 @@ def login(app):
     """
     with allure.step('Login as a user'):
         app.signin.enter_actor(CREDENTIALS['User_name'], CREDENTIALS['User_password'])
+        loger=PyLogging(__name__)
+        loger.info("Login as User")
 
 
 @pytest.fixture(scope='function')
@@ -49,6 +52,8 @@ def login_admin(app):
     """
     with allure.step('Login as an admin'):
         app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
+        loger = PyLogging(__name__)
+        loger.info("Login as Admin")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -91,7 +96,7 @@ def screenshot_on_failure(request, driver_init):
                               attachment_type=AttachmentType.PNG)
 
 @pytest.fixture(scope='function')
-def delete_registed_user():
+def delete_registered_user():
     yield
     with allure.step('Delete registered user'):
         db = Connection()

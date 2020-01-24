@@ -5,14 +5,18 @@ URL = {
     'Test_mode': False,
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
-    'Browser': 'Chrome'}
-#    'Browser': 'Firefox'
+    'Browser': 'Firefox'
+      }
 
 """
 Test data for logging in us user and admin
 """
-CREDENTIALS = {'User_name': 'user@gmail.com', 'User_password': '1qaz1qaz',
-               'Admin_name': 'admin@gmail.com', 'Admin_password': '1qaz1qaz'}
+CREDENTIALS = {
+        'User_name': 'user@gmail.com',
+        'User_password': '1qaz1qaz',
+        'Admin_name': 'admin@gmail.com',
+        'Admin_password': '1qaz1qaz'
+        }
 """
 Test data for 'Contact us' page
 """
@@ -30,7 +34,8 @@ PROFILE_MENU_PAGE_HEADER = {
     'User_gender_data': 'Other',
     'User_email_label': 'Email:',
     'User_email_data': 'user@gmail.com',
-    'User_interests_label': 'Interests:'}
+    'User_interests_label': 'Interests:'
+    }
 
 """
 This test data using for creating event
@@ -75,3 +80,14 @@ data for creating and deleting category
 CATEGORIESPAGE = {'category_old': 'Hello',
                   'category_new': 'Hello1'
                   }
+
+'''data for create new event'''
+CREATE_EVENT_SQL = {
+        'UserId': 'f320932e-aac2-4999-32d3-08d79b47df59',
+        'PhotoId': 'D1933101-E4B2-4664-2629-08D7A0033B62',
+        'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
+        'DateFrom': '2020-02-08',
+        'DateTo': '2020-02-10',
+        'Descript': 'Event for testing search',
+        'Title': 'Test Event',
+        }
