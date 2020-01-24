@@ -1,5 +1,6 @@
 import uuid
 import pyodbc as pyodbc
+from config import CREATE_EVENT_SQL as event
 
 
 class Connection:
@@ -17,8 +18,8 @@ class Connection:
                                    ';PWD=' + self.password)
         self.cursor = self.conn.cursor()
 
-    def delete_user_with_email(self, name):
-        self.cursor.execute(f"Delete from Users where Email like '{name}'")
+    def delete_user_with_email(self, email):
+        self.cursor.execute(f"Delete from Users where Email like '{email}'")
         self.cursor.commit()
 
     def edit_user_with_name(self, name, newname):
@@ -34,8 +35,23 @@ class Connection:
         self.cursor.execute(f"UPDATE Users set Gender = '{sex}' where Name like '{name}'")
         self.cursor.commit()
 
+    def create_event(self,  title=event['Title'],
+                            disc=event['Descript'],
+                            date_from=event['DateFrom'], 
+                            date_to=event['DateTo']):
+        guid = uuid.uuid4()
+        self.cursor.execute(f"""
+                            INSERT INTO EventsExpress.dbo.Events
+                            (Id,IsBlocked, Title, Description, 
+                            DateFrom, DateTo, CityId, PhotoId, OwnerId)
+                            VALUES('{guid}', 0, '{title}', '{disc}',
+                            '{date_from}', '{date_to}', '{event['CityId']}', 
+                            '{event['PhotoId']}', '{event['UserId']}');
+                            """)
+        self.cursor.commit()
+
     def delete_event_with_name(self, name):
-        self.cursor.execute(f"Delete from Events where Name like '{name}'")
+        self.cursor.execute(f"Delete from Events where Title like '{name}'")
         self.cursor.commit()
 
     def delete_category_with_name(self, name):

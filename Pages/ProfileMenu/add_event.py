@@ -40,7 +40,6 @@ class CreateEvents():
 
     def select_country(self, *locator):
         country = self.browser.select_from_list(self.locator.COUNTRY)
-        print(country)
         confirm = self.browser.send_keys_to_element(*locator, country)
         return confirm
 

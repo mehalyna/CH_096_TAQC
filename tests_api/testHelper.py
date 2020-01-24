@@ -1,11 +1,12 @@
 import json
 import requests
+import os
 
 
 class UrlAuth:
     url_login = "http://34.65.101.58:5002/api/Authentication/Login"
     url_register = "http://34.65.101.58:5002/api/Authentication/Register"
-    url_login_fb = "http://34.65.101.58:5002/api/Authentication/FacebookLogin"
+    url_login_fb = "http://localhost:49862/api/Authentication/FacebookLogin"
     url_login_google = "http://34.65.101.58:5002/api/Authentication/google"
 
 
@@ -16,6 +17,7 @@ class UrlCategory:
 
 class UrlEvent:
     url_event_edit = "http://34.65.101.58:5002/api/Event/Edit/"
+    #url_event_edit = "http://localhost:49862/api/Event/Edit/"
 
 class AuthPayloads:
     payload_admin = {"Email": "admin@gmail.com", "Password": "1qaz1qaz"}
@@ -58,24 +60,31 @@ class Header:
 
 
 class Event():
-    header = {
-        'Content-Type': 'ap',
-        'Authorization': get_token_admin(),
-        }
-    payload = {'Title': 'Test Event',
-        'Description': 'Event for testing search',
-        'DateFrom': 'Tue Jan 21 2020',
-        'DateTo': 'Mon Feb 10 2020',
-        'User.Id': get_token_admin(),
-        'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
-        'Categories': '60c56914-a974-4b4c-f461-08d79b47df60'}
 
-    files = [
-        ('Photo', open('/D:/Documents/GitHub/Event_venv/CH_096_TAQC/Data/imageAddEvent/testing_img.png','rb'))
-        ]
+    CURRENT_PATH = os.path.abspath('CH_096_TAQC')
+
+    header = {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': Header().get_token_admin()
+        }
+
+    payload = {
+        'Title': 'Test Event',
+        'Description': 'Event for testing search',
+        'DateFrom': 'Fra Jan 24 2020',
+        'DateTo': 'Mon Feb 10 2020',
+        'User.Id': 'f320932e-aac2-4999-32d3-08d79b47df59',
+        'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
+        'Categories[0].Id': '60c56914-a974-4b4c-f461-08d79b47df60'
+        }
+
+    files = {
+        'Photo': open(os.path.join(CURRENT_PATH) + '\\Data\\imageAddEvent\\testing_img.png','rb')
+        }
 
     def create(self):
-        response = requests.post(UrlEvent.url_event_edit, headers=Event.header, data = payload, files = files),
-        
-        print(response.text.encode('utf8'))
+        response = requests.post(UrlEvent.url_event_edit, headers=self.header, data = self.payload, files = self.files)
+        print(UrlEvent.url_event_edit, self.header, self.payload, self.files)
+        print(response)
+
 
