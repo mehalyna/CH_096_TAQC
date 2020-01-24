@@ -4,6 +4,7 @@ import requests
 from dbconnection import Connection
 from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER
 
+
 class TestAuth(unittest.TestCase):
 
     @classmethod
@@ -53,8 +54,3 @@ class TestAuth(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-

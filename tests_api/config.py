@@ -17,7 +17,7 @@ AUTH_PAYLOADS = {
 }
 
 CATEGORY_PAYLOADS = {
-    'category_to_edit': {"Id": "F535A1D6-EEC4-4697-B4AD-08D7858FCA63", "Name": "MountNew"},
+    'category_to_edit': {"Id": "62b95ad8-7276-4411-f45e-08d79b47df60", "Name": "MountNew"},
     'category_to_create': {"Name": "new"}
 }
 HEADER = {
@@ -30,4 +30,7 @@ URL_CHAT = {
     'get_chat': "http://localhost:50621/api/Chat/GetChat?chatId=b410fa81-d64a-4572-2721-08d766a5bece",
     'unread_messages_user':
         "http://localhost:50621/api/Chat/GetUnreadMessages?userId=e948eb47-ef5b-4142-ab44-08d76385302a"
+}
+URL_EVENT = {
+    'url_event_edit': "http://34.65.101.58:5002/api/Event/Edit/"
 }
