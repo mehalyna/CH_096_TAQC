@@ -30,12 +30,20 @@ PROFILE_MENU_PAGE_HEADER = {
         }
 
 
-"""
-This test data using for creating event
-"""
-CREATE_EVENT = {'title': 'Home Party',
-                'image': 'Data/imageAddEvent/party.jpg',
-                'description': 'cool party',
+"""This test data using for creating event"""
+CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
+image = 'Data\\imageAddEvent\\EarthGarden.jpg'
+image1 = 'Data\\imageAddEvent\\Mysteryland.jpg'
+path_to_picture = os.path.join(CURRENT_PATH, image1)
+CREATE_EVENT = {'title': 'Sensation WHITE',
+                'title1' : 'MYSTERYLAND MUSIC FESTIVAL',
+                'image': path_to_picture,
+                'description': 'If you want crazy party come to us',
+                'description1' : 'We are Mysteryland, the worlds '
+                                'longest running electronic music festival',
+                'country': 'Austria',
+                'city': 'Rio Negro',
+
 
                 }
 
