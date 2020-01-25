@@ -1,6 +1,38 @@
 from selenium.webdriver.common.by import By
 from Data.test_data import ProfilePageEventsMenu
 
+class HomePageLocators:
+    """
+    Locators for home page for admin, register user, unregister user
+    for checking Events
+    """
+    PAGINATION_BUTTONN = (
+        By.XPATH,
+        '//a[@class="btn btn-primary"][text()="last"]')
+    EVENTS_ON_HOME = (
+        By.XPATH,
+        '//div[@class="MuiPaper-root MuiPaper-elevation1 MuiCard-root MuiPaper-rounded"]')
+    CART_TITLE_EVENT = (
+        By.XPATH,
+        '//span[@class="MuiTypography-root MuiCardHeader-title MuiTypography-body2 MuiTypography-displayBlock"]')
+    CART_P_EVENT = (By.XPATH, '//p')
+    CART_EVENT_COUNTRY_CITY = (
+        By.XPATH,
+        '//div[@class="mb-2"]'
+    )
+
+
+class EventPageLocators:
+    """
+    Locators for fetch information about event: title, date,
+    description, category
+    """
+    TITLE = (By.XPATH, '//span[@class="title"]')
+    # selector for image
+    MEDIA_EVENT = (By.XPATH, '//div[@class="MuiCardMedia-root"]')
+    # locator for fetching all data from event(title, description, categories)
+    EVENT_CART_SPAN = (By.XPATH, '//div[@class="text-block"]/span')
+
 
 class LoginPageLocators:
     """
