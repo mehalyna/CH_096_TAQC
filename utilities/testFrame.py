@@ -31,3 +31,4 @@ class InitPages():
         # events menu at navigation menu --> profile page
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
+        self.home_page = Home(self.base)
