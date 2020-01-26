@@ -73,6 +73,14 @@ class Connection:
         self.cursor.execute(f"select Id from Categories where Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
+    def get_name_of_category_using_id(self, id):
+        self.cursor.execute(f"select Name from Categories where Id like ?", id)
+        return str(self.cursor.fetchone()[0])
+
+    def get_count_of_category_on_name(self, name):
+        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like ?", name)
+        return str(self.cursor.fetchone()[0])
+
     def confirm_useremail_on_register(self, email):
         self.cursor.execute(f"UPDATE Users SET EmailConfirmed = 1 WHERE Email like '{email}'")
         self.cursor.commit()
