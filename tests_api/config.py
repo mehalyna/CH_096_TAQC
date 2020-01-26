@@ -26,7 +26,8 @@ CATEGORY_PAYLOADS = {
 HEADER = {
     'header': {
         "accept": "application/json",
-        "Content-Type": "application/json-patch+json"}}
+        "Content-Type": "application/json-patch+json"}
+}
 
 URL_USERS = {
     'user_by_id_admin': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=F320932E-AAC2-4999-32D3-08D79B47DF59',
