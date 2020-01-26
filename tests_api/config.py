@@ -14,7 +14,7 @@ AUTH_PAYLOADS = {
     'payload_admin': {"Email": "admin@gmail.com", "Password": "1qaz1qaz"},
     'payload_user': {"Email": "user@gmail.com", "Password": "1qaz1qaz"},
     'payload_vasya': {"Email": "vasya@gmail.com", "Password": "1qaz1qaz"},
-    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123"}
+    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123456"}
 }
 
 CATEGORY_PAYLOADS = {
