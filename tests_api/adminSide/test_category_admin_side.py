@@ -35,8 +35,7 @@ class testCategoryAdminSide(unittest.TestCase):
         id = self.conn.get_id_using_name("category to be deleted")
         response_decoded_json = requests.post(
             URL_CATEGORY['url_category_delete'] +
-            self.conn.get_id_using_name("category to be deleted"),
-            headers=self.header)
+            id, headers=self.header)
         self.assertEqual(200, response_decoded_json.status_code)
 
     @classmethod
