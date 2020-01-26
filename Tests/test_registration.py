@@ -12,25 +12,13 @@ locator = NavigationMenuLocators
 @pytest.mark.usefixtures("delete_registered_user")
 def test_registration(app):
     with allure.step("Open login form"):
-        app.auth.click_on_login_button()
-    with allure.step("Open register tab"):
-        app.auth.click_register()
-    with allure.step("Fill data"):
-        app.auth.type_email_register("katya@gmail.com")
-        app.auth.type_password_register("popalava09")
-        app.auth.type_repassword_register("popalava09")
+        app.auth.fill_register_data("katya@gmail.com", "popalava09")
         app.auth.send_escape()
     with allure.step("Confirm a user"):
         db = Connection()
         db.confirm_useremail_on_register("katya@gmail.com")
     with allure.step("Open login form"):
-        app.auth.click_on_login_button()
-        app.auth.click_signin_tab()
-        app.auth.clean_login_field()
-        app.auth.type_login("katya@gmail.com")
-        app.auth.clean_password_field()
-        app.auth.type_pass("popalava09")
-        app.auth.press_button_signin()
+        app.auth.fill_login_data("katya@gmail.com", "popalava09")
     with allure.step("Verify successfully login"):
         assert app.base.check_if_element_exists(locator.PROFILE)
 
