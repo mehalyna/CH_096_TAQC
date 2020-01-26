@@ -2,7 +2,8 @@ URL_AUTH = {
     'url_login': "http://34.65.101.58:5002/api/Authentication/Login",
     'url_register': "http://34.65.101.58:5002/api/Authentication/Register",
     'url_login_fb': "http://34.65.101.58:5002/api/Authentication/FacebookLogin",
-    'url_login_google': "http://34.65.101.58:5002/api/Authentication/google"
+    'url_login_google': "http://34.65.101.58:5002/api/Authentication/google",
+    'url_change_password': "http://34.65.101.58:5002/api/Authentication/ChangePassword"
 }
 URL_CATEGORY = {
     'url_category_edit': "http://34.65.101.58:5002/api/Category/Edit",
