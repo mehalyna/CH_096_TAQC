@@ -9,7 +9,7 @@ class Connection:
         self.server = '34.65.101.58'
         self.database = 'EventsExpress'
         self.username = 'SA'
-        self.password = '11D3v0ps'
+        self.password = ''
         self.driver = 'ODBC Driver 17 for SQL Server'
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
@@ -48,7 +48,8 @@ class Connection:
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
                             '{date_from}', '{date_to}', '{event['CityId']}', 
-                            '{event['PhotoId']}', '{event['UserId']}');
+                            '{event['PhotoId']}', '{Connection().
+                            get_userId_by_name('Admin')}');
                             """)
         self.cursor.commit()
 
@@ -60,8 +61,8 @@ class Connection:
         self.cursor.execute(f"Delete from Categories where Name like '{name}'")
         self.cursor.commit()
 
-    def edit_category_with_name(self, name, set):
-        self.cursor.execute(f"Update Categories set Name = '{set}' where Name like '{name}'")
+    def edit_category_with_name(self, name, newname):
+        self.cursor.execute(f"Update Categories set Name = '{newname}' where Name like '{name}'")
         self.cursor.commit()
 
     def create_category_with_name(self, name):
@@ -73,12 +74,16 @@ class Connection:
         self.cursor.execute(f"select Id from Categories where Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
+    def get_userId_by_name(self, name):
+        self.cursor.execute(f"SELECT Id from Users where Name = '{name}'")
+        return str(self.cursor.fetchone()[0])
+
     def get_name_of_category_using_id(self, id):
-        self.cursor.execute(f"select Name from Categories where Id like ?", id)
+        self.cursor.execute(f"select Name from Categories where Id like '{id}'")
         return str(self.cursor.fetchone()[0])
 
     def get_count_of_category_on_name(self, name):
-        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like ?", name)
+        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like '{name}'")
         return str(self.cursor.fetchone()[0])
 
     def confirm_useremail_on_register(self, email):

@@ -86,7 +86,6 @@ CATEGORIESPAGE = {'category_old': 'Hello',
 
 '''data for create new event'''
 CREATE_EVENT_SQL = {
-        'UserId': 'f320932e-aac2-4999-32d3-08d79b47df59',
         'PhotoId': 'D1933101-E4B2-4664-2629-08D7A0033B62',
         'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
         'DateFrom': '2020-02-08',
