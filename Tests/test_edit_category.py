@@ -53,7 +53,7 @@ def test_edit_category(app):
         try:
             loger.info(messages[2])
             app.categories.edit_category(category_old, category_new)
-            if app.categories.check_category_added(category_old):
+            if app.categories.check_category_added(category_new):
                 test2 = True
                 loger.info("Done!")
             else:

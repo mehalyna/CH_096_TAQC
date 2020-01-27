@@ -1,18 +1,21 @@
+""" POM init """
 from Base.base import BaseSetup
 from Pages.POM.auth import Auth
 from Pages.POM.home_page import Home
-from Pages.POM.signIn import SignInUpClass
+from Pages.POM.sign_in import SignInUpClass
 from Pages.POM.navigationMenu import NavigationMenu
 from Pages.POM.profile_menu_page import ProfileMenu
 from Pages.POM.searchPanelPage import SearchEventMenu
 from Pages.POM.categories import Categories
 from Pages.ProfileMenu.add_event import CreateEvents
 from Pages.POM.event_menu_page import EventsMenu
-# EventsMenuCarts
 from Pages.POM.contact_us_page import ContactUs
 
 
-class InitPages():
+class InitPages:
+    """
+    Instantiate POM pages
+    """
 
     def __init__(self, driver_init):
         """

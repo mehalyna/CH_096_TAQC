@@ -36,7 +36,13 @@ URL_USERS = {
     'edit_gender': 'http://34.65.101.58:5002/api/Users/EditGender',
     'edit_username': 'http://34.65.101.58:5002/api/Users/EditUsername',
     'edit_user_category': 'http://34.65.101.58:5002/api/Users/EditUserCategory',
-    'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday'}
+    'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday',
+    'url_search_users': "http://34.65.101.58:5002/api/Users/SearchUsers?page=1",
+    'url_users': "http://34.65.101.58:5002/api/Users/Get?page=1",
+    'url_unblock_user': "http://34.65.101.58:5002/api/Users/Unblock?page=1",
+    'url_block_user': "http://34.65.101.58:5002/api/Users/Block?page=1",
+}
+
 USER_PAYLOADS = {
     'edit_gender': {
         "id": "f320932e-aac2-4999-32d3-08d79b47df59",

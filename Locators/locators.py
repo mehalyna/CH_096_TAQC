@@ -1,5 +1,10 @@
+# pylint: disable=too-few-public-methods
+"""
+Locators for Selenium WebDriver
+"""
 from selenium.webdriver.common.by import By
-from Data.test_data import ProfilePageEventsMenu
+from Data.test_data import PROFILE_PAGE_EVENTS_MENU
+from Data.test_data import PROFILE_MENU_INFO
 
 class HomePageLocators:
     """
@@ -104,7 +109,7 @@ class NavigationMenuLocators:
 
 
 # search available on every page of EventExpress
-class SearchEventPanelLocators():
+class SearchEventPanelLocators:
     """
     Locators for searching and filter functionality.
     """
@@ -138,13 +143,12 @@ class SearchEventPanelLocators():
     BUTTON_RESET = (
         By.CSS_SELECTOR,
         "button.MuiButton-textPrimary:nth-child(1) > span:nth-child(1)")
-    # NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
     FIELD_NAME_EVENT = (
         By.CSS_SELECTOR,
         "div.col-12:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)")
 
 
-class SearchEventData():
+class SearchEventData:
     """
     Locators for search element functionality.
     """
@@ -155,7 +159,7 @@ class SearchEventData():
 
 
 # page for communication users with admins
-class ContactUsPageLocators():
+class ContactUsPageLocators:
     """
     Locators for Contact Us Page.
     """
@@ -174,7 +178,7 @@ class ContactUsPageLocators():
 
 
 # user communication page
-class ComunaPageLocators():
+class ComunaPageLocators:
     """
     Locators for Comuna Page.
     """
@@ -192,62 +196,74 @@ class ProfileMenuLocators:
     """
     Profile page and menu locators.
     """
-    # ToDo the same as for NavigationMenuLocators class
     ADD_EVENT = (
         By.CSS_SELECTOR,
         ".MuiTabs-scroller.MuiTabs-fixed [type='button']:nth-child(5)")
 
 
-class ProfilePageEventsMenuLocators:
+class EventsMenuLocators:
     """
     Events menu object locators.
     """
     # User
-    locators_dict = {ProfilePageEventsMenu.FUTURE_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-0'),
-                     ProfilePageEventsMenu.ARCHIVE_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-1'),
-                     ProfilePageEventsMenu.VISITED_EVENTS: (By.CSS_SELECTOR, '#full-width-tab-2'),
-                     ProfilePageEventsMenu.EVENTS_TO_GO: (By.CSS_SELECTOR, '#full-width-tab-3'),
-                     ProfilePageEventsMenu.ADD_EVENT: (By.CSS_SELECTOR, '#full-width-tab-4'),
+    locators_dict = {PROFILE_PAGE_EVENTS_MENU.FUTURE_EVENTS:
+                     (By.CSS_SELECTOR, '#full-width-tab-0'),
+                     PROFILE_PAGE_EVENTS_MENU.ARCHIVE_EVENTS:
+                     (By.CSS_SELECTOR, '#full-width-tab-1'),
+                     PROFILE_PAGE_EVENTS_MENU.VISITED_EVENTS:
+                     (By.CSS_SELECTOR, '#full-width-tab-2'),
+                     PROFILE_PAGE_EVENTS_MENU.EVENTS_TO_GO:
+                     (By.CSS_SELECTOR, '#full-width-tab-3'),
+                     PROFILE_PAGE_EVENTS_MENU.ADD_EVENT:
+                     (By.CSS_SELECTOR, '#full-width-tab-4'),
                      # Whole panel
-                     'EVENT_MENU_PANEL': (By.CSS_SELECTOR, '.mt-2 > header div'),
-                     'COUNT_MENU_ITEMS': (By.CSS_SELECTOR, 'button[id*="full"]'),
-                     'FUTURE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 0px"]'),
-                     'ARCHIVE_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 162px"]'),
-                     'VISITED_EVENTS_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 325px"]'),
-                     'EVENTS_TO_GO_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 487px"]'),
-                     'ADD_EVENT_TAB_INDICATOR': (By.CSS_SELECTOR, 'span[style*="left: 670px"]')
+                     'ACTIVE_TAB_MARKER':
+                         (By.CSS_SELECTOR, 'button[aria-selected="true"]'),
+                     'TABS_COUNT':
+                         (By.CSS_SELECTOR, 'button[id*="full"]'),
                      }
-    # Admin locators_dict ToDo
+
+    TAB_INDICATOR_DICT = {
+        'FUTURE EVENTS': (By.CSS_SELECTOR,
+                          'div[id="scrollable-force-tabpanel-0"'),
+        'ARCHIVE EVENTS': (By.CSS_SELECTOR,
+                           "div[id='scrollable-force-tabpanel-1']"),
+        'VISITED EVENTS': (By.CSS_SELECTOR,
+                           "div[id='scrollable-force-tabpanel-2']"),
+        'EVENTS TO GO': (By.CSS_SELECTOR,
+                         "div[id='scrollable-force-tabpanel-3']"),
+        'ADD EVENT': (By.CSS_SELECTOR,
+                      "div[id='scrollable-force-tabpanel-4']"),
+        'ACTIVE TAB': (By.CSS_SELECTOR,
+                       'button[aria-selected="true"]'),
+    }
 
 
 class ProfileMenuPageHeaderInfoLocators:
     """
     Locators for user info page header (central header).
     """
-    # User  .row:nth-child(1) > .col-4
-    locators_dict = {  # ProfileMenuPageHeaderInfo.USER_NAME_LABEL: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_NAME_DATA: (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_AGE_LABEL: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_AGE_DATA: (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_GENDER_LABEL: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_GENDER_DATA: (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_EMAIL_LABEL: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
-        # ProfileMenuPageHeaderInfo.USER_EMAIL_DATA: (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
-        # ProfileMenuPageHeaderInfo.USER_INTERESTS_LABEL: (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
-        'USER_INTERESTS_DATA': (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
-    }
-    # Admin ToDo
-
-
-class HomePageOptionsPanelLocators:
-    """
-    Left top menu (config, notification, logout) with user logo.
-    """
-    # button[type = "button"][title = "Sign out"]
-    # user_info_css = 'h4.gs_copied'
     locators_dict = {
-        'logout_button': (By.CSS_SELECTOR, 'button[title ="Sign out"]'),
-        'user_info': (By.CSS_SELECTOR, 'h4.gs_copied'),
+        PROFILE_MENU_INFO.USER_NAME_LABEL:
+            (By.CSS_SELECTOR, '.row:nth-child(1) > .col-4'),
+        PROFILE_MENU_INFO.USER_NAME_DATA:
+            (By.CSS_SELECTOR, '.row:nth-child(1) > .col-8'),
+        PROFILE_MENU_INFO.USER_AGE_LABEL:
+            (By.CSS_SELECTOR, '.row:nth-child(2) > .col-4'),
+        PROFILE_MENU_INFO.USER_AGE_DATA:
+            (By.CSS_SELECTOR, '.row:nth-child(2) > .col-8'),
+        PROFILE_MENU_INFO.USER_GENDER_LABEL:
+            (By.CSS_SELECTOR, '.row:nth-child(3) > .col-4'),
+        PROFILE_MENU_INFO.USER_GENDER_DATA:
+            (By.CSS_SELECTOR, '.row:nth-child(3) > .col-8'),
+        PROFILE_MENU_INFO.USER_EMAIL_LABEL:
+            (By.CSS_SELECTOR, '.row:nth-child(4) > .col-4'),
+        PROFILE_MENU_INFO.USER_EMAIL_DATA:
+            (By.CSS_SELECTOR, '.row:nth-child(4) > .col-8'),
+        PROFILE_MENU_INFO.USER_INTERESTS_LABEL:
+            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
+        'USER_INTERESTS_DATA':
+            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
     }
 
 

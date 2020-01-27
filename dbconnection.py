@@ -1,22 +1,21 @@
 import uuid
 import pyodbc as pyodbc
 from config import CREATE_EVENT_SQL as event
+from credentials import CredentDb as Db
 
 
 class Connection:
     def __init__(self):
-        self.server = "34.65.101.58"
-        self.database = "EventsExpress"
-        self.username = "SA"
-        self.password = ""
-        self.driver = "ODBC Driver 17 for SQL Server"
-        self.conn = pyodbc.connect(
-            "DRIVER=" + self.driver +
-            ";SERVER=" + self.server +
-            ";PORT=1433;DATABASE=" + self.database +
-            ";UID=" + self.username +
-            ";PWD=" + self.password
-        )
+        self.server = Db.server
+        self.database = Db.database
+        self.username = Db.username
+        self.password = Db.password
+        self.driver = Db.driver
+        self.conn = pyodbc.connect('DRIVER=' + self.driver +
+                                   ';SERVER=' + self.server +
+                                   ';PORT=1433;DATABASE=' + self.database +
+                                   ';UID=' + self.username +
+                                   ';PWD=' + self.password)
         self.cursor = self.conn.cursor()
 
     def delete_user_with_email(self, email):

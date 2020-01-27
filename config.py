@@ -1,36 +1,45 @@
-"""TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
+"""
+TEST_MODE set to True, runs rests in silent mode: no UI while testing
+"""
 import os
 
 URL = {
-        'Test_mode': False,
-        'Home_URL': 'http://34.65.101.58:5002/home/events/?page=1',
-        'Browser': 'Firefox'
-        }
+    'Test_mode': False,
+    'URL_HOST': 'http://34.65.101.58:5002',
+    'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
+    'Browser': 'Firefox'
+}
 
-"""Test data for logging in us user and admin"""
+"""
+Test data for logging in us user and admin
+"""
 CREDENTIALS = {
         'User_name': 'user@gmail.com',
         'User_password': '1qaz1qaz',
         'Admin_name': 'admin@gmail.com',
         'Admin_password': '1qaz1qaz'
         }
-
-"""Test data for Contact us page"""
-CONTACT_US = {'Description_for_contact': 'very nice!!!'}
-
-"""Test data for userinfo header from profile menu - events panels page"""
-PROFILE_MENU_PAGE_HEADER = {
-        'User_name_label': 'User Name:',
-        'User_name_data': 'UserTest',
-        'User_age_label': 'Age',
-        'User_age_data': '19',
-        'User_gender_label': 'Gender:',
-        'User_gender_data': 'Other',
-        'User_email_label': 'Email:',
-        'User_email_data': 'user@gmail.com',
-        'User_interests_label': 'Interests:'
-        }
-
+"""
+Test data for 'Contact us' page
+"""
+CONTACT_US = {
+    'Description_for_contact': 'You have problems with some users and theirs events!'}
+"""
+Test data for userinfo header from profile menu - events panels page
+"""
+PROFILE_MENU_INFO = {
+    'User_name_label': 'User Name:',
+    'User_name_data': 'UserTest',
+    'User_age_label': 'Age',
+    'User_age_data': '35',
+    'User_gender_label': 'Gender:',
+    'User_gender_data': 'Other',
+    'User_email_label': 'Email:',
+    'User_email_data': 'user@gmail.com',
+    'User_interests_label': 'Interests:',
+    'User_interests_data': {'Mount', 'Golf', '#Team-Building', '#Swimming',
+                            '#Gaming', '#Sea', '#Summer'}
+    }
 
 """This test data using for creating event"""
 CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
@@ -55,8 +64,8 @@ Testdata: Locators for event's menu class ProfilePageEventsMenuLocators
 PROFILE_PAGE_EVENTS_MENU = {'FUTURE_EVENTS': 'FUTURE EVENTS',
                             'ARCHIVE_EVENTS': 'ARCHIVE EVENTS',
                             'VISITED_EVENTS': 'VISITED EVENTS',
-                            'EVENTS_TO_GO': 'EVENTS_TO_GO',
-                            'ADD_EVENT': 'ADD_EVENT'
+                            'EVENTS_TO_GO': 'EVENTS TO GO',
+                            'ADD_EVENT': 'ADD EVENT'
                             }
 
 """

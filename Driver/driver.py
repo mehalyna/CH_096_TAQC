@@ -7,7 +7,8 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 
 class Driver:
-    """Provides automatically manage of drivers for different browsers'
+    """
+    Provides automatically manage of drivers for different browsers'
     https://pypi.org/project/webdriver-manager/
 
     Installation:
@@ -15,7 +16,7 @@ class Driver:
     https://github.com/SergeyPirogov/webdriver_manager/tree/master
     NB: Opera browser does`t supported
 
-    Desired.Capabilities is going to be implemented soon'
+    Desired.Capabilities is going to be implemented'
     """
 
     def __init__(self, browser):
