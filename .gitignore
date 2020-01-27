@@ -6,7 +6,6 @@ Logs
 .pylintrc
 .gitignore
 /credentials.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -113,3 +112,4 @@ venv.bak/
 .mypy_cache/
 /cred.py
 /Data/credentials.py
+/sdf..py
