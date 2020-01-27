@@ -5,7 +5,7 @@ Logs
 .pytest_cache
 .pylintrc
 .gitignore
-credentials.py
+/credentials.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -111,3 +111,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/cred.py
