@@ -47,8 +47,20 @@ URL_CHAT = {
     'all_chats': "http://34.65.101.58:5002/api/Chat/GetAllChats",
     'get_chat': "http://localhost:50621/api/Chat/GetChat?chatId=b410fa81-d64a-4572-2721-08d766a5bece",
     'unread_messages_user':
-        "http://localhost:50621/api/Chat/GetUnreadMessages?userId=e948eb47-ef5b-4142-ab44-08d76385302a"
+    "http://localhost:50621/api/Chat/GetUnreadMessages?userId=e948eb47-ef5b-4142-ab44-08d76385302a"
 }
 URL_EVENT = {
-    'url_event_edit': "http://34.65.101.58:5002/api/Event/Edit/"
+    'event_edit': "http://34.65.101.58:5002/api/Event/Edit/",
+    'block_event': "http://34.65.101.58:5002/api/Event/Block",
+    'unblock_event': "http://34.65.101.58:5002/api/Event/Unblock",
+    'add_user_to_event': "http://34.65.101.58:5002/api/Event/AddUserToEvent",
+    'delete_user_from_event': "http://34.65.101.58:5002/api/Event/DeleteUserFromEvent",
+    'set_rating': "http://34.65.101.58:5002/api/Event/SetRate",
+    'get_event': "http://34.65.101.58:5002/api/Event/Get",
+    'get_blocker_event': "http://34.65.101.58:5002/api/Event/All",
+    'get_rating_event': "http://34.65.101.58:5002/api/Event/GetAverageRate"
+}
+
+EVENT_PAYLOAD = {
+    'eventId': "?eventId=",
 }
