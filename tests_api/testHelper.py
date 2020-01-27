@@ -1,7 +1,7 @@
-8import os
+import os
 import json
 import requests
-from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS,URL_EVENT
+from config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS,URL_EVENT
 
 
 class Header:

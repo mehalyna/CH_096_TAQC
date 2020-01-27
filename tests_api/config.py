@@ -66,10 +66,12 @@ URL_EVENT = {
     'delete_user_from_event': "http://34.65.101.58:5002/api/Event/DeleteUserFromEvent",
     'set_rating': "http://34.65.101.58:5002/api/Event/SetRate",
     'get_event': "http://34.65.101.58:5002/api/Event/Get",
-    'get_blocker_event': "http://34.65.101.58:5002/api/Event/All",
+    'get_all_event': "http://34.65.101.58:5002/api/Event/All",
     'get_rating_event': "http://34.65.101.58:5002/api/Event/GetAverageRate"
 }
 
 EVENT_PAYLOAD = {
     'eventId': "?eventId=",
+    'blocked': "?Blocked=True&"
+    'page': "Page=1"
 }
