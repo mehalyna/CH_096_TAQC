@@ -1,3 +1,5 @@
+import os
+
 """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 import os
 
