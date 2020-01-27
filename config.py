@@ -1,6 +1,8 @@
 """
 TEST_MODE set to True, runs rests in silent mode: no UI while testing
 """
+import os
+
 URL = {
     'Test_mode': False,
     'URL_HOST': 'http://34.65.101.58:5002',

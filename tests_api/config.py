@@ -2,7 +2,8 @@ URL_AUTH = {
     'url_login': "http://34.65.101.58:5002/api/Authentication/Login",
     'url_register': "http://34.65.101.58:5002/api/Authentication/Register",
     'url_login_fb': "http://34.65.101.58:5002/api/Authentication/FacebookLogin",
-    'url_login_google': "http://34.65.101.58:5002/api/Authentication/google"
+    'url_login_google': "http://34.65.101.58:5002/api/Authentication/google",
+    'url_change_password': "http://34.65.101.58:5002/api/Authentication/ChangePassword"
 }
 URL_CATEGORY = {
     'url_category_edit': "http://34.65.101.58:5002/api/Category/Edit",
@@ -14,7 +15,8 @@ AUTH_PAYLOADS = {
     'payload_admin': {"Email": "admin@gmail.com", "Password": "1qaz1qaz"},
     'payload_user': {"Email": "user@gmail.com", "Password": "1qaz1qaz"},
     'payload_vasya': {"Email": "vasya@gmail.com", "Password": "1qaz1qaz"},
-    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123"}
+    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123456"},
+    'payload_change_password': {"oldPassword": "1qaz1qaz", "newPassword": "1qaz1qaz1", "repeatPassword": "1qaz1qaz1"}
 }
 
 CATEGORY_PAYLOADS = {
@@ -24,7 +26,8 @@ CATEGORY_PAYLOADS = {
 HEADER = {
     'header': {
         "accept": "application/json",
-        "Content-Type": "application/json-patch+json"}}
+        "Content-Type": "application/json-patch+json"}
+}
 
 URL_USERS = {
     'user_by_id_admin': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=F320932E-AAC2-4999-32D3-08D79B47DF59',

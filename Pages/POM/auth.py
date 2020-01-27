@@ -56,3 +56,19 @@ class Auth():
 
     def check_warning_message_about_invalid_password(self):
         return self.browser.find_element_by_xpath("//div[2]/div/p").text
+
+    def fill_register_data(self, email, password):
+        self.click_on_login_button()
+        self.click_register()
+        self.type_email_register(email)
+        self.type_password_register(password)
+        self.type_repassword_register(password)
+
+    def fill_login_data(self, email, password):
+        self.click_on_login_button()
+        self.click_signin_tab()
+        self.clean_login_field()
+        self.type_login(email)
+        self.clean_password_field()
+        self.type_pass(password)
+        self.press_button_signin()
