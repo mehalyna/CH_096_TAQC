@@ -5,6 +5,7 @@ Logs
 .pytest_cache
 .pylintrc
 .gitignore
+credentials.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

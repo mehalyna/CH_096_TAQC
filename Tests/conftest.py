@@ -2,14 +2,10 @@ import pytest
 import allure
 from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
-from utilities.testFrame import InitPages
 from Driver.driver import Driver
 from config import CREDENTIALS, URL
-from Data.test_data import Config
-from Data.credentials import user
-from Data.credentials import admin
 
-from utilities.testFrame import InitPages
+from Pages.init_pages import InitPages
 from dbconnection import Connection
 
 @pytest.fixture(scope='function')

@@ -1,7 +1,6 @@
 import pytest
 import allure
 from Data.test_data import PROFILE_PAGE_EVENTS_MENU as Data
-from Data.test_data import PROFILE_PAGE_EVENTS_MENU as Data
 
 
 
