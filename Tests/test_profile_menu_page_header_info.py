@@ -38,13 +38,14 @@ def test_event_menu_header_info_text(app, userinfo_input):
 
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize('userinfo_input', list(Data['User_interests_data']))
-def test_event_menu_header_info_text_interests(app, login, userinfo_input):
+@pytest.mark.usefixtures("login")
+def test_event_menu_header_info_text_interests(app, userinfo_input):
     """
     Check the Interests list
     """
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(Locator)
-    userinfo_expected_value = Data.User_interests_label
+    userinfo_expected_value = Data['User_interests_data']
     assert actual_text in userinfo_expected_value, f"Text of {userinfo_input} item differs. \
                             The expected one is {userinfo_expected_value}  \
                             instead {actual_text} is displayed"

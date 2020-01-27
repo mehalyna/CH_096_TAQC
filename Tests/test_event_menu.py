@@ -55,8 +55,8 @@ def test_event_menu_switch(app, menu_tab):
 @pytest.mark.usefixtures("screenshot_on_failure", "login")
 def test_count_tabs(app):
     """
-    Counts a number of tabs at the menu panel
-    :param app: - is a fixture of an instance of POM
+    Counts number of tabs at the menu panel
+    :param app: - a fixture of an instance of POM
     :return: assertion result
     """
     app.navigation.click_on_profile()
