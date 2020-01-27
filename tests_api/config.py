@@ -30,19 +30,17 @@ HEADER = {
 }
 
 URL_USERS = {
-    'user_by_id_admin': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=F320932E-AAC2-4999-32D3-08D79B47DF59',
-    'user_by_id_user': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=A1D49D6A-F832-4F2A-32D4-08D79B47DF59',
-    'user_by_id_vasya': 'http://34.65.101.58:5002/api/Users/GetUserProfileById?id=05a469fe-8f90-479e-ed9a-08d7a0ce42ac',
+    'user_by_id':"http://34.65.101.58:5002/api/Users/GetUserProfileById?id=",
     'edit_gender': 'http://34.65.101.58:5002/api/Users/EditGender',
     'edit_username': 'http://34.65.101.58:5002/api/Users/EditUsername',
     'edit_user_category': 'http://34.65.101.58:5002/api/Users/EditUserCategory',
     'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday'}
 USER_PAYLOADS = {
     'edit_gender': {
-        "id": "f320932e-aac2-4999-32d3-08d79b47df59",
+        "id": "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878",
         "gender": "1"},
     'back_gender': {
-        "id": "f320932e-aac2-4999-32d3-08d79b47df59",
+        "id": "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878",
         "gender": "0"}}
 
 URL_CHAT = {

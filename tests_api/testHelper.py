@@ -102,7 +102,7 @@ class User:
         """Init new user data"""
         self.id = id
         self.name = name
-        self.birthday = birthday + "T00:00:00"
+        self.birthday = str(birthday) + "T00:00:00"
         self.gender = gender
         self.payload_edit_gender = {
             "id": self.id,
@@ -199,8 +199,9 @@ class User:
 
     def get_info_by_id(self):
         """Get all user info by user-id"""
+        url = URL_USERS['user_by_id']+self.id
         response_decoded_json = requests.get(
-            URL_USERS['user_by_id_vasya'],
+            url,
             headers=Header().get_header_auth_vasya())
         Json = response_decoded_json.content.decode()
         dictionary = json.loads(Json)

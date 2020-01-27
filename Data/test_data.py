@@ -10,8 +10,8 @@ class Config:
     """TEST_MODE set to True, runs rests in silent mode: no UI while testing"""
 
     TEST_MODE = False  # True
-    # HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
-    HOME_URL = "http://34.65.101.58:5002/home/events?page=1"
+    HOME_URL = "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1"
+    #HOME_URL = "http://34.65.101.58:5002/home/events?page=1"
     BROWSER = 'Chrome'
     # BROWSER = 'Firefox'
 

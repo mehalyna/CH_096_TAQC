@@ -9,7 +9,7 @@ class Connection:
         self.server = '34.65.101.58'
         self.database = 'EventsExpress'
         self.username = 'SA'
-        self.password = '11D3v0ps'
+        self.password = '$5Y6sJLLD5wq3$vY'
         self.driver = 'ODBC Driver 17 for SQL Server'
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
