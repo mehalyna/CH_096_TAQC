@@ -1,16 +1,17 @@
 import uuid
 import pyodbc as pyodbc
 from config import CREATE_EVENT_SQL as event
+from credentials import Credent_db as Db
 
 
 class Connection:
 
     def __init__(self):
-        self.server = '34.65.101.58'
-        self.database = 'EventsExpress'
-        self.username = 'SA'
-        self.password = '11D3v0ps'
-        self.driver = 'ODBC Driver 17 for SQL Server'
+        self.server = Db.server
+        self.database = Db.database
+        self.username = Db.username
+        self.password = Db.password
+        self.driver = Db.driver
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
                                    ';PORT=1433;DATABASE=' + self.database +
