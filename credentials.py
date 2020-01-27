@@ -13,7 +13,8 @@ class CredentDb:
     password = '11D3v0ps'
     driver = 'ODBC Driver 17 for SQL Server'
 
-class EditProfileData: # pylint: disable=too-few-public-methods
+
+class EditProfileData:  # pylint: disable=too-few-public-methods
     """
     from test_data.py
     EventExpress credentials
