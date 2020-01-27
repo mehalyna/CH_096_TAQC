@@ -12,17 +12,19 @@ URL_CATEGORY = {
 }
 
 AUTH_PAYLOADS = {
-    'payload_admin': {"Email": "admin@gmail.com", "Password": "1qaz1qaz"},
-    'payload_user': {"Email": "user@gmail.com", "Password": "1qaz1qaz"},
-    'payload_vasya': {"Email": "vasya@gmail.com", "Password": "1qaz1qaz"},
-    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123456"},
-    'payload_change_password': {"oldPassword": "1qaz1qaz", "newPassword": "1qaz1qaz1", "repeatPassword": "1qaz1qaz1"}
-}
+    'payload_admin': {
+        "Email": "admin@gmail.com", "Password": "1qaz1qaz"}, 'payload_user': {
+            "Email": "user@gmail.com", "Password": "1qaz1qaz"}, 'payload_vasya': {
+                "Email": "vasya@gmail.com", "Password": "1qaz1qaz"}, 'payload_unauth': {
+                    "Email": "katya@gmail.com", "Password": "123456"}, 'payload_change_password': {
+                        "oldPassword": "1qaz1qaz", "newPassword": "1qaz1qaz1", "repeatPassword": "1qaz1qaz1"}}
 
 CATEGORY_PAYLOADS = {
-    'category_to_edit': {"Id": "62b95ad8-7276-4411-f45e-08d79b47df60", "Name": "MountNew"},
-    'category_to_create': {"Name": "new"}
-}
+    'category_to_edit': {
+        "Id": "62b95ad8-7276-4411-f45e-08d79b47df60",
+        "Name": "MountNew"},
+    'category_to_create': {
+        "Name": "new"}}
 HEADER = {
     'header': {
         "accept": "application/json",
@@ -30,11 +32,12 @@ HEADER = {
 }
 
 URL_USERS = {
-    'user_by_id':"http://34.65.101.58:5002/api/Users/GetUserProfileById?id=",
+    'user_by_id': "http://34.65.101.58:5002/api/Users/GetUserProfileById?id=",
     'edit_gender': 'http://34.65.101.58:5002/api/Users/EditGender',
     'edit_username': 'http://34.65.101.58:5002/api/Users/EditUsername',
     'edit_user_category': 'http://34.65.101.58:5002/api/Users/EditUserCategory',
-    'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday'}
+    'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday',
+    'set_attitude': 'http://34.65.101.58:5002/api/Users/SetAttitude'}
 USER_PAYLOADS = {
     'edit_gender': {
         "id": "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878",
