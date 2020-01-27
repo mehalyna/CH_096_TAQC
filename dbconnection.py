@@ -1,7 +1,7 @@
 import uuid
 import pyodbc as pyodbc
 from config import CREATE_EVENT_SQL as event
-from credentials import CredentDb as Db
+from credentials import Credent_db as Db
 
 
 class Connection:
