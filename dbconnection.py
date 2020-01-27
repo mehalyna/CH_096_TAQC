@@ -5,31 +5,18 @@ from config import CREATE_EVENT_SQL as event
 
 class Connection:
     def __init__(self):
-<<<<<<< HEAD
-        self.server = '34.65.101.58'
-        self.database = 'EventsExpress'
-        self.username = 'SA'
-        self.password = ''
-        self.driver = 'ODBC Driver 17 for SQL Server'
-        self.conn = pyodbc.connect('DRIVER=' + self.driver +
-                                   ';SERVER=' + self.server +
-                                   ';PORT=1433;DATABASE=' + self.database +
-                                   ';UID=' + self.username +
-                                   ';PWD=' + self.password)
-=======
         self.server = "34.65.101.58"
         self.database = "EventsExpress"
         self.username = "SA"
         self.password = ""
         self.driver = "ODBC Driver 17 for SQL Server"
         self.conn = pyodbc.connect(
-                                "DRIVER=" + self.driver + 
-                                ";SERVER=" + self.server + 
-                                ";PORT=1433;DATABASE=" + self.database + 
-                                ";UID=" + self.username + 
-                                ";PWD=" + self.password
-                                )   
->>>>>>> 81be1ba925c3be5651860e8f5931c35fc712663a
+            "DRIVER=" + self.driver +
+            ";SERVER=" + self.server +
+            ";PORT=1433;DATABASE=" + self.database +
+            ";UID=" + self.username +
+            ";PWD=" + self.password
+        )
         self.cursor = self.conn.cursor()
 
     def delete_user_with_email(self, email):
@@ -58,10 +45,10 @@ class Connection:
         self.cursor.commit()
 
     def create_event(self,
-                    title=event["Title"],
-                    disc=event["Descript"],
-                    date_from=event["DateFrom"],
-                    date_to=event["DateTo"]):
+                     title=event["Title"],
+                     disc=event["Descript"],
+                     date_from=event["DateFrom"],
+                     date_to=event["DateTo"]):
 
         guid = uuid.uuid4()
         self.cursor.execute(f"""
@@ -70,15 +57,9 @@ class Connection:
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
                             '{date_from}', '{date_to}', '{event['CityId']}', 
-<<<<<<< HEAD
                             '{event['PhotoId']}', '{Connection().
                             get_userId_by_name('Admin')}');
                             """)
-=======
-                            '{event['PhotoId']}', '{event['UserId']}');
-                            """
-                            )
->>>>>>> 81be1ba925c3be5651860e8f5931c35fc712663a
         self.cursor.commit()
 
     def get_id_event_by_name(self, name):
@@ -94,13 +75,8 @@ class Connection:
         self.cursor.commit()
 
     def edit_category_with_name(self, name, newname):
-<<<<<<< HEAD
-        self.cursor.execute(f"Update Categories set Name = '{newname}' where Name like '{name}'")
-=======
         self.cursor.execute(
-            f"Update Categories set Name ='{newname}' where Name like '{name}'"
-        )
->>>>>>> 81be1ba925c3be5651860e8f5931c35fc712663a
+            f"Update Categories set Name = '{newname}' where Name like '{name}'")
         self.cursor.commit()
 
     def create_category_with_name(self, name):
@@ -119,11 +95,13 @@ class Connection:
         return str(self.cursor.fetchone()[0])
 
     def get_name_of_category_using_id(self, id):
-        self.cursor.execute(f"select Name from Categories where Id like '{id}'")
+        self.cursor.execute(
+            f"select Name from Categories where Id like '{id}'")
         return str(self.cursor.fetchone()[0])
 
     def get_count_of_category_on_name(self, name):
-        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like '{name}'")
+        self.cursor.execute(
+            f"SELECT COUNT(1) FROM Categories WHERE Name like '{name}'")
         return str(self.cursor.fetchone()[0])
 
     def confirm_useremail_on_register(self, email):
