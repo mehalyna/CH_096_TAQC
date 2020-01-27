@@ -3,7 +3,6 @@ import allure
 from Data.test_data import PROFILE_PAGE_EVENTS_MENU as Data
 
 
-
 @allure.suite('Tests for "Events_menu page"')
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.parametrize("test_input", [Data.FUTURE_EVENTS,
