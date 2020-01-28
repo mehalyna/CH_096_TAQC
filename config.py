@@ -104,10 +104,18 @@ CREATE_EVENT_SQL = {
         }
 
 """
-data for create message
+data for create message using api
 """
 SEND_MESSAGE_SQL = {
     'id_sender': '038F157B-C102-4578-6CFB-08D7A28D1878',
     'text': 'test message',
     'chat_room_id': 'f723480e-ad42-4ecb-fa3e-08d7a318593f'
+}
+
+"""
+data for comuna test
+"""
+INFO_MESSAGE_COMUNA = {
+    'message_to_sent': 'hey',
+    'verify_message': 'You have 1 unread messages'
 }
