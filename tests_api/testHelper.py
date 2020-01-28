@@ -271,8 +271,10 @@ user.back_gender()
 user.back_birthday()
 print(user.get_info_by_id())
 """
+"""
 id = "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878"
 print(Header().get_token_admin())
 user = User(id, "Jesus", 2, "2001-06-04")
 print(user.set_attitude('038f157b-c102-4578-6cfb-08d7a28d1878',1))
 print(user.back_attitude('038f157b-c102-4578-6cfb-08d7a28d1878'))
+"""
