@@ -3,8 +3,8 @@ FROM python:3.7
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
 
 RUN apt-get update\
-    && apt-get install -y software-properties-common git python3-pip build-essential libssl-dev libffi-dev python3.7-dev
-    && apt-get install -y unixodbc-dev
+    && apt-get install -y software-properties-common git python3-pip build-essential libssl-dev libffi-dev python3.7-dev \
+    && apt-get install -y unixodbc-dev \
     && rm -rf /var/lib/apt/lists/*
     
 # Install Firefox browser
