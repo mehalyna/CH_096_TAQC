@@ -1,6 +1,7 @@
 import uuid
 import pyodbc as pyodbc
 from config import CREATE_EVENT_SQL as event
+from credentials import CredentDb as Db
 from config import SEND_MESSAGE_SQL as message
 from datetime import datetime
 
@@ -8,11 +9,11 @@ from datetime import datetime
 class Connection:
 
     def __init__(self):
-        self.server = '34.65.101.58'
-        self.database = 'EventsExpress'
-        self.username = 'SA'
-        self.password = ''
-        self.driver = 'ODBC Driver 17 for SQL Server'
+        self.server = Db.server
+        self.database = Db.database
+        self.username = Db.username
+        self.password = Db.password
+        self.driver = Db.driver
         self.conn = pyodbc.connect('DRIVER=' + self.driver +
                                    ';SERVER=' + self.server +
                                    ';PORT=1433;DATABASE=' + self.database +
@@ -78,6 +79,14 @@ class Connection:
 
     def get_id_using_name(self, name):
         self.cursor.execute(f"select Id from Categories where Name = '{name}'")
+        return str(self.cursor.fetchone()[0])
+
+    def get_name_of_category_using_id(self, id):
+        self.cursor.execute(f"select Name from Categories where Id like ?", id)
+        return str(self.cursor.fetchone()[0])
+
+    def get_count_of_category_on_name(self, name):
+        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like ?", name)
         return str(self.cursor.fetchone()[0])
 
     def confirm_useremail_on_register(self, email):
