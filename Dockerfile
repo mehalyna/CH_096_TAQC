@@ -26,6 +26,7 @@ RUN pip install -r requirements.txt
 WORKDIR $WORKSPACE/CH_096_TAQC
 RUN ls Tests
 RUN pwd
+RUN mkdir /CH_096_TAQC/Reports_Allure
 
 # ENTRYPOINT ["/bin/bash"]
 CMD ["py.test", "-v", "--rootdir=Tests", "--alluredir=/CH_096_TAQC/Reports_Allure"]
