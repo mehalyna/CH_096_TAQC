@@ -72,6 +72,6 @@ URL_EVENT = {
 
 EVENT_PAYLOAD = {
     'eventId': "?eventId=",
-    'blocked': "?Blocked=True&"
+    'blocked': "?Blocked=True&",
     'page': "Page=1"
 }
