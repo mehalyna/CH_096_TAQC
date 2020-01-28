@@ -177,10 +177,10 @@ class ContactUsPageLocators:
     LIST = (By.CSS_SELECTOR, ".form-control")
 
 
-# user communication page
 class ComunaPageLocators:
     """
     Locators for Comuna Page.
+    user communication page
     """
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
     SEND_MESSAGE_FIELD = (
@@ -263,7 +263,7 @@ class ProfileMenuPageHeaderInfoLocators:
         PROFILE_MENU_INFO.USER_INTERESTS_LABEL:
             (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
         'USER_INTERESTS_DATA':
-            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
+            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-8')
     }
 
 

@@ -33,12 +33,12 @@ PROFILE_MENU_INFO = {
     'User_age_label': 'Age',
     'User_age_data': '35',
     'User_gender_label': 'Gender:',
-    'User_gender_data': 'Other',
+    'User_gender_data': 'Female',
     'User_email_label': 'Email:',
     'User_email_data': 'user@gmail.com',
     'User_interests_label': 'Interests:',
-    'User_interests_data': {'Mount', 'Golf', '#Team-Building', '#Swimming',
-                            '#Gaming', '#Sea', '#Summer'}
+    'User_interests_data': {'Mount', 'Golf', 'Team-Building', 'Swimming',
+                            'Gaming', 'Sea', 'Summer'}
     }
 
 """This test data using for creating event"""
