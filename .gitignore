@@ -1,13 +1,11 @@
-.idea/
-.idea\*
-.idea/*
 .idea
 .vscode
 Reports_Allure
 Logs
 .pytest_cache
-*.log
-
+/.pylintrc
+.gitignore
+/credentials.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -113,4 +111,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+*.pyc
 *.pyc
