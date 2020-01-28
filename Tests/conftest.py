@@ -106,10 +106,15 @@ def screenshot_on_failure(request, driver_init):
 
 @pytest.fixture(scope='function')
 def delete_registered_user():
+    """
+    Delete user
+    """
     yield
     with allure.step('Delete registered user'):
         db = Connection()
         db.delete_user_with_email("katya@gmail.com")
+        loger = PyLogging(__name__)
+        loger.info("Deleting user")
         db.close()
 
     
