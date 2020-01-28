@@ -121,5 +121,3 @@ class Connection:
     def close(self):
         self.conn.close()
 
-Connection().send_message()
-# Connection().delete_mes_with_text()
