@@ -10,6 +10,7 @@ from Pages.POM.categories import Categories
 from Pages.ProfileMenu.add_event import CreateEvents
 from Pages.POM.event_menu_page import EventsMenu
 from Pages.POM.contact_us_page import ContactUs
+from Pages.POM.comuna_page import Comunication
 
 
 class InitPages:
@@ -36,3 +37,5 @@ class InitPages:
         self.event_menu = EventsMenu(self.base)
         # self.event_carts = EventsMenuCarts(self.base)
         self.home_page = Home(self.base)
+        # for comunication with another users
+        self.comuna = Comunication(self.base)
