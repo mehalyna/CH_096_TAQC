@@ -102,7 +102,7 @@ class User:
         """Init new user data"""
         self.id = id
         self.name = name
-        self.birthday = str(birthday) + "T00:00:00"
+        self.birthday = birthday + "T00:00:00"
         self.gender = gender
         self.payload_edit_gender = {
             "id": self.id,
@@ -225,17 +225,105 @@ class User:
         birthday = dictionary["name"]
         return birthday
 
-"""
-id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
-print(Header().get_token_admin())
-user = User(id, "Jesus", 2, "2001-06-04")
-print(user.get_info_by_id())
-user.edit_username()
-user.edit_gender()
-user.edit_birthday()
-print(user.get_info_by_id())
-user.back_username()
-user.back_gender()
-user.back_birthday()
-print(user.get_info_by_id())
-"""
+# id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
+# print(Header().get_token_admin())
+# user = User(id, "Jesus", 2, "2001-06-04")
+# print(user.get_info_by_id())
+# user.edit_username()
+# user.edit_gender()
+# user.edit_birthday()
+# print(user.get_info_by_id())
+# user.back_username()
+# user.back_gender()
+# user.back_birthday()
+# print(user.get_info_by_id())
+
+
+class User1:
+    """Class to test User API"""
+
+    def __init__(self, name):
+        """Init new user data"""
+        self.id = None  # "id": "a1d49d6a-f832-4f2a-32d4-08d79b47df59"
+        self.name = name  # UserTest
+        self.header = Header().get_header_auth_admin()
+
+    def block(self):
+        """
+        Block user by name
+        :param: username :type: str
+        :param: header :type: instance of Header()
+        :return: instance of response object
+        """
+        self.get_user_id()
+        payload_block_user = {"id": self.id}
+        print('***********', payload_block_user)
+        response = requests.post(
+            URL_USERS['url_block_user'],
+            data=json.dumps(
+                payload_block_user),
+            headers=self.header)
+        print(f"User {self.name} has blocked")
+        return response
+
+    def unblock(self):
+        """Unblock user by name
+        :param: username :type: str
+        :param: header :type: instance of Header()
+        :return: instance of response object
+        """
+        self.get_user_id()
+        payload_block_user = {"id": self.id}
+        print('------------', payload_block_user)
+
+        response = requests.post(
+                URL_USERS['url_unblock_user'],
+                data = json.dumps(
+                        payload_block_user),
+                headers = self.header)
+        print(f"User {self.name} has unblocked")
+        return response
+
+    def get_user_id(self):
+        """
+        API test. This method search a user by id
+        :param: username
+        :type: str
+        :param: header
+        :type: str
+        :return: user id
+        :type: str
+        """
+        response = requests.get(URL_USERS['url_search_users'],
+                                headers = self.header)
+        resp = response.json()
+        users_count = len(resp['items'])
+
+        for index in range(users_count):
+            if resp['items'][index]['username'] == self.name:
+                self.id = resp['items'][index]['id']
+                print('=========', self.id)
+        return self.id
+
+    def collect_users(self, response):
+        """
+        API test. This method search all users
+        :param: header :type: instance of Header()
+        :return: list of all users
+        :type: list of str
+        """
+
+        resp = response.json()
+        users_count = len(resp['items'])
+
+        users = []
+        for index in range(users_count):
+            users.append(resp['items'][index]['username'])
+
+        return users
+
+
+name = 'UserTest'
+user = User1(name)
+print(user.block())
+print(user.unblock())

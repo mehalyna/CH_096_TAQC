@@ -36,10 +36,6 @@ class BaseSetup():
          :param locators: css selector or xpath
          :return: webElements
         """
-        wait = WebDriverWait(self.driver, 30)
-        element = wait.until(
-            lambda driver: self.driver.find_elements(
-                *locators))
         wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements(
@@ -53,9 +49,6 @@ class BaseSetup():
         :return: webElement
         """
         wait = WebDriverWait(self.driver, 30)
-        element = wait.until(
-            lambda driver: self.driver.find_elements_by_tag_name(tag))
-        wait = WebDriverWait(self.driver, 10)
         element = wait.until(
             lambda driver: self.driver.find_elements_by_tag_name(tag))
         return element
@@ -112,14 +105,6 @@ class BaseSetup():
         :param locators: css selector or xpath
         :return: list of values of html_element
         """
-        wait = WebDriverWait(self.driver, 30)
-        lst = (
-            list(
-                lst_cat.get_attribute(ele_html)for lst_cat in wait.until(
-                    EC.visibility_of_all_elements_located(
-                        *
-                        locators))))
-        """get list of elements li, tr ...."""
         wait = WebDriverWait(self.driver, 10)
         lst = (
             list(
@@ -228,13 +213,12 @@ class BaseSetup():
             return False
 
     def check_if_element_exists(self, locator, timeout=5):
-        ''' Check the text attribute for an element as a criteria of existence.
-        Args: locator = tuple(By.selector, 'srt')
-              waiting time = 10 # int()
-        Returns text of element on success within timeout interval or
+        """ Check the text attribute for an element as a criteria of existence.
+        :param: locator = tuple(By.selector, 'str')
+        :param: waiting time = 10 # int()
+        :return: text of element on success within timeout interval or
         an empty string and print a message for a raised exception.
-        Explicit Waits method is used.
-        '''
+        """
 
         alert = f"Can't find element by locator {locator}"
         try:
@@ -252,8 +236,34 @@ class BaseSetup():
         Click on web element in drop down menu
         :param locator: css selector or xpath
         :param text: text
-        :return:
-        """""
+        :return: 
+        """
         select = Select(self.driver.find_element(*locator))
         elem = select.select_by_visible_text(text)
         elem.click()
+
+    def visibility_of_element(self, locator, timeout=5):
+        """
+        Check visibility for an element.
+           :Args: locator = tuple(By.selector, 'str')
+            waiting time = 10 # int()
+       """
+
+        alert = f"Can't find element by locator {locator}"
+        element = WebDriverWait(self.driver, timeout) \
+            .until(EC.visibility_of_element_located(locator),
+                   message=alert)
+        return element
+
+    def find_elements_new(self, locator):
+        """
+         Wrapper for  common selenium method find_element. Used explicit
+         wait for locating all elements specified by locator.
+         :param locator: css selector or xpath as a tuple
+         :return: webElements
+         Example of locator dictionary
+            'TABS_COUNT': (By.CSS_SELECTOR, 'button[id*="full"]')
+        """
+        return WebDriverWait(self.driver, 10).\
+            until(EC.presence_of_all_elements_located(locator))
+
