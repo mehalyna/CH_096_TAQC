@@ -44,7 +44,7 @@ class TestChat(unittest.TestCase):
         resp = response.status_code
         res = response.json()
         sender_name = res[0]['users'][1]['username']
-        self.assertEqual("User", sender_name, "You can't get all chat")
+        self.assertEqual("UserTest", sender_name, "You can't get all chat")
         self.assertEqual(200, resp, "You have BAD REQUEST")
 
     def test_get_chat_unauth(self):
