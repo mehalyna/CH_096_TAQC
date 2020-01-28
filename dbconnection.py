@@ -7,7 +7,6 @@ from datetime import datetime
 
 
 class Connection:
-
     def __init__(self):
         self.server = Db.server
         self.database = Db.database
@@ -40,23 +39,31 @@ class Connection:
         sex: 0=Other, 1=Male, 2=Female
         """
         self.cursor.execute(
-            f"UPDATE Users set Gender = '{sex}' where Name like '{name}'")
+            f"UPDATE Users set Gender = '{sex}' where Name like '{name}'"
+        )
         self.cursor.commit()
 
-    def create_event(self, title=event['Title'],
-                     disc=event['Descript'],
-                     date_from=event['DateFrom'],
-                     date_to=event['DateTo']):
+    def create_event(self,
+                     title=event["Title"],
+                     disc=event["Descript"],
+                     date_from=event["DateFrom"],
+                     date_to=event["DateTo"]):
+
         guid = uuid.uuid4()
         self.cursor.execute(f"""
                             INSERT INTO EventsExpress.dbo.Events
                             (Id,IsBlocked, Title, Description,
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
-                            '{date_from}', '{date_to}', '{event['CityId']}',
-                            '{event['PhotoId']}', '{event['UserId']}');
+                            '{date_from}', '{date_to}', '{event['CityId']}', 
+                            '{event['PhotoId']}', '{Connection().
+                            get_userId_by_name('Admin')}');
                             """)
         self.cursor.commit()
+
+    def get_id_event_by_name(self, name):
+        self.cursor.execute(f"SELECT Id FROM Events WHERE Name = '{name}'")
+        return str(self.cursor.fetchone()[0])
 
     def delete_event_with_name(self, name):
         self.cursor.execute(f"Delete from Events where Title like '{name}'")
@@ -66,9 +73,9 @@ class Connection:
         self.cursor.execute(f"Delete from Categories where Name like '{name}'")
         self.cursor.commit()
 
-    def edit_category_with_name(self, name, set):
+    def edit_category_with_name(self, name, newname):
         self.cursor.execute(
-            f"Update Categories set Name = '{set}' where Name like '{name}'")
+            f"Update Categories set Name = '{newname}' where Name like '{name}'")
         self.cursor.commit()
 
     def create_category_with_name(self, name):
@@ -81,12 +88,18 @@ class Connection:
         self.cursor.execute(f"select Id from Categories where Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
+    def get_userId_by_name(self, name):
+        self.cursor.execute(f"SELECT Id from Users where Name = '{name}'")
+        return str(self.cursor.fetchone()[0])
+
     def get_name_of_category_using_id(self, id):
-        self.cursor.execute(f"select Name from Categories where Id like ?", id)
+        self.cursor.execute(
+            f"select Name from Categories where Id like '{id}'")
         return str(self.cursor.fetchone()[0])
 
     def get_count_of_category_on_name(self, name):
-        self.cursor.execute(f"SELECT COUNT(1) FROM Categories WHERE Name like ?", name)
+        self.cursor.execute(
+            f"SELECT COUNT(1) FROM Categories WHERE Name like '{name}'")
         return str(self.cursor.fetchone()[0])
 
     def confirm_useremail_on_register(self, email):
@@ -114,6 +127,7 @@ class Connection:
             f"Delete from EventsExpress.dbo.Message where Text like '{mes}'")
         self.cursor.commit()
 
+
     def send_sql(self, execute):
         self.cursor.execute("{}".format(execute))
         self.cursor.commit()
@@ -121,5 +135,5 @@ class Connection:
     def close(self):
         self.conn.close()
 
-Connection().send_message()
+#Connection().send_message()
 # Connection().delete_mes_with_text()
