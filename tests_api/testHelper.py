@@ -1,7 +1,7 @@
-8import os
+import os
 import json
 import requests
-from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS,URL_EVENT
+from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER, URL_USERS, URL_EVENT
 
 
 class Header:
@@ -19,8 +19,9 @@ class Header:
         return header
 
     def get_header_auth_user(self):
-        response_decoded_json = requests.post(URL_AUTH['url_login'], data=json.dumps(AUTH_PAYLOADS['payload_user']),
-                                              headers=HEADER['header'])
+        response_decoded_json = requests.post(
+            URL_AUTH['url_login'], data=json.dumps(
+                AUTH_PAYLOADS['payload_user']), headers=HEADER['header'])
         h = json.loads(response_decoded_json.content.decode())
         auth = h["token"]
         header = {
@@ -42,8 +43,9 @@ class Header:
         return header
 
     def get_token_admin(self):
-        response_decoded_json = requests.post(URL_AUTH['url_login'], data=json.dumps(AUTH_PAYLOADS['payload_admin']),
-                                              headers=HEADER['header'])
+        response_decoded_json = requests.post(
+            URL_AUTH['url_login'], data=json.dumps(
+                AUTH_PAYLOADS['payload_admin']), headers=HEADER['header'])
         h = json.loads(response_decoded_json.content.decode())
         auth = h["token"]
         token = "Bearer " + auth
@@ -57,7 +59,7 @@ class Event():
     header = {
         'Content-Type': 'multipart/form-data',
         'Authorization': Header().get_token_admin()
-        }
+    }
 
     payload = {
         'Title': 'Test Event',
@@ -67,18 +69,24 @@ class Event():
         'User.Id': 'f320932e-aac2-4999-32d3-08d79b47df59',
         'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
         'Categories[0].Id': '60c56914-a974-4b4c-f461-08d79b47df60'
-        }
+    }
 
     files = {
-        #'Photo': open(os.path.join(CURRENT_PATH) + 'Data\\imageAddEvent\\testing_img.png','rb')
-        }
+        # 'Photo': open(os.path.join(CURRENT_PATH) + 'Data\\imageAddEvent\\testing_img.png','rb')
+    }
 
     def create(self):
-        response = requests.post(URL_EVENT['url_event_edit'], headers=self.header, data = self.payload, files = self.files)
-        print(URL_EVENT['url_event_edit'], self.header, self.payload, self.files)
+        response = requests.post(
+            URL_EVENT['url_event_edit'],
+            headers=self.header,
+            data=self.payload,
+            files=self.files)
+        print(
+            URL_EVENT['url_event_edit'],
+            self.header,
+            self.payload,
+            self.files)
         print(response)
-
-
 
     def get_token_admin(self):
         response_decoded_json = requests.post(
@@ -102,7 +110,7 @@ class User:
         """Init new user data"""
         self.id = id
         self.name = name
-        self.birthday = birthday + "T00:00:00"
+        self.birthday = str(birthday) + "T00:00:00"
         self.gender = gender
         self.payload_edit_gender = {
             "id": self.id,
@@ -164,6 +172,18 @@ class User:
         print("Дату відредаговано на ", self.birthday[:10])
         return response_decoded_json
 
+    def set_attitude(self, id, attitude):
+        """Set attitude to User from Vasya"""
+        response_decoded_json = requests.post(
+            URL_USERS['set_attitude'],
+            data=json.dumps({
+                "userFromId": self.id,
+                "userToId": id,
+                "attitude": attitude
+            }),
+            headers=Header().get_header_auth_vasya())
+        return response_decoded_json
+
     def back_username(self):
         """Return user name"""
         self.name = "Vasya"
@@ -196,11 +216,23 @@ class User:
             headers=Header().get_header_auth_vasya())
         print("Дату повернено на ", self.birthday[:10])
         return response_decoded_json
+    def back_attitude(self, id):
+        """Set attitude to User from Vasya"""
+        response_decoded_json = requests.post(
+            URL_USERS['set_attitude'],
+            data=json.dumps({
+                "userFromId": self.id,
+                "userToId": id,
+                "attitude": 2
+            }),
+            headers=Header().get_header_auth_vasya())
+        return response_decoded_json
 
     def get_info_by_id(self):
         """Get all user info by user-id"""
+        url = URL_USERS['user_by_id'] + self.id
         response_decoded_json = requests.get(
-            URL_USERS['user_by_id_vasya'],
+            url,
             headers=Header().get_header_auth_vasya())
         Json = response_decoded_json.content.decode()
         dictionary = json.loads(Json)
@@ -224,19 +256,21 @@ class User:
         birthday = dictionary["name"]
         return birthday
 
-# id = "05a469fe-8f90-479e-ed9a-08d7a0ce42ac"
-# print(Header().get_token_admin())
-# user = User(id, "Jesus", 2, "2001-06-04")
-# print(user.get_info_by_id())
-# user.edit_username()
-# user.edit_gender()
-# user.edit_birthday()
-# print(user.get_info_by_id())
-# user.back_username()
-# user.back_gender()
-# user.back_birthday()
-# print(user.get_info_by_id())
 
+"""
+id = "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878"
+print(Header().get_token_admin())
+user = User(id, "Jesus", 2, "2001-06-04")
+print(user.get_info_by_id())
+user.edit_username()
+user.edit_gender()
+user.edit_birthday()
+print(user.get_info_by_id())
+user.back_username()
+user.back_gender()
+user.back_birthday()
+print(user.get_info_by_id())
+"""
 
 class User1:
     """Class to test User API"""

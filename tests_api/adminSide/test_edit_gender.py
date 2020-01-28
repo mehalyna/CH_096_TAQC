@@ -1,86 +1,37 @@
-import json
 import unittest
-import requests
 import allure
-from tests_api.testHelper import UrlAuth, Header, AuthPayloads
+from tests_api.testHelper import User
 
 
-class TestAuth(unittest.TestCase):
+class TestEditGender(unittest.TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        pass
+    def setUp(self):
+        self.id = "e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878"
+        self.name = "Jesus"
+        self.gender = 2
+        self.birthday = "2001-06-04"
+        self.User = User(self.id, self.name, self.gender, self.birthday)
+        self.base_gender = self.User.get_gender()
 
-    @allure.suite('Tests Users')
-    @allure.severity(allure.severity_level.CRITICAL)
+    @allure.severity(allure.severity_level.NORMAL)
     @allure.link(
-        "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1",
+        "http://34.65.101.58:5002/admin/users?page=1",
         name='Click me')
-    def test_login_as_user_with_facebook(self):
-        response_decoded_json = requests.post(
-            UrlAuth.url_login_fb, data=json.dumps(
-                AuthPayloads.payload_user), headers=Header.header)
-        resp = response_decoded_json.json()
-        with allure.step("Verification user's name"):
+    def test_edit_g(self):
+        with allure.step("Edit user gender"):
+            self.User.edit_gender()
             self.assertEqual(
-                "UserTest",
-                resp["name"],
-                "You don't login with correct name")
-        with allure.step("Verification user's role"):
-            self.assertEqual(
-                "User",
-                resp["role"],
-                "You don't login with correct role")
-        with allure.step("Verification status code"):
-            self.assertEqual(
-                200,
-                response_decoded_json.status_code,
-                "You have BAD REQUEST")
+                self.User.get_gender(),
+                self.gender,
+                "Gender has not been changed to:{}".format(self.gender))
 
-    @allure.suite('Tests for loging with social network')
-    @allure.link(
-        "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1",
-        name='Click me')
-    @allure.story('Test loging with Facebook as admin')
-    def test_login_as_admin_with_facebook(self):
-        response_decoded_json = requests.post(
-            UrlAuth.url_login_fb, data=json.dumps(
-                AuthPayloads.payload_admin), headers=Header.header)
-        resp = response_decoded_json.json()
-        with allure.step("Verification admin's name"):
+    def tearDown(self):
+        with allure.step("Back user gender"):
+            self.User.back_gender()
             self.assertEqual(
-                "Admin",
-                resp["name"],
-                "You don't login with correct name")
-        with allure.step("Verification admin's role"):
-            self.assertEqual(
-                "Admin",
-                resp["role"],
-                "You don't login with correct role")
-        with allure.step("Verification status code"):
-            self.assertEqual(
-                200,
-                response_decoded_json.status_code,
-                "You have BAD REQUEST")
-
-    @allure.suite('Tests for loging with social network')
-    @allure.link(
-        "https://eventsexpress20200103054152.azurewebsites.net/home/events?page=1",
-        name='Click me')
-    @allure.story('Test loging with Google as admin')
-    def test_login_with_google(self):
-        response_decoded_json = requests.post(
-            UrlAuth.url_login_google, data=json.dumps(
-                AuthPayloads.payload_admin), headers=Header.header)
-        with allure.step("Verification status code"):
-            self.assertEqual(
-                400,
-                response_decoded_json.status_code,
-                "You have BAD REQUEST")
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
+                self.User.get_gender(),
+                self.base_gender,
+                "Gender has not been changed to:{}".format(self.base_gender))
 
 
 if __name__ == '__main__':
