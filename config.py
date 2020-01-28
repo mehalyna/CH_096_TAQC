@@ -103,3 +103,12 @@ CREATE_EVENT_SQL = {
         'Descript': 'Event for testing search',
         'Title': 'Test Event',
         }
+
+"""
+data for create message
+"""
+SEND_MESSAGE_SQL = {
+    'id_sender': '038F157B-C102-4578-6CFB-08D7A28D1878',
+    'text': 'test message',
+    'chat_room_id': 'f723480e-ad42-4ecb-fa3e-08d7a318593f'
+}

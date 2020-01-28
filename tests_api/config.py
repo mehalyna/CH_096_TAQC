@@ -52,11 +52,13 @@ USER_PAYLOADS = {
         "gender": "0"}}
 
 URL_CHAT = {
-    'id': "b410fa81-d64a-4572-2721-08d766a5bece",
+    'id': "f723480e-ad42-4ecb-fa3e-08d7a318593f",
+    'id_user': "a1d49d6a-f832-4f2a-32d4-08d79b47df55",
+    'id_admin': "038f157b-c102-4578-6cfb-08d7a28d1878",
     'all_chats': "http://34.65.101.58:5002/api/Chat/GetAllChats",
-    'get_chat': "http://localhost:50621/api/Chat/GetChat?chatId=b410fa81-d64a-4572-2721-08d766a5bece",
+    'get_chat': "http://34.65.101.58:5002/api/chat/GetChat?chatId=f723480e-ad42-4ecb-fa3e-08d7a318593f",
     'unread_messages_user':
-        "http://localhost:50621/api/Chat/GetUnreadMessages?userId=e948eb47-ef5b-4142-ab44-08d76385302a"
+        "http://34.65.101.58:5002/api/chat/GetUnreadMessages?userId=a1d49d6a-f832-4f2a-32d4-08d79b47df55"
 }
 URL_EVENT = {
     'url_event_edit': "http://34.65.101.58:5002/api/Event/Edit/"
