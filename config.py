@@ -119,3 +119,15 @@ INFO_MESSAGE_COMUNA = {
     'message_to_sent': 'hey',
     'verify_message': 'You have 1 unread messages'
 }
+
+INFO_REGISTRATION = {
+    'email_for_register': 'katya@gmail.com',
+    'password_for_register': 'popalava09',
+    'existing_mail': 'user@gmail.com',
+    'warning_message_about_exists_email': 'Email already exists in database',
+    'invalid_mail': 'usermail.com',
+    'warning_message_about_invalid_mail': 'Invalid email address',
+    'mail_for_invalid_pass': 'new@gmail.com',
+    'invalid_pass': '111',
+    'warning_message_about_invalid_pass': 'Must be 6 characters or more'
+}
