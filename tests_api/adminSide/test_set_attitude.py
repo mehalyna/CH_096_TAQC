@@ -18,7 +18,7 @@ class TestSetAttitude(unittest.TestCase):
         name='Click me')
     def test_set_attitude(self):
         id = "038f157b-c102-4578-6cfb-08d7a28d1878"
-        attitude = 0
+        attitude = 1
         with allure.step("Sett Attitude from user with ID {} to {}".format(self.id, id)):
             test = self.User.set_attitude(id, attitude)
             self.assertEqual(

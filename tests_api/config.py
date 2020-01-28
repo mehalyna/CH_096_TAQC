@@ -37,6 +37,7 @@ URL_USERS = {
     'edit_username': 'http://34.65.101.58:5002/api/Users/EditUsername',
     'edit_user_category': 'http://34.65.101.58:5002/api/Users/EditUserCategory',
     'edit_birthday': 'http://34.65.101.58:5002/api/Users/EditBirthday',
+    'set_attitude': 'http://34.65.101.58:5002/api/Users/SetAttitude',
     'url_search_users': "http://34.65.101.58:5002/api/Users/SearchUsers?page=1",
     'url_users': "http://34.65.101.58:5002/api/Users/Get?page=1",
     'url_unblock_user': "http://34.65.101.58:5002/api/Users/Unblock?page=1",
