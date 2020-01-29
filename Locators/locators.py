@@ -342,3 +342,31 @@ class EditYourProfile:
     CHANGE_PASSWORD = (
         By.XPATH,
         '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
+
+
+class Comuna:
+
+    COMUNA_NAV = (
+        By.XPATH,
+        "//span[text() = 'Comuna']"
+    )
+
+    USER_TEST_DIALOG = (
+        By.XPATH,
+        "//h5[text() = 'UserTest']"
+    )
+
+    DIALOG_INPUT = (
+        By.XPATH,
+        "//input[@class = 'MuiInputBase-input MuiInput-input']"
+    )
+
+    SEND = (
+        By.XPATH,
+        "//span[text() = 'Send']"
+    )
+
+    LAST_SENT_MESSAGE = (
+        By.XPATH,
+        "//span[@class = 'text-info']"
+    )
