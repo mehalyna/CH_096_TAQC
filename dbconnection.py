@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 class Connection:
+
     def __init__(self):
         self.server = Db.server
         self.database = Db.database
@@ -127,7 +128,6 @@ class Connection:
             f"Delete from EventsExpress.dbo.Message where Text like '{mes}'")
         self.cursor.commit()
 
-
     def send_sql(self, execute):
         self.cursor.execute("{}".format(execute))
         self.cursor.commit()
@@ -135,5 +135,3 @@ class Connection:
     def close(self):
         self.conn.close()
 
-#Connection().send_message()
-# Connection().delete_mes_with_text()
