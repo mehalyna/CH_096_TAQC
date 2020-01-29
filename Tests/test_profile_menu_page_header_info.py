@@ -1,6 +1,11 @@
+"""
+Test module for the header, displayed at profile page from navigation menu
+"""
 import pytest
 import allure
-from Data.test_data import ProfileMenuPageHeaderInfo as Data
+# from Data.test_data import PROFILE_MENU_INFO as Data
+from config import PROFILE_MENU_INFO as Data
+# from Locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
 from Locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
 
 
@@ -8,14 +13,21 @@ from Locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
 @pytest.mark.parametrize("userinfo_input", ['User Name:',
                                             'UserTest',
                                             'Age:',
-                                            '19',
+                                            '35',
                                             'Gender:',
                                             'Other',
                                             'Email:',
                                             'user@gmail.com',
                                             'Interests:'
                                             ])
-def test_event_menu_header_info_text(app, login, userinfo_input):
+@pytest.mark.usefixtures("login")
+def test_event_menu_header_info_text(app, userinfo_input):
+    """
+    A test for menu header text info.
+    :param app: instance of a page object, passed here as fixture
+    :param userinfo_input: parametrized test data as fixture
+    :return: assertion result
+    """
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(userinfo_input)
     userinfo_expected_value = userinfo_input
@@ -25,13 +37,15 @@ def test_event_menu_header_info_text(app, login, userinfo_input):
 
 
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.skip(reason='Postponded for USER_INTERESTS_DATA actualyzing')
-@pytest.mark.smoke
-def test_event_menu_header_info_text_interests(app, login, userinfo_input=Data.USER_INTERESTS_DATA):
-    """Check the Interests list"""
+@pytest.mark.parametrize('userinfo_input', list(Data['User_interests_data']))
+@pytest.mark.usefixtures("login")
+def test_event_menu_header_info_text_interests(app, userinfo_input):
+    """
+    Check the Interests list
+    """
     app.navigation.click_on_profile()
     actual_text = app.event_menu.get_text(Locator)
-    userinfo_expected_value = Data.USER_INTERESTS_DATA
+    userinfo_expected_value = Data['User_interests_data']
     assert actual_text in userinfo_expected_value, f"Text of {userinfo_input} item differs. \
                             The expected one is {userinfo_expected_value}  \
                             instead {actual_text} is displayed"

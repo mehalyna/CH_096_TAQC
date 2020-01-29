@@ -1,40 +1,44 @@
 import pytest
 import allure
+from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
-from utilities.testFrame import InitPages
 from Driver.driver import Driver
-from Data.test_data import Config
-from Data.credentials import user
-from Data.credentials import admin
+from config import CREDENTIALS, URL
 
+from Pages.init_pages import InitPages
+from dbconnection import Connection
 
 @pytest.fixture(scope='function')
 def driver_init(request):
     """
     Instantiate webdriver for selected browser and open homepage
     """
-    driver = Driver(Config.BROWSER).set_browser(Config.TEST_MODE)
+    driver = Driver(URL['Browser']).set_browser(URL['Test_mode'])
     driver.delete_all_cookies()
-    # driver.maximize_window()
-    driver.get(Config.HOME_URL)
+    driver.maximize_window()
+    driver.get(URL['Home_URL'])
     yield driver
     driver.close()
     driver.quit()
 
 @pytest.fixture(scope='function')
 def app(driver_init):
-    """Instantiate page objects for POM"""
+    """
+    Instantiate page objects for POM
+    """
     page_init = InitPages(driver_init)
     return page_init
 
 
 @pytest.fixture(scope='function')
 def login(app):
-    """Login as an user"""
     """
     Login as an user
     """
-    app.signin.enter_actor(user['email'], user['password'])
+    with allure.step('Login as a user'):
+        app.signin.enter_actor(CREDENTIALS['User_name'], CREDENTIALS['User_password'])
+        loger=PyLogging(__name__)
+        loger.info("Login as User")
 
 
 @pytest.fixture(scope='function')
@@ -42,8 +46,10 @@ def login_admin(app):
     """
     Login as an admin
     """
-    """Login as an admin"""
-    app.signin.enter_actor(admin['email'], admin['password'])
+    with allure.step('Login as an admin'):
+        app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
+        loger = PyLogging(__name__)
+        loger.info("Login as Admin")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -65,7 +71,6 @@ def pytest_runtest_makereport(item):
 
 @pytest.fixture(autouse=True)
 def screenshot_on_failure(request, driver_init):
-    """Make screen shot on a test failure"""
     """
     Make screenshot on a test failure
     """
@@ -73,14 +78,23 @@ def screenshot_on_failure(request, driver_init):
     yield
     # request.node is an "item" because we use the default
     # "function" scope
-    if request.node.rep_setup.failed:
-        print("setting up a test failed!", request.node.nodeid)
-        allure.attach(driver_init.get_screenshot_as_png(),
-                      name=request.function.__name__,
-                      attachment_type=AttachmentType.PNG)
-    elif request.node.rep_setup.passed:
-        if request.node.rep_call.failed:
-            print("executing test failed", request.node.nodeid)
+    with allure.step('Make screenshot'):
+        if request.node.rep_setup.failed:
+            print("setting up a test failed!", request.node.nodeid)
             allure.attach(driver_init.get_screenshot_as_png(),
                           name=request.function.__name__,
                           attachment_type=AttachmentType.PNG)
+        elif request.node.rep_setup.passed:
+            if request.node.rep_call.failed:
+                print("executing test failed", request.node.nodeid)
+                allure.attach(driver_init.get_screenshot_as_png(),
+                              name=request.function.__name__,
+                              attachment_type=AttachmentType.PNG)
+
+@pytest.fixture(scope='function')
+def delete_registered_user():
+    yield
+    with allure.step('Delete registered user'):
+        db = Connection()
+        db.delete_user_with_email("katya@gmail.com")
+        db.close()

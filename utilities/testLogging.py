@@ -1,10 +1,11 @@
+"""Logging"""
 import logging
 import os
 import datetime
 
 
 class PyLogging():
-    """"
+    """
     Logging for Pytests
     Class attributes:
     debugs - a list of all devug messages
@@ -41,9 +42,9 @@ class PyLogging():
         self.log_fname = os.path.join(
             self.dir, '{}-{}.log'.format(self.test_name, self.time))
         print("Log file:", self.log_fname)
-        self.logtrace_fname = os.path.join(
-            self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
-        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
+        # self.logtrace_fname = os.path.join(
+        #    self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
+        #self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
         self.c_handler = logging.StreamHandler()
         self.f_handler = logging.FileHandler(self.log_fname)
         self.c_handler.setLevel(logging.DEBUG)
@@ -114,7 +115,11 @@ class PyLogging():
         """
         Function to record console traces into new .log file.
         """
+
         logger = logging.getLogger(self.test_name + "Trace")
+        self.logtrace_fname = os.path.join(
+            self.dir, '{}-Traceback-{}.log'.format(self.test_name, self.time))
+        self.f_trace_handler = logging.FileHandler(self.logtrace_fname)
         self.f_trace_handler.setLevel(logging.ERROR)
         self.f_trace_handler.setFormatter(self.f_format)
         logger.addHandler(self.f_trace_handler)
