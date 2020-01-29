@@ -7,7 +7,7 @@ URL = {
     'Test_mode': False,
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
-    'Browser': 'Firefox'
+    'Browser': 'Chrome'
 }
 
 """
@@ -23,7 +23,8 @@ CREDENTIALS = {
 Test data for 'Contact us' page
 """
 CONTACT_US = {
-    'Description_for_contact': 'You have problems with some users and theirs events!'}
+    'Description_for_contact': 'You have problems with some users and theirs events!'
+}
 """
 Test data for userinfo header from profile menu - events panels page
 """

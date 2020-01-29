@@ -30,7 +30,10 @@ class TestChat(unittest.TestCase):
         resp = response.status_code
         res = response.json()
         sender_name = res[0]['users'][0]['username']
-        self.assertEqual("Admin", sender_name, f"You can't get all chat as user {sender_name}")
+        self.assertEqual(
+            "Admin",
+            sender_name,
+            f"You can't get all chat as user {sender_name}")
         self.assertEqual(200, resp, "You have BAD REQUEST")
 
     def test_get_chat_admin(self):
@@ -44,7 +47,10 @@ class TestChat(unittest.TestCase):
         resp = response.status_code
         res = response.json()
         sender_name = res[0]['users'][1]['username']
-        self.assertEqual("UserTest", sender_name, f"You can't get all chat as user {sender_name}")
+        self.assertEqual(
+            "UserTest",
+            sender_name,
+            f"You can't get all chat as user {sender_name}")
         self.assertEqual(200, resp, "You have BAD REQUEST")
 
     def test_get_chat_unauth(self):

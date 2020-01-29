@@ -11,8 +11,8 @@ class Config: # pylint: disable=too-few-public-methods
 
     TEST_MODE = False  # False
     HOME_URL = "http://34.65.101.58:5002/home/events/?page=1"
-    # BROWSER = 'Chrome'
-    BROWSER = 'Firefox'
+    BROWSER = 'Chrome'
+    #BROWSER = 'Firefox'
 
 
 class CreateEventData(): # pylint: disable=too-few-public-methods

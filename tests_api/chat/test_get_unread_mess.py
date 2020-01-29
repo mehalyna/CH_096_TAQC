@@ -29,7 +29,10 @@ class TestChat(unittest.TestCase):
             headers=self.header_user)
         res = response.json()
         mes_text = res[0]["text"]
-        self.assertEqual(res[0]["text"], "test message", f"Text don't equal to: {mes_text} ")
+        self.assertEqual(
+            res[0]["text"],
+            "test message",
+            f"Text don't equal to: {mes_text} ")
         self.assertEqual(res[0]["seen"], False)
         self.assertEqual(200, response.status_code, "You have BAD REQUEST")
 
