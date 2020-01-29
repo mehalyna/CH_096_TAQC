@@ -17,7 +17,6 @@ WORKDIR $WORKSPACE/CH_096_TAQC
 RUN ls
 RUN pwd
 
-# RUN apt-get install build-essential libssl-dev libffi-dev python3-dev
 # Create venv
 RUN pip install -r requirements.txt
 
