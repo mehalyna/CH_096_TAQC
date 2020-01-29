@@ -103,7 +103,7 @@ class User:
 
     def __init__(
             self,
-            id="05a469fe-8f90-479e-ed9a-08d7a0ce42ac",
+            id="e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878",
             name='Vasya',
             gender=0,
             birthday="2000-01-01"):
@@ -152,22 +152,24 @@ class User:
             headers=Header().get_header_auth_vasya())
         print("Гендер змінено")
 
-    def edit_username(self):
+    def edit_username(self,username):
         """Edit user name"""
+        self.name = username
         response_decoded_json = requests.post(
             URL_USERS['edit_username'],
             data=json.dumps(
-                self.payload_edit_username),
+                self.PAYLOAD_edit_username()),
             headers=Header().get_header_auth_vasya())
         print("Ім'я змінено")
         return response_decoded_json
 
-    def edit_birthday(self):
+    def edit_birthday(self,birthday):
         """Edit user birthday"""
+        self.birthday = birthday
         response_decoded_json = requests.post(
             URL_USERS['edit_birthday'],
             data=json.dumps(
-                self.payload_edit_birthday),
+                self.PAYLOAD_edit_birthday()),
             headers=Header().get_header_auth_vasya())
         print("Дату відредаговано на ", self.birthday[:10])
         return response_decoded_json
@@ -356,7 +358,7 @@ class User1:
         return users
 
 
-name = 'UserTest'
-user = User1(name)
-print(user.block())
-print(user.unblock())
+#name = 'UserTest'
+#user = User1(name)
+#print(user.block())
+#print(user.unblock())

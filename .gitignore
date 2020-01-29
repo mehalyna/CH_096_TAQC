@@ -114,3 +114,4 @@ venv.bak/
 *.pyc
 *.pyc
 credentials.py
+/Bot/Telebot.py
