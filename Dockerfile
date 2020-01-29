@@ -3,16 +3,17 @@
 
 FROM python:3.7
 
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F
-
+# hkp://ipv4.pool.sks-keyservers.net
 RUN apt-get update\
     && apt-get install -y software-properties-common python3-pip build-essential libssl-dev libffi-dev python3.7-dev \
     && apt-get install -y unixodbc-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Firefox browser
-RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu bionic main"
-RUN apt update && apt install -y firefox
+# RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu bionic main"
+# RUN apt update && apt install -y firefox
 
 ENV GIT_URL https://github.com/mehalyna/CH_096_TAQC.git
 # ENV PATH_PROJECT /CH_096_TAQC
