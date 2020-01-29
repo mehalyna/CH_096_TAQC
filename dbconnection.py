@@ -55,7 +55,7 @@ class Connection:
                             (Id,IsBlocked, Title, Description,
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
-                            '{date_from}', '{date_to}', '{event['CityId']}', 
+                            '{date_from}', '{date_to}', '{event['CityId']}',
                             '{event['PhotoId']}', '{Connection().
                             get_userId_by_name('Admin')}');
                             """)
@@ -127,7 +127,6 @@ class Connection:
             f"Delete from EventsExpress.dbo.Message where Text like '{mes}'")
         self.cursor.commit()
 
-
     def send_sql(self, execute):
         self.cursor.execute("{}".format(execute))
         self.cursor.commit()
@@ -135,5 +134,5 @@ class Connection:
     def close(self):
         self.conn.close()
 
-#Connection().send_message()
+# Connection().send_message()
 # Connection().delete_mes_with_text()
