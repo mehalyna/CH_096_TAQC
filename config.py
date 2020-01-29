@@ -95,7 +95,6 @@ CATEGORIESPAGE = {'category_old': 'Hello',
 
 '''data for create new event'''
 CREATE_EVENT_SQL = {
-        'UserId': 'f320932e-aac2-4999-32d3-08d79b47df59',
         'PhotoId': 'D1933101-E4B2-4664-2629-08D7A0033B62',
         'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
         'DateFrom': '2020-02-08',
@@ -103,3 +102,12 @@ CREATE_EVENT_SQL = {
         'Descript': 'Event for testing search',
         'Title': 'Test Event',
         }
+
+"""
+data for create message
+"""
+SEND_MESSAGE_SQL = {
+    'id_sender': '038F157B-C102-4578-6CFB-08D7A28D1878',
+    'text': 'test message',
+    'chat_room_id': 'f723480e-ad42-4ecb-fa3e-08d7a318593f'
+}

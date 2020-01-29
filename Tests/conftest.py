@@ -21,6 +21,7 @@ def driver_init(request):
     driver.close()
     driver.quit()
 
+
 @pytest.fixture(scope='function')
 def app(driver_init):
     """
@@ -50,6 +51,18 @@ def login_admin(app):
         app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
         loger = PyLogging(__name__)
         loger.info("Login as Admin")
+
+
+@pytest.fixture(scope='function')
+def create_event():
+    """
+    Create event
+    """
+    with allure.step('Create event'):
+        db = Connection()
+        db.create_event()
+        loger = PyLogging(__name__)
+        loger.info("Create Event")
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -98,3 +111,16 @@ def delete_registered_user():
         db = Connection()
         db.delete_user_with_email("katya@gmail.com")
         db.close()
+
+    
+@pytest.fixture(scope='function')
+def delete_event():
+    """
+    Delete event
+    """
+    yield
+    with allure.step('Create event'):
+        db = Connection()
+        db.delete_event_with_name ("Test Event")
+        loger = PyLogging(__name__)
+        loger.info("Delete event")

@@ -3,13 +3,14 @@
 Reports_Allure
 Logs
 .pytest_cache
-.pylintrc
+/.pylintrc
 .gitignore
 /credentials.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
@@ -110,6 +111,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-/cred.py
-/Data/credentials.py
-/sdf..py
+*.pyc
+*.pyc
+credentials.py
