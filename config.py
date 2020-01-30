@@ -4,7 +4,7 @@ TEST_MODE set to True, runs rests in silent mode: no UI while testing
 import os
 
 URL = {
-    'Test_mode': False,
+    'Test_mode': True,
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
     'Browser': 'Firefox'
