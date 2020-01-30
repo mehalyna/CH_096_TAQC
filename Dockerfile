@@ -25,5 +25,6 @@ RUN mkdir Reports_Allure && mkdir Logs
 WORKDIR $WORKSPACE/CH_096_TAQC/Tests
 RUN ls
 RUN pwd
+ENV TEST_COLLECTION
 # ENTRYPOINT ["/bin/bash"]
-CMD ["py.test", "-v", "--rootdir=Tests", "--alluredir=/CH_096_TAQC/Reports_Allure"]
+CMD ["py.test", "\Tests", "--alluredir=\CH_096_TAQC\Reports_Allure"]
