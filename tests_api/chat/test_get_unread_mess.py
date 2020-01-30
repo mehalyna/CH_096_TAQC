@@ -3,6 +3,7 @@ Api tests for getting chat with unread messages
 """
 import unittest
 import requests
+import allure
 from tests_api.config import URL_CHAT
 from tests_api.testHelper import Header
 from dbconnection import Connection
@@ -19,6 +20,10 @@ class TestChat(unittest.TestCase):
         cls.header_admin = Header().get_header_auth_admin()
         cls.create_mes = Connection().send_message()
 
+    @allure.link(
+        "http://34.65.101.58:5002/contactUs",
+        name='"Contact us" page')
+    @allure.severity(allure.severity_level.CRITICAL)
     def test_chat_user_with_admin(self):
         """
         Test for getting user's chat, that contain unread messages
