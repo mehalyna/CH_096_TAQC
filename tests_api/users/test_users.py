@@ -6,7 +6,7 @@ import requests
 import allure
 from tests_api.config import URL_USERS
 from tests_api.testHelper import Header
-from tests_api.testHelper import UserEditByAdmin  # pylint: disable=import-error
+from tests_api.testHelper import EditUserByAdmin  # pylint: disable=import-error
 
 
 # pylint: disable=too-few-public-methods
@@ -28,7 +28,7 @@ class TestUsers(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.header = Header().get_header_auth_admin()
-        cls.user = UserEditByAdmin(Data.USERNAME)
+        cls.user = EditUserByAdmin(Data.USERNAME)
 
     @allure.severity(allure.severity_level.CRITICAL)
     def test_search_users(self):
