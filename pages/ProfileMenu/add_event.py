@@ -2,6 +2,7 @@ from locators.locators import CreateEvent
 from data.test_data import CreateEventData
 from selenium.webdriver.common.keys import Keys
 import random
+from config import CREATE_EVENT
 
 event = CREATE_EVENT
 
