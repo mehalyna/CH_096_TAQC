@@ -112,5 +112,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 *.pyc
-*.pyc
 credentials.py
