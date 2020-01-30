@@ -44,8 +44,8 @@ PROFILE_MENU_INFO = {
 
 """This test data using for creating event"""
 CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
-image = 'Data\\imageAddEvent\\EarthGarden.jpg'
-image1 = 'Data\\imageAddEvent\\Mysteryland.jpg'
+image = 'data\\imageAddEvent\\EarthGarden.jpg'
+image1 = 'data\\imageAddEvent\\Mysteryland.jpg'
 path_to_picture = os.path.join(CURRENT_PATH, image1)
 CREATE_EVENT = {'title': 'Sensation WHITE',
                 'title1' : 'MYSTERYLAND MUSIC FESTIVAL',
@@ -60,7 +60,7 @@ CREATE_EVENT = {'title': 'Sensation WHITE',
                 }
 
 """
-Testdata: Locators for event's menu class ProfilePageEventsMenuLocators
+Testdata: locators for event's menu class ProfilePageEventsMenuLocators
 """
 PROFILE_PAGE_EVENTS_MENU = {'FUTURE_EVENTS': 'FUTURE EVENTS',
                             'ARCHIVE_EVENTS': 'ARCHIVE EVENTS',

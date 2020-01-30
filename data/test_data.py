@@ -50,7 +50,7 @@ class PROFILE_MENU_INFO:
 
 class PROFILE_PAGE_EVENTS_MENU:  # pylint: disable=too-few-public-methods
     """
-    Testdata: Locators for event's menu.
+    Testdata: locators for event's menu.
     class ProfilePageEventsMenuLocators
     """
     FUTURE_EVENTS = 'FUTURE EVENTS'

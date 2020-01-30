@@ -3,10 +3,10 @@ Test module for the header, displayed at profile page from navigation menu
 """
 import pytest
 import allure
-# from Data.test_data import PROFILE_MENU_INFO as Data
+# from data.test_data import PROFILE_MENU_INFO as data
 from config import PROFILE_MENU_INFO as Data
-# from Locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
-from Locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
+# from locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
+from locators.locators import ProfileMenuPageHeaderInfoLocators as Locator
 
 
 @allure.severity(allure.severity_level.TRIVIAL)

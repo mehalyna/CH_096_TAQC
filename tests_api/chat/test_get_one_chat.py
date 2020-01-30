@@ -22,7 +22,6 @@ class TestChat(unittest.TestCase):
     def test_chat_user_with_admin(self):
         """
         Test for getting user's chat with admin
-        :return:
         """
         response = requests.get(URL_CHAT['get_chat'], headers=self.header_user)
         resp = response.json()
@@ -33,7 +32,6 @@ class TestChat(unittest.TestCase):
     def test_chat_admin_with_user(self):
         """
         Test for getting admin's chat with user
-        :return:
         """
         response = requests.get(
             URL_CHAT['get_chat'],
@@ -45,7 +43,6 @@ class TestChat(unittest.TestCase):
     def test_chat_unauth(self):
         """
         Negative test for getting one chat, when user not authorized
-        :return:
         """
         response = requests.get(URL_CHAT['get_chat'])
         resp = response.status_code

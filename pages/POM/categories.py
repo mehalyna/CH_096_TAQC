@@ -1,7 +1,7 @@
 """Methods for Categories page"""
 import time
-from Locators.locators import CategoriesLocators
-from Locators.locators import NavigationMenuLocators
+from locators.locators import CategoriesLocators
+from locators.locators import NavigationMenuLocators
 from selenium.webdriver.common.keys import Keys
 
 

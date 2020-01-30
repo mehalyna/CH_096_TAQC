@@ -1,4 +1,4 @@
-from Locators.locators import EventsMenuLocators, ProfileMenuPageHeaderInfoLocators
+from locators.locators import EventsMenuLocators, ProfileMenuPageHeaderInfoLocators
 
 
 class EventsMenu:

@@ -2,10 +2,10 @@ import pytest
 import allure
 from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
-from Driver.driver import Driver
+from driver.driver import Driver
 from config import CREDENTIALS, URL
 
-from Pages.init_pages import InitPages
+from pages.init_pages import InitPages
 from dbconnection import Connection
 
 @pytest.fixture(scope='function')

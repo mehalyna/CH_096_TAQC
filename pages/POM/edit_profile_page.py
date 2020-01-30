@@ -1,5 +1,5 @@
-from Locators.locators import EditYourProfile, NavigationMenuLocators
-from Data.test_data import EditProfileData
+from locators.locators import EditYourProfile, NavigationMenuLocators
+from data.test_data import EditProfileData
 
 class EditProfile():
 

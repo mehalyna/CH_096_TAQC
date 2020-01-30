@@ -22,7 +22,6 @@ class TestChat(unittest.TestCase):
     def test_get_chat_user(self):
         """
         Test for getting all user's chats
-        :return:
         """
         response = requests.get(
             URL_CHAT['all_chats'],
@@ -39,7 +38,6 @@ class TestChat(unittest.TestCase):
     def test_get_chat_admin(self):
         """
         Test for getting all admin's chats
-        :return:
         """
         response = requests.get(
             URL_CHAT['all_chats'],
@@ -56,7 +54,6 @@ class TestChat(unittest.TestCase):
     def test_get_chat_unauth(self):
         """
         Negative test for getting all chats, when user not authorized
-        :return:
         """
         response = requests.get(URL_CHAT['all_chats'])
         resp = response.status_code

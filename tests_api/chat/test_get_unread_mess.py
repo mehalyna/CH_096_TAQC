@@ -22,7 +22,6 @@ class TestChat(unittest.TestCase):
     def test_chat_user_with_admin(self):
         """
         Test for getting user's chat, that contain unread messages
-        :return:
         """
         response = requests.get(
             URL_CHAT['unread_messages_user'],

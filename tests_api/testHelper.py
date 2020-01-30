@@ -72,7 +72,7 @@ class Event():
     }
 
     files = {
-        # 'Photo': open(os.path.join(CURRENT_PATH) + 'Data\\imageAddEvent\\testing_img.png','rb')
+        # 'Photo': open(os.path.join(CURRENT_PATH) + 'data\\imageAddEvent\\testing_img.png','rb')
     }
 
     def create(self):
