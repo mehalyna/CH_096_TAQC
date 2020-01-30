@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 class Connection:
+
     def __init__(self):
         self.server = Db.server
         self.database = Db.database
