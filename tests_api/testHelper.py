@@ -272,7 +272,7 @@ user.back_birthday()
 print(user.get_info_by_id())
 """
 
-class User1:
+class EditUserByAdmin:
     """Class to test User API"""
 
     def __init__(self, name):
