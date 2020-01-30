@@ -26,6 +26,7 @@ class TestChat(unittest.TestCase):
         """
         response = requests.get(URL_CHAT['get_chat'], headers=self.header_user)
         resp = response.json()
+        print(resp)
         self.assertEqual(resp["id"], URL_CHAT['id'], "You can't get chat")
         self.assertEqual(200, response.status_code, "You have BAD REQUEST")
 

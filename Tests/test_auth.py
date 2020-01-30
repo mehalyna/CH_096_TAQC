@@ -18,7 +18,6 @@ def credentials():
 @allure.link("http://localhost:50621/home/events?page=1", name='Click me')
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
-@pytest.mark.parametrize('data',credentials())
 @allure.severity(allure.severity_level.CRITICAL)
 def test_authorization(app, data):
     """Test auth"""

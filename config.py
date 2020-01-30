@@ -33,12 +33,12 @@ PROFILE_MENU_INFO = {
     'User_age_label': 'Age',
     'User_age_data': '35',
     'User_gender_label': 'Gender:',
-    'User_gender_data': 'Other',
+    'User_gender_data': 'Female',
     'User_email_label': 'Email:',
     'User_email_data': 'user@gmail.com',
     'User_interests_label': 'Interests:',
-    'User_interests_data': {'Mount', 'Golf', '#Team-Building', '#Swimming',
-                            '#Gaming', '#Sea', '#Summer'}
+    'User_interests_data': {'Mount', 'Golf', 'Team-Building', 'Swimming',
+                            'Gaming', 'Sea', 'Summer'}
     }
 
 """This test data using for creating event"""
@@ -95,7 +95,6 @@ CATEGORIESPAGE = {'category_old': 'Hello',
 
 '''data for create new event'''
 CREATE_EVENT_SQL = {
-        'UserId': 'f320932e-aac2-4999-32d3-08d79b47df59',
         'PhotoId': 'D1933101-E4B2-4664-2629-08D7A0033B62',
         'CityId': '418ad80a-85da-4033-f8df-08d79b47df2b',
         'DateFrom': '2020-02-08',
@@ -105,10 +104,30 @@ CREATE_EVENT_SQL = {
         }
 
 """
-data for create message
+data for create message using api
 """
 SEND_MESSAGE_SQL = {
     'id_sender': '038F157B-C102-4578-6CFB-08D7A28D1878',
     'text': 'test message',
     'chat_room_id': 'f723480e-ad42-4ecb-fa3e-08d7a318593f'
+}
+
+"""
+data for comuna test
+"""
+INFO_MESSAGE_COMUNA = {
+    'message_to_sent': 'hey',
+    'verify_message': 'You have 1 unread messages'
+}
+
+INFO_REGISTRATION = {
+    'email_for_register': 'katya@gmail.com',
+    'password_for_register': 'popalava09',
+    'existing_mail': 'user@gmail.com',
+    'warning_message_about_exists_email': 'Email already exists in database',
+    'invalid_mail': 'usermail.com',
+    'warning_message_about_invalid_mail': 'Invalid email address',
+    'mail_for_invalid_pass': 'new@gmail.com',
+    'invalid_pass': '111',
+    'warning_message_about_invalid_pass': 'Must be 6 characters or more'
 }

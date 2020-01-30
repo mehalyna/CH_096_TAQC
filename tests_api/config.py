@@ -62,5 +62,19 @@ URL_CHAT = {
         "http://34.65.101.58:5002/api/chat/GetUnreadMessages?userId=a1d49d6a-f832-4f2a-32d4-08d79b47df55"
 }
 URL_EVENT = {
-    'url_event_edit': "http://34.65.101.58:5002/api/Event/Edit/"
+    'event_edit': "http://34.65.101.58:5002/api/Event/Edit/",
+    'block_event': "http://34.65.101.58:5002/api/Event/Block",
+    'unblock_event': "http://34.65.101.58:5002/api/Event/Unblock",
+    'add_user_to_event': "http://34.65.101.58:5002/api/Event/AddUserToEvent",
+    'delete_user_from_event': "http://34.65.101.58:5002/api/Event/DeleteUserFromEvent",
+    'set_rating': "http://34.65.101.58:5002/api/Event/SetRate",
+    'get_event': "http://34.65.101.58:5002/api/Event/Get",
+    'get_all_event': "http://34.65.101.58:5002/api/Event/All",
+    'get_rating_event': "http://34.65.101.58:5002/api/Event/GetAverageRate"
+}
+
+EVENT_PAYLOAD = {
+    'eventId': "?eventId=",
+    'blocked': "?Blocked=True&",
+    'page': "Page=1"
 }

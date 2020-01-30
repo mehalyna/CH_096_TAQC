@@ -177,10 +177,10 @@ class ContactUsPageLocators:
     LIST = (By.CSS_SELECTOR, ".form-control")
 
 
-# user communication page
 class ComunaPageLocators:
     """
     Locators for Comuna Page.
+    user communication page
     """
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
     SEND_MESSAGE_FIELD = (
@@ -263,7 +263,7 @@ class ProfileMenuPageHeaderInfoLocators:
         PROFILE_MENU_INFO.USER_INTERESTS_LABEL:
             (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4'),
         'USER_INTERESTS_DATA':
-            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-4')
+            (By.CSS_SELECTOR, '.row:nth-child(5) > .col-8')
     }
 
 
@@ -342,3 +342,31 @@ class EditYourProfile:
     CHANGE_PASSWORD = (
         By.XPATH,
         '/html/body/div[1]/div[3]/div/div[6]/div[1]/div[1]/p')
+
+
+class Comuna:
+
+    COMUNA_NAV = (
+        By.XPATH,
+        "//span[text() = 'Comuna']"
+    )
+
+    USER_TEST_DIALOG = (
+        By.XPATH,
+        "//h5[text() = 'UserTest']"
+    )
+
+    DIALOG_INPUT = (
+        By.XPATH,
+        "//input[@class = 'MuiInputBase-input MuiInput-input']"
+    )
+
+    SEND = (
+        By.XPATH,
+        "//span[text() = 'Send']"
+    )
+
+    LAST_SENT_MESSAGE = (
+        By.XPATH,
+        "//span[@class = 'text-info']"
+    )
