@@ -38,8 +38,8 @@ def login(app):
     """
     with allure.step('Login as a user'):
         app.signin.enter_actor(CREDENTIALS['User_name'], CREDENTIALS['User_password'])
-        loger=PyLogging(__name__)
-        loger.info("Login as User")
+        # loger=PyLogging(__name__)
+        # loger.info("Login as User")
 
 
 @pytest.fixture(scope='function')
@@ -49,8 +49,8 @@ def login_admin(app):
     """
     with allure.step('Login as an admin'):
         app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
-        loger = PyLogging(__name__)
-        loger.info("Login as Admin")
+        # loger = PyLogging(__name__)
+        # loger.info("Login as Admin")
 
 
 @pytest.fixture(scope='function')
