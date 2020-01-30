@@ -14,6 +14,7 @@ RUN apt update && apt install -y firefox
 # Get POM and tests from git
 RUN git clone https://github.com/mehalyna/CH_096_TAQC.git
 WORKDIR $WORKSPACE/CH_096_TAQC
+COPY credentials.py $WORKSPACE/CH_096_TAQC
 RUN pwd
 
 # Create venv
@@ -25,6 +26,6 @@ RUN mkdir Reports_Allure && mkdir Logs
 WORKDIR $WORKSPACE/CH_096_TAQC/Tests
 RUN ls
 RUN pwd
-ENV TEST_COLLECTION="\Tests"
+ENV TEST_COLLECTION="/Tests"
 # ENTRYPOINT ["/bin/bash"]
-CMD ["py.test", "\Tests", "--alluredir=\CH_096_TAQC\Reports_Allure"]
+CMD ["py.test", "/Tests", "--alluredir=/CH_096_TAQC/Reports_Allure"]
