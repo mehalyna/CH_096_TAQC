@@ -1,7 +1,7 @@
 """Test possibility to create , edit and delete category."""
 import allure
 import pytest
-from utilities.testLogging import PyLogging
+from utilities.testLogging import loger
 from config import CATEGORIESPAGE
 
 
@@ -20,17 +20,16 @@ def test_edit_category(app):
     """
     category_old = CATEGORIESPAGE['category_old']
     category_new = CATEGORIESPAGE['category_new']
-    loger = PyLogging('Categories')
-    loger.info("New test:{}".format(__name__))
+    msg="New test:{}".format(__name__)
+    loger('Category', 'info', msg)
     app.navigation.click_on_categories()
     app.categories.edit_category(category_old, category_new)
     if app.categories.check_category_added(category_new):
-        loger.info("Done!")
+        loger('Category', 'info', 'Done!')
     else:
-        loger.error(
-            "Category {} was not edited to {}".format(
-                category_old, category_new))
+        msg="Category {} was not edited to {}".format(category_old, category_new)
+        loger('Category', 'error', msg)
         assert False, "Category {} was not edited to {}".format(
             category_old, category_new)
-    loger.info("Test End")
+    loger('Category', 'info', 'Test End')
     print("Exit")

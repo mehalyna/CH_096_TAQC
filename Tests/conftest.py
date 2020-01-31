@@ -1,12 +1,13 @@
 import pytest
 import allure
-from utilities.testLogging import PyLogging
+from utilities.testLogging import loger
 from allure_commons.types import AttachmentType
 from Driver.driver import Driver
-from config import CREDENTIALS, URL ,CATEGORIESPAGE
+from config import CREDENTIALS, URL, CATEGORIESPAGE
 
 from Pages.init_pages import InitPages
 from dbconnection import Connection
+
 
 @pytest.fixture(scope='function')
 def driver_init(request):
@@ -37,9 +38,10 @@ def login(app):
     Login as an user
     """
     with allure.step('Login as a user'):
-        app.signin.enter_actor(CREDENTIALS['User_name'], CREDENTIALS['User_password'])
-        loger=PyLogging(__name__)
-        loger.info("Login as User")
+        app.signin.enter_actor(
+            CREDENTIALS['User_name'],
+            CREDENTIALS['User_password'])
+        loger('Login', 'info', 'Login as User')
 
 
 @pytest.fixture(scope='function')
@@ -48,9 +50,10 @@ def login_admin(app):
     Login as an admin
     """
     with allure.step('Login as an admin'):
-        app.signin.enter_actor(CREDENTIALS['Admin_name'], CREDENTIALS['Admin_password'])
-        loger = PyLogging(__name__)
-        loger.info("Login as Admin")
+        app.signin.enter_actor(
+            CREDENTIALS['Admin_name'],
+            CREDENTIALS['Admin_password'])
+        loger('Login','info','Login as Admin')
 
 
 @pytest.fixture(scope='function')
@@ -104,6 +107,7 @@ def screenshot_on_failure(request, driver_init):
                               name=request.function.__name__,
                               attachment_type=AttachmentType.PNG)
 
+
 @pytest.fixture(scope='function')
 def delete_registered_user():
     """
@@ -113,11 +117,10 @@ def delete_registered_user():
     with allure.step('Delete registered user'):
         db = Connection()
         db.delete_user_with_email("katya@gmail.com")
-        loger = PyLogging(__name__)
-        loger.info("Deleting user")
+        loger(__name__,'info','Delete User')
         db.close()
 
-    
+
 @pytest.fixture(scope='function')
 def delete_event():
     """
@@ -126,9 +129,10 @@ def delete_event():
     yield
     with allure.step('Create event'):
         db = Connection()
-        db.delete_event_with_name ("Test Event")
-        loger = PyLogging(__name__)
-        loger.info("Delete event")
+        db.delete_event_with_name("Test Event")
+        loger(__name__,'info','Delete Event')
+
+
 @pytest.fixture(scope='function')
 def create_category():
     """
@@ -137,8 +141,10 @@ def create_category():
     with allure.step('Create category {}'.format(CATEGORIESPAGE['category_old'])):
         db = Connection()
         db.create_category_with_name(CATEGORIESPAGE['category_old'])
-        loger = PyLogging("Categories")
-        loger.info("Create Category {}".format(CATEGORIESPAGE['category_old']))
+        msg="Create Category {}".format(CATEGORIESPAGE['category_old'])
+        loger('Category', 'info', msg)
+
+
 @pytest.fixture(scope='function')
 def delete_category():
     """
@@ -148,5 +154,5 @@ def delete_category():
     with allure.step('Delete category {}'.format(CATEGORIESPAGE['category_new'])):
         db = Connection()
         db.delete_category_with_name(CATEGORIESPAGE['category_new'])
-        loger = PyLogging("Categories")
-        loger.info("Delete Category {}".format(CATEGORIESPAGE['category_new']))
+        msg="Delete Category {}".format(CATEGORIESPAGE['category_new'])
+        loger('Category', 'info', msg)
