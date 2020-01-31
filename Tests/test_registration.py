@@ -1,6 +1,6 @@
 import pytest
 import allure
-from Locators.locators import NavigationMenuLocators
+from locators.locators import NavigationMenuLocators
 from dbconnection import Connection
 locator = NavigationMenuLocators
 from config import INFO_REGISTRATION as info

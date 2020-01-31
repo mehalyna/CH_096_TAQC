@@ -2,7 +2,7 @@
 import pytest
 import allure
 from config import CREDENTIALS
-from Locators.locators import NavigationMenuLocators
+from locators.locators import NavigationMenuLocators
 
 
 locator = NavigationMenuLocators

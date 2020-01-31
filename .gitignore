@@ -1,7 +1,7 @@
 .idea
 .vscode
-Reports_Allure
-Logs
+reports_allure
+logs
 .pytest_cache
 /.pylintrc
 .gitignore

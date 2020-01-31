@@ -1,7 +1,7 @@
 """
 Base functions for 'Contact us' page
 """
-from Locators.locators import ContactUsPageLocators, NavigationMenuLocators
+from locators.locators import ContactUsPageLocators, NavigationMenuLocators
 from config import CONTACT_US
 
 

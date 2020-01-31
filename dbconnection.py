@@ -56,7 +56,7 @@ class Connection:
                             (Id,IsBlocked, Title, Description,
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
-                            '{date_from}', '{date_to}', '{event['CityId']}', 
+                            '{date_from}', '{date_to}', '{event['CityId']}',
                             '{event['PhotoId']}', '{Connection().
                             get_userId_by_name('Admin')}');
                             """)
