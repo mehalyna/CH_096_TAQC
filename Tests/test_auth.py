@@ -19,7 +19,6 @@ def credentials():
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.parametrize('data', credentials())
 def test_authorization(app, data):
     """Test auth"""
     app.auth.click_on_login_button()
