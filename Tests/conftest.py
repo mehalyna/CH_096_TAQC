@@ -3,7 +3,7 @@ import allure
 from utilities.testLogging import PyLogging
 from allure_commons.types import AttachmentType
 from Driver.driver import Driver
-from config import CREDENTIALS, URL
+from config import CREDENTIALS, URL ,CATEGORIESPAGE
 
 from Pages.init_pages import InitPages
 from dbconnection import Connection
@@ -129,3 +129,24 @@ def delete_event():
         db.delete_event_with_name ("Test Event")
         loger = PyLogging(__name__)
         loger.info("Delete event")
+@pytest.fixture(scope='function')
+def create_category():
+    """
+    Create Category
+    """
+    with allure.step('Create category {}'.format(CATEGORIESPAGE['category_old'])):
+        db = Connection()
+        db.create_category_with_name(CATEGORIESPAGE['category_old'])
+        loger = PyLogging("Categories")
+        loger.info("Create Category {}".format(CATEGORIESPAGE['category_old']))
+@pytest.fixture(scope='function')
+def delete_category():
+    """
+    Delete Category
+    """
+    yield
+    with allure.step('Delete category {}'.format(CATEGORIESPAGE['category_new'])):
+        db = Connection()
+        db.delete_category_with_name(CATEGORIESPAGE['category_new'])
+        loger = PyLogging("Categories")
+        loger.info("Delete Category {}".format(CATEGORIESPAGE['category_new']))
