@@ -1,5 +1,5 @@
 from selenium.webdriver.common.keys import Keys
-from Locators.locators import SearchEventPanelLocators as locator
+from locators.locators import SearchEventPanelLocators as locator
 
 
 class SearchEventMenu():

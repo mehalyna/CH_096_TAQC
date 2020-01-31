@@ -5,7 +5,7 @@ import base64
 
 # This directory is where you have all your results locally, generally
 # named as `allure-results`
-allureResultsDirectory = '/Reports_Allure'
+allureResultsDirectory = '/reports_allure'
 # This url is where the Allure container is deployed. We are using
 # localhost as example
 allureServer = 'http://192.168.99.100:5050'

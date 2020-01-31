@@ -3,7 +3,7 @@ Test for checking if button 'Clear' working properly
 """
 import allure
 import pytest
-from Locators.locators import ContactUsPageLocators as locator
+from locators.locators import ContactUsPageLocators as locator
 
 
 @allure.suite('Tests for "Contact us page"')

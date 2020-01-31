@@ -37,8 +37,8 @@ class PyLogging():
                 os.getcwd() +
                 os.sep +
                 os.pardir),
-            'Logs')
-        print("Logs directory:", self.dir)
+            'logs')
+        print("logs directory:", self.dir)
         self.log_fname = os.path.join(
             self.dir, '{}-{}.log'.format(self.test_name, self.time))
         print("Log file:", self.log_fname)
