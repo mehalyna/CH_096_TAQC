@@ -1,4 +1,4 @@
-from locators.locators import ProfileMenuLocators
+from Locators.locators import ProfileMenuLocators
 
 
 class ProfileMenu:

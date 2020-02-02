@@ -3,8 +3,8 @@
 locators for Selenium WebDriver
 """
 from selenium.webdriver.common.by import By
-from data.test_data import PROFILE_PAGE_EVENTS_MENU
-from data.test_data import PROFILE_MENU_INFO
+from Data.test_data import PROFILE_PAGE_EVENTS_MENU
+from Data.test_data import PROFILE_MENU_INFO
 
 class HomePageLocators:
     """

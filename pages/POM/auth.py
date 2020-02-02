@@ -1,7 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 
-from locators.locators import LoginPageLocators
-from locators.locators import RegisterLocators
+from Locators.locators import LoginPageLocators
+from Locators.locators import RegisterLocators
 
 
 class Auth():

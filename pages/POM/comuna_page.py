@@ -1,4 +1,4 @@
-from locators.locators import Comuna
+from Locators.locators import Comuna
 
 
 class Comunication():

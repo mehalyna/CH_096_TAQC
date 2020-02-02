@@ -19,12 +19,15 @@ def credentials():
 @allure.feature('Login User')
 @allure.story('"Actors" login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_authorization(app, data):
-    """Test auth"""
+@pytest.mark.parametrize("name, password", [('user@gmail.com', '1qaz1qaz'),('admin@gmail.com', '1qaz1qaz')])
+def test_authorization(app, name, password):
+    """
+    Test auth
+    """
     app.auth.click_on_login_button()
     app.auth.clean_login_field()
-    app.auth.type_login(data[0])
+    app.auth.type_login(name)
     app.auth.clean_password_field()
-    app.auth.type_pass(data[1])
+    app.auth.type_pass(password)
     app.auth.press_button_signin()
     assert app.base.check_if_element_exists(locator.PROFILE)

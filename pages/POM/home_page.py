@@ -1,4 +1,4 @@
-from locators.locators import HomePageLocators
+from Locators.locators import HomePageLocators
 
 
 class Home():

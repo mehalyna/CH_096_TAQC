@@ -1,4 +1,4 @@
-from locators.locators import NavigationMenuLocators
+from Locators.locators import NavigationMenuLocators
 
 
 
