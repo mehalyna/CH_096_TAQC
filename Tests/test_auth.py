@@ -1,11 +1,12 @@
 """Test auth"""
+
 import pytest
 import allure
 from config import CREDENTIALS
-from locators.locators import NavigationMenuLocators
+from locators.locators import HomePageLocators
 
 
-locator = NavigationMenuLocators
+locator = HomePageLocators
 
 
 def credentials():
@@ -16,18 +17,14 @@ def credentials():
 
 
 @allure.link("http://localhost:50621/home/events?page=1", name='Click me')
-@allure.feature('Login User')
-@allure.story('"Actors" login to site EventExpress ')
+@allure.feature('Actors login')
+@allure.story('"Actors" can perform login to site EventExpress ')
 @allure.severity(allure.severity_level.CRITICAL)
-@pytest.mark.parametrize("name, password", [('user@gmail.com', '1qaz1qaz'),('admin@gmail.com', '1qaz1qaz')])
-def test_authorization(app, name, password):
+@pytest.mark.parametrize("name, password, username", [('user@gmail.com', '1qaz1qaz', 'UserTest'),
+                                                      ('admin@gmail.com', '1qaz1qaz', 'Admin')])
+def test_authorization(app, name, password, username):
     """
-    Test auth
+    Test for authorization
     """
-    app.auth.click_on_login_button()
-    app.auth.clean_login_field()
-    app.auth.type_login(name)
-    app.auth.clean_password_field()
-    app.auth.type_pass(password)
-    app.auth.press_button_signin()
-    assert app.base.check_if_element_exists(locator.PROFILE)
+    app.auth.fill_login_data(name, password)
+    assert app.base.get_element_text(locator.NAME_USER) == username

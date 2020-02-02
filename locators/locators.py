@@ -25,6 +25,8 @@ class HomePageLocators:
         By.XPATH,
         '//div[@class="mb-2"]'
     )
+    NAME_USER = (By.XPATH,
+                 '//*[@id="root"]/div[2]/div/div/div/h4')
 
 
 class EventPageLocators:

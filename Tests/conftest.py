@@ -3,8 +3,7 @@ import allure
 from utilities.testLogging import loger
 from allure_commons.types import AttachmentType
 from driver.driver import Driver
-from config import CREDENTIALS, URL,CATEGORIESPAGE
-
+from config import CREDENTIALS, URL, CATEGORIESPAGE
 from pages.init_pages import InitPages
 from dbconnection import Connection
 
@@ -53,7 +52,7 @@ def login_admin(app):
         app.signin.enter_actor(
             CREDENTIALS['Admin_name'],
             CREDENTIALS['Admin_password'])
-        loger('Login','info','Login as Admin')
+        loger('Login', 'info', 'Login as Admin')
 
 
 @pytest.fixture(scope='function')
@@ -108,7 +107,7 @@ def screenshot_on_failure(request, driver_init):
                               attachment_type=AttachmentType.PNG)
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture()
 def delete_registered_user():
     """
     Delete user
@@ -117,7 +116,7 @@ def delete_registered_user():
     with allure.step('Delete registered user'):
         db = Connection()
         db.delete_user_with_email("katya@gmail.com")
-        loger(__name__,'info','Delete User')
+        loger(__name__, 'info', 'Delete User')
         db.close()
 
 
@@ -130,7 +129,7 @@ def delete_event():
     with allure.step('Create event'):
         db = Connection()
         db.delete_event_with_name("Test Event")
-        loger(__name__,'info','Delete Event')
+        loger(__name__, 'info', 'Delete Event')
 
 
 @pytest.fixture(scope='function')
@@ -141,7 +140,7 @@ def create_category():
     with allure.step('Create category {}'.format(CATEGORIESPAGE['category_old'])):
         db = Connection()
         db.create_category_with_name(CATEGORIESPAGE['category_old'])
-        msg="Create Category {}".format(CATEGORIESPAGE['category_old'])
+        msg = "Create Category {}".format(CATEGORIESPAGE['category_old'])
         loger('Category', 'info', msg)
 
 
@@ -154,5 +153,5 @@ def delete_category():
     with allure.step('Delete category {}'.format(CATEGORIESPAGE['category_new'])):
         db = Connection()
         db.delete_category_with_name(CATEGORIESPAGE['category_new'])
-        msg="Delete Category {}".format(CATEGORIESPAGE['category_new'])
+        msg = "Delete Category {}".format(CATEGORIESPAGE['category_new'])
         loger('Category', 'info', msg)
