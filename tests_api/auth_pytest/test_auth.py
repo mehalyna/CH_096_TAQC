@@ -7,9 +7,8 @@ import pytest
 from tests_api.config import URL_AUTH, AUTH_PAYLOADS, HEADER
 
 
-@pytest.mark.usefixtures('header_admin_and_connect_db')
 @pytest.mark.usefixtures('delete_user_and_close_conn')
-class TestSomething:
+class TestAuth():
     @allure.feature("Login admin api")
     @allure.story('Admin have an ability to login in EventExpress site')
     @allure.severity(allure.severity_level.CRITICAL)
