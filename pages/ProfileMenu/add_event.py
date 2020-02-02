@@ -1,4 +1,4 @@
-from Locators.locators import CreateEvent
+from locators.locators import CreateEvent
 from config import CREATE_EVENT
 from selenium.webdriver.common.keys import Keys
 import random
