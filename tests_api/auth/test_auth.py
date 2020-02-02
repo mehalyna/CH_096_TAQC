@@ -11,7 +11,6 @@ class TestAuth(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.header = Header().get_header_auth_admin()
-        cls.conn = Connection()
 
     def test_login_admin(self):
         response_decoded_json = requests.post(URL_AUTH['url_login'], data=json.dumps(AUTH_PAYLOADS['payload_admin']),
