@@ -72,7 +72,7 @@ class Event():
     }
 
     files = {
-        # 'Photo': open(os.path.join(CURRENT_PATH) + 'Data\\imageAddEvent\\testing_img.png','rb')
+        # 'Photo': open(os.path.join(CURRENT_PATH) + 'data\\imageAddEvent\\testing_img.png','rb')
     }
 
     def create(self):
@@ -103,7 +103,7 @@ class User:
 
     def __init__(
             self,
-            id="05a469fe-8f90-479e-ed9a-08d7a0ce42ac",
+            id="e02dfd94-a8a9-4b1a-6cfc-08d7a28d1878",
             name='Vasya',
             gender=0,
             birthday="2000-01-01"):
@@ -143,31 +143,34 @@ class User:
             "birthday": self.birthday}
         return PAYLOAD_edit_birthday
 
-    def edit_gender(self):
+    def edit_gender(self, gender):
         """Edit user gender"""
+        self.gender = gender
         response_decoded_json = requests.post(
             URL_USERS['edit_gender'],
             data=json.dumps(
-                self.payload_edit_gender),
+                self.PAYLOAD_edit_gender()),
             headers=Header().get_header_auth_vasya())
         print("Гендер змінено")
 
-    def edit_username(self):
+    def edit_username(self, username):
         """Edit user name"""
+        self.name = username
         response_decoded_json = requests.post(
             URL_USERS['edit_username'],
             data=json.dumps(
-                self.payload_edit_username),
+                self.PAYLOAD_edit_username()),
             headers=Header().get_header_auth_vasya())
         print("Ім'я змінено")
         return response_decoded_json
 
-    def edit_birthday(self):
+    def edit_birthday(self, birthday):
         """Edit user birthday"""
+        self.birthday = birthday
         response_decoded_json = requests.post(
             URL_USERS['edit_birthday'],
             data=json.dumps(
-                self.payload_edit_birthday),
+                self.PAYLOAD_edit_birthday()),
             headers=Header().get_header_auth_vasya())
         print("Дату відредаговано на ", self.birthday[:10])
         return response_decoded_json
@@ -184,38 +187,6 @@ class User:
             headers=Header().get_header_auth_vasya())
         return response_decoded_json
 
-    def back_username(self):
-        """Return user name"""
-        self.name = "Vasya"
-        response_decoded_json = requests.post(
-            URL_USERS['edit_username'],
-            data=json.dumps(
-                self.PAYLOAD_edit_username()),
-            headers=Header().get_header_auth_vasya())
-        print("Ім'я вернулось")
-        return response_decoded_json
-
-    def back_gender(self):
-        """Return user data"""
-        self.gender = 0
-        response_decoded_json = requests.post(
-            URL_USERS['edit_gender'],
-            data=json.dumps(
-                self.PAYLOAD_edit_gender()),
-            headers=Header().get_header_auth_vasya())
-        print("Гендер вернувся")
-        return response_decoded_json
-
-    def back_birthday(self):
-        """Return user birthday"""
-        self.birthday = "2000-01-01T00:00:00"
-        response_decoded_json = requests.post(
-            URL_USERS['edit_birthday'],
-            data=json.dumps(
-                self.PAYLOAD_edit_birthday()),
-            headers=Header().get_header_auth_vasya())
-        print("Дату повернено на ", self.birthday[:10])
-        return response_decoded_json
     def back_attitude(self, id):
         """Set attitude to User from Vasya"""
         response_decoded_json = requests.post(
@@ -272,7 +243,8 @@ user.back_birthday()
 print(user.get_info_by_id())
 """
 
-class EditUserByAdmin:
+
+class User1:
     """Class to test User API"""
 
     def __init__(self, name):
@@ -310,10 +282,10 @@ class EditUserByAdmin:
         print('------------', payload_block_user)
 
         response = requests.post(
-                URL_USERS['url_unblock_user'],
-                data = json.dumps(
-                        payload_block_user),
-                headers = self.header)
+            URL_USERS['url_unblock_user'],
+            data=json.dumps(
+                payload_block_user),
+            headers=self.header)
         print(f"User {self.name} has unblocked")
         return response
 
@@ -328,7 +300,7 @@ class EditUserByAdmin:
         :type: str
         """
         response = requests.get(URL_USERS['url_search_users'],
-                                headers = self.header)
+                                headers=self.header)
         resp = response.json()
         users_count = len(resp['items'])
 
@@ -355,9 +327,8 @@ class EditUserByAdmin:
 
         return users
 
-"""
-name = 'UserTest'
-user = User1(name)
-print(user.block())
-print(user.unblock())
-"""
+
+#name = 'UserTest'
+#user = User1(name)
+# print(user.block())
+# print(user.unblock())

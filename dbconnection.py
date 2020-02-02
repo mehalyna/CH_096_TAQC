@@ -56,7 +56,7 @@ class Connection:
                             (Id,IsBlocked, Title, Description,
                             DateFrom, DateTo, CityId, PhotoId, OwnerId)
                             VALUES('{guid}', 0, '{title}', '{disc}',
-                            '{date_from}', '{date_to}', '{event['CityId']}', 
+                            '{date_from}', '{date_to}', '{event['CityId']}',
                             '{event['PhotoId']}', '{Connection().
                             get_userId_by_name('Admin')}');
                             """)
@@ -66,7 +66,7 @@ class Connection:
         self.cursor.execute(f"SELECT Id FROM Events WHERE Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
-    def delete_event_with_name(self, name):
+    def delete_event_with_name(self, name=event["Title"]):
         self.cursor.execute(f"Delete from Events where Title like '{name}'")
         self.cursor.commit()
 

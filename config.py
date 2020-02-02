@@ -7,7 +7,7 @@ URL = {
     'Test_mode': True,
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
-    'Browser': 'Firefox'
+    'Browser': 'Chrome'
 }
 
 """
@@ -23,7 +23,8 @@ CREDENTIALS = {
 Test data for 'Contact us' page
 """
 CONTACT_US = {
-    'Description_for_contact': 'You have problems with some users and theirs events!'}
+    'Description_for_contact': 'You have problems with some users and theirs events!'
+}
 """
 Test data for userinfo header from profile menu - events panels page
 """
@@ -43,8 +44,8 @@ PROFILE_MENU_INFO = {
 
 """This test data using for creating event"""
 CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
-image = 'Data\\imageAddEvent\\EarthGarden.jpg'
-image1 = 'Data\\imageAddEvent\\Mysteryland.jpg'
+image = 'data\\imageAddEvent\\EarthGarden.jpg'
+image1 = 'data\\imageAddEvent\\Mysteryland.jpg'
 path_to_picture = os.path.join(CURRENT_PATH, image1)
 CREATE_EVENT = {'title': 'Sensation WHITE',
                 'title1' : 'MYSTERYLAND MUSIC FESTIVAL',
@@ -59,7 +60,7 @@ CREATE_EVENT = {'title': 'Sensation WHITE',
                 }
 
 """
-Testdata: Locators for event's menu class ProfilePageEventsMenuLocators
+Testdata: locators for event's menu class ProfilePageEventsMenuLocators
 """
 PROFILE_PAGE_EVENTS_MENU = {'FUTURE_EVENTS': 'FUTURE EVENTS',
                             'ARCHIVE_EVENTS': 'ARCHIVE EVENTS',
@@ -123,6 +124,7 @@ INFO_MESSAGE_COMUNA = {
 INFO_REGISTRATION = {
     'email_for_register': 'katya@gmail.com',
     'password_for_register': 'popalava09',
+    'username': 'katya',
     'existing_mail': 'user@gmail.com',
     'warning_message_about_exists_email': 'Email already exists in database',
     'invalid_mail': 'usermail.com',

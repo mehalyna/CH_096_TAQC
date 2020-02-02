@@ -19,7 +19,7 @@ class TestEditGender(unittest.TestCase):
         name='Click me')
     def test_edit_g(self):
         with allure.step("Edit user gender"):
-            self.User.edit_gender()
+            self.User.edit_gender(self.gender)
             self.assertEqual(
                 self.User.get_gender(),
                 self.gender,
@@ -27,7 +27,7 @@ class TestEditGender(unittest.TestCase):
 
     def tearDown(self):
         with allure.step("Back user gender"):
-            self.User.back_gender()
+            self.User.edit_gender(self.base_gender)
             self.assertEqual(
                 self.User.get_gender(),
                 self.base_gender,

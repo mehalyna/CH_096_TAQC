@@ -1,6 +1,6 @@
 import pytest
 import allure
-from Data.test_data import PROFILE_PAGE_EVENTS_MENU as Data
+from data.test_data import PROFILE_PAGE_EVENTS_MENU as Data
 
 
 @allure.suite('Tests for "Events_menu page"')

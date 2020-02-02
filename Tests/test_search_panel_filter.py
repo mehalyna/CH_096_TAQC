@@ -1,6 +1,7 @@
 # test Search event by date
 import allure
 import pytest
+#from utilities.testLogging import PyLogging
 
 
 @allure.feature('Search field')

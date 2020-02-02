@@ -1,14 +1,14 @@
 # pylint: disable=too-few-public-methods
 """
-Locators for Selenium WebDriver
+locators for Selenium WebDriver
 """
 from selenium.webdriver.common.by import By
-from Data.test_data import PROFILE_PAGE_EVENTS_MENU
-from Data.test_data import PROFILE_MENU_INFO
+from data.test_data import PROFILE_PAGE_EVENTS_MENU
+from data.test_data import PROFILE_MENU_INFO
 
 class HomePageLocators:
     """
-    Locators for home page for admin, register user, unregister user
+    locators for home page for admin, register user, unregister user
     for checking Events
     """
     PAGINATION_BUTTONN = (
@@ -25,11 +25,13 @@ class HomePageLocators:
         By.XPATH,
         '//div[@class="mb-2"]'
     )
+    NAME_USER = (By.XPATH,
+                 '//*[@id="root"]/div[2]/div/div/div/h4')
 
 
 class EventPageLocators:
     """
-    Locators for fetch information about event: title, date,
+    locators for fetch information about event: title, date,
     description, category
     """
     TITLE = (By.XPATH, '//span[@class="title"]')
@@ -41,7 +43,7 @@ class EventPageLocators:
 
 class LoginPageLocators:
     """
-    Locators for login page.
+    locators for login page.
     """
     # button for opening form of authorization
     SIGNINTAB = (
@@ -63,7 +65,7 @@ class LoginPageLocators:
 
 class RegisterLocators:
     """
-    Locators for registration form.
+    locators for registration form.
     """
     REGISTER = (
         By.CSS_SELECTOR,
@@ -81,7 +83,7 @@ class RegisterLocators:
 
 class NavigationMenuLocators:
     """
-    Locators for right Navigation menu.
+    locators for right Navigation menu.
     """
     Home = (By.CSS_SELECTOR, "nav ul.list-unstyled .sidebar-header:nth-child(1)")
     PROFILE = (
@@ -111,7 +113,7 @@ class NavigationMenuLocators:
 # search available on every page of EventExpress
 class SearchEventPanelLocators:
     """
-    Locators for searching and filter functionality.
+    locators for searching and filter functionality.
     """
     SEARCH_FIELD = (
         By.CSS_SELECTOR, ".MuiInputBase-input")
@@ -150,7 +152,7 @@ class SearchEventPanelLocators:
 
 class SearchEventData:
     """
-    Locators for search element functionality.
+    locators for search element functionality.
     """
     NAV_PANEL = (By.CSS_SELECTOR, ".flex-column > div:nth-child(4)")
     NAME_EVENT = (
@@ -161,7 +163,7 @@ class SearchEventData:
 # page for communication users with admins
 class ContactUsPageLocators:
     """
-    Locators for Contact Us Page.
+    locators for Contact Us Page.
     """
     USERNAME = (
         By.CSS_SELECTOR,
@@ -179,7 +181,7 @@ class ContactUsPageLocators:
 
 class ComunaPageLocators:
     """
-    Locators for Comuna Page.
+    locators for Comuna Page.
     user communication page
     """
     SELECT_CORRESPONDENCE = (By.CSS_SELECTOR, 'button > div')
@@ -241,7 +243,7 @@ class EventsMenuLocators:
 
 class ProfileMenuPageHeaderInfoLocators:
     """
-    Locators for user info page header (central header).
+    locators for user info page header (central header).
     """
     locators_dict = {
         PROFILE_MENU_INFO.USER_NAME_LABEL:
@@ -269,7 +271,7 @@ class ProfileMenuPageHeaderInfoLocators:
 
 class CartPanelsAtProfilePageLocators:
     """
-    Locators for Event menu object.
+    locators for Event menu object.
     """
     # child(cart_index). cart_index = 0 - EMPTY; >0 carts
     # User
@@ -311,7 +313,7 @@ class CreateEvent:
 
 class CategoriesLocators:
     """
-    Locators for Categories Page.
+    locators for Categories Page.
     """
     ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.fa-plus-circle')
     # ADD_CATEGORY_BUTTON = (By.CSS_SELECTOR, '.f-plus-circle')
@@ -324,7 +326,7 @@ class CategoriesLocators:
 
 class EditYourProfile:
     """
-    Locators for Edit Profile Page.
+    locators for Edit Profile Page.
     """
     EDIT_PROFILE = (By.CSS_SELECTOR, ':nth-child(1) > button')
     CHANGE_AVATAR = (

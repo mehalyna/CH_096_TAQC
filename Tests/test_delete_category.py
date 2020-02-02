@@ -2,7 +2,7 @@
 import allure
 import pytest
 
-from Data.test_data import CategoriesPage
+from data.test_data import CategoriesPage
 
 
 @allure.link("http://34.65.101.58:5002/admin/categories/", name='Click me')
