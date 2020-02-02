@@ -59,7 +59,7 @@ class TestAuth():
                                               headers=HEADER['header'])
         assert 200 == response_decoded_json.status_code
 
-    @pytest.mark.skip("there is no correct way to verify using response or db that password changed")
+    @pytest.mark.skip("there is no correct way to verify by api or db that password changed")
     def test_change_password(self):
         response_decoded_json = requests.post(URL_AUTH['url_change_password'],
                                               data=json.dumps(AUTH_PAYLOADS['payload_change_password']),

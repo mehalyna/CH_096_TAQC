@@ -2,10 +2,10 @@ import pytest
 import allure
 from utilities.testLogging import loger
 from allure_commons.types import AttachmentType
-from Driver.driver import Driver
+from driver.driver import Driver
 from config import CREDENTIALS, URL,CATEGORIESPAGE
 
-from Pages.init_pages import InitPages
+from pages.init_pages import InitPages
 from dbconnection import Connection
 
 
