@@ -1,8 +1,8 @@
 import pytest
 import allure
-from locators.locators import NavigationMenuLocators
+from locators.locators import HomePageLocators
 from dbconnection import Connection
-locator = NavigationMenuLocators
+locator = HomePageLocators
 from config import INFO_REGISTRATION as info
 
 
@@ -22,7 +22,7 @@ def test_registration(app):
     with allure.step("fill login form"):
         app.auth.fill_login_data(info['email_for_register'], info['password_for_register'])
     with allure.step("Verify successfully login"):
-        assert app.base.check_if_element_exists(locator.PROFILE)
+        assert app.base.get_element_text(locator.NAME_USER) == info['username']
 
 
 @allure.link("http://34.65.101.58:5002/home/events?page=1", name='Click me')
