@@ -12,12 +12,11 @@ URL_CATEGORY = {
 }
 
 AUTH_PAYLOADS = {
-    'payload_admin': {
-        "Email": "admin@gmail.com", "Password": "1qaz1qaz"}, 'payload_user': {
-            "Email": "user@gmail.com", "Password": "1qaz1qaz"}, 'payload_vasya': {
-                "Email": "vasya@gmail.com", "Password": "1qaz1qaz"}, 'payload_unauth': {
-                    "Email": "katya@gmail.com", "Password": "123456"}, 'payload_change_password': {
-                        "oldPassword": "1qaz1qaz", "newPassword": "1qaz1qaz1", "repeatPassword": "1qaz1qaz1"}}
+    'payload_admin': {"Email": "admin@gmail.com", "Password": "1qaz1qaz"},
+    'payload_user': {"Email": "user@gmail.com", "Password": "1qaz1qaz"},
+    'payload_vasya': {"Email": "vasya@gmail.com", "Password": "1qaz1qaz"},
+    'payload_unauth': {"Email": "katya@gmail.com", "Password": "123456"},
+    'payload_change_password': {"oldPassword": "1qaz1qaz", "newPassword": "1qaz1qaz1", "repeatPassword": "1qaz1qaz1"}}
 
 CATEGORY_PAYLOADS = {
     'category_to_edit': {
