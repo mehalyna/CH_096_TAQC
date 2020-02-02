@@ -1,16 +1,16 @@
 """ POM init """
-from Base.base import BaseSetup
-from Pages.POM.auth import Auth
-from Pages.POM.home_page import Home
-from Pages.POM.sign_in import SignInUpClass
-from Pages.POM.navigationMenu import NavigationMenu
-from Pages.POM.profile_menu_page import ProfileMenu
-from Pages.POM.searchPanelPage import SearchEventMenu
-from Pages.POM.categories import Categories
-from Pages.ProfileMenu.add_event import CreateEvents
-from Pages.POM.event_menu_page import EventsMenu
-from Pages.POM.contact_us_page import ContactUs
-from Pages.POM.comuna_page import Comunication
+from base.base import BaseSetup
+from pages.POM.auth import Auth
+from pages.POM.home_page import Home
+from pages.POM.sign_in import SignInUpClass
+from pages.POM.navigationMenu import NavigationMenu
+from pages.POM.profile_menu_page import ProfileMenu
+from pages.POM.searchPanelPage import SearchEventMenu
+from pages.POM.categories import Categories
+from pages.ProfileMenu.add_event import CreateEvents
+from pages.POM.event_menu_page import EventsMenu
+from pages.POM.contact_us_page import ContactUs
+from pages.POM.comuna_page import Comunication
 
 
 class InitPages:

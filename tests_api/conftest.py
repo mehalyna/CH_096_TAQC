@@ -9,6 +9,10 @@ def header_admin():
     header = Header().get_header_auth_admin()
     return header
 
+@pytest.fixture()
+def header_user():
+    header = Header().get_header_auth_user()
+    return header
 
 @pytest.fixture()
 def get_conn():
@@ -43,3 +47,11 @@ def fixture_category_api():
 #     conn.delete_category_with_name("category to be deleted")
 #     conn.edit_category_with_name("MountNew", "Mount")
 #     conn.close()
+
+@pytest.fixture(scope='class')
+def fixture_chat_api():
+    conn = Connection()
+    conn.send_message()
+    yield
+    conn.delete_mes_with_text()
+    conn.close()
