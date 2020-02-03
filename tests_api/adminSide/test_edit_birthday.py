@@ -19,7 +19,7 @@ class TestEditBirthday(unittest.TestCase):
         name='Click me')
     def test_edit_b(self):
         with allure.step("Edit user birthday"):
-            self.User.edit_birthday()
+            self.User.edit_birthday(self.birthday)
             self.assertEqual(
                 self.User.get_birthday(),
                 self.birthday,
@@ -28,7 +28,7 @@ class TestEditBirthday(unittest.TestCase):
 
     def tearDown(self):
         with allure.step("Back user birthday"):
-            self.User.back_birthday()
+            self.User.edit_birthday(self.base_birthday)
             self.assertEqual(
                 self.User.get_birthday(),
                 self.base_birthday,

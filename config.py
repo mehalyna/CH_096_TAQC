@@ -124,6 +124,7 @@ INFO_MESSAGE_COMUNA = {
 INFO_REGISTRATION = {
     'email_for_register': 'katya@gmail.com',
     'password_for_register': 'popalava09',
+    'username': 'katya',
     'existing_mail': 'user@gmail.com',
     'warning_message_about_exists_email': 'Email already exists in database',
     'invalid_mail': 'usermail.com',

@@ -19,7 +19,7 @@ class TestEditUsername(unittest.TestCase):
         name='Click me')
     def test_edit_u(self):
         with allure.step("Edit username"):
-            self.User.edit_username()
+            self.User.edit_username(self.name)
             self.assertEqual(
                 self.User.get_username(),
                 self.name,
@@ -27,7 +27,7 @@ class TestEditUsername(unittest.TestCase):
 
     def tearDown(self):
         with allure.step("Back username"):
-            self.User.back_username()
+            self.User.edit_username(self.base_username)
             self.assertEqual(
                 self.User.get_username(),
                 self.base_username,

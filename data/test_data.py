@@ -26,7 +26,7 @@ class CreateEventData(): # pylint: disable=too-few-public-methods
 
 
 class ContactUsData():
-    """Data for entering description into field in 'Contact us' page"""
+    """data for entering description into field in 'Contact us' page"""
     DESCRIPTION_FOR_CONTACT = "You have a very bed user and event!!!"
 
 

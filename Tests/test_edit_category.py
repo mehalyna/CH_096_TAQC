@@ -1,7 +1,7 @@
 """Test possibility to create , edit and delete category."""
 import allure
 import pytest
-from utilities.testLogging import PyLogging
+from utilities.testLogging import loger
 from config import CATEGORIESPAGE
 
 
@@ -12,59 +12,24 @@ from config import CATEGORIESPAGE
 @allure.story('Test editing category')
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.usefixtures("login_admin")
+@pytest.mark.usefixtures("create_category")
+@pytest.mark.usefixtures("delete_category")
 def test_edit_category(app):
     """
-    Test possibility to create , edit and delete category.
+    Test possibility to edit an category
     """
     category_old = CATEGORIESPAGE['category_old']
     category_new = CATEGORIESPAGE['category_new']
-    loger = PyLogging(__name__)
-    loger.info("New test:")
-    messages = ("Go to Categories page.",
-                "Creating Category {}.".format(category_old),
-                "Editing Category {} to {}".format(category_old, category_new))
-    messages_error = (
-        "Category {} was not created".format(category_old),
-        "Category {} was not edited to {}".format(
-            category_old,
-            category_new),
-        "Test Failed")
-    with allure.step(messages[0]):
-        try:
-            loger.info(messages[0])
-            app.navigation.click_on_categories()
-        except Exception:
-            loger.exception("")
-            assert False, "Fail"
-    with allure.step(messages[1]):
-        try:
-            loger.info(messages[1])
-            app.categories.add_category(category_old)
-            if app.categories.check_category_added(category_old):
-                test1 = True
-            else:
-                test1 = False
-                assert test1, messages_error[0]
-        except Exception:
-            loger.error(messages_error[0])
-            loger.exception(messages_error[0])
-            assert False, messages_error[0]
-    with allure.step(messages[2]):
-        try:
-            loger.info(messages[2])
-            app.categories.edit_category(category_old, category_new)
-            if app.categories.check_category_added(category_new):
-                test2 = True
-                loger.info("Done!")
-            else:
-                test2 = False
-                assert test2, messages_error[1]
-        except Exception:
-            loger.error(messages_error[1])
-            loger.exception(messages_error[1])
-            assert False, messages_error[1]
-
-    # teardown
-    app.categories.delete_category(category_new)
-    loger.info("Exit")
+    msg="New test:{}".format(__name__)
+    loger('Category', 'info', msg)
+    app.navigation.click_on_categories()
+    app.categories.edit_category(category_old, category_new)
+    if app.categories.check_category_added(category_new):
+        loger('Category', 'info', 'Done!')
+    else:
+        msg="Category {} was not edited to {}".format(category_old, category_new)
+        loger('Category', 'error', msg)
+        assert False, "Category {} was not edited to {}".format(
+            category_old, category_new)
+    loger('Category', 'info', 'Test End')
     print("Exit")

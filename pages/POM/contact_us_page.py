@@ -1,5 +1,5 @@
 """
-Base functions for 'Contact us' page
+ functions for 'Contact us' page
 """
 from locators.locators import ContactUsPageLocators, NavigationMenuLocators
 from config import CONTACT_US
@@ -7,7 +7,7 @@ from config import CONTACT_US
 
 class ContactUs:
     """
-    Base functions for 'Contact us' page. Checking user communication with admin
+     functions for 'Contact us' page. Checking user communication with admin
     """
 
     def __init__(self, browser):

@@ -66,7 +66,7 @@ class Connection:
         self.cursor.execute(f"SELECT Id FROM Events WHERE Name = '{name}'")
         return str(self.cursor.fetchone()[0])
 
-    def delete_event_with_name(self, name):
+    def delete_event_with_name(self, name=event["Title"]):
         self.cursor.execute(f"Delete from Events where Title like '{name}'")
         self.cursor.commit()
 

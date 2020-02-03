@@ -113,3 +113,4 @@ venv.bak/
 .mypy_cache/
 *.pyc
 credentials.py
+/Bot/animation.mp4

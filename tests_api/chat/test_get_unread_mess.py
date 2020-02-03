@@ -21,8 +21,8 @@ class TestChat(unittest.TestCase):
         cls.create_mes = Connection().send_message()
 
     @allure.link(
-        "http://34.65.101.58:5002/contactUs",
-        name='"Contact us" page')
+        "http://34.65.101.58:5002/user_chats",
+        name='"Comuna" page')
     @allure.severity(allure.severity_level.CRITICAL)
     def test_chat_user_with_admin(self):
         """
