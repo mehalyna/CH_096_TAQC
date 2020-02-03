@@ -40,7 +40,7 @@ def login(app):
         app.signin.enter_actor(
             CREDENTIALS['User_name'],
             CREDENTIALS['User_password'])
-        loger('Login', 'info', 'Login as User')
+        # loger('Login', 'info', 'Login as User')
 
 
 @pytest.fixture(scope='function')
@@ -52,7 +52,7 @@ def login_admin(app):
         app.signin.enter_actor(
             CREDENTIALS['Admin_name'],
             CREDENTIALS['Admin_password'])
-        loger('Login', 'info', 'Login as Admin')
+        # loger('Login', 'info', 'Login as Admin')
 
 
 @pytest.fixture(scope='function')
