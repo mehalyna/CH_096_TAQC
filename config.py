@@ -7,7 +7,7 @@ URL = {
     'Test_mode': True,
     'URL_HOST': 'http://34.65.101.58:5002',
     'Home_URL': 'http://34.65.101.58:5002/home/events?page=1',
-    'Browser': 'Chrome'
+    'Browser': 'Firefox'
 }
 
 """
