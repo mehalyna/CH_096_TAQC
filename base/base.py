@@ -123,6 +123,17 @@ class BaseSetup():
         sel = Select(self.find_element(*locator_1))
         choice = random.choice([c.text for c in sel.options])
         return choice
+    
+    def select_visible_text(self, locator_1, text):
+        """
+        Method finding (webElement) tag SELECT
+        :param locator_1: css selector or xpath
+        :return: random element from SELECT  (drop-down menu/list)
+        """
+        sel = self.find_element(*locator_1)
+        a = Select(sel)
+        choice = "".join([c.text for c in a.options if c.text == text])
+        return a.select_by_visible_text(choice)
 
     def select_from_list_1(self, locator_1):
         """
