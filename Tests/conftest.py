@@ -155,3 +155,17 @@ def delete_category():
         db.delete_category_with_name(CATEGORIESPAGE['category_new'])
         msg = "Delete Category {}".format(CATEGORIESPAGE['category_new'])
         loger('Category', 'info', msg)
+        
+        
+@pytest.fixture(scope='function')
+def delete_event_ui():
+    """
+    Delete event
+    """
+    yield
+    with allure.step('Create event'):
+        db = Connection()
+        db.delete_event_with_name("Sensation WHITE")
+        loger = PyLogging(__name__)
+        loger.info("Delete event")
+
