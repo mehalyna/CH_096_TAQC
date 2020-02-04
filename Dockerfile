@@ -12,7 +12,7 @@ RUN ACCEPT_EULA=Y apt-get install msodbcsql17
 RUN ACCEPT_EULA=Y apt-get install mssql-tools
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-RUN source ~/.bashrc
+# RUN source ~/.bashrc
 RUN rm -rf /var/lib/apt/lists/*
     
 # Install Firefox browser
