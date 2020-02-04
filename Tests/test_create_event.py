@@ -1,7 +1,7 @@
 import allure
 import pytest
-from Locators.locators import CreateEvent as Locator
-from Locators.locators import HomePageLocators as LocHome
+from locators.locators import CreateEvent as Locator
+from locators.locators import HomePageLocators as LocHome
 from config import CREATE_EVENT as Event
 from dbconnection import Connection
 
