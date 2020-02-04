@@ -1,7 +1,7 @@
 import allure
 import pytest
-from locators.locators import CreateEvent as Locator
-from locators.locators import HomePageLocators as LocHome
+from Locators.locators import CreateEvent as Locator
+from Locators.locators import HomePageLocators as LocHome
 from config import CREATE_EVENT as Event
 from dbconnection import Connection
 
@@ -39,7 +39,7 @@ def test_create_event(app):
     app.base.scroll_to_element(Locator.COUNTRY_FIELD)
     app.base.click_on_element(Locator.COUNTRY_FIELD)
     app.base.select_visible_text(Locator.COUNTRY_FIELD, 'Taiwan')
-    #app.creat_event.select_country(Locator.COUNTRY_FIELD)
+    # app.creat_event.select_country(Locator.COUNTRY_FIELD)
     app.base.click_on_element(Locator.CITY)
     app.base.select_visible_text(Locator.CITY, 'Chi-lung')
     # app.creat_event.select_city(Locator.CITY)
@@ -61,14 +61,10 @@ def test_check_event_by_admin(app):
      :return:
      """
     app.home_page.check_pagination(LocHome.PAGINATION_BUTTONN)
-    app.home_page.choose_last_event_title(
+    title = app.home_page.choose_last_event_title(
         Event['title'], LocHome.CART_TITLE_EVENT)
-    assert app.base.check_if_text_present(
-        LocHome.CART_TITLE_EVENT, 'Sensation WHITE'), "title of event doesn't match"
-    app.home_page.choose_last_event_p(
-        Event['description1'], LocHome.CART_P_EVENT)
-    assert app.base.check_if_text_present(
-        LocHome.CART_P_EVENT, Event['description1']), "title of event doesn't"
+    assert title == Event["title"], "Title not found"
+
 
 
 @allure.link("http://34.65.101.58:5002/home/events/?page=1")
@@ -82,14 +78,7 @@ def test_check_event_by_user(app):
     :param app: web driver
     :return:
     """
-    app.home_page.check_pagination(LocHome.PAGINATION_BUTTONN)
-    app.home_page.choose_last_event_title(
-        Event['title'], LocHome.CART_TITLE_EVENT)
-    assert app.base.check_if_text_present(
-        LocHome.CART_TITLE_EVENT, "Sensation WHITE"), "title of event doesn't match"
-    app.home_page.choose_last_event_p(
-        Event['description1'], LocHome.CART_P_EVENT)
-    assert app.base.check_if_text_present(
-        LocHome.CART_P_EVENT, Event['description1']), "description of event doesn't"
-
-
+    app.home_page.check_pagination( LocHome.PAGINATION_BUTTONN )
+    title = app.home_page.choose_last_event_title(
+        Event['title'], LocHome.CART_TITLE_EVENT )
+    assert title == Event["title"], "Title not found"
