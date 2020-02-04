@@ -44,8 +44,8 @@ PROFILE_MENU_INFO = {
 
 """This test data using for creating event"""
 CURRENT_PATH = os.path.abspath(os.path.dirname(__file__))
-image = 'data\\imageAddEvent\\EarthGarden.jpg'
-image1 = 'data\\imageAddEvent\\Mysteryland.jpg'
+image = 'data/imageAddEvent/EarthGarden.jpg'
+image1 = 'data/imageAddEvent/Mysteryland.jpg'
 path_to_picture = os.path.join(CURRENT_PATH, image1)
 CREATE_EVENT = {'title': 'Sensation WHITE',
                 'title1' : 'MYSTERYLAND MUSIC FESTIVAL',
