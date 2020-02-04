@@ -34,7 +34,7 @@ def test_create_event(app):
     app.base.click_on_element(Locator.CATEGORY)
     app.creat_event.add_category(CAT_LIST1, Locator.LST_CATEGORIES)
     app.base.click_action(0, 0)
-    app.creat_event.add_date('02/06/2020')
+    app.creat_event.add_date('02/10/2020')
     app.base.click_action(0, 0)
     app.base.scroll_to_element(Locator.COUNTRY_FIELD)
     app.base.click_on_element(Locator.COUNTRY_FIELD)
