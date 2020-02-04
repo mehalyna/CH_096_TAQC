@@ -5,6 +5,7 @@ logs
 .pytest_cache
 /.pylintrc
 .gitignore
+/geckodriver.log
 /credentials.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
