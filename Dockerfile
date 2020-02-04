@@ -35,4 +35,4 @@ RUN mkdir Reports_Allure && mkdir Logs
 ENV TEST_COLLECTION="Tests"
 ENV SELECTED="all"
 # ENTRYPOINT ["py.test", "--alluredir=/CH_096_TAQC/Reports_Allure", "$TEST_COLLECTION", "-k", "$SELECTED"]
-CMD ["py.test", "--alluredir=/CH_096_TAQC/Reports_Allure", "$TEST_COLLECTION", "-k", "$SELECTED"]
+CMD ["py.test", "--alluredir=/CH_096_TAQC/Reports_Allure", "tests_api"]
