@@ -19,7 +19,7 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu bionic main"
 RUN apt update && apt install -y firefox
 
-# Get POM and tests from git
+# Get tests source code from git
 RUN git clone https://github.com/mehalyna/CH_096_TAQC.git
 
 # Attach credentials to the cloned code
