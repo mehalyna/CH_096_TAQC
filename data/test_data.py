@@ -39,7 +39,7 @@ class PROFILE_MENU_INFO:
     USER_AGE_LABEL = 'Age:'
     USER_AGE_DATA = '35'
     USER_GENDER_LABEL = 'Gender:'
-    USER_GENDER_DATA = 'Other'
+    USER_GENDER_DATA = 'Female'
     USER_EMAIL_LABEL = 'Email:'
     USER_EMAIL_DATA = 'user@gmail.com'
     USER_INTERESTS_LABEL = 'Interests:'
