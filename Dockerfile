@@ -7,13 +7,13 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A6DCF7707EBC211F \
 
 RUN apt-get update\
     && apt-get install -y software-properties-common git python3-pip build-essential libssl-dev libffi-dev python3.7-dev \
-    && apt-get install -y unixodbc-dev \
-    && ACCEPT_EULA=Y apt-get install msodbcsql17 \
-    && ACCEPT_EULA=Y apt-get install mssql-tools \
-    && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile \
-    && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
-    && source ~/.bashrc \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y unixodbc-dev
+RUN ACCEPT_EULA=Y apt-get install msodbcsql17
+RUN ACCEPT_EULA=Y apt-get install mssql-tools
+RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+RUN source ~/.bashrc
+RUN rm -rf /var/lib/apt/lists/*
     
 # Install Firefox browser
 RUN apt-add-repository "deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu bionic main"
