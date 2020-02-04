@@ -26,5 +26,5 @@ RUN mkdir Reports_Allure && mkdir Logs
 # Set environment variables to be passed from outside a container
 ENV TEST_COLLECTION="Tests"
 ENV SELECTED="all"
-# ENTRYPOINT ["/bin/bash"]
-CMD ["py.test", "$TEST_COLLECTION", "-k", "$SELECTED", "--alluredir=/CH_096_TAQC/Reports_Allure"]
+ENTRYPOINT ["py.test", "--alluredir=/CH_096_TAQC/Reports_Allure", "$TEST_COLLECTION", "-k", "$SELECTED"]
+#CMD ["py.test", "--alluredir=/CH_096_TAQC/Reports_Allure", "$TEST_COLLECTION", "-k", "$SELECTED"]
